@@ -1,0 +1,52 @@
+---
+import '@fontsource/instrument-serif';
+import '@fontsource-variable/inter';
+
+import Header from '../components/header.astro';
+import Hero from '../components/hero.astro';
+import OurImpact from '../components/impact.astro';
+import OurPortfolio from '../components/portfolio.astro';
+import Footer from '../components/footer.astro';
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Crework Labs</title>
+    <style is:global>
+      * {
+        font-family: 'Inter', sans;
+      }
+
+      .font-insrument-serif {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+
+        background: linear-gradient(
+          250.57deg,
+          #ffffff 2.07%,
+          #090909 37.31%,
+          #585858 65.4%,
+          #ffffff 99.11%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main class="mx-auto max-w-7xl px-8 md:px-16 xl:px-32">
+      <section class="h-28 border-x border-[#F1F1F1]"></section>
+      <Hero />
+      <OurImpact />
+      <OurPortfolio />
+    </main>
+    <Footer />
+  </body>
+</html>

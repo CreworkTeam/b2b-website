@@ -1,0 +1,114 @@
+---
+const socials = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/company/creworkhq',
+    icon: '/social/linkedin.svg',
+  },
+  {
+    name: 'Twitter',
+    url: 'https://twitter.com/CreworkHQ',
+    icon: '/social/twitter.svg',
+  },
+  {
+    name: 'Peerlist',
+    url: 'https://peerlist.io/company/crework',
+    icon: '/social/peerlist.svg',
+  },
+  {
+    name: 'Instagram',
+    url: 'https://www.instagram.com/creworkhq',
+    icon: '/social/instagram.svg',
+  },
+  {
+    name: 'Youtube',
+    url: 'https://www.youtube.com/@crework',
+    icon: '/social/youtube.svg',
+  },
+];
+---
+
+<footer class="mx-auto max-w-7xl px-8 md:px-16 xl:px-32">
+  <div class="relative mx-auto border-x border-[#F1F1F1]">
+    <div
+      class="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] md:h-7 md:w-7"
+      style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
+    >
+      <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
+    </div>
+    <div
+      class="absolute right-0 top-0 m-0 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] md:h-7 md:w-7"
+      style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
+    >
+      <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
+    </div>
+    <div class="relative pb-5 pt-14 md:py-14">
+      <svg
+        width="100%"
+        height="fit"
+        viewBox="0 0 1048 416"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute -z-10"
+      >
+        <path
+          d="M2008.27 1485.45C2008.27 2304.97 1343.74 2969.33 524 2969.33C-295.741 2969.33 -960.271 2304.97 -960.271 1485.45C-960.271 665.925 -295.741 1.56846 524 1.56846C1343.74 1.56846 2008.27 665.925 2008.27 1485.45Z"
+          stroke="#DFDFE0"
+          stroke-width="1.56075"></path>
+      </svg>
+
+      <div class="mt-24 flex flex-col items-center gap-5">
+        <a href="/" class="">
+          <img src="/logo.svg" alt="Crework Labs" class="h-5 md:h-auto" />
+        </a>
+        <p class="px-5 text-center text-xs text-[#919191]">
+          Product studio crafting experiences to connect you with your audience
+        </p>
+        <div class="flex justify-center gap-2">
+          {
+            socials.map((social) => (
+              <a
+                href={social.url}
+                target="_blank"
+                class="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6F6F6]"
+              >
+                <img src={social.icon} alt={social.name} />
+              </a>
+            ))
+          }
+        </div>
+      </div>
+      <div class="mt-6 flex justify-center gap-8 text-xs text-[#9A9EA6]">
+        <a href="/#our-impact" class="">Our Impact</a>
+        <a href="/#our-portfolio" class="">Our Portfolio</a>
+      </div>
+      <div
+        class="mt-6 flex flex-col items-center justify-between gap-9 md:flex-row md:px-10 lg:px-20"
+      >
+        <div class="flex flex-col gap-5 md:flex-row md:gap-10">
+          <div class="flex items-center gap-2">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6F6F6]">
+              <img src="/social/phone.svg" alt="Phone" />
+            </span>
+            <div>
+              <p class="text-xs text-[#9A9EA6]">Have a question?</p>
+              <p class="text-sm font-bold">+91-7042878932</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6F6F6]">
+              <img src="/social/email.svg" alt="Phone" />
+            </span>
+            <div>
+              <p class="text-xs text-[#9A9EA6]">Contact us at</p>
+              <p class="text-sm font-bold">info@crework.in</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-xs text-[#9A9EA6] md:text-right">
+          Copyright © 2024 Crework Labs LLP. <br class="md:hidden" /> All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
