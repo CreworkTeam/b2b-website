@@ -16,33 +16,12 @@ import Footer from '../components/footer.astro';
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Crework Labs</title>
-    <style is:global>
-      * {
-        font-family: 'Inter', sans;
-      }
-
-      .font-insrument-serif {
-        font-family: 'Instrument Serif', serif;
-        font-style: italic;
-
-        background: linear-gradient(
-          250.57deg,
-          #ffffff 2.07%,
-          #090909 37.31%,
-          #585858 65.4%,
-          #ffffff 99.11%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-fill-color: transparent;
-      }
-    </style>
+    <link rel="stylesheet" href="/styles/global.css" />
   </head>
   <body>
     <Header />
     <main class="mx-auto max-w-7xl px-8 md:px-16 xl:px-32">
-      <section class="h-28 border-x border-[#F1F1F1]"></section>
+      <section class="relative -z-10 h-28 border-x border-[#F1F1F1]"></section>
       <Hero />
       <OurImpact />
       <OurPortfolio />
