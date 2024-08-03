@@ -19,6 +19,9 @@ importers:
       astro:
         specifier: ^4.12.2
         version: 4.12.2
+      mixpanel-browser:
+        specifier: ^2.54.1
+        version: 2.54.1
       tailwindcss:
         specifier: ^3.4.7
         version: 3.4.7
@@ -893,6 +896,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@rrweb/types@2.0.0-alpha.17':
+    resolution:
+      {
+        integrity: sha512-AfDTVUuCyCaIG0lTSqYtrZqJX39ZEYzs4fYKnexhQ+id+kbZIpIJtaut5cto6dWZbB3SEe4fW0o90Po3LvTmfg==,
+      }
+
   '@shikijs/core@1.12.0':
     resolution:
       {
@@ -927,6 +936,12 @@ packages:
     resolution:
       {
         integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==,
+      }
+
+  '@types/css-font-loading-module@0.0.7':
+    resolution:
+      {
+        integrity: sha512-nl09VhutdjINdWyXxHWN/w9zlNCfr60JUqJbd24YXUuCwgeL0TpFSdElCwb6cxfB6ybE19Gjj4g0jsgkXxKv1Q==,
       }
 
   '@types/debug@4.1.12':
@@ -975,6 +990,12 @@ packages:
     resolution:
       {
         integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==,
+      }
+
+  '@xstate/fsm@1.6.5':
+    resolution:
+      {
+        integrity: sha512-b5o1I6aLNeYlU/3CPlj/Z91ybk1gUsKT+5NAJI+2W4UjvS5KLG28K9v5UvNoFVjHV8PajVZ00RH3vnjyQO7ZAw==,
       }
 
   acorn@8.12.1:
@@ -1111,6 +1132,13 @@ packages:
       {
         integrity: sha512-kwDPIFCGx0NZHog36dj+tHiwP4QMzsZ3AgMViUBKI0+V5n4U0ufTCUMhnQ04diaRI8EX/QcPfql7zlhZ7j4zgg==,
       }
+
+  base64-arraybuffer@1.0.2:
+    resolution:
+      {
+        integrity: sha512-I3yl4r9QB5ZRY3XuJVEPfc2XhZO6YweFPI+UovAzn+8/hb3oJ6lnysaFcjVpkCPfVWFUDvoZ8kmVDP7WyRtYtQ==,
+      }
+    engines: { node: '>= 0.6.0' }
 
   binary-extensions@2.3.0:
     resolution:
@@ -1532,6 +1560,12 @@ packages:
     resolution:
       {
         integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==,
+      }
+
+  fflate@0.4.8:
+    resolution:
+      {
+        integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==,
       }
 
   fill-range@7.1.1:
@@ -2322,6 +2356,18 @@ packages:
       }
     engines: { node: '>=16 || 14 >=14.17' }
 
+  mitt@3.0.1:
+    resolution:
+      {
+        integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==,
+      }
+
+  mixpanel-browser@2.54.1:
+    resolution:
+      {
+        integrity: sha512-1FDs/E0UHPJLry/J0r3pBXrnEhJnz7H2CqzWWZgmdDAm3WiMva69X/qFIqcW3TOmHPaprJVfgwzqt6MJavMrHQ==,
+      }
+
   mrmime@2.0.0:
     resolution:
       {
@@ -2843,6 +2889,24 @@ packages:
       }
     engines: { node: '>=18.0.0', npm: '>=8.0.0' }
     hasBin: true
+
+  rrdom@2.0.0-alpha.17:
+    resolution:
+      {
+        integrity: sha512-b6caDiNcFO96Opp7TGdcVd4OLGSXu5dJe+A0IDiAu8mk7OmhqZCSDlgQdTKmdO5wMf4zPsUTgb8H/aNvR3kDHA==,
+      }
+
+  rrweb-snapshot@2.0.0-alpha.17:
+    resolution:
+      {
+        integrity: sha512-GBg5pV8LHOTbeVmH2VHLEFR0mc2QpQMzAvcoxEGfPNWgWHc8UvKCyq7pqN1vA+fDZ+yXXbixeO0kB2pzVvFCBw==,
+      }
+
+  rrweb@2.0.0-alpha.13:
+    resolution:
+      {
+        integrity: sha512-a8GXOCnzWHNaVZPa7hsrLZtNZ3CGjiL+YrkpLo0TfmxGLhjNZbWY2r7pE06p+FcjFNlgUVTmFrSJbK3kO7yxvw==,
+      }
 
   run-parallel@1.2.0:
     resolution:
@@ -3800,6 +3864,10 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.19.1':
     optional: true
 
+  '@rrweb/types@2.0.0-alpha.17':
+    dependencies:
+      rrweb-snapshot: 2.0.0-alpha.17
+
   '@shikijs/core@1.12.0':
     dependencies:
       '@types/hast': 3.0.4
@@ -3827,6 +3895,8 @@ snapshots:
 
   '@types/cookie@0.6.0': {}
 
+  '@types/css-font-loading-module@0.0.7': {}
+
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 0.7.34
@@ -3850,6 +3920,8 @@ snapshots:
   '@types/unist@3.0.2': {}
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@xstate/fsm@1.6.5': {}
 
   acorn@8.12.1: {}
 
@@ -3986,6 +4058,8 @@ snapshots:
   balanced-match@1.0.2: {}
 
   base-64@1.0.0: {}
+
+  base64-arraybuffer@1.0.2: {}
 
   binary-extensions@2.3.0: {}
 
@@ -4217,6 +4291,8 @@ snapshots:
   fastq@1.17.1:
     dependencies:
       reusify: 1.0.4
+
+  fflate@0.4.8: {}
 
   fill-range@7.1.1:
     dependencies:
@@ -4827,6 +4903,12 @@ snapshots:
 
   minipass@7.1.2: {}
 
+  mitt@3.0.1: {}
+
+  mixpanel-browser@2.54.1:
+    dependencies:
+      rrweb: 2.0.0-alpha.13
+
   mrmime@2.0.0: {}
 
   ms@2.1.2: {}
@@ -5143,6 +5225,25 @@ snapshots:
       '@rollup/rollup-win32-ia32-msvc': 4.19.1
       '@rollup/rollup-win32-x64-msvc': 4.19.1
       fsevents: 2.3.3
+
+  rrdom@2.0.0-alpha.17:
+    dependencies:
+      rrweb-snapshot: 2.0.0-alpha.17
+
+  rrweb-snapshot@2.0.0-alpha.17:
+    dependencies:
+      postcss: 8.4.40
+
+  rrweb@2.0.0-alpha.13:
+    dependencies:
+      '@rrweb/types': 2.0.0-alpha.17
+      '@types/css-font-loading-module': 0.0.7
+      '@xstate/fsm': 1.6.5
+      base64-arraybuffer: 1.0.2
+      fflate: 0.4.8
+      mitt: 3.0.1
+      rrdom: 2.0.0-alpha.17
+      rrweb-snapshot: 2.0.0-alpha.17
 
   run-parallel@1.2.0:
     dependencies:
