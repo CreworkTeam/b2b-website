@@ -51,7 +51,10 @@ export default function ContactForm() {
       >
         <div className="flex flex-col justify-between gap-2 md:gap-4">
           <input
-            {...register("name", { required: "Name is required" })}
+            {...register("name", {
+              required: "Name is required",
+              pattern: { value: /^[a-zA-Z\s]*$/, message: "Invalid name" }
+            })}
             type="text"
             placeholder="Name"
             className={`${inputClass} ${errors.name ? errorClass : ''}`}
