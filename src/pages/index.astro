@@ -1,59 +1,16 @@
 ---
-import Header from '../components/header.astro';
+import MySiteLayout from '../layouts/main-layout.astro';
 import Hero from '../components/hero.astro';
 import OurImpact from '../components/impact.astro';
 import OurPortfolio from '../components/portfolio.astro';
+import CaseStudies from '../components/case-studies.astro';
 import Contact from '../components/contact.astro';
-import Footer from '../components/footer.astro';
 ---
 
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="We are a product studio deeply focused on crafting experiences that connect you with your audience."
-    />
-    <link rel="canonical" href="https://www.creworklabs.com" />
-    <title>Crework Labs</title>
-    <link rel="stylesheet" href="/styles/global.css" />
-
-    <meta property="og:title" content="Crework Labs" />
-    <meta
-      property="og:description"
-      content="We are a product studio deeply focused on crafting experiences that connect you with your audience."
-    />
-    <meta property="og:image" content="/opengraph.png" />
-    <meta property="og:url" content="https://www.creworklabs.com" />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Crework Labs" />
-    <meta
-      name="twitter:description"
-      content="We are a product studio deeply focused on crafting experiences that connect you with your audience."
-    />
-    <meta name="twitter:image" content="/opengraph.png" />
-  </head>
-  <body>
-    <Header />
-    <main class="relative">
-      <section
-        class="relative -z-10 mx-auto h-28 w-10/12 max-w-5xl border-x border-[#F1F1F1] sm:px-16 lg:w-9/12"
-      >
-      </section>
-      <Hero />
-      <OurPortfolio />
-      <OurImpact />
-      <Contact />
-    </main>
-    <Footer />
-  </body>
-  <script>
-    import { setupButtonTracking } from '../utils/mixpanel';
-    setupButtonTracking();
-  </script>
-</html>
+<MySiteLayout title="Crework Labs">
+  <Hero />
+  <OurPortfolio />
+  <OurImpact />
+  <CaseStudies />
+  <Contact />
+</MySiteLayout>

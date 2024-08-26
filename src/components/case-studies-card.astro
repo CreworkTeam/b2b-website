@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+
+const { title, description, src, alt, link } = Astro.props;
+---
+
+<div class="flex-1 rounded-xl border-2 p-4 shadow-[0px_0px_8px_5px_#9494941A]">
+  <Image
+    src={src}
+    alt={alt}
+    class="aspect-video w-full rounded-md object-cover object-top"
+    width={400}
+    height={400}
+  />
+  <h4 class="mt-6 pr-14 text-lg font-semibold leading-snug">{title}</h4>
+  <p class="text-sm">{description}</p>
+  <a
+    href={link}
+    class="bottom-5 flex items-center gap-0 pt-4 font-semibold transition-all hover:gap-1"
+  >
+    <span>View Project</span>
+    <Image
+      class="inline-block size-6"
+      src="/icons/arrow-right.svg"
+      alt="Arrow Right"
+      width={16}
+      height={16}
+    />
+  </a>
+</div>
