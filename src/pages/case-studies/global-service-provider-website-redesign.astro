@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import CaseStudyLayout from '../../layouts/case-studies-layout.astro';
-import CaseStudyCard from '../../components/case-studies-card.astro';
+import ReadMoreCard from '../../components/read-more-card.astro';
 import { CASE_STUDIES } from '../../../constants';
+const title = 'Global Service Provider Website Redesign';
 ---
 
 <CaseStudyLayout title="Case Study">
   <Fragment slot="hero">
-    <h1 class="mx-auto text-balance text-center">Global Service Provider Website Redesign</h1>
+    <h1 class="mx-auto text-balance text-center">{title}</h1>
     <Image
       src="/portfolio/travaygroup-3.png"
       alt="Travay Group"
@@ -219,7 +220,7 @@ import { CASE_STUDIES } from '../../../constants';
           ].map(({ text }) => (
             <div
               style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
-              class="mx-auto flex aspect-square w-8/12 items-center justify-center space-y-4 rounded-2xl border bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE] px-4 py-4 md:aspect-square md:w-11/12 md:w-fit"
+              class="mx-auto flex aspect-square w-8/12 items-center justify-center space-y-4 rounded-2xl border bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE] px-4 py-4 md:aspect-square md:w-11/12"
             >
               <div class="font-insrument-serif text-balance text-center"> {text}</div>
             </div>
@@ -258,7 +259,7 @@ import { CASE_STUDIES } from '../../../constants';
     {
       CASE_STUDIES.filter(({ title }) => title !== 'Global Service Provider Website Redesign').map(
         ({ title, description, src, alt, link }) => (
-          <CaseStudyCard title={title} description={description} src={src} alt={alt} link={link} />
+          <ReadMoreCard title={title} description={description} src={src} alt={alt} link={link} />
         ),
       )
     }

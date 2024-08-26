@@ -1,13 +1,16 @@
 ---
 import { Image } from 'astro:assets';
 import CaseStudyLayout from '../../layouts/case-studies-layout.astro';
-import CaseStudyCard from '../../components/case-studies-card.astro';
+import ReadMoreCard from '../../components/read-more-card.astro';
 import { CASE_STUDIES } from '../../../constants';
+const title = 'Custom Learning Management System';
 ---
 
 <CaseStudyLayout title="Case Study">
   <Fragment slot="hero">
-    <h1 class="mx-auto w-10/12 text-center">Custom Learning Management System</h1>
+    <h1 class="mx-auto w-10/12 text-center">
+      {title}
+    </h1>
     <Image
       src="/portfolio/dashboard-2.png"
       alt="Dashboard"
@@ -180,7 +183,7 @@ import { CASE_STUDIES } from '../../../constants';
     {
       CASE_STUDIES.filter(({ title }) => title !== 'Custom Learning Management System').map(
         ({ title, description, src, alt, link }) => (
-          <CaseStudyCard title={title} description={description} src={src} alt={alt} link={link} />
+          <ReadMoreCard title={title} description={description} src={src} alt={alt} link={link} />
         ),
       )
     }

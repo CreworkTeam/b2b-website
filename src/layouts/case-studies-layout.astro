@@ -79,13 +79,12 @@ const { title } = Astro.props;
             <slot name="case-studies" />
           </div>
         </div>
-        <button class="btn mx-auto block px-16">View All Case Studies</button>
+        <a href="/case-studies" class="btn mx-auto block w-fit px-16">View All Case Studies</a>
       </section>
       <TalkToUs />
     </main>
     <Footer />
-  </body>
-  <script>
+  </body><script>
     import { setupButtonTracking } from '../utils/mixpanel';
     setupButtonTracking();
   </script>

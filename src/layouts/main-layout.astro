@@ -7,7 +7,7 @@ const { title } = Astro.props;
 import '../../public/styles/global.css';
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -49,8 +49,7 @@ import '../../public/styles/global.css';
       <slot />
     </main>
     <Footer />
-  </body>
-  <script>
+  </body><script>
     import { setupButtonTracking } from '../utils/mixpanel';
     setupButtonTracking();
   </script>

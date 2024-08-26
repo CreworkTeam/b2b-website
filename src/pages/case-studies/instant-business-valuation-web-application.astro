@@ -1,13 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import CaseStudyLayout from '../../layouts/case-studies-layout.astro';
-import CaseStudyCard from '../../components/case-studies-card.astro';
+import ReadMoreCard from '../../components/read-more-card.astro';
 import { CASE_STUDIES } from '../../../constants';
+const title = 'Instant Business Valuation Web Application';
 ---
 
 <CaseStudyLayout title="Case Study">
   <Fragment slot="hero">
-    <h1 class="mx-auto text-balance text-center">Instant Business Valuation Web Application</h1>
+    <h1 class="mx-auto text-balance text-center">{title}</h1>
     <Image
       src="/portfolio/fundsfinder.png"
       alt="Funds Finder"
@@ -198,7 +199,7 @@ import { CASE_STUDIES } from '../../../constants';
       CASE_STUDIES.filter(
         ({ title }) => title !== 'Instant Business Valuation Web Application',
       ).map(({ title, description, src, alt, link }) => (
-        <CaseStudyCard title={title} description={description} src={src} alt={alt} link={link} />
+        <ReadMoreCard title={title} description={description} src={src} alt={alt} link={link} />
       ))
     }
   </Fragment>
