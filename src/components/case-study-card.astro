@@ -1,16 +1,20 @@
 ---
 import { Image } from 'astro:assets';
 
-const { images, title, description, span, tags, link, rtl, sticky } = Astro.props;
+const { images, title, description, span, tags, link, rtl, sticky, index } = Astro.props;
 ---
 
 <div
   class:list={[
-    'case-studies-container overflow-hidden bg-white',
+    'case-studies-container relative overflow-hidden bg-white',
     {
       'flex-col md:flex-row-reverse': rtl,
-      'top-[calc(50vh-35%)] z-auto md:sticky': sticky,
+      'z-auto md:sticky': sticky,
+      'animate-scaledown1 top-[calc(15vh)] scale-[1.05]': sticky && index === 0,
+      'animate-scaledown2 top-[calc(15vh+40px)] scale-[1.05]': sticky && index === 1,
+      'top-[calc(15vh+25px)]': sticky && index === 2,
     },
+    '[animation-range:cover_40%_cover_90%] [animation-timeline:scroll()]',
   ]}
 >
   <div class="-mb-2 flex-1 space-y-12">
