@@ -50,7 +50,7 @@
         >
         </div>
         <p
-          class="font-insrument-serif inline-block w-full bg-clip-text pr-1 text-center text-transparent"
+          class="font-insrument-serif inline-block w-full bg-clip-text pr-1 text-center text-2xl text-transparent"
         >
           15+ Projects Built
         </p>
@@ -84,7 +84,7 @@
         >
         </div>
         <p
-          class="font-insrument-serif inline-block w-full bg-clip-text text-center text-transparent"
+          class="font-insrument-serif inline-block w-full bg-clip-text text-center text-2xl text-transparent"
         >
           10+ Clients
         </p>
@@ -118,7 +118,7 @@
         >
         </div>
         <p
-          class="font-insrument-serif inline-block w-full bg-clip-text text-center text-transparent"
+          class="font-insrument-serif inline-block w-full bg-clip-text text-center text-2xl text-transparent"
         >
           5+ Industries
         </p>
@@ -127,7 +127,9 @@
   </div>
   <div>
     <h2 class="mb-8 text-center text-[28px] font-semibold">Companies that we have worked with</h2>
-    <div class="mx-auto flex w-fit flex-col rounded-xl border border-[#F1F1F1] md:flex-row">
+    <div
+      class="mx-auto flex w-fit flex-col rounded-xl border border-[#F1F1F1] md:flex-row lg:mx-14"
+    >
       {
         [
           { src: '/companies/north-star-digital.svg', alt: 'North Star Digital' },
@@ -137,7 +139,7 @@
           { src: '/companies/travaygroup.svg', alt: 'travaygroup' },
         ].map((company) => (
           <div class="flex h-28 flex-1 items-center justify-center border-b border-[#F1F1F1] px-4 md:border-b-0 md:border-r">
-            <img src={company.src} alt={company.alt} class="h-full p-4" />
+            <img src={company.src} alt={company.alt} class="h-full p-6 md:p-2" />
           </div>
         ))
       }

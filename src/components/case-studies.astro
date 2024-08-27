@@ -73,8 +73,10 @@ const cards = [
   >
     <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
   </div>
-  <div class="mx-auto mb-[72px] max-w-3xl space-y-6 text-center">
-    <h2>Case Studies: Transforming Ideas into Impact</h2>
+  <div class="mx-auto max-w-3xl space-y-6 text-center md:mb-20">
+    <h2 class="text-balance text-center text-3xl font-semibold">
+      Case Studies: Transforming Ideas into Impact
+    </h2>
     <p>Discover the creative process that drives our success.</p>
   </div>
   <div class="relative space-y-16" id="case-study-container">
@@ -95,6 +97,7 @@ const cards = [
       ))
     }
   </div>
+  <a href="/case-studies" class="btn mx-auto mt-12 block w-fit px-16">View All Case Studies</a>
 </section>
 <script>
   const caseStudyContainer = document.querySelector('#case-study-container') as HTMLElement;

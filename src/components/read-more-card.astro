@@ -4,15 +4,15 @@ import { Image } from 'astro:assets';
 const { title, description, src, alt, link } = Astro.props;
 ---
 
-<div class="flex-1 rounded-xl border-2 p-4 shadow-[0px_0px_8px_5px_#9494941A]">
+<div class="flex-1 rounded-xl border-2 bg-[#FAFAFA] p-4 shadow-[0px_0px_8px_5px_#9494941A]">
   <Image
     src={src}
     alt={alt}
-    class="aspect-video w-full rounded-md object-cover object-top"
+    class="aspect-video w-full rounded-md border object-cover object-top"
     width={400}
     height={400}
   />
-  <h4 class="mt-6 pr-14 text-lg font-semibold leading-snug">{title}</h4>
+  <h4 class="mb-2 mt-6 pr-14 text-lg font-semibold leading-snug">{title}</h4>
   <p class="text-sm">{description}</p>
   <a
     href={link}
