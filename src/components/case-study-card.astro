@@ -1,20 +1,22 @@
 ---
 import { Image } from 'astro:assets';
 
-const { images, title, description, span, tags, link, rtl, sticky, index } = Astro.props;
+const { images, title, description, span, tags, link, rtl, sticky, index, length } = Astro.props;
 ---
 
 <div
+  style={{
+    '--scale': `calc(0.8 + ${(index / length) * 0.2})`,
+    '--top': `calc(16vh)`,
+    '--card-scroll': `calc((var(--scroll) * ${length}) - ${index})`,
+    animationDelay: `calc(var(--card-scroll) * -1s)`,
+  }}
   class:list={[
-    'case-studies-container relative overflow-hidden bg-white',
+    'case-studies-container relative origin-top overflow-hidden bg-white',
     {
       'flex-col md:flex-row-reverse': rtl,
-      'z-auto md:sticky': sticky,
-      'animate-scaledown1 top-[calc(15vh)] scale-[1.05]': sticky && index === 0,
-      'animate-scaledown2 top-[calc(15vh+40px)] scale-[1.05]': sticky && index === 1,
-      'top-[calc(15vh+25px)]': sticky && index === 2,
+      'top-[var(--top)] z-auto animate-scaledown md:sticky': sticky,
     },
-    '[animation-range:cover_40%_cover_90%] [animation-timeline:scroll()]',
   ]}
 >
   <div class="-mb-2 flex-1 space-y-12">

@@ -77,7 +77,7 @@ const cards = [
     <h2>Case Studies: Transforming Ideas into Impact</h2>
     <p>Discover the creative process that drives our success.</p>
   </div>
-  <div class="relative space-y-32">
+  <div class="relative space-y-16" id="case-study-container">
     {
       cards.map(({ title, description, span, tags, images, rtl, link }, index) => (
         <CaseStudyCard
@@ -90,8 +90,22 @@ const cards = [
           link={link}
           sticky={true}
           index={index}
+          length={cards.length}
         />
       ))
     }
   </div>
 </section>
+<script>
+  const caseStudyContainer = document.querySelector('#case-study-container') as HTMLElement;
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      const bounds = caseStudyContainer.getBoundingClientRect();
+      const scroll = (bounds.top * -1) / bounds.height;
+      caseStudyContainer.style.setProperty('--scroll', `${scroll}`);
+    },
+    false,
+  );
+</script>

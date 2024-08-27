@@ -18,13 +18,10 @@ export default {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0%)' },
         },
-        scaledown2: {
-          '0%': { transform: 'scale(1.05)' },
-          '100%': { transform: 'scale(0.95)' },
-        },
-        scaledown1: {
-          '0%': { transform: 'scale(1.05)' },
-          '100%': { transform: 'scale(0.8)' },
+        scaledown: {
+          '40%': { transform: 'scale(1)', opacity: 1 },
+          '70%': { opacity: 1 },
+          '100%': { transform: 'scale(var(--scale))', top: 'calc(15vh)', opacity: 0.4 },
         },
         'border-beam': {
           '100%': {
@@ -35,8 +32,7 @@ export default {
       animation: {
         marquee: 'marquee 50s linear infinite',
         marquee2: 'marquee2 50s linear infinite',
-        scaledown1: 'scaledown1 0.5s ease-in-out forwards',
-        scaledown2: 'scaledown2 0.5s ease-in-out forwards',
+        scaledown: 'scaledown 1s linear forwards paused',
         'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
       },
     },
