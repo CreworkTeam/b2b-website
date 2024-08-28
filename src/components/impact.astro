@@ -1,3 +1,7 @@
+---
+import { Image } from 'astro:assets';
+---
+
 <section id="our-impact" class="section-container" data-section="impact">
   <div
     class="absolute left-0 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
@@ -22,113 +26,41 @@
   <div
     class="m-auto mb-[72px] flex max-w-56 flex-col justify-between gap-8 text-[28px] md:max-w-3xl md:flex-row lg:gap-12"
   >
-    <div
-      class="h-16 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]"
-      style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
-    >
-      <div
-        class="relative flex h-full items-center justify-center rounded-lg bg-gradient-to-l from-[#F4F4F4] to-[#FEFEFE]"
-      >
+    {
+      ['15+ Projects Built', '10+ Clients', '5+ Industries'].map((text) => (
         <div
-          class="absolute left-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+          class="h-16 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]"
+          style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
         >
+          <div class="relative flex h-full items-center justify-center rounded-lg bg-gradient-to-l from-[#F4F4F4] to-[#FEFEFE]">
+            <div
+              class="absolute left-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+            />
+            <div
+              class="absolute right-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+            />
+            <div
+              class="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+            />
+            <div
+              class="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+            />
+            <p class="font-insrument-serif inline-block w-full bg-clip-text p-3 pr-1 text-center text-2xl text-transparent">
+              {text}
+            </p>
+          </div>
         </div>
-        <div
-          class="absolute right-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <p
-          class="font-insrument-serif inline-block w-full bg-clip-text pr-1 text-center text-2xl text-transparent"
-        >
-          15+ Projects Built
-        </p>
-      </div>
-    </div>
-    <div
-      class="h-16 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]"
-      style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
-    >
-      <div
-        class="relative flex h-full items-center justify-center rounded-lg bg-gradient-to-l from-[#F4F4F4] to-[#FEFEFE]"
-      >
-        <div
-          class="absolute left-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute right-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <p
-          class="font-insrument-serif inline-block w-full bg-clip-text text-center text-2xl text-transparent"
-        >
-          10+ Clients
-        </p>
-      </div>
-    </div>
-    <div
-      class="h-16 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]"
-      style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
-    >
-      <div
-        class="relative flex h-full items-center justify-center rounded-lg bg-gradient-to-l from-[#F4F4F4] to-[#FEFEFE]"
-      >
-        <div
-          class="absolute left-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute right-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <div
-          class="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-          style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-        >
-        </div>
-        <p
-          class="font-insrument-serif inline-block w-full bg-clip-text text-center text-2xl text-transparent"
-        >
-          5+ Industries
-        </p>
-      </div>
-    </div>
+      ))
+    }
   </div>
-  <div>
+  <div class="m-auto mb-[72px] max-w-3xl">
     <h2 class="mb-8 text-center text-[28px] font-semibold">Companies that we have worked with</h2>
     <div
-      class="mx-auto flex w-fit flex-col rounded-xl border border-[#F1F1F1] md:flex-row lg:mx-14"
+      class="mx-auto flex w-7/12 flex-col rounded-xl border border-[#F1F1F1] md:w-fit md:flex-row"
     >
       {
         [
@@ -138,8 +70,14 @@
           { src: '/companies/fundsfinder.svg', alt: 'fundsfinder' },
           { src: '/companies/travaygroup.svg', alt: 'travaygroup' },
         ].map((company) => (
-          <div class="flex h-28 flex-1 items-center justify-center border-b border-[#F1F1F1] px-4 md:border-b-0 md:border-r">
-            <img src={company.src} alt={company.alt} class="h-full p-6 md:p-2" />
+          <div class="flex h-20 w-full items-center justify-center border-b border-[#F1F1F1] md:border-b-0 md:border-r">
+            <Image
+              width={10}
+              height={10}
+              src={company.src}
+              alt={company.alt}
+              class="size-full w-7/12 object-contain py-2"
+            />
           </div>
         ))
       }
