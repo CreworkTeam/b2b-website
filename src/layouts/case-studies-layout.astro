@@ -65,7 +65,7 @@ const { title } = Astro.props;
           <div class="space-y-10 md:w-8/12">
             <slot name="content" />
           </div>
-          <div class="top-0 h-fit space-y-4 py-14 md:sticky md:w-4/12">
+          <div class="top-5 h-fit space-y-4 md:sticky md:w-4/12">
             <h4 class="text-black">Table of Content</h4>
             <slot name="table-of-content" />
             <h4 class="text-xl text-black">Have a project?</h4>
@@ -80,7 +80,7 @@ const { title } = Astro.props;
             <slot name="case-studies" />
           </div>
         </div>
-        <a href="/case-studies" class="btn mx-auto block w-fit px-16">View All Case Studies</a>
+        <a href="/case-studies" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
       </section>
       <TalkToUs />
     </main>
