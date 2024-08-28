@@ -1,7 +1,7 @@
 ---
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
-import '../../public/styles/global.css';
+import '../styles/global.css';
 import TalkToUs from '../components/talk-to-us.astro';
 const { title } = Astro.props;
 ---
@@ -20,6 +20,7 @@ const { title } = Astro.props;
     <title>
       {title} | Crework Labs
     </title>
+    <link rel="stylesheet" href="/styles/global.css" />
 
     <meta property="og:title" content={title} />
     <meta
@@ -69,7 +70,9 @@ const { title } = Astro.props;
             <h4 class="text-black">Table of Content</h4>
             <slot name="table-of-content" />
             <h4 class="text-xl text-black">Have a project?</h4>
-            <a class="btn block w-fit"><span class="text-sm"> Book a call</span></a>
+            <a href="https://calendly.com/shikshita/30mins" target="_blank" class="btn block w-fit"
+              ><span class="text-sm"> Book a call</span></a
+            >
           </div>
         </div>
         <div class="space-y-6">

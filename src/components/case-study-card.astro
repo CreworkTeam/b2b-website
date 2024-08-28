@@ -7,7 +7,6 @@ const { images, title, description, span, tags, link, rtl, sticky, index, length
 <div
   style={{
     '--scale': `calc(0.8 + ${((index + 1) / length) * 0.2})`,
-    '--top': `calc(16vh)`,
     '--card-scroll': `calc((var(--scroll) * ${length}) - ${index})`,
     '--z-index': `${index + 1}`,
     animationDelay: `calc(var(--card-scroll) * -1s)`,
@@ -16,7 +15,7 @@ const { images, title, description, span, tags, link, rtl, sticky, index, length
     'case-studies-container relative origin-top overflow-hidden bg-white',
     {
       'flex-col md:flex-row-reverse': rtl,
-      'top-[var(--top)] md:sticky md:animate-scaledown': sticky,
+      'top-[calc(16vh)] md:sticky md:animate-scaledown': sticky,
       'z-[var(--z-index)]': sticky,
     },
   ]}
