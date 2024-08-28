@@ -15,7 +15,9 @@ const { title, description, src, alt, link } = Astro.props;
     width={400}
     height={400}
   />
-  <h4 class="mb-2 mt-6 text-balance pr-14 text-lg font-semibold leading-snug">{title}</h4>
+  <h4 class="mb-2 mt-6 text-balance pr-14 text-lg font-semibold leading-snug text-black">
+    {title}
+  </h4>
   <p class="line-clamp-3 text-sm">{description}</p>
   <a
     href={link}
