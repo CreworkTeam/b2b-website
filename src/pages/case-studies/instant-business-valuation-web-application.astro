@@ -1,0 +1,206 @@
+---
+import { Image } from 'astro:assets';
+import CaseStudyLayout from '../../layouts/case-studies-layout.astro';
+import ReadMoreCard from '../../components/read-more-card.astro';
+import { CASE_STUDIES } from '../../../constants';
+const title = 'Instant Business Valuation Web Application';
+---
+
+<CaseStudyLayout title="Case Study">
+  <Fragment slot="hero">
+    <h1 class="mx-auto text-balance text-center font-bold">{title}</h1>
+    <Image
+      src="/portfolio/fundsfinder.png"
+      alt="Funds Finder"
+      class="aspect-video w-full rounded-xl border object-cover object-top"
+      width={400}
+      height={400}
+    />
+  </Fragment>
+  <Fragment slot="content">
+    <div class="space-y-3" id="challenge">
+      <h3>Challenge</h3>
+      <p>
+        FundsFinders approached us with an innovative concept: a quick, user-friendly, and
+        data-driven solution for business valuation. They recognized a crucial need in the market
+        for an accessible tool that could provide instant, ballpark valuations for businesses of all
+        sizes. Our challenge was to turn this concept into a fully-functional, intuitive web
+        application that would stand out in the competitive FinTech landscape.
+      </p>
+    </div>
+    <div class="space-y-3" id="our-solution">
+      <h3>Our Solution</h3>
+      <p>
+        We took FundsFinders' vision and transformed it into a sleek, efficient web-based business
+        valuation tool. Our design and development team created a powerful yet intuitive platform
+        that allows users to discover their business's estimated worth through a streamlined,
+        three-step process:
+
+        <ol class="list-inside list-decimal">
+          <li>
+            <strong>Industry Selection: </strong>We designed an easy-to-navigate interface for users
+            to choose from a comprehensive list of industries.
+          </li>
+          <li>
+            <strong>Business Details:</strong> We developed a series of targeted questions to gather
+            essential information about the company, ensuring a balance between depth of data and user
+            experience.
+          </li>
+          <li>
+            <strong>Instant Valuation:</strong> Our team created an algorithm-driven results page that
+            provides an estimated valuation based on the input data.
+          </li>
+        </ol>
+      </p>
+    </div>
+    <div class="space-y-3" id="design-philosophy">
+      <h3>Design Philosophy</h3>
+      <h4 class="text-2xl font-normal text-[#5D5D5D]">Intuitive User Interface</h4>
+      <p>
+        Our design team crafted a clean, modern interface that prioritizes user experience. We chose
+        a soothing color palette dominated by whites and various shades of purple, creating a
+        professional yet approachable atmosphere that aligns with FundsFinders' brand identity.
+      </p>
+      <h4>Clear Navigation</h4>
+      <p>
+        We implemented a step-by-step process with clear indicators of progress, ensuring users
+        always know where they are in the valuation journey. The prominent "Exit" button provides an
+        easy way out at any stage, enhancing user comfort and control.
+      </p>
+    </div>
+    <div class="space-y-3" id="key-features">
+      <h3>Key features we developed</h3>
+      <h4>Industry-Specific Categorization</h4>
+      <p>We created a comprehensive selection of industry categories, including:</p>
+      <ul>
+        <li>Technology</li>
+        <li>Healthcare</li>
+        <li>Finance</li>
+        <li>E-Commerce</li>
+        <li>Real Estate</li>
+        <li>Manufacturing</li>
+        <li>Tourism & Hospitality</li>
+        <li>Retail</li>
+        <li>Others</li>
+      </ul>
+      <p>
+        This granular approach ensures more accurate valuations tailored to specific market sectors.
+      </p>
+      <Image
+        src="/portfolio/fundsfinder-3.png"
+        alt="Funds Finder"
+        class="aspect-video w-full rounded-xl border object-cover object-top"
+        width={400}
+        height={400}
+      />
+      <h4>Dynamic Data Collection</h4>
+      <p>
+        Our development team built a flexible business details section that gathers crucial
+        information such as:
+      </p>
+      <ul>
+        <li>Years in operation</li>
+        <li>Primary location</li>
+        <li>Growth rate over the last three years</li>
+      </ul>
+      <p>
+        We ensured that the questions dynamically adjust based on previous answers, providing a
+        personalized user experience.
+      </p>
+      <Image
+        src="/portfolio/fundsfinder-4.png"
+        alt="Funds Finder"
+        class="aspect-video w-full rounded-xl border object-cover object-top"
+        width={400}
+        height={400}
+      />
+      <h4>Instant Results Generation</h4>
+      <p>
+        We developed an algorithm that processes user inputs to generate an immediate estimated
+        valuation. The results page we designed features:
+      </p>
+      <ul>
+        <li>A prominent display of the valuation figure</li>
+        <li>A visual scale indicating how attractive the business might be to potential buyers</li>
+        <li>An option to request a more detailed, accurate valuation</li>
+      </ul>
+    </div>
+    <div class="space-y-3" id="mobile-first-development">
+      <h3>Mobile First Development</h3>
+      <p>
+        Recognizing the increasing reliance on mobile devices in the business world, we employed a
+        mobile-first development approach. Our team ensured that the FundsFinders tool is fully
+        responsive, adapting seamlessly across devices from desktop computers to smartphones.
+      </p>
+      <Image
+        src="/portfolio/fundsfinder-5.png"
+        alt="Funds Finder"
+        class="aspect-auto w-full rounded-xl border object-contain object-top"
+        width={400}
+        height={400}
+      />
+    </div>
+    <div class="space-y-3" id="project-outcomes">
+      <h3>Project Outcomes</h3>
+      <p>
+        Our design and development work on the FundsFinders business valuation tool resulted in a
+        cutting-edge application that:
+      </p>
+      <ul>
+        <li>Provides quick, accessible valuations for businesses of all sizes</li>
+        <li>Offers a user-friendly interface that guides users through the valuation process</li>
+        <li>Delivers instant, data-driven results to inform business decisions</li>
+        <li>Positions FundsFinders as an innovative leader in the FinTech space</li>
+      </ul>
+      <Image
+        src="/portfolio/fundsfinder-6.png"
+        alt="Funds Finder"
+        class="aspect-auto w-full rounded-xl border object-contain object-top"
+        width={400}
+        height={400}
+      />
+    </div>
+    <div class="space-y-3" id="client-testimonials">
+      <h3>Client Testimonials</h3>
+      <p>
+        The LMS presents a clean, user-friendly design that belies its powerful capabilities. We
+        crafted specific modules for cohort creation, resource management, and performance tracking,
+        complemented by an equally intuitive student interface for accessing resources and
+        submitting assignments.
+      </p>
+      <Image
+        src="/portfolio/fundsfinder-testimonial.png"
+        alt="Funds Finder Testimonial"
+        class="aspect-auto w-full rounded-xl border object-contain object-top"
+        width={400}
+        height={400}
+      />
+    </div>
+  </Fragment>
+  <Fragment slot="table-of-content">
+    {
+      [
+        { text: 'Challenge', href: '#challenge' },
+        { text: 'Our Solution', href: '#our-solution' },
+        { text: 'Design Philosophy', href: '#design-philosophy' },
+        { text: 'Key Features', href: '#key-features' },
+        { text: 'Mobile First Development', href: '#mobile-first-development' },
+        { text: 'Project Outcomes', href: '#project-outcomes' },
+        { text: 'Client Testimonials', href: '#client-testimonials' },
+      ].map(({ text, href }) => (
+        <a class="block font-[300] text-[#5D5D5D] underline underline-offset-4" href={href}>
+          {text}
+        </a>
+      ))
+    }
+  </Fragment>
+  <Fragment class="flex flex-col gap-4 md:flex-row md:gap-16" slot="case-studies">
+    {
+      CASE_STUDIES.filter(
+        ({ title }) => title !== 'Instant Business Valuation Web Application',
+      ).map(({ title, description, src, alt, link }) => (
+        <ReadMoreCard title={title} description={description} src={src} alt={alt} link={link} />
+      ))
+    }
+  </Fragment>
+</CaseStudyLayout>

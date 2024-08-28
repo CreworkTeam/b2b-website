@@ -1,0 +1,267 @@
+---
+import { Image } from 'astro:assets';
+import CaseStudyLayout from '../../layouts/case-studies-layout.astro';
+import ReadMoreCard from '../../components/read-more-card.astro';
+import { CASE_STUDIES } from '../../../constants';
+const title = 'Global Service Provider Website Redesign';
+---
+
+<CaseStudyLayout title="Case Study">
+  <Fragment slot="hero">
+    <h1 class="mx-auto text-balance text-center font-bold">{title}</h1>
+    <Image
+      src="/portfolio/travaygroup-3.png"
+      alt="Travay Group"
+      class="aspect-video w-full rounded-xl object-cover object-top"
+      width={400}
+      height={400}
+    />
+  </Fragment>
+  <Fragment slot="content">
+    <div class="space-y-3" id="challenge">
+      <h3>Challenge</h3>
+      <p>
+        Travay Group, a versatile service provider operating across multiple countries, faced a
+        critical challenge with their digital presence. Their existing website:
+      </p>
+      <ul>
+        <li>Lacked visual appeal, failing to reflect their status as a global leader</li>
+        <li>Had navigation issues, hindering user experience</li>
+        <li>Didn't effectively communicate their diverse service offerings</li>
+        <li>Failed to showcase their extensive global network</li>
+      </ul>
+      <p>
+        In a competitive global market, these issues potentially impacted their ability to attract
+        and retain clients, limiting their growth potential.
+      </p>
+    </div>
+    <div class="space-y-3" id="solution">
+      <h3>Solution</h3>
+      <p>
+        We embarked on a comprehensive redesign and development of Travay Group's website, focusing
+        on:
+
+        <ol class="list-inside list-decimal">
+          <li>
+            <strong>Visual Storytelling: </strong>Creating a striking design that immediately
+            communicates Travay Group's global reach and expertise.
+          </li>
+          <li>
+            <strong>Intuitive Navigation:</strong> Simplifying the user journey to enhance accessibility
+            of information.
+          </li>
+          <li>
+            <strong>Clear Service Communication:</strong> Developing an engaging way to present Travay
+            Group's diverse offerings.
+          </li>
+          <li>
+            <strong>Global Network Showcase:</strong> Implementing an interactive world map to highlight
+            their international presence.
+          </li>
+          <li>
+            <strong>Value Proposition Emphasis:</strong> Clearly articulating why clients should choose
+            Travay Group.
+          </li>
+          <li>
+            <strong>Mobile Optimization:</strong> Ensuring a seamless experience across all devices.
+          </li>
+        </ol>
+      </p>
+    </div>
+    <div class="space-y-3" id="power-of-design">
+      <h3>The Power of Design</h3>
+      <h4 class="text-2xl font-normal text-[#5D5D5D]">Hero Section: Making a Global Statement</h4>
+      <p>
+        The redesigned homepage features a bold hero section with a captivating image of an airplane
+        soaring through clouds. This visual metaphor immediately conveys Travay Group's
+        international scope and aspirations. Overlaid on this dynamic backdrop is the powerful
+        headline: "Your Global Partner in Excellence". This combination of visuals and text
+        instantly communicates Travay Group's value proposition to visitors.
+      </p>
+      <Image
+        src="/portfolio/travaygroup-4.png"
+        alt="Travay Group"
+        class="aspect-video w-full rounded-xl object-cover object-top"
+        width={400}
+        height={400}
+      />
+      <h4>Color Palette: Trust and Professionalism</h4>
+      <p>
+        We chose a clean, professional color scheme dominated by whites and various shades of blue.
+        This palette evokes trust, stability, and global connectivity – all crucial attributes for
+        Travay Group's brand identity.
+      </p>
+      <h4>Typography: Clarity Across Borders</h4>
+      <p>
+        The website utilizes modern, highly readable typography. This ensures clear communication
+        across all devices and enhances the overall user experience.
+      </p>
+    </div>
+    <div class="space-y-3" id="key-features">
+      <h3>Key Features</h3>
+      <h4>Streamlined Navigation</h4>
+      <p>We simplified the main navigation menu, prominently displaying key sections:</p>
+      <ul>
+        <li>Home</li>
+        <li>About us</li>
+        <li>Service</li>
+        <li>Contact Us</li>
+      </ul>
+      <p>
+        This streamlined approach allows visitors to quickly find the information they need,
+        reducing friction in the user journey.
+      </p>
+      <Image
+        src="/portfolio/travaygroup-5.png"
+        alt="Travay Group"
+        class="aspect-video w-full rounded-xl object-cover object-top"
+        width={400}
+        height={400}
+      />
+      <h4>Services Showcase</h4>
+      <p>We designed a visually appealing "Our Services" section featuring three distinct cards:</p>
+      <ul>
+        <li>
+          <strong>Import & Export:</strong> Illustrated with an image of a bustling port, emphasizing
+          global trade.
+        </li>
+        <li>
+          <strong>Tourism:</strong> Represented by a scenic landscape, inviting adventure and exploration.
+        </li>
+        <li>
+          <strong>Business Management:</strong> Depicted with a modern office setting, showcasing professionalism.
+        </li>
+      </ul>
+      <p>
+        Each card includes a brief description, allowing visitors to quickly grasp Travay Group's
+        diverse offerings.
+      </p>
+      <Image
+        src="/portfolio/travaygroup-6.png"
+        alt="Travay Group"
+        class="aspect-video w-full rounded-xl object-cover object-top"
+        width={400}
+        height={400}
+      />
+      <h4>Interactive Global Network Map</h4>
+      <p>
+        To emphasize Travay Group's international presence, we incorporated an interactive world map
+        highlighting their operational countries. This visual representation effectively
+        communicates the company's global reach and capabilities.
+      </p>
+      <Image
+        src="/portfolio/travaygroup-7.png"
+        alt="Travay Group"
+        class="aspect-video w-full rounded-xl object-cover object-top"
+        width={400}
+        height={400}
+      />
+      <h4>Value Proposition Section</h4>
+      <p>
+        The "Why Choose Travay Group?" section uses icons and concise text to highlight the
+        company's key strengths:
+      </p>
+      <ul>
+        <li><strong>Perfected Services</strong></li>
+        <li><strong>Experienced Team</strong></li>
+        <li><strong>Competitive Advantage</strong></li>
+      </ul>
+      <p>
+        This helps potential clients quickly understand the benefits of partnering with Travay
+        Group.
+      </p>
+      <Image
+        src="/portfolio/travaygroup-8.png"
+        alt="Travay Group"
+        class="aspect-video w-full rounded-xl object-cover object-top"
+        width={400}
+        height={400}
+      />
+    </div>
+    <div class="space-y-3" id="project-outcomes">
+      <h3>Project Outcomes</h3>
+      <p>The redesigned Travay Group website now serves as a powerful digital asset:</p>
+      <ul>
+        <li>
+          <strong>Enhanced Visual Appeal:</strong> The site now reflects Travay Group's status as a global
+          leader.
+        </li>
+        <li>
+          <strong>Improved User Experience:</strong> Intuitive navigation and clear information architecture
+          guide visitors effortlessly.
+        </li>
+        <li>
+          <strong>Clear Service Communication:</strong> Potential clients can quickly understand Travay
+          Group's diverse offerings.
+        </li>
+        <li>
+          <strong>Global Presence Highlighted:</strong> The interactive map showcases Travay Group's
+          international network.
+        </li>
+        <li>
+          <strong>Stronger Brand Positioning:</strong> The new design reinforces Travay Group's reputation
+          for excellence and global expertise.
+        </li>
+      </ul>
+      <p>While specific metrics are not available, the redesigned website is poised to:</p>
+
+      <div class="flex flex-col gap-4 overflow-auto p-3 md:flex-row md:gap-6 lg:gap-12">
+        {
+          [
+            {
+              text: 'Enhance brand perception',
+            },
+            {
+              text: 'Increase user engagement',
+            },
+            {
+              text: 'Improve conversion rates',
+            },
+          ].map(({ text }) => (
+            <div
+              style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
+              class="mx-auto flex aspect-square w-8/12 items-center justify-center space-y-4 rounded-2xl border bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE] px-4 py-4 md:aspect-square md:w-11/12"
+            >
+              <div class="font-insrument-serif text-balance text-center"> {text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="space-y-3" id="client-testimonials">
+      <h3>Client Testimonials</h3>
+      <Image
+        src="/portfolio/travaygroup-testimonial.png"
+        alt="Travay Group Testimonial"
+        class="aspect-auto w-full rounded-xl border object-contain object-top"
+        width={400}
+        height={400}
+      />
+    </div>
+  </Fragment>
+  <Fragment slot="table-of-content">
+    {
+      [
+        { text: 'Challenge', href: '#challenge' },
+        { text: 'Solution', href: '#solution' },
+        { text: 'Power of Design', href: '#power-of-design' },
+        { text: 'Key Features', href: '#key-features' },
+        { text: 'Project Outcomes', href: '#project-outcomes' },
+        { text: 'Client Testimonials', href: '#client-testimonials' },
+      ].map(({ text, href }) => (
+        <a class="block font-[300] text-[#5D5D5D] underline underline-offset-4" href={href}>
+          {text}
+        </a>
+      ))
+    }
+  </Fragment>
+  <Fragment class="flex flex-col gap-4 md:flex-row md:gap-16" slot="case-studies">
+    {
+      CASE_STUDIES.filter(({ title }) => title !== 'Global Service Provider Website Redesign').map(
+        ({ title, description, src, alt, link }) => (
+          <ReadMoreCard title={title} description={description} src={src} alt={alt} link={link} />
+        ),
+      )
+    }
+  </Fragment>
+</CaseStudyLayout>

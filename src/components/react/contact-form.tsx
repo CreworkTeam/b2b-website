@@ -10,8 +10,12 @@ interface IFormInputs {
 }
 
 export default function ContactForm() {
-  const { register, handleSubmit, formState: { errors, isSubmitSuccessful } } = useForm<IFormInputs>({
-    mode: 'onChange'
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitSuccessful },
+  } = useForm<IFormInputs>({
+    mode: 'onChange',
   });
 
   const onSubmit = async (data: IFormInputs) => {
@@ -24,25 +28,42 @@ export default function ContactForm() {
     }
   };
 
-  const inputClass = "rounded-lg border border-transparent bg-[#F0F1F2] p-4 text-[#434343] outline-none placeholder:text-[#9A9EA6] focus:border-black md:px-6 md:py-4";
-  const errorClass = "!border-[#DC2626] !bg-[#FFF9F9]";
+  const inputClass =
+    'rounded-lg border border-transparent bg-[#F0F1F2] p-4 text-[#434343] outline-none placeholder:text-[#9A9EA6] focus:border-black md:px-6 md:py-4';
+  const errorClass = '!border-[#DC2626] !bg-[#FFF9F9]';
 
   return (
     <>
-      <div className={`absolute left-0 right-0 top-0 flex flex-col justify-start z-10 ${isSubmitSuccessful ? 'bottom-[calc(43%)]  sm:bottom-[calc(46%)]' : ''}`}>
-        <div className={`transition-all w-full duration-[5000ms] flex flex-col justify-end bg-white ${isSubmitSuccessful ? 'h-full' : 'h-0'}`}>
-          <p className={`text-3xl md:text-4xl lg:text-5xl transition-all delay-[3000ms] duration-1000 -translate-y-2 ${isSubmitSuccessful ? 'opacity-100' : 'opacity-0'}`}>Message received!</p>
+      <div
+        className={`absolute left-0 right-0 top-0 z-10 flex flex-col justify-start ${isSubmitSuccessful ? 'bottom-[calc(43%)] sm:bottom-[calc(46%)]' : ''}`}
+      >
+        <div
+          className={`flex w-full flex-col justify-end bg-white transition-all duration-[5000ms] ${isSubmitSuccessful ? 'h-full' : 'h-0'}`}
+        >
+          <p
+            className={`-translate-y-2 text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${isSubmitSuccessful ? 'opacity-100' : 'opacity-0'}`}
+          >
+            Message received!
+          </p>
         </div>
         <div>
-          <ContactGate position='top' />
+          <ContactGate position="top" />
         </div>
       </div>
-      <div className={`absolute left-0 right-0 bottom-0 flex flex-col justify-end z-10 ${isSubmitSuccessful ? 'top-[calc(43%)]  sm:top-[calc(45%)]' : ''}`}>
+      <div
+        className={`absolute bottom-0 left-0 right-0 z-10 flex flex-col justify-end ${isSubmitSuccessful ? 'top-[calc(43%)] sm:top-[calc(45%)]' : ''}`}
+      >
         <div>
-          <ContactGate position='bottom' />
+          <ContactGate position="bottom" />
         </div>
-        <div className={`transition-all w-full duration-[5000ms] bg-white ${isSubmitSuccessful ? 'h-full' : 'h-0'}`}>
-          <p className={`text-3xl md:text-4xl lg:text-5xl transition-all delay-[3000ms] duration-1000 ${isSubmitSuccessful ? 'opacity-100' : 'opacity-0'}`}>Our team will reach out shortly</p>
+        <div
+          className={`w-full bg-white transition-all duration-[5000ms] ${isSubmitSuccessful ? 'h-full' : 'h-0'}`}
+        >
+          <p
+            className={`text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${isSubmitSuccessful ? 'opacity-100' : 'opacity-0'}`}
+          >
+            Our team will reach out shortly
+          </p>
         </div>
       </div>
       <form
@@ -51,48 +72,41 @@ export default function ContactForm() {
       >
         <div className="flex flex-col justify-between gap-2 md:gap-4">
           <input
-            {...register("name", {
-              required: "Name is required",
-              pattern: { value: /^[a-zA-Z\s]*$/, message: "Invalid name" }
+            {...register('name', {
+              required: 'Name is required',
+              pattern: { value: /^[a-zA-Z\s]*$/, message: 'Invalid name' },
             })}
             type="text"
             placeholder="Name"
             className={`${inputClass} ${errors.name ? errorClass : ''}`}
           />
           <input
-            {...register("email", {
-              required: "Email is required",
-              pattern: { value: /^\S+@\S+$/i, message: "Invalid email address" }
+            {...register('email', {
+              required: 'Email is required',
+              pattern: { value: /^\S+@\S+$/i, message: 'Invalid email address' },
             })}
             type="email"
             placeholder="Email"
             className={`${inputClass} ${errors.email ? errorClass : ''}`}
           />
           <input
-            {...register("phone", {
-              required: "Phone number is required",
-              pattern: { value: /^(\+\d{1,3}[- ]?)?\d{10}$/, message: "Invalid phone number" }
+            {...register('phone', {
+              required: 'Phone number is required',
+              pattern: { value: /^(\+\d{1,3}[- ]?)?\d{10}$/, message: 'Invalid phone number' },
             })}
             type="tel"
             placeholder="Phone Number"
             className={`${inputClass} ${errors.phone ? errorClass : ''}`}
           />
           <textarea
-            {...register("message", { required: "Message is required" })}
+            {...register('message', { required: 'Message is required' })}
             placeholder="Message"
             rows={5}
             className={`${inputClass} ${errors.message ? errorClass : ''}`}
           ></textarea>
         </div>
 
-        <button
-          type="submit"
-          className="m-0 rounded-lg border border-[#5C5C5C] px-6 py-3 font-medium text-white disabled:opacity-50"
-          style={{
-            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.3) 7.29%, rgba(255, 255, 255, 0) 65.62%), #000000',
-            boxShadow: '0px 3.46304px 8.65761px rgba(0, 0, 0, 0.16), 0px 0px 0px 0.865761px #989898',
-          }}
-        >
+        <button type="submit" className="btn">
           Let's Chat
         </button>
       </form>
