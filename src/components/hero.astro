@@ -23,17 +23,23 @@
   >
     <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
   </div>
-  <div class="space-y-6">
-    <h1 class="mb-4">
-      Sleek, Powerful and User Obsessed
+  <div class="mb-4 space-y-6">
+    <div class="mb-4 text-3xl font-[450] text-[#020617] sm:text-4xl md:text-6xl">
+      <span>Sleek, Powerful and User Obsessed</span>
       <span
-        class="slide_up_hero inline-block h-9 translate-y-[7px] overflow-hidden sm:h-10 md:h-16 md:translate-y-3"
+        class="slide_up_hero relative inline-block h-9 w-40 translate-y-[7px] overflow-hidden sm:h-10 sm:w-64 md:h-16 md:w-80 md:translate-y-3"
+        style={{
+          '--item-count': 3,
+          '--duration': '12s',
+        }}
       >
-        <span class="relative block h-full">Websites</span>
-        <span class="relative block h-full">Web Apps</span>
-        <span class="relative block h-full">Websites</span>
+        {
+          ['Websites', 'Web Apps', 'MVPs'].map((item) => (
+            <span class="absolute top-full block h-fit truncate">{item}</span>
+          ))
+        }
       </span>
-    </h1>
+    </div>
     <p class="mb-8 text-sm text-[#64748B] sm:text-xl">
       We are a product studio deeply focused on crafting
       <br class="hidden md:block" />
