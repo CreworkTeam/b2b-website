@@ -1,5 +1,5 @@
 ---
-import MySiteLayout from '../layouts/main-layout.astro';
+import MainLayout from '../layouts/main-layout.astro';
 import Hero from '../components/hero.astro';
 import OurImpact from '../components/impact.astro';
 import OurPortfolio from '../components/portfolio.astro';
@@ -7,7 +7,7 @@ import CaseStudies from '../components/case-studies.astro';
 import Contact from '../components/contact.astro';
 ---
 
-<MySiteLayout
+<MainLayout
   title="Crework Labs"
   description="We are a product studio deeply focused on crafting experiences that connect you with your audience."
   canonical="https://www.creworklabs.com"
@@ -17,4 +17,11 @@ import Contact from '../components/contact.astro';
   <OurImpact />
   <CaseStudies />
   <Contact />
-</MySiteLayout>
+  <script>
+    import { setupButtonTracking } from '../utils/mixpanel';
+
+    setupButtonTracking({
+      pageName: 'LandingPage',
+    });
+  </script>
+</MainLayout>

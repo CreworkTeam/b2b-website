@@ -3,7 +3,7 @@ import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import '../styles/global.css';
 import TalkToUs from '../components/talk-to-us.astro';
-const { title, description, canonical } = Astro.props;
+const { title, description, canonical, mptag } = Astro.props;
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -36,7 +36,7 @@ const { title, description, canonical } = Astro.props;
         class="relative -z-10 mx-auto h-28 w-10/12 max-w-5xl border-x border-[#F1F1F1] sm:px-16 lg:w-9/12"
       >
       </section>
-      <section class="section-container relative space-y-12 border-b-0">
+      <section class="section-container relative space-y-12 border-b-0" data-case-study={mptag}>
         <div
           class="absolute left-0 top-0 z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
           style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
@@ -56,7 +56,10 @@ const { title, description, canonical } = Astro.props;
           <div class="space-y-10 md:w-8/12">
             <slot name="content" />
           </div>
-          <div class="top-5 h-fit space-y-4 md:sticky md:w-4/12">
+          <div
+            data-btntype="book call - table of content"
+            class="top-5 h-fit space-y-4 md:sticky md:w-4/12"
+          >
             <h4 class="text-black">Table of Content</h4>
             <slot name="table-of-content" />
             <h4 class="text-xl text-black">Have a project?</h4>
@@ -71,7 +74,7 @@ const { title, description, canonical } = Astro.props;
             <slot name="case-studies" />
           </div>
         </div>
-        <a href="/case-studies" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
+        <a href="#" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
       </section>
       <TalkToUs />
     </main>

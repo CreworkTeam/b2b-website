@@ -103,4 +103,10 @@ const cards = [
     </div>
   </section>
   <TalkToUs />
+  <script>
+    import { setupButtonTracking } from '../../utils/mixpanel';
+    setupButtonTracking({
+      pageName: 'CaseStudies',
+    });
+  </script>
 </MainLayout>
