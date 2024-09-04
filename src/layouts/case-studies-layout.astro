@@ -78,6 +78,8 @@ const { title, description, canonical } = Astro.props;
     <Footer />
   </body><script>
     import { setupButtonTracking } from '../utils/mixpanel';
-    setupButtonTracking();
+    setupButtonTracking({
+      pageName: 'CaseStudyPage',
+    });
   </script>
 </html>

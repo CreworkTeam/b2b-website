@@ -19,13 +19,7 @@ export default function ContactForm() {
   });
 
   const onSubmit = async (data: IFormInputs) => {
-    try {
-      const formData = new FormData();
-      Object.entries(data).forEach(([key, value]) => formData.append(key, value));
-      const res = await actions.contact(formData);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-    }
+    throw Error('Error submitting form');
   };
 
   const inputClass =
@@ -71,7 +65,7 @@ export default function ContactForm() {
         className="m-auto flex w-full flex-col justify-between gap-2 px-4 text-sm sm:text-base md:max-w-sm md:gap-4"
       >
         <div className="flex flex-col justify-between gap-2 md:gap-4">
-          <input
+          {/* <input
             {...register('name', {
               required: 'Name is required',
               pattern: { value: /^[a-zA-Z\s]*$/, message: 'Invalid name' },
@@ -103,7 +97,7 @@ export default function ContactForm() {
             placeholder="Message"
             rows={5}
             className={`${inputClass} ${errors.message ? errorClass : ''}`}
-          ></textarea>
+          ></textarea> */}
         </div>
 
         <button type="submit" className="btn">

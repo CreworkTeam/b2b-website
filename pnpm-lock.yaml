@@ -48,6 +48,9 @@ importers:
         specifier: ^3.4.7
         version: 3.4.7
     devDependencies:
+      '@types/mixpanel-browser':
+        specifier: ^2.50.0
+        version: 2.50.0
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -623,6 +626,9 @@ packages:
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
+
+  '@types/mixpanel-browser@2.50.0':
+    resolution: {integrity: sha512-RkGTkkDUw3Tm/GEmcS/x8t2mNrt34jgrEWLVM6oSnoe/+bk/WQP1EWaHLk3pCDc3IaXHNoweoNMa1iWLLF0yFQ==}
 
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
@@ -2803,6 +2809,8 @@ snapshots:
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.2
+
+  '@types/mixpanel-browser@2.50.0': {}
 
   '@types/ms@0.7.34': {}
 

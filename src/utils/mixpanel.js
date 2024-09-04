@@ -19,32 +19,38 @@ function trackButtonClick({ buttonName, buttonUrl, eventName, section = '' }) {
   mixpanel.track(eventName, properties);
 }
 
-export function setupButtonTracking() {
-  document.addEventListener('click', (event) => {
-    let target = null;
+export function setupButtonTracking({ pageName = 'LandingPage' }) {
+  document.addEventListener(
+    'click',
+    (event) => {
+      let target = null;
 
-    if (event.target.tagName === 'A') {
-      target = event.target;
-    } else if (event.target.tagName === 'IMG' && event.target.parentNode.tagName === 'A') {
-      target = event.target.parentNode;
-    }
-
-    if (target) {
-      const buttonName = target.textContent.trim() || '';
-      const buttonUrl = target.getAttribute('href') || '';
-      const sectionElement = target.closest('[data-section]');
-      const section = sectionElement?.getAttribute('data-section') || '';
-      let eventName = 'Button_Clicked_';
-
-      if (target.closest('nav')) {
-        eventName += 'Navbar';
-      } else if (target.closest('footer')) {
-        eventName += 'Footer';
-      } else {
-        eventName += 'LandingPage';
+      if (event.target.tagName === 'A' || event.target.tagName === 'BUTTON') {
+        target = event.target;
+      } else if (event.target.tagName === 'IMG' && event.target.parentNode.tagName === 'A') {
+        target = event.target.parentNode;
       }
 
-      trackButtonClick({ buttonName, buttonUrl, eventName, section });
-    }
-  });
+      if (target) {
+        const buttonName = target?.textContent.trim() || '';
+        const buttonUrl = target?.getAttribute('href') || '';
+        const sectionElement = target.closest('[data-section]');
+        const section = sectionElement?.getAttribute('data-section') || '';
+        let eventName = 'Button_Clicked_';
+
+        if (target.closest('nav')) {
+          eventName += 'Navbar';
+        } else if (target.closest('footer')) {
+          eventName += 'Footer';
+        } else {
+          eventName += pageName;
+        }
+
+        console.log({ buttonName, buttonUrl, eventName, section });
+
+        // trackButtonClick({ buttonName, buttonUrl, eventName, section });
+      }
+    },
+    true,
+  );
 }
