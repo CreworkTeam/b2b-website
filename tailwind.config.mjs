@@ -30,8 +30,8 @@ export default {
         },
       },
       animation: {
-        marquee: 'marquee 50s linear infinite',
-        marquee2: 'marquee2 50s linear infinite',
+        marquee: 'marquee 25s linear infinite',
+        marquee2: 'marquee2 25s linear infinite',
         scaledown: 'scaledown 1s linear forwards paused',
         'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
       },

@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const socials = [
   {
     name: 'LinkedIn',
@@ -72,7 +74,7 @@ const socials = [
                 class="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6F6F6]"
               >
                 <label class="sr-only">{social.name}</label>
-                <img src={social.icon} alt={social.name} />
+                <Image src={social.icon} alt={social.name} class="h-4 w-4" width={16} height={16} />
               </a>
             ))
           }
@@ -90,7 +92,7 @@ const socials = [
             <span
               class="flex min-h-10 min-w-10 items-center justify-center rounded-full bg-[#F6F6F6]"
             >
-              <img src="/social/phone.svg" alt="Phone" />
+              <Image src="/social/phone.svg" alt="Phone" class="h-4 w-4" width={16} height={16} />
             </span>
             <div>
               <p class="text-xs text-[#9A9EA6]">Have a question?</p>
@@ -101,7 +103,7 @@ const socials = [
             <span
               class="flex min-h-10 min-w-10 items-center justify-center rounded-full bg-[#F6F6F6]"
             >
-              <img src="/social/email.svg" alt="Phone" />
+              <Image src="/social/email.svg" alt="Email" class="h-4 w-4" width={16} height={16} />
             </span>
             <div>
               <p class="text-xs text-[#9A9EA6]">Contact us at</p>

@@ -12,13 +12,14 @@ const { images, title, description, span, tags, link, rtl, sticky, index, length
     animationDelay: `calc(var(--card-scroll) * -1s)`,
   }}
   class:list={[
-    'case-studies-container relative origin-top overflow-hidden bg-white',
+    'case-studies-container group relative origin-top cursor-pointer overflow-hidden bg-white',
     {
       'flex-col md:flex-row-reverse': rtl,
       'relative md:sticky md:top-[calc(16vh)] md:animate-scaledown': sticky,
       'z-[var(--z-index)]': sticky,
     },
   ]}
+  onclick=`window.location.href='${link}'`
 >
   <div class="-mb-2 flex-1 space-y-4 md:space-y-12">
     <div class="aspect-video">
@@ -66,7 +67,7 @@ const { images, title, description, span, tags, link, rtl, sticky, index, length
     </div>
     <a
       href={link}
-      class="flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1"
+      class="flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1 group-hover:gap-1"
       data-btntype="view CTA"
     >
       <span>View Project</span>
