@@ -26,7 +26,7 @@
 }
 
 .slide_up_hero > * {
-  animation: var(--duration) slide_up_hero infinite ease-in-out;
+  animation: var(--duration) slide_up_hero infinite linear;
 }
 
 .slide_up_hero > *:nth-child(1) {
