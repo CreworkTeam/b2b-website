@@ -1,6 +1,7 @@
 ---
 import Dot from '../components/dot.astro';
 import BorderBeam from '../components/border.astro';
+import { BOOK_CALL } from '../constants';
 ---
 
 <div class="section-container border-t-0 pt-0">
@@ -28,7 +29,7 @@ import BorderBeam from '../components/border.astro';
       <Dot class="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
       <h2 class="text-center text-white">Tell us about your project</h2>
       <a
-        href="https://calendly.com/shikshita/30mins"
+        href={BOOK_CALL}
         target="_blank"
         data-btntype="book call - secondary"
         class="mx-auto block cursor-pointer text-balance rounded-xl bg-white px-4 py-2 text-xs active:bg-gradient-to-b active:from-black/20 active:to-white md:px-14 md:py-4 md:text-2xl"

@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { BOOK_CALL } from '../constants';
 ---
 
 <section class="section-container" data-section="hero">
@@ -28,29 +28,6 @@ import { Image } from 'astro:assets';
     <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
   </div>
   <div class="relative mb-4 space-y-6">
-    <!-- <div class="ml-1">
-      <span class="text-red-500"
-        >At 1/2
-        <Image
-          class="inline-block h-4 w-4"
-          src="/icons/arrow-down.svg"
-          alt="Half the cost"
-          width={16}
-          height={16}
-        />
-        the cost
-      </span>
-      <span class="text-green-500">
-        , 2x the speed.
-        <Image
-          class="inline-block h-4 w-4"
-          src="/icons/arrow-up.svg"
-          alt="Double the speed"
-          width={16}
-          height={16}
-        />
-      </span>
-    </div> -->
     <h1 class="mb-4 text-3xl font-[450] text-[#020617] sm:text-4xl md:text-6xl">
       <span>Sleek, Powerful and User Obsessed</span>
       <span
@@ -68,15 +45,12 @@ import { Image } from 'astro:assets';
       </span>
     </h1>
     <p class="mb-8 text-sm text-[#64748B] sm:text-xl">
-      We are a product studio deeply focused on crafting
+      Your on demand design and tech team that
       <br class="hidden md:block" />
-      experiences that connect you with your audience.
+      delivers solutions at a lightening speed ⚡️
     </p>
   </div>
   <div class="mt-11">
-    <a href="https://calendly.com/shikshita/30mins" target="_blank" class="btn">Book a call</a>
-    <a href="/#our-portfolio" class="ml-5 text-xs font-medium text-black sm:text-base">
-      View Portfolio
-    </a>
+    <a href={BOOK_CALL} target="_blank" class="btn">Book a call</a>
   </div>
 </section>

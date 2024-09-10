@@ -1,3 +1,12 @@
+---
+const navLinks = [
+  { href: '/#our-impact', text: 'Our Impact' },
+  { href: '/#case-studies', text: 'Case Studies' },
+  { href: '/#testimonials', text: 'Testimonials' },
+  { href: '/#contact-us', text: 'Contact Us' },
+];
+---
+
 <header class="relative z-10 border-b border-[#F1F1F1]">
   <div
     class="relative mx-auto flex max-w-7xl items-center justify-between gap-8 bg-white px-8 py-4 md:px-16 xl:px-32"
@@ -7,11 +16,18 @@
     </a>
     <input type="checkbox" id="menu" class="peer" hidden />
     <nav
-      class="absolute -top-20 left-[8.5vw] -z-10 flex h-[113px] w-10/12 flex-col items-center justify-center gap-6 bg-[#F1F1F1] text-sm font-medium text-[#020617] transition-all peer-checked:top-16 sm:static sm:z-auto sm:h-auto sm:w-auto sm:flex-row sm:justify-start sm:bg-transparent sm:text-[#919191]"
+      class="absolute left-[8.5vw] top-0 -z-10 flex w-10/12 -translate-y-full flex-col items-center justify-center gap-3 bg-[#F1F1F1] text-sm font-medium text-[#020617] transition-all peer-checked:translate-y-16 sm:static sm:z-auto sm:h-auto sm:w-auto sm:translate-y-0 sm:flex-row sm:justify-start sm:bg-transparent sm:text-[#919191] sm:peer-checked:translate-y-0"
     >
-      <a href="/#our-impact" class="hover:text-black">Our Impact</a>
-      <a href="/case-studies" class="hover:text-black">Case Studies</a>
-      <a href="/#contact-us" class="hover:text-black">Contact Us</a>
+      {
+        navLinks.map(({ href, text }) => (
+          <a
+            href={href}
+            class="flex h-8 w-full items-center justify-center hover:text-black sm:w-fit"
+          >
+            {text}
+          </a>
+        ))
+      }
     </nav>
     <label
       for="menu"

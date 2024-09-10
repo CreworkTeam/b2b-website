@@ -3,6 +3,7 @@ import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import '../styles/global.css';
 import TalkToUs from '../components/talk-to-us.astro';
+import { BOOK_CALL } from '../constants';
 const { title, description, canonical, mptag } = Astro.props;
 ---
 
@@ -63,7 +64,7 @@ const { title, description, canonical, mptag } = Astro.props;
             <h4 class="text-black">Table of Content</h4>
             <slot name="table-of-content" />
             <h4 class="text-xl text-black">Have a project?</h4>
-            <a href="https://calendly.com/shikshita/30mins" target="_blank" class="btn block w-fit"
+            <a href={BOOK_CALL} target="_blank" class="btn block w-fit"
               ><span class="text-sm"> Book a call</span></a
             >
           </div>
@@ -74,7 +75,7 @@ const { title, description, canonical, mptag } = Astro.props;
             <slot name="case-studies" />
           </div>
         </div>
-        <a href="#" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
+        <a href="/case-studies" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
       </section>
       <TalkToUs />
     </main>

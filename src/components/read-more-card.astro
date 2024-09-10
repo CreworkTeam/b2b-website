@@ -6,7 +6,8 @@ const { title, description, src, alt, link } = Astro.props;
 
 <div
   style="box-shadow: 0px 0px 8px 5px #9494941A,0px 0px 4px 4px #53535340 inset; border: 2px solid #FFFFFF"
-  class="flex-1 rounded-xl border-2 bg-[#FAFAFA] p-4"
+  class="group flex-1 cursor-pointer rounded-xl border-2 bg-[#FAFAFA] p-4"
+  onclick=`window.location.href='${link}'`
 >
   <Image
     src={src}
@@ -21,7 +22,7 @@ const { title, description, src, alt, link } = Astro.props;
   <p class="line-clamp-3 text-sm">{description}</p>
   <a
     href={link}
-    class="bottom-5 flex items-center gap-0 pt-4 font-semibold transition-all hover:gap-1"
+    class="bottom-5 flex items-center gap-0 pt-4 font-semibold transition-all group-hover:gap-1"
     data-btntype="recommendation"
   >
     <span>View Project</span>

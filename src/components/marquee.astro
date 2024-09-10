@@ -1,0 +1,22 @@
+---
+const { animationDelay } = Astro.props;
+---
+
+<div class="relative flex overflow-x-hidden">
+  <div
+    style={{
+      animationDelay,
+    }}
+    class="animate-marquee whitespace-nowrap"
+  >
+    <slot />
+  </div>
+  <div
+    style={{
+      animationDelay,
+    }}
+    class="absolute top-0 animate-marquee2 whitespace-nowrap"
+  >
+    <slot />
+  </div>
+</div>
