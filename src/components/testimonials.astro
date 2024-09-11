@@ -14,7 +14,7 @@ const testimonials = [
   },
   {
     designation: 'Founder',
-    companyName: 'Blend',
+    companyName: 'Trendz',
     testimonialText: 'Speedy delivery of quality work. Much recommended.',
     personName: 'Vaibhav',
     photo: '',
@@ -35,7 +35,7 @@ const testimonials = [
     testimonialText:
       'Crework Labs was the best experience we ever had with an agency. They were fast with replies and deliveries, always ensuring that the final result was as expected. I will work with them in the future and totally recommend them.',
     personName: 'Om Rafols Cots',
-    photo: '',
+    photo: '/testimonials/om.jpg',
     country: 'Spain',
   },
   {
@@ -81,13 +81,10 @@ const testimonials = [
     <h2 class="px-12 text-center text-3xl font-semibold uppercase">Loved by thinkers</h2>
     <p class="!mb-14 px-12 text-center md:text-xl">Here&apos;s what people are saying about us!</p>
     <Marquee animationDelay="-16s">
-      {testimonials.slice(0, 2).map((testimonial) => <Testimonial {...testimonial} />)}
+      {testimonials.slice(0, 3).map((testimonial) => <Testimonial {...testimonial} />)}
     </Marquee>
     <Marquee animationDelay="-8s">
-      {testimonials.slice(2, 4).map((testimonial) => <Testimonial {...testimonial} />)}
-    </Marquee>
-    <Marquee animationDelay="0s">
-      {testimonials.slice(4, 6).map((testimonial) => <Testimonial {...testimonial} />)}
+      {testimonials.slice(3, 6).map((testimonial) => <Testimonial {...testimonial} />)}
     </Marquee>
     <div
       class="pointer-events-none absolute left-0 top-0 h-full w-3/12 bg-gradient-to-r from-white to-white/10"

@@ -14,20 +14,24 @@ const countryToFlag = {
   <div class="flex flex-col space-y-3 rounded-xl border p-3 sm:p-6">
     <div class="flex items-center justify-between gap-1">
       <div class="flex items-center gap-2 sm:gap-4">
-        <Image
-          class="size-6 rounded-full object-cover sm:size-12"
-          src={photo || '/testimonials/default.png'}
-          alt="Anupama Bhat"
-          width={32}
-          height={32}
-        />
+        {
+          photo ? (
+            <Image
+              class="size-6 rounded-full object-cover sm:size-12"
+              src={photo}
+              alt={personName}
+              width={40}
+              height={40}
+            />
+          ) : null
+        }
         <div class="flex flex-col">
           <h4 class="text-sm font-semibold sm:text-lg">{personName}</h4>
           <p class="text-xs sm:text-sm">{`${designation} @${companyName}`}</p>
         </div>
       </div>
       <Image
-        class="size-6 rounded-sm object-contain sm:w-auto"
+        class="size-6 rounded-sm object-contain sm:w-8"
         src={countryToFlag[country] || '/social/twitter-bird.svg'}
         alt="Twitter"
         width={24}
