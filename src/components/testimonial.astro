@@ -16,8 +16,7 @@ const countryToFlag = {
       <div class="flex items-center gap-2 sm:gap-4">
         <Image
           class="size-6 rounded-full object-cover sm:size-12"
-          src={photo ||
-            'https://res.cloudinary.com/crework-cloud/image/upload/v1725960818/Crework%20Labs/anupama_p7ychd.jpg'}
+          src={photo || '/testimonials/default.png'}
           alt="Anupama Bhat"
           width={32}
           height={32}
@@ -28,7 +27,7 @@ const countryToFlag = {
         </div>
       </div>
       <Image
-        class="size-6 object-contain sm:size-8"
+        class="size-6 rounded-sm object-contain sm:w-auto"
         src={countryToFlag[country] || '/social/twitter-bird.svg'}
         alt="Twitter"
         width={24}
