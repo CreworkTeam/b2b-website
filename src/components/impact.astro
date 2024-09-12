@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { BOOK_CALL } from '../constants';
 ---
 
 <section id="our-impact" class="section-container" data-section="impact">
@@ -15,72 +16,100 @@ import { Image } from 'astro:assets';
   >
     <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
   </div>
-  <div class="m-auto mb-[72px] max-w-3xl space-y-6">
-    <h2 class="text-center text-3xl font-semibold">Our Impact So Far</h2>
-    <p class="text-center md:text-xl">
-      Transform your ideas into captivating digital realities. From stunning designs to robust
-      functionality, we elevate your online presence to stand out in today's competitive digital
-      landscape
-    </p>
-  </div>
-  <div
-    class="m-auto mb-[72px] flex max-w-56 flex-col justify-between gap-8 text-[28px] md:max-w-3xl md:flex-row lg:gap-12"
-  >
-    {
-      ['15+ Projects Built', '10+ Clients', '5+ Industries'].map((text) => (
-        <div
-          class="h-16 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]"
-          style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
-        >
-          <div class="relative flex h-full items-center justify-center rounded-lg bg-gradient-to-l from-[#F4F4F4] to-[#FEFEFE]">
-            <div
-              class="absolute left-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-            />
-            <div
-              class="absolute right-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-            />
-            <div
-              class="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-            />
-            <div
-              class="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
-              style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
-            />
-            <p class="font-insrument-serif inline-block w-full bg-clip-text p-3 pr-1 text-center text-2xl text-transparent">
-              {text}
-            </p>
+  <div class="space-y-6 sm:space-y-12">
+    <h2 class="text-center text-xl font-semibold sm:text-3xl lg:text-start">
+      Delivering Results That Drive Growth Across Industries
+    </h2>
+    <div class="flex flex-col items-center justify-between gap-12 lg:flex-row">
+      <div class="flex-[3] space-y-6 md:space-y-12">
+        <div class="flex h-fit flex-wrap justify-center gap-2 sm:gap-3 lg:justify-start">
+          {
+            ['Education', 'E-Commerce', 'Fintech', 'Healthcare', 'SaaS'].map((t) => (
+              <span
+                style={{
+                  border: '1px solid #E7E7E7',
+                }}
+                class="rounded-md p-3 text-center text-xs text-[#334155] sm:text-[16px] md:w-[150px]"
+              >
+                {t}
+              </span>
+            ))
+          }
+        </div>
+        <div class="mt-4 space-y-4">
+          <p class="text-center text-sm font-[500] sm:text-start">Trusted by brands like</p>
+          <div
+            class="flex flex-wrap items-center border-[#F1F1F1] sm:rounded-xl md:w-fit md:flex-nowrap md:items-start md:border"
+          >
+            {
+              [
+                { src: '/companies/north-star-digital.svg', alt: 'North Star Digital' },
+                { src: '/companies/feel-good-club.svg', alt: 'Feel Good Club' },
+                { src: '/companies/butterflies.svg', alt: 'Butterflies' },
+                { src: '/companies/fundsfinder.svg', alt: 'fundsfinder' },
+                { src: '/companies/travaygroup.svg', alt: 'travaygroup' },
+              ].map((company) => (
+                <div class="flex h-14 w-1/2 items-center justify-center border-b border-[#F1F1F1] md:w-full md:border-b-0 md:border-r">
+                  <Image
+                    width={10}
+                    height={10}
+                    src={company.src}
+                    alt={company.alt}
+                    class="size-full w-6/12 object-contain sm:w-6/12 md:w-9/12"
+                  />
+                </div>
+              ))
+            }
           </div>
         </div>
-      ))
-    }
-  </div>
-  <div class="m-auto mb-[72px] max-w-3xl">
-    <h2 class="mb-8 text-center text-[28px] font-semibold">Companies that we have worked with</h2>
-    <div
-      class="mx-auto flex w-7/12 flex-col rounded-xl border border-[#F1F1F1] md:w-fit md:flex-row"
-    >
-      {
-        [
-          { src: '/companies/north-star-digital.svg', alt: 'North Star Digital' },
-          { src: '/companies/feel-good-club.svg', alt: 'Feel Good Club' },
-          { src: '/companies/butterflies.svg', alt: 'Butterflies' },
-          { src: '/companies/fundsfinder.svg', alt: 'fundsfinder' },
-          { src: '/companies/travaygroup.svg', alt: 'travaygroup' },
-        ].map((company) => (
-          <div class="flex h-20 w-full items-center justify-center border-b border-[#F1F1F1] md:border-b-0 md:border-r">
-            <Image
-              width={10}
-              height={10}
-              src={company.src}
-              alt={company.alt}
-              class="size-full w-7/12 object-contain py-2"
-            />
-          </div>
-        ))
-      }
+      </div>
+      <div
+        class="flex h-fit w-full flex-col items-center space-y-3 md:w-8/12 lg:w-6/12 lg:flex-[2]"
+      >
+        {
+          ['15+ Projects Built', '10+ Clients', '5+ Industries'].map((text, index) => (
+            <div
+              class:list={[
+                'h-16 w-8/12 max-w-48 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]',
+                {
+                  'translate-x-1/4 -rotate-6': index === 0 || index === 2,
+                  '-translate-x-1/4 rotate-3': index === 1,
+                },
+              ]}
+              style="box-shadow: 0px 0px 0.287412px 0.287412px rgba(0, 0, 0, 0.07), 0px 0px 0.287412px 0.862234px rgba(0, 0, 0, 0.05), 0px 3.44894px 3.73635px -1.72447px rgba(0, 0, 0, 0.25), 0px 1.14965px 4.59858px 1.14965px rgba(0, 0, 0, 0.12);"
+            >
+              <div class="relative flex h-full items-center justify-center rounded-lg bg-gradient-to-l from-[#F4F4F4] to-[#FEFEFE]">
+                <div
+                  class="absolute left-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+                  style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+                />
+                <div
+                  class="absolute right-2 top-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+                  style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+                />
+                <div
+                  class="absolute bottom-2 left-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+                  style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+                />
+                <div
+                  class="absolute bottom-2 right-2 h-1 w-1 rounded-full bg-[#D9D9D9]"
+                  style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
+                />
+                <p class="font-insrument-serif inline-block w-full bg-clip-text p-2 pr-1 text-center text-xl text-transparent sm:p-3 sm:text-2xl">
+                  {text}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
+  <a
+    href={BOOK_CALL}
+    target="_blank"
+    class="btn mx-auto mt-14 block px-14 text-center md:w-fit lg:mx-0"
+  >
+    Book a Call
+  </a>
 </section>
