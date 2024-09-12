@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import { BOOK_CALL } from '../constants';
+import Increment from './react/increment';
 ---
 
 <section id="our-impact" class="section-container" data-section="impact">
@@ -69,7 +70,20 @@ import { BOOK_CALL } from '../constants';
         class="flex h-fit w-full flex-col items-center space-y-3 md:w-8/12 lg:w-6/12 lg:flex-[2]"
       >
         {
-          ['15+ Projects Built', '10+ Clients', '5+ Industries'].map((text, index) => (
+          [
+            {
+              number: '15',
+              text: 'Projects Built',
+            },
+            {
+              number: '10',
+              text: 'Clients',
+            },
+            {
+              number: '5',
+              text: 'Industries',
+            },
+          ].map(({ number, text }, index) => (
             <div
               class:list={[
                 'h-16 w-8/12 max-w-48 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]',
@@ -98,7 +112,7 @@ import { BOOK_CALL } from '../constants';
                   style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
                 />
                 <p class="font-insrument-serif inline-block w-full bg-clip-text p-2 pr-1 text-center text-xl text-transparent sm:p-3 sm:text-2xl">
-                  {text}
+                  <Increment number={parseInt(number)} client:only />+ {text}
                 </p>
               </div>
             </div>
