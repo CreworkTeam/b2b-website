@@ -1,0 +1,20 @@
+---
+import MainLayout from '../layouts/main-layout.astro';
+import BlogHeader from '../components/blog/blog-header.astro';
+import Section from '../components/section.astro';
+const { title, description, canonical, mptag, frontmatter } = Astro.props;
+const { blogTitle, blogDate, blogAuthor, blogImage, blogDescription, draft, blogCategory } =
+  frontmatter;
+---
+
+<MainLayout title={title} description={description} canonical={canonical}>
+  <Section>
+    <BlogHeader {blogTitle} {blogDescription} {blogDate} {blogCategory} {blogImage} {blogAuthor} />
+    <div class="post-content">
+      <div class="content">
+        <slot />
+      </div>
+      <div class="sidebar"></div>
+    </div>
+  </Section>
+</MainLayout>
