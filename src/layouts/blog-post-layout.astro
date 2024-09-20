@@ -27,12 +27,6 @@ const recommendations = blogs
     );
     return isSameCategory && blogSlug !== slug;
   })
-  .sort(
-    (
-      a: { data: { blogDate: string | number | Date } },
-      b: { data: { blogDate: string | number | Date } },
-    ) => new Date(b.data.blogDate).getTime() - new Date(a.data.blogDate).getTime(),
-  )
   .slice(0, 2);
 ---
 

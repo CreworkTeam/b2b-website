@@ -1,0 +1,87 @@
+---
+import { cn } from '@/lib/utils';
+import Section from '../section.astro';
+import { Image } from 'astro:assets';
+import { BOOK_CALL } from '@/constants.ts';
+---
+
+<Section dataSection="how-we-work" className="space-y-12">
+  <div class="space-y-3 text-center">
+    <h2 class="font-semibold">How We Work</h2>
+    <p>At Crework Labs, we turn your ideas into reality through our streamlined process.</p>
+  </div>
+  <div class="space-y-4">
+    <div class="flex flex-col gap-3">
+      <div class="flex flex-col lg:flex-row">
+        {
+          [
+            {
+              text: 'Initial discovery call to gather requirements.',
+              src: '/how-we-work/initial.svg',
+            },
+            {
+              text: 'Competitor Analysis and Research to develop a tailored strategy.',
+              src: '/how-we-work/competitor.svg',
+            },
+            {
+              text: 'Implementation and Iterations.',
+              src: '/how-we-work/implementation.svg',
+            },
+          ].map(({ text, src }, index) => (
+            <div
+              class={cn('rounded-3xl py-2', {
+                'flex-[2] lg:pr-4': index === 0,
+                'flex-[3]': index === 1,
+                'flex-[2] lg:pl-4': index === 2,
+              })}
+            >
+              <div class="flex size-full flex-col space-y-2 rounded-3xl border border-[#C1C1C1] px-1 py-4 text-center md:px-8">
+                <h5 class="mx-auto line-clamp-3 w-10/12 font-semibold md:w-full">{text}</h5>
+                <div class="flex h-44 items-center justify-center">
+                  <Image
+                    src={src}
+                    alt={text}
+                    class="h-full w-10/12 object-contain sm:w-full"
+                    width={12}
+                    height={12}
+                  />
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <div class="flex flex-col lg:flex-row">
+        <div class="flex-1 lg:pr-2">
+          <div
+            class="flex h-full flex-col justify-between space-y-2 rounded-3xl border border-[#C1C1C1] p-4 text-center"
+          >
+            <h5 class="text-balance font-semibold text-[#333333]">
+              Post-launch support to ensure smooth operations
+            </h5>
+            <Image
+              src="/how-we-work/post-launch.svg"
+              alt="Initial discovery call to gather requirements."
+              class="mx-auto w-8/12 object-contain sm:w-5/12 lg:w-2/3"
+              width={12}
+              height={12}
+            />
+          </div>
+        </div>
+        <div class="flex-1 py-3 lg:py-0 lg:pl-2">
+          <div
+            class="flex size-full flex-col justify-between space-y-6 rounded-3xl border border-[#C1C1C1] px-6 py-8"
+          >
+            <h2 class="text-balance text-xl font-semibold text-[#333333] md:text-3xl">
+              One stop solution for all your design and tech needs
+            </h2>
+            <p>Have an idea you want to build? Reach out to us now!</p>
+            <a target="_blank" class="btn block w-fit text-center" href={BOOK_CALL}>
+              <span class="text-sm">Book a free consultation call</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

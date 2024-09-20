@@ -123,7 +123,8 @@ const navLinks = [
   { href: '/#testimonials', text: 'Testimonials' },
   { href: '/#our-impact', text: 'Our Impact' },
   { href: '/#case-studies', text: 'Case Studies' },
-  { href: '/blog', text: 'Blogs' },
+  { href: '/#pricing', text: 'Pricing' },
+  // { href: '/blog', text: 'Blogs' },
   { href: '/#contact-us', text: 'Contact Us' },
 ];
 
