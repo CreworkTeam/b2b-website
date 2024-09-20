@@ -13,7 +13,7 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: ['react', 'react-dom'],
+        external: ['react-remove-scroll'],
       },
     },
   },
