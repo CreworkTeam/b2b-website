@@ -13,12 +13,7 @@ export default defineConfig({
   vite: {
     build: {
       rollupOptions: {
-        external: [],
-      },
-    },
-    resolve: {
-      alias: {
-        '@': path.resolve('./src'),
+        external: ['react', 'react-dom'],
       },
     },
   },
