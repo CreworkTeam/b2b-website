@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import Section from '../section.astro';
+import { BOOK_CALL } from '@/constants';
 ---
 
 <Section dataSection="pricing">
@@ -42,7 +43,9 @@ import Section from '../section.astro';
           }
         </div>
         <div class="flex items-center justify-center">
-          <button class="btn block h-fit w-full md:w-fit">Get your website</button>
+          <a href={BOOK_CALL} target="_blank" class="btn block h-fit w-full md:w-fit"
+            >Get your website</a
+          >
         </div>
       </div>
       <div
@@ -84,9 +87,11 @@ import Section from '../section.astro';
           }
         </div>
         <div class="flex items-center justify-center">
-          <button
+          <a
+            href={BOOK_CALL}
+            target="_blank"
             class="mx-auto block w-full cursor-pointer text-balance rounded-md bg-white px-4 py-2 text-xs font-medium leading-tight text-black active:bg-gradient-to-b active:from-black/20 active:to-white sm:px-6 sm:text-[16px] md:w-fit"
-            >Get your MVP</button
+            >Get your MVP</a
           >
         </div>
       </div>
