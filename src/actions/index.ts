@@ -1,5 +1,6 @@
-import { defineAction, z } from 'astro:actions';
+import { defineAction } from 'astro:actions';
 import { sendMail } from './send-mail';
+import { z } from 'astro:content';
 
 export const server = {
   contact: defineAction({
