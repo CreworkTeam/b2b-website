@@ -1,12 +1,11 @@
 import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { cn } from '@/lib/utils';
 import { LOOMS_ENDPOINT } from '@/constants.ts';
-import { useState } from 'react';
 import { CheckCircle, LoaderCircle } from 'lucide-react';
 
 const formSchema = z.object({
@@ -78,12 +77,12 @@ const SubscribeEmail = () => {
             {form.formState.isSubmitting ? (
               <>
                 <span>Subscribe</span>
-                <LoaderCircle className="ml-1 h-4 w-4 animate-spin" />
+                <LoaderCircle className="w-4 h-4 ml-1 animate-spin" />
               </>
             ) : form.formState.isSubmitSuccessful ? (
               <>
                 <span>Subscribed</span>
-                <CheckCircle className="ml-1 h-4 w-4" />
+                <CheckCircle className="w-4 h-4 ml-1" />
               </>
             ) : (
               'Subscribe'
