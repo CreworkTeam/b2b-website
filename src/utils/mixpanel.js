@@ -8,17 +8,21 @@ mixpanel.init(import.meta.env.PUBLIC_MIXPANEL_TOKEN, {
 });
 
 function trackButtonClick({ eventName, ...args }) {
-  const properties = Object.keys(args).reduce(
-    (acc, key) => {
-      if (args[key]) {
-        acc[changeCase.snakeCase(key)] = args[key];
-      }
-      return acc;
-    },
-    {
-      event_name: eventName,
-    },
-  );
+  console.log('Button Clicked:', eventName, args);
+  const properties = Object.keys(args).reduce((acc, key) => {
+    if (args[key]) {
+      acc[changeCase.snakeCase(key)] = args[key];
+    }
+    return acc;
+  }, {});
+
+  if (properties.btn_type === 'blog') {
+    properties.featured_blog = properties.featured_blog === 'true';
+  } else {
+    delete properties.featured_blog;
+  }
+
+  console.log('Button Clicked:', eventName, properties);
 
   mixpanel.track(eventName, properties);
 }
@@ -41,13 +45,15 @@ export function setupButtonTracking({ pageName = 'LandingPage' }) {
       }
 
       if (target) {
-        const buttonName = target?.textContent.trim() || '';
+        const buttonName = target?.getAttribute('data-btnname') || target?.textContent.trim() || '';
         const buttonUrl = target?.getAttribute('href') || '';
         const sectionElement = target.closest('[data-section]');
         const section = sectionElement?.getAttribute('data-section') || '';
         const btnType = target.closest('[data-btntype]')?.getAttribute('data-btntype') || '';
         const caseStudy =
           target.closest('[data-case-study]')?.getAttribute('data-case-study') || '';
+        const featuredBlog =
+          target.closest('[data-featured-blog]')?.getAttribute('data-featured-blog') || '';
         let eventName = 'Button_Clicked_';
 
         if (target.closest('nav')) {
@@ -58,7 +64,15 @@ export function setupButtonTracking({ pageName = 'LandingPage' }) {
           eventName += pageName;
         }
 
-        trackButtonClick({ buttonName, buttonUrl, btnType, caseStudy, eventName, section });
+        trackButtonClick({
+          buttonName,
+          buttonUrl,
+          btnType,
+          featuredBlog,
+          caseStudy,
+          eventName,
+          section,
+        });
       }
     },
     true,

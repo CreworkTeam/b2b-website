@@ -3,6 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel/serverless';
 
+import sectionize from '@hbsnow/rehype-sectionize';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
@@ -14,5 +16,8 @@ export default defineConfig({
         external: [],
       },
     },
+  },
+  markdown: {
+    rehypePlugins: [sectionize],
   },
 });

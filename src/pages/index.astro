@@ -1,11 +1,12 @@
 ---
 import MainLayout from '../layouts/main-layout.astro';
-import Hero from '../components/hero.astro';
-import OurImpact from '../components/impact.astro';
-import Testimonials from '../components/testimonials.astro';
-import OurPortfolio from '../components/portfolio.astro';
-import CaseStudies from '../components/case-studies.astro';
-import Contact from '../components/contact.astro';
+import Hero from '../components/home/hero.astro';
+import OurImpact from '../components/home/impact.astro';
+import Testimonials from '../components/home/testimonials.astro';
+import OurPortfolio from '../components/home/portfolio.astro';
+import CaseStudies from '../components/home/case-studies.astro';
+import Contact from '../components/home/contact.astro';
+import Pricing from '@/components/home/pricing.astro';
 ---
 
 <MainLayout
@@ -18,6 +19,7 @@ import Contact from '../components/contact.astro';
   <Testimonials />
   <OurImpact />
   <CaseStudies />
+  <Pricing />
   <Contact />
   <script>
     import { setupButtonTracking } from '../utils/mixpanel';

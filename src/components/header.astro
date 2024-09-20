@@ -1,13 +1,8 @@
 ---
-const navLinks = [
-  { href: '/#testimonials', text: 'Testimonials' },
-  { href: '/#our-impact', text: 'Our Impact' },
-  { href: '/#case-studies', text: 'Case Studies' },
-  { href: '/#contact-us', text: 'Contact Us' },
-];
+import { navLinks } from '@/constants.ts';
 ---
 
-<header class="relative z-10 border-b border-[#F1F1F1]">
+<header class="relative z-50 border-b border-[#F1F1F1]">
   <div
     class="relative mx-auto flex max-w-7xl items-center justify-between gap-8 bg-white px-8 py-4 md:px-16 xl:px-32"
   >
@@ -16,13 +11,13 @@ const navLinks = [
     </a>
     <input type="checkbox" id="menu" class="peer" hidden />
     <nav
-      class="absolute left-[8.5vw] top-0 -z-10 flex w-10/12 -translate-y-full flex-col items-center justify-center gap-3 bg-[#F1F1F1] text-sm font-medium text-[#020617] transition-all peer-checked:translate-y-16 sm:static sm:z-auto sm:h-auto sm:w-auto sm:translate-y-0 sm:flex-row sm:justify-start sm:bg-transparent sm:text-[#919191] sm:peer-checked:translate-y-0"
+      class="absolute left-0 top-0 -z-10 flex w-full -translate-y-full flex-col items-center justify-center gap-3 bg-[#F1F1F1] py-3 text-sm font-medium text-[#020617] shadow-md transition-all peer-checked:translate-y-16 sm:static sm:z-20 sm:h-auto sm:w-auto sm:translate-y-0 sm:flex-row sm:justify-start sm:bg-transparent sm:py-0 sm:text-[#919191] sm:shadow-none sm:peer-checked:translate-y-0"
     >
       {
         navLinks.map(({ href, text }) => (
           <a
             href={href}
-            class="flex h-8 w-full items-center justify-center hover:text-black sm:w-fit"
+            class="flex h-8 w-full items-center justify-center truncate hover:text-black sm:w-fit"
           >
             {text}
           </a>

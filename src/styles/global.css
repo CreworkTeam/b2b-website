@@ -131,6 +131,12 @@
   h4 {
     @apply text-lg font-normal text-[#5D5D5D] sm:text-xl md:text-2xl;
   }
+  h5 {
+    @apply text-base font-normal text-[#5D5D5D] sm:text-lg md:text-xl;
+  }
+  h6 {
+    @apply text-sm font-normal text-[#5D5D5D] sm:text-base md:text-lg;
+  }
   ul {
     @apply list-inside list-disc;
   }
@@ -154,7 +160,7 @@
   }
 
   .btn {
-    @apply m-0 rounded-lg border-[1.3px] border-[#FFFFFF33] px-6 py-2 text-xs font-medium text-white sm:text-base;
+    @apply m-0 rounded-lg border-[1.3px] border-[#FFFFFF33] px-3 py-2 text-xs font-medium text-white sm:px-6 sm:text-base;
     @apply bg-black bg-gradient-to-b from-[#ffffff4d] from-[7.29%] to-[#ffffff00] to-[65.62%] shadow-lg;
     @apply transition-all duration-100 ease-in-out;
     @apply cursor-pointer active:bg-none active:shadow-none;

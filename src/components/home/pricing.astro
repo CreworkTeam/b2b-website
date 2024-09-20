@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import Section from '../section.astro';
+---
+
+<Section>
+  <div class="space-y-6 text-center">
+    <div class="space-y-3">
+      <h2 class="font-semibold">Simple plans to get you started fast ⚡</h2>
+      <p>Ready to turn your idea into a product? Choose a plan that's right for you</p>
+    </div>
+    <div
+      class="mx-auto flex w-full flex-col rounded-2xl border-[#BBBBBB] shadow-[0px_0px_4px_0px_#00000040] md:w-11/12 md:flex-row"
+    >
+      <div class="grid grid-cols-1 grid-rows-6 rounded-t-2xl p-5 text-center md:rounded-l-2xl">
+        <div class="row-span-1 flex flex-col justify-center">
+          <h5 class="text-balance text-[#191D23]">Website Design & Development</h5>
+          <p class="text-sm text-[#8A8A8A]">
+            For founders or teams who want to launch a perfect website in 1 week.
+          </p>
+        </div>
+        <div class="row-span-1 flex items-center justify-center p-2">
+          <h2 class="inline">$4000</h2>
+        </div>
+        <div class="row-span-3 flex flex-col gap-2">
+          {
+            [
+              'Launch a high-conversion website in just 1 week',
+              'Custom design for all website pages',
+              'Regular communication and progress updates',
+              'Turnaround time: 4-5 business days',
+              'Responsive design for mobile and desktop',
+              'Only website design for $2000 ⚡',
+            ].map((item) => (
+              <div class="flex items-start gap-2 text-start">
+                <div class="flex size-8 items-center justify-center rounded-full bg-[#E1E1E1]">
+                  <Image src="/icons/tick.svg" alt="tick" class="size-3" width={4} height={4} />
+                </div>
+                <div class="flex-1 text-[#191D23]">{item}</div>
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex items-center justify-center">
+          <button class="btn block h-fit w-full md:w-fit">Get your website</button>
+        </div>
+      </div>
+      <div
+        class="grid grid-cols-1 grid-rows-6 rounded-b-2xl bg-[#0A0A0A] p-5 text-center text-white md:rounded-r-2xl md:rounded-bl-none"
+      >
+        <div class="row-span-1 flex flex-col justify-center">
+          <h5 class="text-balance text-white">MVP Development</h5>
+          <p class="text-balance text-sm text-[#C8C8C8]">
+            For founders or teams looking to build new products and initiatives.
+          </p>
+        </div>
+        <div class="row-span-1 flex items-center justify-center gap-2 p-2">
+          <span>Starts from</span>
+          <h2 class="inline text-white">$8000</h2>
+        </div>
+        <div class="row-span-3 flex flex-col gap-2">
+          {
+            [
+              'Transform your ideas into functional products',
+              'Market research and competitor analysis',
+              'Custom brand identity design',
+              'UI/UX design for website and the product',
+              'End-to-end development (web or mobile app)',
+              'Project management and regular progress updates',
+            ].map((item) => (
+              <div class="flex items-start gap-2 text-start">
+                <div class="flex size-8 items-center justify-center rounded-full bg-[#252525]">
+                  <Image
+                    src="/icons/tick-white.svg"
+                    alt="tick"
+                    class="size-3"
+                    width={4}
+                    height={4}
+                  />
+                </div>
+                <div class="flex-1">{item}</div>
+              </div>
+            ))
+          }
+        </div>
+        <div class="flex items-center justify-center">
+          <button
+            class="mx-auto block w-full cursor-pointer text-balance rounded-md bg-white px-4 py-2 text-xs font-medium leading-tight text-black active:bg-gradient-to-b active:from-black/20 active:to-white sm:px-6 sm:text-[16px] md:w-fit"
+            >Get your MVP</button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

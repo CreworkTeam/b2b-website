@@ -1,0 +1,21 @@
+---
+const { heading } = Astro.props;
+---
+
+<li>
+  <a
+    href={'#' + heading.slug}
+    class="inline-block text-[16px] leading-tight text-[#5D5D5D] underline-offset-4 transition-all duration-300 hover:text-black"
+  >
+    {heading.text.replace(/[^a-zA-Z ]/g, '')}
+  </a>
+  {
+    heading.subheadings.length > 0 && (
+      <ul class="list-none space-y-2 text-xs [&>li]:ml-4">
+        {heading.subheadings.map((subheading: any) => (
+          <Astro.self heading={subheading} />
+        ))}
+      </ul>
+    )
+  }
+</li>

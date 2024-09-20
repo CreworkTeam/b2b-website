@@ -1,7 +1,8 @@
 ---
 import Dot from '../components/dot.astro';
 import BorderBeam from '../components/border.astro';
-import { BOOK_CALL } from '../constants';
+import { BOOK_CALL } from '@/constants.ts';
+const { text = 'Tell us about your project' } = Astro.props;
 ---
 
 <div class="section-container border-t-0 pt-0">
@@ -27,13 +28,13 @@ import { BOOK_CALL } from '../constants';
       <Dot class="right-0 top-0 -translate-y-1/2 translate-x-1/2" />
       <Dot class="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
       <Dot class="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
-      <h2 class="text-center text-white">Tell us about your project</h2>
+      <h2 class="text-center text-white">{text}</h2>
       <a
         href={BOOK_CALL}
         target="_blank"
         data-btntype="book call - secondary"
-        class="mx-auto block cursor-pointer text-balance rounded-xl bg-white px-4 py-2 text-xs active:bg-gradient-to-b active:from-black/20 active:to-white md:px-14 md:py-4 md:text-2xl"
-        >Book a call</a
+        class="mx-auto block cursor-pointer text-balance rounded-xl bg-white px-4 py-2 text-center text-xs active:bg-gradient-to-b active:from-black/20 active:to-white md:px-14 md:py-4 md:text-2xl"
+        >Book a free discovery call</a
       >
       <BorderBeam size={250} duration={12} delay={9} colorFrom="#ffffff" colorTo="transparent" />
     </div>

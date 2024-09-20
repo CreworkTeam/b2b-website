@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import { BOOK_CALL } from '../constants';
-import Increment from './react/increment';
+import { BOOK_CALL } from '@/constants.ts';
+import Increment from '@/components/react/increment';
 ---
 
 <section id="our-impact" class="section-container" data-section="impact">
@@ -124,8 +124,8 @@ import Increment from './react/increment';
   <a
     href={BOOK_CALL}
     target="_blank"
-    class="btn mx-auto mt-14 block px-14 text-center md:w-fit lg:mx-0"
+    class="btn mx-auto mt-14 block text-center sm:mx-0 md:w-fit md:px-14"
   >
-    Book a Call
+    Book a free discovery call
   </a>
 </section>

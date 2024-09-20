@@ -1,16 +1,42 @@
 ---
-// component imports
-const allBlogs = await Astro.glob('../blog/**/*.md');
+import { getCollection } from 'astro:content';
 import MainLayout from '../../layouts/main-layout.astro';
 import Section from '../../components/section.astro';
 import FeaturedCarousel from '@/components/blog/features-carousel';
 import BlogCard from '@/components/blog/blog-card';
-import { Input } from '@/components/ui/input';
-import SelectTag from '@/components/blog/select-tags';
-import { Image } from 'astro:assets';
+import FilterForm from '@/components/blog/filter-form';
+import SubscribeEmail from '@/components/blog/subscribe-email';
+
+const allBlogs = await getCollection('blogs');
+const uniqueTags = allBlogs
+  .map(({ data }) => data.blogCategories)
+  .flat()
+  .filter((tag: any, index: any, self: string | any[]) => self.indexOf(tag) === index);
+
+const search = Astro.url.searchParams.get('search') || '';
+const category = Astro.url.searchParams.get('category') || '';
+
+const filteredBlogs = allBlogs.filter(({ data }) => {
+  {
+    const matchesSearch = search
+      ? data.blogTitle.toLowerCase().includes(search.toLowerCase()) ||
+        data.blogDescription.toLowerCase().includes(search.toLowerCase())
+      : true;
+    const matchesCategory =
+      category && category !== 'all' ? data.blogCategories.includes(category) : true;
+    return matchesSearch && matchesCategory;
+  }
+});
+
+const featuredBlogs = allBlogs
+  .map(({ slug, data: { ...rest } }) => ({ url: `/blog/${slug}`, ...rest }))
+  .filter(({ featured }) => featured);
 ---
 
-<MainLayout title="My Blog">
+<MainLayout
+  title="My Blog"
+  description="No bullshit insights on how to improve conversions and build better products to make more money"
+>
   <Section>
     <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
       <div class="flex-[3] space-y-2 text-center md:text-start">
@@ -21,51 +47,25 @@ import { Image } from 'astro:assets';
         </p>
       </div>
       <div class="flex flex-[2] flex-col items-center justify-end gap-1 md:items-end">
-        <p class="text-lg font-medium">Subscribe to our newsletter</p>
-        <div class="relative flex flex-1 rounded-md border bg-[#F4F4F4] px-2">
-          <Input
-            type="text"
-            placeholder="Search"
-            className="flex-1 border-0 shadow-none focus-visible:ring-0"
-          />
-          <div class="flex cursor-pointer items-center pr-2 text-sm font-medium">Subscribe</div>
-        </div>
+        <SubscribeEmail client:load />
       </div>
     </div>
   </Section>
   <Section className="space-y-6">
     <div class="space-y-3">
       <h4 class="text-black">Featured</h4>
-      <div>
-        <FeaturedCarousel
-          blogs={allBlogs.map(({ url, frontmatter }) => ({ url, ...frontmatter }))}
-          client:load
-        />
+      <div data-featured-blog="true">
+        <FeaturedCarousel blogs={featuredBlogs} client:load />
       </div>
     </div>
     <div>
       <div class="flex flex-col justify-between gap-2 md:flex-row">
         <h4 class="text-black">All Articles</h4>
-        <div class="flex gap-2">
-          <div class="relative flex flex-1 items-center rounded-md border bg-[#F4F4F4]">
-            <Input
-              placeholder="Search"
-              className="flex-1 border-0 shadow-none focus-visible:ring-0"
-            />
-            <Image
-              width={6}
-              height={6}
-              src="/icons/search.svg"
-              alt="search"
-              class="h-full w-6 cursor-pointer rounded-r-md object-contain pr-2"
-            />
-          </div>
-          <SelectTag client:load />
-        </div>
+        <FilterForm uniqueTags={uniqueTags} client:load />
       </div>
       <div class="flex flex-wrap">
         {
-          allBlogs.map(({ url, frontmatter }, index) => (
+          filteredBlogs.map(({ slug, data }: any, index: number) => (
             <div
               class:list={[
                 'w-full py-4 md:w-1/2',
@@ -75,12 +75,19 @@ import { Image } from 'astro:assets';
                 },
               ]}
             >
-              <BlogCard {...frontmatter} url={url} client:load />
+              <BlogCard {...data} url={`/blog/${slug}`} client:load />
             </div>
           ))
         }
       </div>
     </div>
-    <button class="btn mx-auto block px-14"> View More </button>
+    <button class="btn mx-auto block px-14" data-btntype="view more"> View More </button>
   </Section>
+  <script>
+    import { setupButtonTracking } from '@/utils/mixpanel';
+
+    setupButtonTracking({
+      pageName: 'Blogs',
+    });
+  </script>
 </MainLayout>

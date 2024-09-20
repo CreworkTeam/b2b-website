@@ -1,5 +1,5 @@
 ---
-const { animationDelay } = Astro.props;
+const { animationDelay, animationDirection } = Astro.props;
 ---
 
 <div class="relative flex items-center overflow-hidden">
@@ -7,6 +7,7 @@ const { animationDelay } = Astro.props;
     style={{
       animationDelay,
       animationDuration: '20s',
+      animationDirection,
     }}
     class="flex animate-marquee items-center whitespace-nowrap"
   >
@@ -16,6 +17,7 @@ const { animationDelay } = Astro.props;
     style={{
       animationDelay,
       animationDuration: '20s',
+      animationDirection,
     }}
     class="absolute top-0 flex animate-marquee2 items-center whitespace-nowrap"
   >

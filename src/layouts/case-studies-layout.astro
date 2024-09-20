@@ -3,7 +3,7 @@ import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import '../styles/global.css';
 import TalkToUs from '../components/talk-to-us.astro';
-import { BOOK_CALL } from '../constants';
+import { BOOK_CALL } from '@/constants.ts';
 const { title, description, canonical, mptag } = Astro.props;
 ---
 
@@ -34,7 +34,7 @@ const { title, description, canonical, mptag } = Astro.props;
     <Header />
     <main class="relative">
       <section
-        class="relative -z-10 mx-auto h-28 w-10/12 max-w-5xl border-x border-[#F1F1F1] sm:px-16 lg:w-9/12"
+        class="relative -z-10 mx-auto h-12 w-10/12 max-w-5xl border-x border-[#F1F1F1] sm:px-16 lg:w-9/12"
       >
       </section>
       <section class="section-container relative space-y-12 border-b-0" data-case-study={mptag}>
@@ -64,8 +64,8 @@ const { title, description, canonical, mptag } = Astro.props;
             <h4 class="text-black">Table of Content</h4>
             <slot name="table-of-content" />
             <h4 class="text-xl text-black">Have a project?</h4>
-            <a href={BOOK_CALL} target="_blank" class="btn block w-fit"
-              ><span class="text-sm"> Book a call</span></a
+            <a href={BOOK_CALL} target="_blank" class="btn block w-fit text-balance text-center"
+              ><span class="text-sm">Book a free discovery call</span></a
             >
           </div>
         </div>

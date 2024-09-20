@@ -1,20 +1,33 @@
 ---
 // utils imports
 import { Image } from 'astro:assets';
-import { slugify, formatDate } from '../../utils/helpers.js';
+import { formatDate } from 'date-fns';
 
-const { blogCategory, blogTitle, blogAuthor, blogDate, blogImage } = Astro.props;
+const {
+  data: { blogTitle, blogAuthor, blogDate, blogImage },
+} = Astro.props;
 ---
 
-<header>
-  <div class="container">
-    <small>
-      <a href={`/category/${slugify(blogCategory)}/`} class="badge">{blogCategory}</a>
-    </small>
-    <h1 class="h2">{blogTitle}</h1>
-    <p>
-      by <a href={`/author/${slugify(blogAuthor)}/`}>{blogAuthor}</a> • {formatDate(blogDate)}
-    </p>
+<header class="space-y-4">
+  <div class="space-y-4">
+    <h1 class="font-semibold">{blogTitle}</h1>
+    <div class="flex items-center gap-3">
+      <Image
+        src={blogAuthor.image}
+        alt={blogAuthor.author}
+        width="40"
+        height="40"
+        format="avif"
+        quality={80}
+        class="size-10 rounded-full"
+      />
+      <div>
+        <h6 class="text-black">By <span>{blogAuthor.author}</span></h6>
+        <p class="text-sm text-[#686868]">
+          {blogDate ? formatDate(blogDate, 'MMMM dd, yyyy') : null}
+        </p>
+      </div>
+    </div>
   </div>
   <Image
     src={blogImage.src}
