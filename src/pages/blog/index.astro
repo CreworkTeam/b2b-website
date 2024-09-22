@@ -1,32 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
 import MainLayout from '../../layouts/main-layout.astro';
 import Section from '../../components/section.astro';
 import FeaturedCarousel from '@/components/blog/features-carousel';
-import BlogCard from '@/components/blog/blog-card';
-import FilterForm from '@/components/blog/filter-form';
 import SubscribeEmail from '@/components/blog/subscribe-email';
+import BlogList from '@/components/blog/blog-list';
+import { getCollection } from 'astro:content';
 
 const allBlogs = await getCollection('blogs');
-const uniqueTags = allBlogs
-  .map(({ data }) => data.blogCategories)
-  .flat()
-  .filter((tag: any, index: any, self: string | any[]) => self.indexOf(tag) === index);
-
-const search = Astro.url.searchParams.get('search') || '';
-const category = Astro.url.searchParams.get('category') || '';
-
-const filteredBlogs = allBlogs.filter(({ data }) => {
-  {
-    const matchesSearch = search
-      ? data.blogTitle.toLowerCase().includes(search.toLowerCase()) ||
-        data.blogDescription.toLowerCase().includes(search.toLowerCase())
-      : true;
-    const matchesCategory =
-      category && category !== 'all' ? data.blogCategories.includes(category) : true;
-    return matchesSearch && matchesCategory;
-  }
-});
 
 const featuredBlogs = allBlogs
   .map(({ slug, data: { ...rest } }) => ({ url: `/blog/${slug}`, ...rest }))
@@ -51,37 +31,14 @@ const featuredBlogs = allBlogs
       </div>
     </div>
   </Section>
-  <Section className="space-y-6">
+  <Section>
     <div class="space-y-3">
       <h4 class="text-black">Featured</h4>
       <div data-featured-blog="true">
         <FeaturedCarousel blogs={featuredBlogs} client:load />
       </div>
     </div>
-    <div>
-      <div class="flex flex-col justify-between gap-2 md:flex-row">
-        <h4 class="text-black">All Articles</h4>
-        <FilterForm uniqueTags={uniqueTags} client:load />
-      </div>
-      <div class="flex flex-wrap">
-        {
-          filteredBlogs.map(({ slug, data }: any, index: number) => (
-            <div
-              class:list={[
-                'w-full py-4 md:w-1/2',
-                {
-                  'md:pr-2': index % 2 === 0,
-                  'md:pl-2': index % 2 !== 0,
-                },
-              ]}
-            >
-              <BlogCard {...data} url={`/blog/${slug}`} client:load />
-            </div>
-          ))
-        }
-      </div>
-    </div>
-    <!-- <button class="block mx-auto btn px-14" data-btntype="view more"> View More </button> -->
+    <BlogList client:load />
   </Section>
   <script>
     import { setupButtonTracking } from '@/utils/mixpanel';

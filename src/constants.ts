@@ -83,6 +83,7 @@ const TESTIMONIALS = [
 
 const BOOK_CALL = 'https://calendly.com/creworklabs/30mins';
 const LOOMS_ENDPOINT = 'https://app.loops.so/api/newsletter-form/clwv3dv6s014l11kiyput7szt';
+const BLOG_RESULTS_LIMIT = 2;
 
 const portfolio = [
   {
@@ -158,5 +159,6 @@ export {
   portfolio,
   navLinks,
   socials,
+  BLOG_RESULTS_LIMIT,
   getSocialShareLinks,
 };
