@@ -17,7 +17,7 @@ const {
   slug,
 } = blogData;
 
-const url = Astro.url.pathname;
+const url = Astro.url.href;
 
 const blogs = await getCollection('blogs');
 const recommendations = blogs
