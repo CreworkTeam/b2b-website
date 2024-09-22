@@ -17,7 +17,7 @@ const {
   slug,
 } = blogData;
 
-const url = Astro.url.href;
+const url = Astro.url.pathname;
 
 const blogs = await getCollection('blogs');
 const recommendations = blogs
@@ -41,12 +41,9 @@ const recommendations = blogs
           <div class="flex gap-2">
             {
               blogCategories.map((category) => (
-                <a
-                  href={`/blog?category=${category}`}
-                  class="rounded-md border border-[#D8D8D8] bg-[#F4F4F4] px-2 py-1 text-sm font-normal text-[#3E3E3E] no-underline"
-                >
+                <div class="rounded-md border border-[#D8D8D8] bg-[#F4F4F4] px-2 py-1 text-sm font-normal text-[#3E3E3E] no-underline">
                   {category}
-                </a>
+                </div>
               ))
             }
           </div>
