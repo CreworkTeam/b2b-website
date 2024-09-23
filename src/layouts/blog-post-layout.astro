@@ -31,7 +31,12 @@ const recommendations =
   rds.length >= 2 ? rds.slice(0, 2) : blogs.filter(({ blogSlug }) => slug !== blogSlug).slice(0, 2);
 ---
 
-<MainLayout title={blogTitle} description={blogDescription} og_image={blogImage.src}>
+<MainLayout
+  title={blogTitle}
+  description={blogDescription}
+  canonical={`https://www.creworklabs.com/blog/${slug}`}
+  og_image={blogImage.src}
+>
   <Section className="border-b-0">
     <BlogHeader {...blogData} />
     <div class="mt-6 flex flex-col-reverse gap-12 md:flex-row md:gap-8" id="article-content">
