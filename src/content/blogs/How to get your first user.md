@@ -2,11 +2,7 @@
 blogTitle: How to get your first user?
 blogDate: September 13, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage:
-  {
-    src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1726582634/blogs/image_3_b8uw6r.png',
-    alt: 'A picture of a coder',
-  }
+blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'A picture of a coder' }
 blogDescription: Have you ever wondered what the most important items of life are? Well, wonder no more!
 draft: false
 featured: true
@@ -69,8 +65,6 @@ The best advice for acquiring users for your product is simple:
 **Go after your Target Audience!**
 
 ![Dialogue](/blogs/dialogue.png)
-
-**gif** [https://images.app.goo.gl/K3xZtXKkwSrquSFL9](https://images.app.goo.gl/K3xZtXKkwSrquSFL9)
 
 _Find your target users wherever they may be, whether online, offline, or even in the depths of the Amazon forest._
 

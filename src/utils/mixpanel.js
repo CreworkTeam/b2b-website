@@ -8,7 +8,6 @@ mixpanel.init(import.meta.env.PUBLIC_MIXPANEL_TOKEN, {
 });
 
 function trackButtonClick({ eventName, ...args }) {
-  console.log('Button Clicked:', eventName, args);
   const properties = Object.keys(args).reduce((acc, key) => {
     if (args[key]) {
       acc[changeCase.snakeCase(key)] = args[key];
@@ -21,8 +20,6 @@ function trackButtonClick({ eventName, ...args }) {
   } else {
     delete properties.featured_blog;
   }
-
-  console.log('Button Clicked:', eventName, properties);
 
   mixpanel.track(eventName, properties);
 }

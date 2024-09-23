@@ -20,21 +20,21 @@ const {
 const url = Astro.url.href;
 
 const blogs = await getCollection('blogs');
-const recommendations = blogs
-  .filter(({ data, slug: blogSlug }) => {
-    const isSameCategory = data.blogCategories.some((category: any) =>
-      blogCategories.includes(category),
-    );
-    return isSameCategory && blogSlug !== slug;
-  })
-  .slice(0, 2);
+const rds = blogs.filter(({ data, slug: blogSlug }) => {
+  const isSameCategory = data.blogCategories.some((category: any) =>
+    blogCategories.includes(category),
+  );
+  return isSameCategory && blogSlug !== slug;
+});
+const recommendations =
+  rds.length >= 2 ? rds.slice(0, 2) : blogs.filter(({ blogSlug }) => slug !== blogSlug).slice(0, 2);
 ---
 
 <MainLayout title={blogTitle} description={blogDescription}>
   <Section className="space-y-4 border-b-0 md:space-y-16">
     <BlogHeader {...blogData} />
     <div class="flex flex-col-reverse gap-12 md:flex-row md:gap-8" id="article-content">
-      <div class="prose max-w-none flex-1">
+      <div class="prose max-w-none flex-1 [&_a]:break-words">
         <slot />
         <div>
           <h4>Tags</h4>

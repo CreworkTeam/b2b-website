@@ -2,11 +2,7 @@
 blogTitle: How To Provide Value To Users?
 blogDate: September 19, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage:
-  {
-    src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1726582634/blogs/image_3_b8uw6r.png',
-    alt: 'A picture of a coder',
-  }
+blogImage: { src: '/blogs/how-to-provide-value-to-users.png', alt: 'A picture of a coder' }
 blogDescription: Have you ever wondered what the most important items of life are? Well, wonder no more!
 draft: false
 featured: true

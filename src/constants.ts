@@ -83,7 +83,7 @@ const TESTIMONIALS = [
 
 const BOOK_CALL = 'https://calendly.com/creworklabs/30mins';
 const LOOMS_ENDPOINT = 'https://app.loops.so/api/newsletter-form/clwv3dv6s014l11kiyput7szt';
-const BLOG_RESULTS_LIMIT = 2;
+const BLOG_RESULTS_LIMIT = 4;
 
 const portfolio = [
   {
@@ -118,6 +118,10 @@ const portfolio = [
     image: '/portfolio/white-swan.png',
     name: 'White Swan',
   },
+  {
+    image: '/portfolio/site-genius.png',
+    name: 'Site Genius',
+  },
 ];
 
 const navLinks = [
@@ -125,7 +129,7 @@ const navLinks = [
   { href: '/#our-impact', text: 'Our Impact' },
   { href: '/#case-studies', text: 'Case Studies' },
   { href: '/#pricing', text: 'Pricing' },
-  // { href: '/blog', text: 'Blogs' },
+  { href: '/blog', text: 'Blogs' },
   { href: '/#contact-us', text: 'Contact Us' },
 ];
 

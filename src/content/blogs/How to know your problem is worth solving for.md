@@ -3,10 +3,7 @@ blogTitle: How to know your problem is worth solving for?
 blogDate: September 7, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage:
-  {
-    src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1726582634/blogs/image_3_b8uw6r.png',
-    alt: 'A picture of a coder',
-  }
+  { src: '/blogs/how-to-know-your-problem-is-worth-solving-for.png', alt: 'A picture of a coder' }
 blogDescription: Have you ever wondered what the most important items of life are? Well, wonder no more!
 draft: false
 featured: true
