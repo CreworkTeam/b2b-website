@@ -38,7 +38,7 @@ const recommendations =
   og_image={blogImage.src}
 >
   <Section className="border-b-0">
-    <BlogHeader {...blogData} />
+    <BlogHeader {...blogData} slug={slug} />
     <div class="mt-6 flex flex-col-reverse gap-12 md:flex-row md:gap-8" id="article-content">
       <div class="prose max-w-none flex-1 [&_a]:break-words">
         <slot />
@@ -103,7 +103,7 @@ const recommendations =
                 'md:pl-4': idx === 1,
               })}
             >
-              <BlogCard {...data} url={`/blog/${slug}`} />
+              <BlogCard {...data} slug={slug} />
             </div>
           ))
         }

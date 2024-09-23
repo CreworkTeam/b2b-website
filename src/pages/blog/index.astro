@@ -9,7 +9,7 @@ import { getCollection } from 'astro:content';
 const allBlogs = await getCollection('blogs');
 
 const featuredBlogs = allBlogs
-  .map(({ slug, data: { ...rest } }) => ({ url: `/blog/${slug}`, ...rest }))
+  .map(({ slug, data: { ...rest } }) => ({ slug, ...rest }))
   .filter(({ featured }) => featured);
 ---
 
@@ -36,7 +36,7 @@ const featuredBlogs = allBlogs
     <div class="space-y-3">
       <h4 class="text-black">Featured</h4>
       <div data-featured-blog="true">
-        <FeaturedCarousel blogs={featuredBlogs} client:load />
+        <!-- <FeaturedCarousel blogs={featuredBlogs} client:load /> -->
       </div>
     </div>
     <BlogList client:load />

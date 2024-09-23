@@ -125,7 +125,7 @@ const BlogList = () => {
               'md:pl-2': index % 2 !== 0,
             })}
           >
-            <BlogCard {...data} url={`/blog/${slug}`} client:load />
+            <BlogCard {...data} slug={slug} client:load />
           </div>
         ))}
         {state.loading &&

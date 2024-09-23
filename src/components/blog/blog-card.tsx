@@ -1,7 +1,9 @@
 import { format } from 'date-fns';
 
 const BlogCard = (props) => {
-  const { blogTitle, blogDescription, blogImage, blogDate, url } = props;
+  const { blogTitle, blogDescription, blogImage, blogDate, slug } = props;
+
+  const url = `/blog/${slug}`;
 
   return (
     <a
