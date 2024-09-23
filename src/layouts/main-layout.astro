@@ -2,7 +2,7 @@
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import '../styles/global.css';
-const { title, description, canonical } = Astro.props;
+const { title, description, canonical, og_image = '/opengraph.png' } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,14 +19,14 @@ const { title, description, canonical } = Astro.props;
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/opengraph.png" />
+    <meta property="og:image" content={og_image} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/opengraph.png" />
+    <meta name="twitter:image" content={og_image} />
   </head>
   <body>
     <Header />
