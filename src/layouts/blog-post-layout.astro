@@ -118,29 +118,28 @@ const recommendations =
     pageName: 'BlogPage',
   });
 
-  function addIntersectionObserver() {
-    const observer = new IntersectionObserver((sections) => {
-      sections.forEach((section) => {
-        const heading = section.target.querySelector('h2, h3, h4, h5');
-        if (!heading) return;
+  window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('#article-content section');
+
+    let prevHighlightedLink = document.querySelector('#toc li a.underline');
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const isSectionHeadingOnTop = rect.top >= 20 && rect.top <= 200;
+
+      if (isSectionHeadingOnTop) {
+        const heading = section.querySelector('h2, h3, h4, h5');
         const id = heading.getAttribute('id');
-
-        // Get the link to this section's heading
         const link = document.querySelector(`#toc li a[href="#${id}"]`);
-        if (!link) return;
 
-        if (section.isIntersecting) {
-          link.classList.add('underline');
-        } else {
-          link.classList.remove('underline');
+        if (prevHighlightedLink) {
+          prevHighlightedLink.classList.remove('underline');
         }
-      });
-    });
 
-    document.querySelectorAll('#article-content section').forEach((section) => {
-      observer.observe(section);
-    });
-  }
+        link.classList.add('underline');
 
-  addIntersectionObserver();
+        prevHighlightedLink = link;
+      }
+    });
+  });
 </script>
