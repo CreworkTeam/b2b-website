@@ -104,7 +104,7 @@ const BlogList = () => {
   }, [state.page, state.selectedCategory]);
 
   return (
-    <div className="my-4">
+    <div className="my-4 space-y-2">
       <div className="flex flex-col justify-between gap-2 md:flex-row">
         <h4 className="text-black">All Articles</h4>
         <FilterForm
@@ -115,10 +115,6 @@ const BlogList = () => {
           handleSubmit={handleSearch}
           handleChangeCategory={handleChangeCategory}
         />
-      </div>
-      <div>
-        <hr className="my-4 border-t border-gray-200" />
-        <MemoizedResultHeader state={state} />
       </div>
       <div className={cn('flex flex-wrap')}>
         {state.filteredBlogs?.map(({ slug, data }: any, index: number) => (
@@ -163,20 +159,6 @@ const BlogList = () => {
         </button>
       )}
     </div>
-  );
-};
-
-const MemoizedResultHeader = ({ state }: { state: any }) => {
-  const { totalBlogs, selectedCategory, query } = useMemo(
-    () => state,
-    [state.totalBlogs, state.selectedCategory],
-  );
-
-  return (
-    <p>
-      {totalBlogs} results for {selectedCategory === 'all' ? 'all categories' : selectedCategory}{' '}
-      {query && `matching "${query}"`}
-    </p>
   );
 };
 
