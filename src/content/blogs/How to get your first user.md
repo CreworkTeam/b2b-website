@@ -3,7 +3,7 @@ blogTitle: How to get your first user?
 blogDate: September 13, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'A picture of a coder' }
-blogDescription: Have you ever wondered what the most important items of life are? Well, wonder no more!
+blogDescription: Unlock proven strategies for acquiring early adopters for your new product or service. Learn how to identify, reach, and engage your initial user base to kickstart growth.
 draft: false
 featured: true
 blogCategories: ['MVP', 'validation', 'Marketing']
