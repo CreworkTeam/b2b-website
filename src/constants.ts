@@ -126,7 +126,7 @@ const portfolio = [
 
 const navLinks = [
   { href: '/#testimonials', text: 'Testimonials' },
-  { href: '/#our-impact', text: 'Our Impact' },
+  // { href: '/#our-impact', text: 'Our Impact' },
   { href: '/#case-studies', text: 'Case Studies' },
   { href: '/#pricing', text: 'Pricing' },
   { href: '/blog', text: 'Blogs' },
