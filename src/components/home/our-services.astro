@@ -1,0 +1,46 @@
+---
+import Section from '../section.astro';
+---
+
+<Section dataSection="our-services">
+  <div class="space-y-3 text-center">
+    <h2 class="font-semibold">Our Services</h2>
+    <p>From concept to creation, we're your trusted digital partner.</p>
+  </div>
+  <div class="mt-6 space-y-6">
+    {
+      [
+        {
+          title: 'Design',
+          description:
+            'We create visually stunning and user-friendly designs that leave a lasting impression.',
+          tags: ['UI/UX Design', 'Landing Page and Website  Design', 'Brand Identity Design'],
+        },
+        {
+          title: 'Development',
+          description:
+            'With expertise in various programming languages and frameworks, we build robust and scalable web and mobile applications.',
+          tags: ['Framer Development', 'Web Development', 'Mobile App Development'],
+        },
+        {
+          title: 'MVP Development',
+          description:
+            'Our MVP development services help you launch a minimum viable product that captures early-stage feedback and validates your concept.',
+          tags: ['Market Research', 'Competitor Analysis', 'Web and App Development'],
+        },
+      ].map(({ title, description, tags }) => (
+        <div class="flex flex-col gap-4 rounded-3xl border border-[#C1C1C1] px-6 py-6 md:flex-row md:gap-12">
+          <div class="flex-1 space-y-3">
+            <h3 class="font-medium">{title}</h3>
+            <p class="text-sm text-[#686868]">{description}</p>
+          </div>
+          <div class="flex-1 divide-y">
+            {tags.map((tag) => (
+              <div class="py-2">{tag}</div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Section>
