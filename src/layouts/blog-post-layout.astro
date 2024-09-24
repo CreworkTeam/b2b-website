@@ -28,7 +28,9 @@ const rds = blogs.filter(({ data, slug: blogSlug }) => {
   return isSameCategory && blogSlug !== slug;
 });
 const recommendations =
-  rds.length >= 2 ? rds.slice(0, 2) : blogs.filter(({ blogSlug }) => slug !== blogSlug).slice(0, 2);
+  rds.length >= 2
+    ? rds.slice(0, 2)
+    : blogs.filter(({ slug: blogSlug }) => slug !== blogSlug).slice(0, 2);
 ---
 
 <MainLayout

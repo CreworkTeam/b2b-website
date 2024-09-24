@@ -4,12 +4,14 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel/serverless';
 import sectionize from '@hbsnow/rehype-sectionize';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   output: 'server',
-  integrations: [tailwind(), react()],
-  adapter: vercel(),
   site: 'https://www.creworklabs.com',
+  integrations: [tailwind(), react(), sitemap()],
+  adapter: vercel(),
   vite: {
     build: {
       rollupOptions: {
