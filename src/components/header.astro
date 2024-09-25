@@ -14,14 +14,17 @@ import { navLinks } from '@/constants.ts';
       class="absolute left-0 top-0 -z-10 flex w-full -translate-y-full flex-col items-center justify-center gap-3 bg-[#F1F1F1] py-3 text-sm font-medium text-[#020617] shadow-md transition-all peer-checked:translate-y-16 sm:static sm:z-20 sm:h-auto sm:w-auto sm:translate-y-0 sm:flex-row sm:justify-start sm:bg-transparent sm:py-0 sm:text-[#919191] sm:shadow-none sm:peer-checked:translate-y-0"
     >
       {
-        navLinks.map(({ href, text }) => (
-          <a
-            href={href}
-            class="flex h-8 w-full items-center justify-center truncate hover:text-black sm:w-fit"
-          >
-            {text}
-          </a>
-        ))
+        navLinks.map(
+          ({ href, text, prefetch }: { href: string; text: string; prefetch?: boolean }) => (
+            <a
+              href={href}
+              class="flex h-8 w-full items-center justify-center truncate hover:text-black sm:w-fit"
+              {...(prefetch && { 'data-astro-prefetch': 'viewport' })}
+            >
+              {text}
+            </a>
+          ),
+        )
       }
     </nav>
     <label

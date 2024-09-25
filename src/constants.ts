@@ -129,7 +129,7 @@ const navLinks = [
   // { href: '/#our-impact', text: 'Our Impact' },
   { href: '/#case-studies', text: 'Case Studies' },
   { href: '/#pricing', text: 'Pricing' },
-  { href: '/blog', text: 'Blogs' },
+  { href: '/blog', text: 'Blogs', prefetch: true },
   { href: '/#contact-us', text: 'Contact Us' },
 ];
 
