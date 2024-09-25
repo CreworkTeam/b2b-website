@@ -39,7 +39,7 @@ const featuredBlogs = allBlogs
         <FeaturedCarousel blogs={featuredBlogs} client:load />
       </div>
     </div>
-    <BlogList client:load />
+    <BlogList client:only="react" />
   </Section>
   <script>
     import { setupButtonTracking } from '@/utils/mixpanel';
