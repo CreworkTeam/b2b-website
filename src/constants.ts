@@ -155,6 +155,85 @@ const getSocialShareLinks = ({ url, title }: { url: string; title: string }) => 
   };
 };
 
+const WEBSITE_CASE_STUDY_CARDS = [
+  {
+    title: 'Custom Learning Management System',
+    description:
+      'How we empowered Crework to increase engagement by deliver tailored learning experiences to aspiring Product Managers',
+    span: '65% increase in Engagement Rate',
+    tags: ['Custom LMS Development', 'Product Design', 'User Experience Research'],
+    images: [
+      {
+        src: '/portfolio/dashboard-2.png',
+        alt: 'Dashboard',
+      },
+      {
+        src: '/portfolio/dashboard.png',
+        alt: 'Dashboard',
+      },
+    ],
+    rtl: false,
+    link: '/case-studies/custom-learning-management-system',
+  },
+  {
+    title: 'Instant Business Valuation Web Application',
+    description: 'How we built a quick, data-driven business valuations tool for FundsFinders',
+    span: '47% increase in leads generation',
+    tags: ['Product Design', 'User Experience Optimization', 'Web App Development'],
+    images: [
+      {
+        src: '/portfolio/fundsfinder.png',
+        alt: 'FundsFinder',
+      },
+      {
+        src: '/portfolio/fundsfinder-2.svg',
+        alt: 'FundsFinder',
+      },
+    ],
+    rtl: true,
+    link: '/case-studies/instant-business-valuation-web-application',
+  },
+  {
+    title: 'Global Service Provider Website Redesign',
+    description:
+      'How we helped Travay Group with a complete redesign of their website to improve user experience and navigation',
+    span: '50% increase in Conversion Rate',
+    tags: ['User Interface Redesign', 'Website Development', 'Information Architecture'],
+    images: [
+      {
+        src: '/portfolio/travaygroup.png',
+        alt: 'Travay Group',
+      },
+      {
+        src: '/portfolio/travaygroup-2.svg',
+        alt: 'Travay Group',
+      },
+    ],
+    link: '/case-studies/global-service-provider-website-redesign',
+  },
+];
+
+const MVP_WEBSITE_CASE_STUDY_CARDS = [
+  {
+    title: 'Global Service Provider Website Redesign',
+    description:
+      'How we helped Travay Group with a complete redesign of their website to improve user experience and navigation',
+    span: '50% increase in Conversion Rate',
+    tags: ['User Interface Redesign', 'Website Development', 'Information Architecture'],
+    images: [
+      {
+        src: '/portfolio/travaygroup.png',
+        alt: 'Travay Group',
+      },
+      {
+        src: '/portfolio/travaygroup-2.svg',
+        alt: 'Travay Group',
+      },
+    ],
+    link: '/case-studies/global-service-provider-website-redesign',
+  },
+];
+
 export {
   CASE_STUDIES,
   TESTIMONIALS,
@@ -164,5 +243,7 @@ export {
   navLinks,
   socials,
   BLOG_RESULTS_LIMIT,
+  WEBSITE_CASE_STUDY_CARDS,
+  MVP_WEBSITE_CASE_STUDY_CARDS,
   getSocialShareLinks,
 };
