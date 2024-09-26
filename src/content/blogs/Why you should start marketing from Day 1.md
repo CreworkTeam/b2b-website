@@ -1,5 +1,5 @@
 ---
-blogTitle: You Should Start Marketing From Day 1
+blogTitle: Why you should start marketing from Day 1
 blogDate: September 22, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/blog-6.png', alt: 'A picture of a coder' }

@@ -5,7 +5,7 @@ blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'A picture of a coder' }
 blogDescription: Unlock proven strategies for acquiring early adopters for your new product or service. Learn how to identify, reach, and engage your initial user base to kickstart growth.
 draft: false
-featured: true
+featured: false
 blogCategories: ['MVP', 'validation', 'marketing']
 ---
 

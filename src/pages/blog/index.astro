@@ -10,7 +10,8 @@ const allBlogs = await getCollection('blogs');
 
 const featuredBlogs = allBlogs
   .map(({ slug, data: { ...rest } }) => ({ slug, ...rest }))
-  .filter(({ featured }) => featured);
+  .filter(({ featured }) => featured)
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 ---
 
 <MainLayout
@@ -22,7 +23,7 @@ const featuredBlogs = allBlogs
     <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
       <div class="flex-[3] space-y-2 text-center md:text-start">
         <h1 class="text-4xl font-semibold">Builder's Guide Blog</h1>
-        <p class="font-medium text-[#686868]">
+        <p class="font-normal text-[#686868]">
           No bullshit insights on how to improve conversions and build better products to make more
           money
         </p>

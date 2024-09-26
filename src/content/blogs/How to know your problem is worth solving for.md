@@ -6,7 +6,7 @@ blogImage:
   { src: '/blogs/how-to-know-your-problem-is-worth-solving-for.png', alt: 'A picture of a coder' }
 blogDescription: Master the art of problem validation. Learn key strategies to assess if your business idea addresses a real, marketable need before investing time and resources.
 draft: false
-featured: true
+featured: false
 blogCategories: ['MVP', 'validation']
 ---
 

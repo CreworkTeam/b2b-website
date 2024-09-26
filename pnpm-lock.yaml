@@ -71,6 +71,9 @@ importers:
       lucide-react:
         specifier: ^0.441.0
         version: 0.441.0(react@18.3.1)
+      mdast-util-to-string:
+        specifier: ^4.0.0
+        version: 4.0.0
       mixpanel-browser:
         specifier: ^2.54.1
         version: 2.55.1
@@ -86,6 +89,9 @@ importers:
       react-hook-form:
         specifier: ^7.52.2
         version: 7.53.0(react@18.3.1)
+      reading-time:
+        specifier: ^1.5.0
+        version: 1.5.0
       sharp:
         specifier: ^0.33.4
         version: 0.33.5
@@ -2429,6 +2435,9 @@ packages:
   readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
+
+  reading-time@1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
 
   regex@4.3.2:
     resolution: {integrity: sha512-kK/AA3A9K6q2js89+VMymcboLOlF5lZRCYJv3gzszXFHBr6kO6qLGzbm+UIugBEV8SMMKCTR59txoY6ctRHYVw==}
@@ -5425,6 +5434,8 @@ snapshots:
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
+
+  reading-time@1.5.0: {}
 
   regex@4.3.2: {}
 

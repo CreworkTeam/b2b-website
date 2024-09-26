@@ -70,8 +70,7 @@ Use subreddits where your target audience might be hanging out—just present yo
 14. [r/DataIsBeautiful](https://www.reddit.com/r/dataisbeautiful/):
 
     Similar to r/InternetIsBeautiful, but specifically for data-centric projects.
-
-You can explore additional _founder specific subreddits (will have link to article)_ but make sure to **go through the community guidelines**.
+    You can explore additional _[founder specific subreddits](/blog/subreddits-for-aspiring-and-full-time-founders)_ but make sure to **go through the community guidelines**.
 
 The key is not to launch your product like a direct promotional post, but to cleverly slip your business tool into relevant conversations so it doesn’t look like blatant advertising.
 

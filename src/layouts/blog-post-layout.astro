@@ -16,6 +16,7 @@ const {
   data: { blogTitle, blogDescription, blogCategories, blogImage },
   headings,
   slug,
+  reading_time,
 } = blogData;
 
 const url = Astro.url.href;
@@ -40,13 +41,13 @@ const recommendations =
   og_image={blogImage.src}
 >
   <Section className="border-b-0">
-    <BlogHeader {...blogData} slug={slug} />
+    <BlogHeader {...{ ...blogData, reading_time }} slug={slug} />
     <div class="mt-6 flex flex-col-reverse gap-12 md:flex-row md:gap-8" id="article-content">
       <div
         class="prose max-w-none flex-1 [&_a]:break-words [&_p:has(img)]:flex [&_p:has(img)]:justify-center"
       >
         <slot />
-        <div>
+        <!-- <div>
           <h4>Tags</h4>
           <div class="flex gap-2">
             {
@@ -57,7 +58,7 @@ const recommendations =
               ))
             }
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="top-5 h-fit space-y-4 md:sticky md:w-3/12" id="toc">
         <div class="space-y-2">
