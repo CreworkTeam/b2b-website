@@ -13,14 +13,16 @@ export const GET: APIRoute = async ({ request }) => {
 
   const data = await getCollection('blogs');
 
-  const filteredBlogs = data.filter(({ data }) => {
-    const matchesSearch = search
-      ? data.blogTitle.toLowerCase().includes(search.toLowerCase())
-      : true;
-    const matchesCategory =
-      category && category !== 'all' ? data.blogCategories.includes(category) : true;
-    return matchesSearch && matchesCategory;
-  });
+  const filteredBlogs = data
+    .filter(({ data }) => {
+      const matchesSearch = search
+        ? data.blogTitle.toLowerCase().includes(search.toLowerCase())
+        : true;
+      const matchesCategory =
+        category && category !== 'all' ? data.blogCategories.includes(category) : true;
+      return matchesSearch && matchesCategory;
+    })
+    .sort((a, b) => new Date(b.data.blogDate).getTime() - new Date(a.data.blogDate).getTime());
 
   return new Response(
     JSON.stringify({

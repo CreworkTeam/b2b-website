@@ -19,7 +19,7 @@ function FeaturedCarousel({ blogs }) {
         {blogs.map(({ slug, ...frontmatter }, idx) => {
           return (
             <CarouselItem key={idx} className="md:basis-1/2">
-              <div className="p-1">
+              <div className="px-1 py-2">
                 <BlogCard {...frontmatter} slug={slug} />
               </div>
             </CarouselItem>
