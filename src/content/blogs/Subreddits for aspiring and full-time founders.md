@@ -48,7 +48,7 @@ Take the time to dive in, explore the topics, join conversations, and ask questi
 
 Subreddits for Female founders specifically
 
-[r/FemaleFounders]( Reddit r/Femalefounders)
+[r/FemaleFounders](https://www.reddit.com/r/Femalefounders/)
 
 [r/BusinessWomen](https://www.reddit.com/r/BusinessWomen/)
 
