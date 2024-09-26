@@ -26,16 +26,3 @@ import CaseStudiesSwitch from './case-studies-switch.tsx';
     >View All Case Studies</a
   >
 </section>
-<script>
-  const caseStudyContainer = document.querySelector('#case-study-container') as HTMLElement;
-
-  window.addEventListener(
-    'scroll',
-    () => {
-      const bounds = caseStudyContainer.getBoundingClientRect();
-      const scroll = (bounds.top * -1) / bounds.height;
-      caseStudyContainer.style.setProperty('--scroll', `${scroll}`);
-    },
-    false,
-  );
-</script>
