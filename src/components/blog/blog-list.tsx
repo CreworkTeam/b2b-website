@@ -129,7 +129,12 @@ const BlogList = () => {
           </div>
         ))}
         {state.loading &&
-          Array.from({ length: BLOG_RESULTS_LIMIT }).map((_, index) => (
+          Array.from({
+            length:
+              state.totalBlogs === 0 || state.totalBlogs > state.page * BLOG_RESULTS_LIMIT
+                ? BLOG_RESULTS_LIMIT
+                : state.totalBlogs % BLOG_RESULTS_LIMIT,
+          }).map((_, index) => (
             <div
               key={index}
               className={cn('w-full space-y-3 px-2 py-4 md:w-1/2', {
