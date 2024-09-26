@@ -2,11 +2,11 @@
 blogTitle: Defining your Unique Selling Proposition (USP) and Value Proposition (VP)
 blogDate: September 21, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'A picture of a coder' }
+blogImage: { src: '/blogs/blog-5.png', alt: 'A picture of a coder' }
 blogDescription: Learn to craft powerful Unique Selling Propositions (USP) and Value Propositions (VP). Highlight your product's benefits and stand out from competitors.
 draft: false
-featured: true
-blogCategories: ['MVP', 'Product', 'Marketing']
+featured: false
+blogCategories: ['MVP', 'product', 'marketing']
 ---
 
 Every builder’s nightmare is thinking, _"Why would someone buy what I'm building?"_

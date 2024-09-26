@@ -2,11 +2,11 @@
 blogTitle: You Should Start Marketing From Day 1
 blogDate: September 22, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'A picture of a coder' }
+blogImage: { src: '/blogs/blog-6.png', alt: 'A picture of a coder' }
 blogDescription: Learn effective strategies to build brand awareness, attract customers, and grow your business from the very beginning.
 draft: false
-featured: true
-blogCategories: ['Marketing']
+featured: false
+blogCategories: ['marketing']
 ---
 
 Every founder is biased toward their own idea.
