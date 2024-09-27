@@ -12,20 +12,25 @@ const featuredBlogs = allBlogs
   .map(({ slug, data: { ...rest } }) => ({ slug, ...rest }))
   .filter(({ featured }) => featured)
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+const title = "Builder's Guide Blog";
+const description =
+  'Practical insights and proven strategies to boost conversions, build profitable products, and scale your business.';
 ---
 
 <MainLayout
-  title="Builder's Guide Blog - Crework Labs"
-  description="No bullshit insights on how to improve conversions and build better products to make more money"
+  title={`${title} - Crework Labs`}
+  description={description}
   canonical="https://www.creworklabs.com/blog"
 >
   <Section>
     <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
       <div class="flex-[3] space-y-2 text-center md:text-start">
-        <h1 class="text-4xl font-semibold">Builder's Guide Blog</h1>
+        <h1 class="text-4xl font-semibold">
+          {title}
+        </h1>
         <p class="font-normal text-[#686868]">
-          No bullshit insights on how to improve conversions and build better products to make more
-          money
+          {description}
         </p>
       </div>
       <div class="flex flex-[2] flex-col items-center justify-end gap-1 md:items-end">

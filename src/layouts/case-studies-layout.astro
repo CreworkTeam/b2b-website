@@ -4,7 +4,29 @@ import Footer from '../components/footer.astro';
 import '../styles/global.css';
 import TalkToUs from '../components/talk-to-us.astro';
 import { BOOK_CALL } from '@/constants.ts';
-const { title, description, canonical, og_image = '/opengraph.png', mptag } = Astro.props;
+import Section from '@/components/section.astro';
+import { Image } from 'astro:assets';
+import TOC from '@/components/blog/TOC.astro';
+import { getCollection } from 'astro:content';
+import ReadMoreCard from '@/components/read-more-card.astro';
+const { caseStudy } = Astro.props;
+
+const {
+  data: { cstitle, csdescription, csimage = '/opengraph.png', csmptag, cstags },
+  slug,
+  headings,
+} = caseStudy;
+const canonical = `https://www.creworklabs.com/case-studies/${slug}`;
+
+const casestudies = await getCollection('casestudy');
+const rds = casestudies.filter(({ data, slug: caseStudySlug }) => {
+  const isSameCategory = data.cstags.some((category: any) => cstags.includes(category));
+  return isSameCategory && caseStudySlug !== slug;
+});
+const recommendations =
+  rds.length >= 2
+    ? rds.slice(0, 2)
+    : casestudies.filter(({ slug: caseStudySlug }) => slug !== caseStudySlug).slice(0, 2);
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -13,22 +35,22 @@ const { title, description, canonical, og_image = '/opengraph.png', mptag } = As
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+    <meta name="description" content={csdescription} />
     <link rel="canonical" href={canonical} />
     <title>
-      {title}
+      {cstitle}
     </title>
 
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={og_image} />
+    <meta property="og:title" content={cstitle} />
+    <meta property="og:description" content={csdescription} />
+    <meta property="og:image" content={csimage} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={og_image} />
+    <meta name="twitter:title" content={cstitle} />
+    <meta name="twitter:description" content={csdescription} />
+    <meta name="twitter:image" content={csimage} />
   </head>
   <body>
     <Header />
@@ -37,53 +59,105 @@ const { title, description, canonical, og_image = '/opengraph.png', mptag } = As
         class="relative -z-10 mx-auto h-12 w-10/12 max-w-5xl border-x border-[#F1F1F1] sm:px-16 lg:w-9/12"
       >
       </section>
-      <section class="section-container relative space-y-12 border-b-0" data-case-study={mptag}>
-        <div
-          class="absolute left-0 top-0 z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-          style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
-        >
-          <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]">
-          </div>
-        </div>
-        <div
-          class="absolute right-0 top-0 z-20 !m-0 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-          style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
-        >
-          <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]">
-          </div>
-        </div>
-        <slot name="hero" />
-        <div class="relative flex flex-col-reverse gap-8 md:flex-row">
-          <div class="space-y-10 md:w-8/12">
-            <slot name="content" />
+      <Section className="section-container relative border-b-0" data-case-study={csmptag}>
+        <header class="space-y-6">
+          <h1 class="text-balance text-center font-semibold">{cstitle}</h1>
+          <Image
+            src={csimage.src}
+            alt={csimage.alt}
+            width="1200"
+            height="600"
+            format="avif"
+            quality={80}
+            class="aspect-video w-full rounded-xl border object-cover object-top"
+          />
+        </header>
+        <div class="relative mt-6 flex flex-col-reverse gap-8 md:flex-row" id="case-content">
+          <div
+            class="prose max-w-none flex-1 [&_a]:break-words [&_h2:first-child]:mt-0 [&_img]:rounded-md [&_img]:border"
+          >
+            <slot />
           </div>
           <div
             data-btntype="book call - table of content"
             class="top-5 h-fit space-y-4 md:sticky md:w-4/12"
+            id="toc"
           >
-            <h4 class="text-black">Table of Content</h4>
-            <slot name="table-of-content" />
+            {
+              headings && headings.length > 0 && (
+                <>
+                  <h4 class="text-black">Table of Content</h4>
+                  <TOC headings={headings} />
+                </>
+              )
+            }
             <h4 class="text-xl text-black">Have a project?</h4>
             <a href={BOOK_CALL} target="_blank" class="btn block w-fit text-balance text-center"
               ><span class="text-sm">Book a free discovery call</span></a
             >
           </div>
         </div>
-        <div class="space-y-6">
+        <div class="mt-12 space-y-6">
           <h2 class="font-bold">Read some more of our amazing projects</h2>
           <div class="flex flex-col gap-4 md:flex-row md:gap-16">
-            <slot name="case-studies" />
+            {
+              recommendations.map(
+                ({
+                  data: {
+                    cstitle,
+                    csdescription,
+                    csimage: { src, alt },
+                  },
+                  slug,
+                }) => (
+                  <ReadMoreCard
+                    title={cstitle}
+                    description={csdescription}
+                    src={src}
+                    alt={alt}
+                    link={`/case-studies/${slug}`}
+                  />
+                ),
+              )
+            }
           </div>
+          <a href="/case-studies" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
         </div>
-        <a href="/case-studies" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
-      </section>
+      </Section>
       <TalkToUs />
     </main>
     <Footer />
-  </body><script>
+  </body>
+
+  <script>
     import { setupButtonTracking } from '../utils/mixpanel';
     setupButtonTracking({
       pageName: 'CaseStudyPage',
+    });
+
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('#case-content section');
+
+      let prevHighlightedLink = document.querySelector('#toc li a.underline');
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const isSectionHeadingOnTop = rect.top >= 0 && rect.top <= 200;
+
+        if (isSectionHeadingOnTop) {
+          const heading = section.querySelector('h2, h3, h4, h5');
+          const id = heading.getAttribute('id');
+          const link = document.querySelector(`#toc li a[href="#${id}"]`);
+
+          if (prevHighlightedLink) {
+            prevHighlightedLink.classList.remove('underline');
+          }
+
+          link.classList.add('underline');
+
+          prevHighlightedLink = link;
+        }
+      });
     });
   </script>
 </html>

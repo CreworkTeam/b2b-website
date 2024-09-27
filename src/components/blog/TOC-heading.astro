@@ -11,7 +11,7 @@ const { heading } = Astro.props;
   </a>
   {
     heading.subheadings.length > 0 && (
-      <ul class="list-none space-y-2 text-xs [&>li]:ml-4">
+      <ul class="mt-1 list-none space-y-2 text-xs [&>li]:ml-4">
         {heading.subheadings.map((subheading: any) => (
           <Astro.self heading={subheading} />
         ))}

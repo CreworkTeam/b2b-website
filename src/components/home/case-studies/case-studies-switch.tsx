@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { MVP_WEBSITE_CASE_STUDY_CARDS, WEBSITE_CASE_STUDY_CARDS } from '@/constants';
 import { cn } from '@/lib/utils';
 import { TabsContent } from '@radix-ui/react-tabs';
+import { MVP_WEBSITE_CASE_STUDY_CARDS, WEBSITE_CASE_STUDY_CARDS } from '@/constants.ts';
 
 interface ImageProps {
   src: string;
@@ -23,8 +23,8 @@ const CaseStudiesSwitch = ({ sticky }: { sticky: boolean }) => {
   const [tab, setTab] = useState('website');
 
   const onTabChange = (value: React.SetStateAction<string>) => {
-    setTab(value);
     handleScrollToSectionTop();
+    setTab(value);
   };
 
   const caseStudyContainerRef = useRef<HTMLDivElement>(null);
@@ -46,12 +46,11 @@ const CaseStudiesSwitch = ({ sticky }: { sticky: boolean }) => {
   ];
 
   const handleScrollToSectionTop = () => {
-    const caseStudyContainer = document.getElementById('case-studies');
+    const csc = document.getElementById('case-studies');
     const headerOffset = 170;
-    const elementPosition = caseStudyContainer.getBoundingClientRect().top;
+    const elementPosition = csc?.getBoundingClientRect()?.top || 0;
     const offsetPosition = elementPosition + window.scrollY + headerOffset;
-    if (caseStudyContainer) {
-      console.log('scrolling to case studies');
+    if (csc) {
       setTimeout(() => {
         window.scrollTo({
           top: offsetPosition,
@@ -96,7 +95,7 @@ const CaseStudiesSwitch = ({ sticky }: { sticky: boolean }) => {
       <div id="case-study-container" ref={caseStudyContainerRef}>
         {items.map((item) => (
           <TabsContent key={item.tab.value} value={item.tab.value} className="space-y-16">
-            {item.content.map((content, index) => (
+            {item?.content?.map((content, index) => (
               <CaseStudyCard
                 key={`${item.tab.value}-${index}`}
                 cardContent={content}
@@ -169,16 +168,18 @@ const CaseStudyCard = ({
       <div className="relative flex-1 space-y-6">
         <h2 className="text-2xl font-semibold text-[#020617] sm:text-3xl">{title}</h2>
         <p>{description}</p>
-        <div className="flex w-fit space-x-1 rounded-full bg-[#EEF5F0] px-2 py-1 text-xs text-[#589E67]">
-          <img
-            className="inline-block h-4 w-4"
-            src="/icons/trend-up.svg"
-            alt="Arrow Up"
-            width={16}
-            height={16}
-          />
-          <span className="line-clamp-1 text-[clamp(0px,2.5vw,12px)]">{span}</span>
-        </div>
+        {span ? (
+          <div className="flex w-fit space-x-1 rounded-full bg-[#EEF5F0] px-2 py-1 text-xs text-[#589E67]">
+            <img
+              className="inline-block h-4 w-4"
+              src="/icons/trend-up.svg"
+              alt="Arrow Up"
+              width={16}
+              height={16}
+            />
+            <span className="line-clamp-1 text-[clamp(0px,2.5vw,12px)]">{span}</span>
+          </div>
+        ) : null}
         <div className="space-y-4">
           {tags.map((item, tagIndex) => (
             <div

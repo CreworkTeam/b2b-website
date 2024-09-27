@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import CaseStudyLayout from '@/layouts/case-studies-layout.astro';
+
+type Props = {
+  casestudy: CollectionEntry<'casestudy'>;
+};
+
+export async function getStaticPaths() {
+  const entries = await getCollection('casestudy');
+  return entries.map((entry: { slug: any }) => {
+    return {
+      params: { slug: entry.slug },
+      props: { casestudy: entry },
+    };
+  });
+}
+
+const { casestudy } = Astro.props;
+const { Content, headings, remarkPluginFrontmatter } = await casestudy.render();
+
+export const prerender = true;
+---
+
+<CaseStudyLayout
+  caseStudy={{ ...casestudy, headings, reading_time: remarkPluginFrontmatter.minutesRead }}
+>
+  <Content />
+</CaseStudyLayout>

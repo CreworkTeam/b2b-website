@@ -21,6 +21,28 @@ const blog = defineCollection({
   }),
 });
 
+const casestudy = defineCollection({
+  type: 'content',
+  schema: z.object({
+    cstitle: z.string(),
+    csimage: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+    csmptag: z.string(),
+    csdescription: z.string(),
+    csspan: z.string().optional(),
+    cstags: z.array(z.string()),
+    csimages: z.array(
+      z.object({
+        src: z.string(),
+        alt: z.string(),
+      }),
+    ),
+    cstag: z.string().default('website'),
+  }),
+});
+
 const author = defineCollection({
   type: 'data',
   schema: z.object({
@@ -29,4 +51,4 @@ const author = defineCollection({
   }),
 });
 
-export const collections = { blog, author };
+export const collections = { blog, casestudy, author };
