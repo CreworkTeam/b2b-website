@@ -28,7 +28,7 @@ interface.
 ## Outcomes
 
 <img
-src="https://res.cloudinary.com/crework-cloud/image/upload/v1727440285/casestudies/Frame_2147206011_tfnt0u.svg"
+src="https://res.cloudinary.com/crework-cloud/image/upload/v1727444997/casestudies/Frame_2147206011_1_mqp6su.svg"
 alt="outcomes"
 width="100"
 height="70"
