@@ -7,7 +7,6 @@ csimage:
   }
 csmptag: 'StartupNavigator'
 csdescription: 'How we built an AI enabled search to power the directory of the best incubators and accelerators for startups.'
-csspan: '65% increase in Engagement Rate'
 cstags: ['User Interface Design', 'MVP Development', 'AI Integration']
 csimages:
   [
