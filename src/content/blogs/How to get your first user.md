@@ -6,7 +6,7 @@ blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'A picture of a 
 blogDescription: Unlock proven strategies for acquiring early adopters for your new product or service. Learn how to identify, reach, and engage your initial user base to kickstart growth.
 draft: false
 featured: false
-blogCategories: ['MVP', 'validation', 'marketing']
+blogCategories: ['idea validation', 'marketing']
 ---
 
 > If you build it, they will do absolutely nothing 🥲

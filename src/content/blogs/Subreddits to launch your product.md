@@ -6,7 +6,7 @@ blogImage: { src: '/blogs/blog-9.png', alt: 'A picture of a coder' }
 blogDescription: Discover top Reddit communities to showcase your startup, gather feedback, and attract early adopters. Boost your product's visibility.
 draft: false
 featured: false
-blogCategories: ['market-research', 'marketing', 'reddit']
+blogCategories: ['market-research', 'marketing', 'reddit marketing']
 ---
 
 If you've read _How to Ace Marketing on Reddit_, you already know that Reddit can be a great platform to launch and get initial traction for your business.

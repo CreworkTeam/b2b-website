@@ -6,7 +6,7 @@ blogImage: { src: '/blogs/blog-5.png', alt: 'A picture of a coder' }
 blogDescription: Learn to craft powerful Unique Selling Propositions (USP) and Value Propositions (VP). Highlight your product's benefits and stand out from competitors.
 draft: false
 featured: false
-blogCategories: ['MVP', 'product', 'marketing']
+blogCategories: ['product', 'marketing']
 ---
 
 Every builder’s nightmare is thinking, _"Why would someone buy what I'm building?"_

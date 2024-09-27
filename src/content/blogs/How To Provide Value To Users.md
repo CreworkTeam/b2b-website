@@ -6,7 +6,7 @@ blogImage: { src: '/blogs/how-to-provide-value-to-users.png', alt: 'A picture of
 blogDescription: Explore effective methods for creating and delivering real user value in your products. Learn how to develop features that solve genuine problems and keep users coming back.
 draft: false
 featured: true
-blogCategories: ['MVP', 'product']
+blogCategories: ['product']
 ---
 
 As Jeff Bezos famously said, "_We see our customers as invited guests to a party, and we are the hosts. It’s our job every day to make every important aspect of the customer experience a little bit better._"

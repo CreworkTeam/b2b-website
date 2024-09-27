@@ -4,10 +4,10 @@ blogDate: September 7, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage:
   { src: '/blogs/how-to-know-your-problem-is-worth-solving-for.png', alt: 'A picture of a coder' }
-blogDescription: Master the art of problem validation. Learn key strategies to assess if your business idea addresses a real, marketable need before investing time and resources.
+blogDescription: Master the art of problem idea validation. Learn key strategies to assess if your business idea addresses a real, marketable need before investing time and resources.
 draft: false
 featured: false
-blogCategories: ['MVP', 'validation']
+blogCategories: ['idea validation']
 ---
 
 **8 out of 10 startup ideas fail.**

@@ -6,7 +6,7 @@ blogImage: { src: '/blogs/blog-8.png', alt: 'A picture of a coder' }
 blogDescription: Master Reddit marketing strategies. Learn to engage communities, create valuable content, and boost brand visibility on this powerful platform
 draft: false
 featured: true
-blogCategories: ['market-research', 'reddit', 'marketing', 'validation']
+blogCategories: ['market-research', 'reddit marketing', 'marketing', 'idea validation']
 ---
 
 ## About Reddit
