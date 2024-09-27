@@ -12,11 +12,12 @@ import ReadMoreCard from '@/components/read-more-card.astro';
 const { caseStudy } = Astro.props;
 
 const {
-  data: { cstitle, csdescription, csimage = '/opengraph.png', csmptag, cstags },
+  data: { cstitle, csdescription, csimage, csmptag, cstags },
   slug,
   headings,
 } = caseStudy;
 const canonical = `https://www.creworklabs.com/case-studies/${slug}`;
+const og_image = csimage.src || '/opengraph.png';
 
 const casestudies = await getCollection('casestudy');
 const rds = casestudies.filter(({ data, slug: caseStudySlug }) => {
@@ -43,14 +44,14 @@ const recommendations =
 
     <meta property="og:title" content={cstitle} />
     <meta property="og:description" content={csdescription} />
-    <meta property="og:image" content={csimage} />
+    <meta property="og:image" content={og_image} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={cstitle} />
     <meta name="twitter:description" content={csdescription} />
-    <meta name="twitter:image" content={csimage} />
+    <meta name="twitter:image" content={og_image} />
 
     <script src="reb2b.js"></script>
   </head>
