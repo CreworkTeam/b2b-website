@@ -11,12 +11,9 @@ const {
 <header class="space-y-4">
   <div class="space-y-4">
     <h1 class="font-semibold">{blogTitle}</h1>
-    <div>
-      <h6 class="text-black">By <span>{blogAuthor.author}</span></h6>
-      <p class="text-sm text-[#686868]">
-        {blogDate ? formatDate(blogDate, 'MMMM dd, yyyy') : null} • {reading_time}
-      </p>
-    </div>
+    <p class="text-sm text-[#686868]">
+      {blogDate ? formatDate(blogDate, 'MMMM dd, yyyy') : null} • {reading_time}
+    </p>
   </div>
   <Image
     src={blogImage.src}

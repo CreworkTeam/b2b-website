@@ -9,7 +9,7 @@ featured: false
 blogCategories: ['market-research', 'marketing', 'reddit marketing']
 ---
 
-If you've read _How to Ace Marketing on Reddit_, you already know that Reddit can be a great platform to launch and get initial traction for your business.
+If you've read _[How to Ace Marketing on Reddit](/blog/how-to-ace-marketing-on-reddit)_, you already know that Reddit can be a great platform to launch and get initial traction for your business.
 
 ## Subreddits to Target
 
@@ -74,4 +74,4 @@ Use subreddits where your target audience might be hanging out—just present yo
 
 The key is not to launch your product like a direct promotional post, but to cleverly slip your business tool into relevant conversations so it doesn’t look like blatant advertising.
 
-For more guidance on how to approach this, check out our article _How to Ace Reddit Marketing_.
+For more guidance on how to approach this, check out our article _[How to Ace Marketing on Reddit](/blog/how-to-ace-marketing-on-reddit)_.

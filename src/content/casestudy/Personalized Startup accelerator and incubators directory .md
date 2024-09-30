@@ -1,13 +1,13 @@
 ---
-cstitle: 'Startup Accelerators and Incubators Directory'
+cstitle: 'Personalized Startup accelerator and incubators directory.'
 csimage:
   {
     src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1727442047/casestudies/ad2ad4d2-886f-4fdc-85ae-8978bba7ad37.png',
     alt: 'Cover',
   }
 csmptag: 'StartupNavigator'
-csdescription: 'How we built an AI enabled search to power the directory of the best incubators and accelerators for startups.'
-cstags: ['User Interface Design', 'MVP Development', 'AI Integration']
+csdescription: 'AI-enabled search to help entrepreneurs find the most suitable startup programs for their business based on their needs.'
+cstags: ['User Interface Design', 'MVP Development']
 csimages:
   [
     {

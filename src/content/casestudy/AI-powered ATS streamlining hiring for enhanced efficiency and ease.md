@@ -1,13 +1,13 @@
 ---
-cstitle: 'AI enabled ATS to make hiring easy'
+cstitle: 'AI-powered ATS streamlining hiring for enhanced efficiency and ease.'
 csimage:
   {
     src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1727437882/casestudies/bd3e29b5-1901-4631-8fba-80bd2719a550.png',
     alt: 'Cover',
   }
 csmptag: 'AIATS'
-csdescription: 'How we built a product to help recruiters go through the mountains of job applications easily'
-cstags: ['User Interface Design', 'Landing Page Development', 'MVP Development']
+csdescription: 'A powerful AI tool that streamlines the hiring process by automatically screening resumes to match company-specific requirements.'
+cstags: ['Workflow Optimization', 'User Interface Design', 'Applicant Tracking System (ATS)']
 csimages:
   [
     {

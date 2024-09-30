@@ -2,7 +2,7 @@
 cstitle: 'Custom Learning Management System'
 csimage: { src: '/portfolio/dashboard-2.png', alt: 'Dashboard Cover' }
 csmptag: 'LMS'
-csdescription: 'How we empowered Crework to increase engagement by deliver tailored learning experiences to aspiring Product Managers'
+csdescription: 'A personalized CMS solution for an edtech platform designed to increase engagement by delivering tailored learning experiences.'
 csspan: '65% increase in Engagement Rate'
 cstags: ['Custom LMS Development', 'Product Design', 'User Experience Research']
 csimages:

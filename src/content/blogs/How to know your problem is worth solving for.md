@@ -82,7 +82,7 @@ Here are the **five essential traits** of such problems.
 4. **Urgent** — the problem must have an impending deadline
 5. **Unavoidable** — the problem must not have an easier way to get around the problem
 
-~~gif: [https://pin.it/1mTMNeGdW](https://pin.it/1mTMNeGdW)~~
+![Shut up and take my money](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjhmMTR6NW42eTBkbjg5bm9nZDZoOGY2amh6aGRzcXZkMDVxdXl2biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lOogiJH1y9mYE/giphy.webp)
 
 ## Checklist to determine if you're tackling a worthwhile problem ☑️
 

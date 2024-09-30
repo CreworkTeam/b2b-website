@@ -36,6 +36,7 @@ Take the time to dive in, explore the topics, join conversations, and ask questi
 [r/smallbusiness](https://www.reddit.com/r/smallbusiness/)
 
 [r/Solopreneur](https://www.reddit.com/r/Solopreneur/)
+
 [r/startup](https://www.reddit.com/r/startup/)
 
 [r/Startup_Ideas](https://www.reddit.com/r/Startup_Ideas/)
@@ -56,6 +57,6 @@ Subreddits for Female founders specifically
 
 [r/TheWomenInBusiness](https://www.reddit.com/r/TheWomenInBusiness/)
 
-In case you are looking how to get started with marketing on Reddit, you should go through our _How To Ace Marketing On Reddit_ article.
+In case you are looking how to get started with marketing on Reddit, you should go through our _[How To Ace Marketing On Reddit](/blog/how-to-ace-marketing-on-reddit)_ article.
 
 Happy building 🛠️

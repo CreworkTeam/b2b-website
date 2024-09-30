@@ -55,7 +55,7 @@ Here’s a simple 3-step guide to get things rolling for your startup:
 
    This is where Reddit and Discord shine. Figure out where your potential customers gather. There are specific groups on LinkedIn, Reddit, and other platforms where people discuss the problems you’re solving. If you’re a yoga instructor, for example, search for relevant subreddits or groups. Join, see what others are talking about, contribute to the conversation, and subtly mention how you’re solving that problem.
 
-   _[Link to article: How to ace marketing on Reddit](/blog/how-to-ace-marketing-on-reddit)_
+   _[How to ace marketing on Reddit](/blog/how-to-ace-marketing-on-reddit)_
 
 At the end of the day, hiring people or running ads comes later. Start by building your personal brand—talk about what you’re doing and provide value for free if you can. Engage with communities, listen, and be part of the conversation.
 
