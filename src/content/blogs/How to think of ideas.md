@@ -50,7 +50,7 @@ Find one person to help.
 How I started by solving for one of my own problems 👇🏼
 
 <aside>
-💡 [I’m](https://peerlist.io/shikshita) currently building a platform that recommends books others than the common bestsellers that you find online stores or in roadside stalls ([awarded Project of the week and #2 in Project of the month on Peerlist](https://peerlist.io/prathamesh/project/bookafriend))
+💡 <a href="https://peerlist.io/shikshita" target="_blank">I’m</a> currently building a platform that recommends books others than the common bestsellers that you find online stores or in roadside stalls (<a href="https://peerlist.io/prathamesh/project/bookafriend" target="_blank">awarded Project of the week and #2 in Project of the month on Peerlist</a>)
 
 So you see the problem for an avid reader → Tired of seeing the same old ‘Atomic Habits’, ‘Harry Potter’ and thus wants → to find underrated book to read.
 
@@ -102,7 +102,7 @@ It's like being a superhero, fixing what's wrong in the world of business! All y
 
 <aside>
 💡 To give an example: 
-In Crework’s Builder’s cohort 4, an AI tool: [Sift](https://beta.sifthq.app/) was designed to assist organizations and recruiters in filtering job applications based on the scores assigned to resumes. 
+In Crework’s Builder’s cohort 4, an AI tool: <a href="https://beta.sifthq.app" target="_blank">Sift</a> was designed to assist organizations and recruiters in filtering job applications based on the scores assigned to resumes. 
 These scores are determined by the candidate's work experience and achievements.
 
 Recruiting can be challenging, with numerous applicants making it difficult to filter through. That's where this tool will come in handy for recruiters.
@@ -122,7 +122,7 @@ Oh, and speaking of grabbing such golden chances, have you heard about Gen AI? T
 So, what are you waiting for? Dive into those communities, see what people are building, and join in the fun. Check out some cool subreddits too—you'll find some real gems there!
 
 <aside>
-💡 At [Crework’s Builder’s cohort](https://www.crework.in/builders), most products in the recent cohorts were centered around AI, showing the increasing interest and innovation in this exciting field!
+💡 At <a href="https://www.crework.in/builders" target="_blank">Crework’s Builder’s cohort</a>, most products in the recent cohorts were centered around AI, showing the increasing interest and innovation in this exciting field!
 
 Check them out here: [Showcase](https://www.crework.in/showcase)
 
