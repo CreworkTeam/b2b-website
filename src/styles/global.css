@@ -179,6 +179,6 @@
   }
 
   .custom-prose {
-    @apply prose max-w-none flex-1 [&_a]:break-words [&_li.task-list-item>input]:mr-2 [&_p:has(img)]:flex [&_p:has(img)]:justify-center [&_ul.contains-task-list]:list-inside [&_ul.contains-task-list]:list-none [&_ul.contains-task-list]:pl-0 [&_ul]:list-outside;
+    @apply prose max-w-none flex-1 [&_a]:break-words [&_h2:first-child]:mt-0 [&_img]:rounded-md [&_img]:border [&_li.task-list-item>input]:mr-2 [&_p:has(img)]:flex [&_p:has(img)]:justify-center [&_ul.contains-task-list]:list-inside [&_ul.contains-task-list]:list-none [&_ul.contains-task-list]:pl-0 [&_ul]:list-outside;
   }
 }
