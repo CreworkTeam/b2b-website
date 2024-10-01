@@ -42,23 +42,11 @@ const recommendations =
 >
   <Section className="border-b-0">
     <BlogHeader {...{ ...blogData, reading_time }} slug={slug} />
-    <div class="mt-6 flex flex-col-reverse gap-12 md:flex-row md:gap-8" id="article-content">
+    <div class="flex flex-col-reverse gap-12 mt-6 md:flex-row md:gap-8" id="article-content">
       <div class="custom-prose">
         <slot />
-        <!-- <div>
-          <h4>Tags</h4>
-          <div class="flex gap-2">
-            {
-              blogCategories.map((category) => (
-                <div class="rounded-md border border-[#D8D8D8] bg-[#F4F4F4] px-2 py-1 text-sm font-normal text-[#3E3E3E] no-underline">
-                  {category}
-                </div>
-              ))
-            }
-          </div>
-        </div> -->
       </div>
-      <div class="top-5 h-fit space-y-4 md:sticky md:w-3/12" id="toc">
+      <div class="space-y-4 top-5 h-fit md:sticky md:w-3/12" id="toc">
         <div class="space-y-2">
           {
             headings && headings.length > 0 && (
@@ -83,7 +71,7 @@ const recommendations =
                   <Image
                     src={social.icon}
                     alt={social.name}
-                    class="h-4 w-4"
+                    class="w-4 h-4"
                     width={16}
                     height={16}
                   />
