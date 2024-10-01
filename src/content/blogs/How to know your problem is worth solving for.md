@@ -120,13 +120,6 @@ Warning signs to watch out for when selecting ideas to pursue:
   Be cautious of ideas that many people get stuck on without finding a viable solution.
   Think of these ideas as quicksand—they seem solvable but pull you deeper into a tangled mess.
   For instance, dreaming up an Instagram rival might sound thrilling, but breaking users' addiction to established platforms is like untangling a web woven with billions.
-  Learn more about them [here](https://www.ycombinator.com/library/Ij-avoid-these-tempting-startup-tarpit-ideas).
+  Learn more about them [What are tarpit ideas & how to avoid them?](https://www.ycombinator.com/library/Ij-avoid-these-tempting-startup-tarpit-ideas).
 
 The key is to fall in love with solving a real problem that people care about, rather than merely chasing trends or convenience.
-
-<aside>
-💡 To stress how important it is to focus on solving genuine needs, at Crework’s Builder’s Cohort, where we help people build and launch a tech product from scratch, we dedicate a full week to brainstorming ideas that are worth solving for.
-
-Explore products that we’ve built in the previous cohorts here: [https://www.crework.in/showcase](https://www.crework.in/showcase)
-
-</aside>

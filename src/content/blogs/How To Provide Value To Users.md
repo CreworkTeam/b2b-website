@@ -86,12 +86,6 @@ Your value proposition should clearly communicate how your product or service:
   - Conversation views
   - 1 GB of cloud storage
     _The game-changers were the conversation views, which grouped emails into threads, and a whopping 1 GB of storage, far more than any competitor at the time._ These unique features were Gmail’s value propositions that set it apart from the rest.
-- **Free Resume Review Tool**
-  Another great example is the [free resume review tool](http://crackeddevs.com/tools/resume-review) built by the CrackedDevs, a community of developers that I’m a part of.
-  People constantly asked if their resumes were good enough on an everyday basis, so a tool for fast, easy resume reviews was created.
-  The value proposition was clear and simple: _quick, hassle-free resume feedback_.
-
-The result? _10,000 organic users in the first few days, all because the offering provided straightforward, powerful value!_
 
 ### **What the Value Proposition _IS NOT_**
 
@@ -108,8 +102,6 @@ Your next step should be to analyze visits, bounce rates, and clicks to gauge in
 ## **3. Develop a Minimum Viable Product (MVP)**
 
 The next step is to build an MVP, a basic version of your product with essential features to solve the user's main problem. The goal is to launch quickly, gather user feedback, and improve rapidly.
-
-We’ve already written an in-depth article on how to go about building an MVP, learn more about building an MVP in our detailed guide [here](https://www.crework.in/guide/building-mvp).
 
 ## **4. Deliver Consistent Value**
 

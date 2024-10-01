@@ -95,12 +95,9 @@ _Find your target users wherever they may be, whether online, offline, or even i
 - **Reddit Communities:**
   For those unfamiliar, Reddit is a social media, web content rating, and discussion website composed of threads. Forums are comprised of “Sub Reddits” that delve deep into almost any topic imaginable.
   Some useful subreddits for discussing products are [r/startups](https://www.reddit.com/r/startups/), [r/sidehustle](https://www.reddit.com/r/sidehustle/), and [r/businessideas](https://www.reddit.com/r/Businessideas/). Additionally, there are dedicated subreddits for specific niches; for instance, if you're building a SAAS product, you can target communities like [r/saas](https://www.reddit.com/r/SaaS/) and [r/saasmarketing](https://www.reddit.com/r/SaaSMarketing/).
+- **Discord servers:**
+  You can search for startup discord communities on Hive Index and explore them in your own time.
 - Launch on mainstream platforms dedicated to product launches like Product Hunt, Peerlist, and Hacker News.
-- Discord servers:
-  - The Builder’s Club: [https://discord.gg/jTRjWWqQ](https://discord.gg/jTRjWWqQ)
-  - Our Startups: [https://discord.gg/PGcbGnVK](https://discord.gg/PGcbGnVK)
-  - Startup Exchange: [https://discord.gg/kMj4jpPq](https://discord.gg/kMj4jpPq)
-    Additionally, there is a supportive community for people who have faced rejection from the famous startup accelerator Y Combinator, known as YC Rejects: [https://discord.gg/vhwJKb7f](https://discord.gg/vhwJKb7f)
 
 ## How did famous startups get their first customers? 😎
 

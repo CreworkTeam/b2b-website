@@ -43,9 +43,7 @@ const recommendations =
   <Section className="border-b-0">
     <BlogHeader {...{ ...blogData, reading_time }} slug={slug} />
     <div class="mt-6 flex flex-col-reverse gap-12 md:flex-row md:gap-8" id="article-content">
-      <div
-        class="prose max-w-none flex-1 [&_a]:break-words [&_p:has(img)]:flex [&_p:has(img)]:justify-center"
-      >
+      <div class="custom-prose">
         <slot />
         <!-- <div>
           <h4>Tags</h4>

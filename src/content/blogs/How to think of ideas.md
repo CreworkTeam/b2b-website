@@ -13,7 +13,7 @@ At its core, for anyone who wants to build, it often comes down to this: 'I don'
 
 **Seems like everything good has already been done. So, how do you find the next big idea that's both doable and something people really want, or at least solves a problem for someone?**
 
-Sure, you can say “I’ll build a better version of OpenAI”. There's no problem with aiming high, but it's a huge goal—especially if you're not already an expert in that field.
+Sure, you can say “I’ll build a better version of Walmart”. There's no problem with aiming high, but it's a huge goal—especially if you're not already an expert in that field.
 
 And if you were, then you probably wouldn't be here. You get it.
 
@@ -35,7 +35,7 @@ Fundamental to building your core as a creator is curiosity. Trust that this sim
 
 Know that there are several problems around you right now.
 
-For example; let’s assume you’re a 25-year-old male working as a Software Engineer in Gurugram.
+For example; let’s assume you’re a 25-year-old male working as a Software Engineer in NYC.
 
 Consider the community you belong to, your daily routine for work, and for pleasure. _Is there something you feel could be improved or if it were available, could help you? Look around and examine the issues you face._
 
@@ -49,33 +49,17 @@ Find one person to help.
 
 How I started by solving for one of my own problems 👇🏼
 
-<aside>
-💡 <a href="https://peerlist.io/shikshita" target="_blank">I’m</a> currently building a platform that recommends books others than the common bestsellers that you find online stores or in roadside stalls (<a href="https://peerlist.io/prathamesh/project/bookafriend" target="_blank">awarded Project of the week and #2 in Project of the month on Peerlist</a>)
-
-So you see the problem for an avid reader → Tired of seeing the same old ‘Atomic Habits’, ‘Harry Potter’ and thus wants → to find underrated book to read.
-
-You can check the basic version here: [https://www.bookafriend.live/](https://www.bookafriend.live/)
-
-</aside>
-
 ## 2. Expand Horizons but Serve Locally 🌎
 
 One common way to find something to build is by discovering great and proven ideas in overseas markets and bringing them to your local region.
 
 You might already know this, but let's just put it out there:
 
-If we take a look at some successful Indian startups, they aren’t necessarily groundbreaking or entirely new concepts compared to what's in the west.
+If we take a look at some successful country specific startups, they aren’t necessarily groundbreaking or entirely new concepts but more or less clones of successful, older companies.
 
-- Flipkart/ Snapdeal → Amazon
-- Oyo → Airbnb
-- Ola → Uber
-- Zomato → Yelp
-- BookMyShow → Fandango
-- MakeMyTrip → Expedia
-- Zoho → Salesforce
-- Razorpay → Stripe
-
-But then, you also have companies like Postman, Stack Overflow that have truly innovated and made us proud.
+- Alibaba (based in China) → Amazon
+- Alando (based in Germany) → eBay
+- Ola (based in India) → Uber
 
 The point is that the best builders keep a close eye on global innovation. Who knows an ideas if brought to life may solve something for people in your region.
 
@@ -90,24 +74,7 @@ The point is that the best builders keep a close eye on global innovation. Who k
 
 Ever heard of turning lemons into lemonade? Well, you can do something similar by fixing industries that are "broken." These are the ones with a bad reputation and haven't bothered to change because they've had a monopoly for ages.
 
-In India, we've got a cool story about Ditto Insurance. We all know how when we hear of insurance in India, it's very normal to believe that it's a scam or someone's trying to deprive you of money. But this is where Ditto Insurance saw their opportunity. They're disrupting the insurance market by becoming a trustworthy option in an industry filled with deception.
-
 It's like being a superhero, fixing what's wrong in the world of business! All you got to do is figure out what bugs people the most, and then work your magic.
-
-<aside>
-💡 Pro tip:
-
-- [Success story of Ditto Insurance](https://www.youtube.com/watch?v=5yUpx_J864A)
-</aside>
-
-<aside>
-💡 To give an example: 
-In Crework’s Builder’s cohort 4, an AI tool: <a href="https://beta.sifthq.app" target="_blank">Sift</a> was designed to assist organizations and recruiters in filtering job applications based on the scores assigned to resumes. 
-These scores are determined by the candidate's work experience and achievements.
-
-Recruiting can be challenging, with numerous applicants making it difficult to filter through. That's where this tool will come in handy for recruiters.
-
-</aside>
 
 ## **4. Catch the Tech Wave** 📺
 
@@ -122,13 +89,6 @@ Oh, and speaking of grabbing such golden chances, have you heard about Gen AI? T
 So, what are you waiting for? Dive into those communities, see what people are building, and join in the fun. Check out some cool subreddits too—you'll find some real gems there!
 
 <aside>
-💡 At <a href="https://www.crework.in/builders" target="_blank">Crework’s Builder’s cohort</a>, most products in the recent cohorts were centered around AI, showing the increasing interest and innovation in this exciting field!
-
-Check them out here: [Showcase](https://www.crework.in/showcase)
-
-</aside>
-
-<aside>
 💡 Pro tip:
 
 Some subreddits to follow
@@ -137,9 +97,9 @@ Some subreddits to follow
 - [r/side project](https://www.reddit.com/r/SideProject/)
 - [r/entrepreneur](https://www.reddit.com/r/Entrepreneur/)
 
-Know what people in tech are taking about
+Know what people in tech are taking about, join:
 
-- Join [Hacker news](https://news.ycombinator.com/)
+- [Hacker news](https://news.ycombinator.com/)
 - [https://lobste.rs/about](https://lobste.rs/about)
 - [https://www.reddit.com/r/realtech/](https://www.reddit.com/r/realtech/)
 </aside>
@@ -176,12 +136,7 @@ Follow Indie hackers, some famous one on X/twitter are:
 
 - [Pieter Levels](https://twitter.com/levelsio)
 - [Dagobert Renouf](https://twitter.com/dagorenouf)
-
-Some Indian independent builders to follow and take inspiration from:
-
-- [Utsav](https://twitter.com/utsavpm)
-- [Vatsal Sanghvi](https://twitter.com/Vatsal_Sanghvi)
-- [Louis Pereira](https://twitter.com/louispereira)
+- [Marc Lou](https://x.com/marc_louvion?lang=en)
 </aside>
 
 Before embarking on your builder’s journey, be sure to explore this highly recommended resource for anyone who is passionate about building products or startups: [How to get Startup Ideas](https://paulgraham.com/startupideas.html#:~:text=A%20good%20way%20to%20trick,build%20something%20that%20already%20existed.)’ by Paul Graham, co-founder of YC.
