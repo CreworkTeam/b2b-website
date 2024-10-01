@@ -5,7 +5,7 @@ blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-provide-value-to-users.png', alt: 'A picture of a coder' }
 blogDescription: Explore effective methods for creating and delivering real user value in your products. Learn how to develop features that solve genuine problems and keep users coming back.
 draft: false
-featured: true
+featured: false
 blogCategories: ['product']
 ---
 
