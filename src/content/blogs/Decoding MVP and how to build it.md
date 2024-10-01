@@ -1,6 +1,6 @@
 ---
 blogTitle: Decoding MVP and how to build it?
-blogDate: June 07, 2024
+blogDate: September 10, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage:
   {
