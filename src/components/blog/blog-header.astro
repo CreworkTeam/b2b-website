@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { formatDate } from 'date-fns';
 
 const {
-  data: { blogTitle, blogAuthor, blogDate, blogImage },
+  data: { blogTitle, blogDate, blogImage },
   reading_time,
 } = Astro.props;
 ---
@@ -15,13 +15,17 @@ const {
       {blogDate ? formatDate(blogDate, 'MMMM dd, yyyy') : null} • {reading_time}
     </p>
   </div>
-  <Image
-    src={blogImage.src}
-    alt={blogImage.alt}
-    width="1200"
-    height="600"
-    format="avif"
-    quality={80}
-    class="aspect-video rounded-lg border object-cover object-center"
-  />
+  {
+    (
+      <Image
+        src={blogImage?.src || '/opengraph.png'}
+        alt={blogImage?.alt || 'Blog Image'}
+        width="1200"
+        height="600"
+        format="avif"
+        quality={80}
+        class="object-cover object-center border rounded-lg aspect-video"
+      />
+    )
+  }
 </header>

@@ -103,6 +103,8 @@ Your next step should be to analyze visits, bounce rates, and clicks to gauge in
 
 The next step is to build an MVP, a basic version of your product with essential features to solve the user's main problem. The goal is to launch quickly, gather user feedback, and improve rapidly.
 
+To get started with developing an MVP, you should go through our _[Decoding MVP and how to build it?](/blog/decoding-mvp-and-how-to-build-it)_ article.
+
 ## **4. Deliver Consistent Value**
 
 Sadly you are not done after getting your value proposition right.

@@ -13,17 +13,17 @@ const BlogCard = (props) => {
       data-btnname={blogTitle}
     >
       <img
-        src={blogImage?.src}
+        src={blogImage?.src || '/opengraph.png'}
         alt={blogTitle}
         className="aspect-[16/8] size-full rounded-t-md object-cover"
       />
 
-      <div className="rounded-md bg-white p-4">
+      <div className="p-4 bg-white rounded-md">
         <p className="text-xs text-gray-500">
           {blogDate ? format(new Date(blogDate), 'MMMM dd, yyyy') : null}
         </p>
-        <h3 className="truncate text-lg font-medium">{blogTitle}</h3>
-        <p className="line-clamp-2 text-sm text-gray-500">{blogDescription}</p>
+        <h3 className="text-lg font-medium truncate">{blogTitle}</h3>
+        <p className="text-sm text-gray-500 line-clamp-2">{blogDescription}</p>
       </div>
     </a>
   );
