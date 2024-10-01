@@ -2,7 +2,11 @@
 blogTitle: Decoding MVP and how to build it?
 blogDate: June 07, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { alt: 'MVP' }
+blogImage:
+  {
+    src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1727780913/blogs/f083b76a-4e4f-4483-b72e-d0978cebabae.png',
+    alt: 'MVP',
+  }
 blogDescription: By definition, an MVP or a minimal viable product is the first version of your product that you can present to your customers to deliver value and it's your golden ticket to testing your idea in the real world without breaking the bank or losing your sanity.
 blogCategories: ['MVP']
 draft: false
