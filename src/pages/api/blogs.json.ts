@@ -16,7 +16,7 @@ export const GET: APIRoute = async ({ request }) => {
   const filteredBlogs = data
     .filter(({ data }) => {
       const matchesSearch = search
-        ? data.blogTitle.toLowerCase().includes(search.toLowerCase())
+        ? data?.blogTitle?.toLowerCase().includes(search.toLowerCase())
         : true;
       const matchesCategory =
         category && category !== 'all' ? data.blogCategories.includes(category) : true;

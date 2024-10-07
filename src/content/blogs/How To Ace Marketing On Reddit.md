@@ -1,5 +1,5 @@
 ---
-blogTitle: How To Ace Marketing On Reddit
+blogTitle: How To Ace Marketing On Reddit?
 blogDate: September 24, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/blog-8.png', alt: 'A picture of a coder' }

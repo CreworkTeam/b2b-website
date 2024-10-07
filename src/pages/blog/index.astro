@@ -5,6 +5,7 @@ import FeaturedCarousel from '@/components/blog/features-carousel';
 import SubscribeEmail from '@/components/blog/subscribe-email';
 import BlogList from '@/components/blog/blog-list';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 const allBlogs = await getCollection('blogs');
 
@@ -25,13 +26,21 @@ const description =
 >
   <Section>
     <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-      <div class="flex-[3] space-y-2 text-center md:text-start">
-        <h1 class="text-4xl font-semibold">
+      <div class="flex-[3] space-y-4 text-center md:space-y-2 md:text-start">
+        <h1 class="text-2xl font-semibold sm:text-3xl md:text-4xl">
           {title}
         </h1>
-        <p class="font-normal text-[#686868]">
+        <p class="text-sm font-normal text-[#686868] md:text-lg">
           {description}
         </p>
+        <a
+          href="https://tally.so/r/m6OxRB"
+          target="_blank"
+          class="btn mx-auto flex w-fit items-center justify-center gap-2 md:mx-0"
+        >
+          <Image src="/icons/whatsapp-icon.svg" alt="Whatsapp Community" width="20" height="20" />
+          <span>Join our community</span>
+        </a>
       </div>
       <div class="flex flex-[2] flex-col items-center justify-end gap-1 md:items-end">
         <SubscribeEmail client:load />

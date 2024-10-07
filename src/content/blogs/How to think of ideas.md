@@ -1,5 +1,5 @@
 ---
-blogTitle: How to think of Ideas
+blogTitle: How to think of Ideas?
 blogDate: September 3, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-think-of-ideas.png', alt: 'A picture of a coder' }

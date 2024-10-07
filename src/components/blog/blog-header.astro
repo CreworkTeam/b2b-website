@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { formatDate } from 'date-fns';
 
 const {
-  data: { blogTitle, blogDate, blogImage },
+  data: { blogTitle, blogDate, blogAuthor, blogImage },
   reading_time,
 } = Astro.props;
 ---
@@ -11,21 +11,22 @@ const {
 <header class="space-y-4">
   <div class="space-y-4">
     <h1 class="font-semibold">{blogTitle}</h1>
-    <p class="text-sm text-[#686868]">
-      {blogDate ? formatDate(blogDate, 'MMMM dd, yyyy') : null} • {reading_time}
-    </p>
+    <div class="text-[#686868]">
+      <p class="text-sm">
+        By {blogAuthor.author}
+      </p>
+      <p class="text-sm">
+        {blogDate ? formatDate(blogDate, 'MMMM dd, yyyy') : null} • {reading_time}
+      </p>
+    </div>
   </div>
-  {
-    (
-      <Image
-        src={blogImage?.src || '/opengraph.png'}
-        alt={blogImage?.alt || 'Blog Image'}
-        width="1200"
-        height="600"
-        format="avif"
-        quality={80}
-        class="object-cover object-center border rounded-lg aspect-video"
-      />
-    )
-  }
+  <Image
+    src={blogImage?.src || '/opengraph.png'}
+    alt={blogImage?.alt || 'Blog Image'}
+    width="1200"
+    height="600"
+    format="avif"
+    quality={80}
+    class="aspect-video rounded-lg border object-cover object-center"
+  />
 </header>
