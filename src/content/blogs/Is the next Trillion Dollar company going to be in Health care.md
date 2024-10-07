@@ -1,5 +1,5 @@
 ---
-blogTitle: Is the next Trillion Dollar company going to be in Health care?
+blogTitle: Is The Next Trillion Dollar Company Going To Be In Health Care?
 blogDate: October 4, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage:
@@ -13,7 +13,7 @@ featured: false
 blogCategories: ['ideation', 'Healthcare', 'Healthtech']
 ---
 
-**Diving into the Future of Healthcare: How Personalization and AI Will Transform the Industry**
+## The current state of affairs in Healthcare
 
 **"Ok Google!"**
 
@@ -43,6 +43,8 @@ Apps like **Strava** and smartwatches can be found on every other person's phone
 
 But the next billion- or trillion-dollar revolution will be about more than singular solutions; it’s about **consumer-centric healthcare** that encompasses personalized health at every touchpoint.
 
+## How the future is going to look like
+
 Here’s how it’s going to look:
 
 - **Make Health Engaging, Not Boring:**
@@ -50,7 +52,7 @@ Here’s how it’s going to look:
 - **Turn Data into Simple, Actionable Advice:**
   We all have piles of personal health reports buried deep inside our closets, and most of it goes unused because **we don’t understand it**. But with the right approach, user data can be combined with medical insights and the latest science to offer **proactive, easy-to-follow advice**, making it more accessible and useful.
 - **AI + Doctors + Clinicians: All-in-One:**
-  The future of healthcare will combine **AI, doctors, and clinicians** in perfect harmony. An ideal system will integrate symptom recognition with \***\*personalized treatment \*\***plans**,** providing a complete, **holistic solution**.
+  The future of healthcare will combine **AI, doctors, and clinicians** in perfect harmony. An ideal system will integrate symptom recognition with **personalized treatment plans**, providing a complete **holistic solution**.
 
 To help you picture this: imagine you are **a 35-year-old woman working in an urban corporate setting, using this personalized healthcare system.** Here’s what you can expect:
 
