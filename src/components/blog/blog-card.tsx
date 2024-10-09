@@ -21,21 +21,21 @@ const BlogCard = (props) => {
         className="aspect-video size-full rounded-t-md object-cover"
       />
 
-      <div className="h-36 overflow-y-hidden rounded-md bg-white p-4">
+      <div className="rounded-md bg-white p-4 md:h-36">
         <p className="text-xs text-gray-500">
           {blogDate ? format(new Date(blogDate), 'MMMM dd, yyyy') : null}
         </p>
         <h3 ref={ref} className="line-clamp-2 text-lg font-medium">
           {blogTitle}
         </h3>
-        <p
-          className={cn('text-sm text-gray-500', {
+        <div
+          className={cn('mb-4 text-sm text-gray-500', {
             'line-clamp-2': ref.current?.clientHeight > 40,
             'line-clamp-3': ref.current?.clientHeight <= 40,
           })}
         >
           {blogDescription}
-        </p>
+        </div>
       </div>
     </a>
   );
