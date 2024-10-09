@@ -30,8 +30,8 @@ const BlogCard = (props) => {
         </h3>
         <p
           className={cn('text-sm text-gray-500', {
-            'line-clamp-2': ref.current?.clientHeight > 50,
-            'line-clamp-3': ref.current?.clientHeight <= 50,
+            'line-clamp-2': ref.current?.clientHeight > 40,
+            'line-clamp-3': ref.current?.clientHeight <= 40,
           })}
         >
           {blogDescription}
