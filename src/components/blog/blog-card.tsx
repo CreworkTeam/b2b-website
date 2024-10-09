@@ -1,6 +1,9 @@
+import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { useRef } from 'react';
 
 const BlogCard = (props) => {
+  const ref = useRef(null);
   const { blogTitle, blogDescription, blogImage, blogDate, slug } = props;
 
   const url = `/blog/${slug}`;
@@ -15,15 +18,24 @@ const BlogCard = (props) => {
       <img
         src={blogImage?.src || '/opengraph.png'}
         alt={blogTitle}
-        className="aspect-[16/8] size-full rounded-t-md object-cover"
+        className="aspect-video size-full rounded-t-md object-cover"
       />
 
-      <div className="p-4 bg-white rounded-md">
+      <div className="min-h-36 overflow-y-hidden rounded-md bg-white p-4">
         <p className="text-xs text-gray-500">
           {blogDate ? format(new Date(blogDate), 'MMMM dd, yyyy') : null}
         </p>
-        <h3 className="text-lg font-medium truncate">{blogTitle}</h3>
-        <p className="text-sm text-gray-500 line-clamp-2">{blogDescription}</p>
+        <h3 ref={ref} className="line-clamp-2 text-lg font-medium">
+          {blogTitle}
+        </h3>
+        <p
+          className={cn('text-sm text-gray-500', {
+            'line-clamp-2': ref.current?.clientHeight > 50,
+            'line-clamp-3': ref.current?.clientHeight <= 50,
+          })}
+        >
+          {blogDescription}
+        </p>
       </div>
     </a>
   );
