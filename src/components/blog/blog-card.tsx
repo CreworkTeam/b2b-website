@@ -21,7 +21,7 @@ const BlogCard = (props) => {
         className="aspect-video size-full rounded-t-md object-cover"
       />
 
-      <div className="min-h-36 overflow-y-hidden rounded-md bg-white p-4">
+      <div className="h-36 overflow-y-hidden rounded-md bg-white p-4">
         <p className="text-xs text-gray-500">
           {blogDate ? format(new Date(blogDate), 'MMMM dd, yyyy') : null}
         </p>
