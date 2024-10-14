@@ -107,10 +107,6 @@ const portfolio = [
     name: 'Feel Good Club',
   },
   {
-    image: '/portfolio/startupnavigator.png',
-    name: 'Startup Navigator',
-  },
-  {
     image: '/portfolio/travaygroup.png',
     name: 'Travay Group',
   },
