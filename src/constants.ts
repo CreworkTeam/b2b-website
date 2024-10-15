@@ -39,14 +39,6 @@ const TESTIMONIALS = [
     country: 'India',
   },
   {
-    designation: 'Founder',
-    companyName: 'Trendz',
-    testimonialText: 'Speedy delivery of quality work. Much recommended.',
-    personName: 'Vaibhav',
-    photo: '',
-    country: 'India',
-  },
-  {
     designation: 'Co-Founder',
     companyName: 'TravayGroup',
     testimonialText:
@@ -63,33 +55,6 @@ const TESTIMONIALS = [
     personName: 'Om Rafols Cots',
     photo: '/testimonials/om.jpg',
     country: 'Spain',
-  },
-  {
-    designation: 'Chief of Product',
-    companyName: 'Flizer',
-    testimonialText:
-      'Crework helped us deep dive into our priority features, narrowed down our scope, and delivered an impeccable MVP in a short time.',
-    personName: 'Ruth Goldman',
-    photo: '',
-    country: 'Israel',
-  },
-  {
-    designation: 'Co-founder',
-    companyName: 'Yogahills',
-    testimonialText:
-      'Got my website up and running swiftly in a couple of weeks. Had a great time working with them!',
-    personName: 'Melissa Smith',
-    photo: '',
-    country: 'USA',
-  },
-  {
-    designation: 'Partner',
-    companyName: 'White Swan Advisors',
-    testimonialText:
-      'Extremely professional, quick support, exceptional adherence to deadlines, and generally a breeze to work with.',
-    personName: 'Abid Kamal',
-    photo: '',
-    country: 'USA',
   },
 ];
 
