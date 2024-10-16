@@ -62,7 +62,8 @@ const TESTIMONIALS = [
     testimonialText:
       'Extremely professional, quick support, exceptional adherence to deadlines, and generally a breeze to work with.',
     personName: 'Abid Kamal',
-    photo: '',
+    photo:
+      'https://res.cloudinary.com/crework-cloud/image/upload/v1729096074/WhatsApp_Image_2024-10-16_at_21.56.11_dizacj.jpg',
     country: 'USA',
   },
 ];
