@@ -56,6 +56,15 @@ const TESTIMONIALS = [
     photo: '/testimonials/om.jpg',
     country: 'Spain',
   },
+  {
+    designation: 'Partner',
+    companyName: 'White Swan Advisors',
+    testimonialText:
+      'Extremely professional, quick support, exceptional adherence to deadlines, and generally a breeze to work with.',
+    personName: 'Abid Kamal',
+    photo: '',
+    country: 'USA',
+  },
 ];
 
 const portfolio = [
