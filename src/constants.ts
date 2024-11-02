@@ -101,6 +101,10 @@ const portfolio = [
     image: '/portfolio/site-genius.png',
     name: 'Site Genius',
   },
+  {
+    image: '/portfolio/quickfunds.png',
+    name: 'QuickFunds'
+  }
 ];
 
 const navLinks = [
