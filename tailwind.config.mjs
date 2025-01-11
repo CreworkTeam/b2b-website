@@ -10,6 +10,9 @@ export default {
       'no-scroll-timeline': 'not (animation-timeline: scroll())',
     },
     extend: {
+      backgroundImage: {
+        'custom-radial': 'radial-gradient(circle, #F8F8F8, #F2F2F2, #BABABA)',
+      },
       keyframes: {
         marquee: {
           '0%': {
