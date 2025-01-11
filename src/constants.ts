@@ -109,8 +109,10 @@ const portfolio = [
 
 const navLinks = [
   { href: '/#testimonials', text: 'Testimonials' },
+  
   // { href: '/#our-impact', text: 'Our Impact' },
   { href: '/#case-studies', text: 'Case Studies' },
+  { href:'/#team', text: 'Team' },
   { href: '/#pricing', text: 'Pricing' },
   { href: '/blog', text: 'Blogs', prefetch: true },
   { href: '/#contact-us', text: 'Contact Us' },

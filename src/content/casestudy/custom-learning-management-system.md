@@ -76,6 +76,7 @@ the unique needs of both cohort managers and students. We then progressed to coo
 of the cohort management and student interfaces, followed by rigorous testing and refinement based
 on user feedback. Overall, the MVP of the LMS took 1 month to build and iterations took another 1
 month.
+
 ![Timeline](/portfolio/timeline.png)
 
 ## Powerful yet Intuitive

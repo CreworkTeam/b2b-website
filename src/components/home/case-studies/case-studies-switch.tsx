@@ -20,7 +20,7 @@ interface CaseStudyCardProps {
 }
 
 const CaseStudiesSwitch = ({ sticky }: { sticky: boolean }) => {
-  const [tab, setTab] = useState('website');
+  const [tab, setTab] = useState('mvp');
 
   const onTabChange = (value: React.SetStateAction<string>) => {
     handleScrollToSectionTop();
