@@ -11,6 +11,7 @@ csimages:
     { src: '/portfolio/dashboard.png', alt: 'Image' },
   ]
 cstag: 'mvp'
+cslivelink: ''
 ---
 
 ## Problem

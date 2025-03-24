@@ -10,7 +10,8 @@ csimages:
     { src: '/portfolio/fundsfinder.png', alt: 'Image' },
     { src: '/portfolio/fundsfinder-2.svg', alt: 'Image' },
   ]
-cstag: 'website'
+cstag: 'mvp'
+cslivelink: ''
 ---
 
 ## Challenge

@@ -20,6 +20,7 @@ csimages:
     },
   ]
 cstag: 'mvp'
+cslivelink: ''
 ---
 
 ## Challenge
