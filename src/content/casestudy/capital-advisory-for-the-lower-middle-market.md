@@ -1,17 +1,18 @@
 ---
-cstitle: 'Whit Swan Advisor Website Redesign'
-csimage: { src: '/portfolio/travaygroup-3.png', alt: 'Travay Group Cover' }
+cstitle: 'White Swan Advisor Website Redesign'
+order: 1
+csimage: { src: '/portfolio/white-swan-advisors.png', alt: 'White Swan Advisors Cover' }
 csmptag: 'Travay'
-csdescription: 'How we helped Whit Swan Advisor with a complete redesign of their website to improve user experience and navigation'
+csdescription: 'How we helped White Swan Advisor with a complete redesign of their website to improve user experience and navigation'
 csspan: '50% increase in Conversion Rate'
 cstags: ['User Interface Redesign', 'Website Development', 'Information Architecture']
 csimages:
   [
-    { src: '/portfolio/travaygroup.png', alt: 'Image' },
-    { src: '/portfolio/travaygroup-2.svg', alt: 'Image' },
+    { src: '/portfolio/white-swan-advisors.png', alt: 'Image' },
+    { src: '/portfolio/white-swan-card-2.png', alt: 'Image' },
   ]
 cstag: 'website'
-cslivelink: ''
+cslivelink: 'https://www.whiteswanadvisors.com/'
 ---
 
 ## Key Enhancements
@@ -46,22 +47,22 @@ A dedicated section distinctly presents their two core service areas:
 Each service is visually represented with concise descriptions for immediate clarity.
 
 ### Interactive Global Network Display
-To emphasize White Swan Advisors’ international presence, we implemented an interactive map showcasing their operational regions and investor ecosystem.
+To emphasize White Swan Advisors' international presence, we implemented an interactive map showcasing their operational regions and investor ecosystem.
 
 ### Value Proposition Reinforcement
 A dedicated "Why Choose White Swan Advisors?" section succinctly highlights their core strengths:
 - **Decades of Experience** – Over 31 years in capital markets.
 - **Extensive Investor Network** – A growing Rolodex of 2,500+ investors.
 - **Proven Success** – Over $9 billion in total transaction volume as of 2024.
----
 
+![White Swan Track Record](/portfolio/white-swan-track-record.png) 
 
 ## Results and Impact
 
 The redesigned White Swan Advisors website now functions as a high-impact digital asset:
 - **Elevated Brand Image** – The refreshed design aligns with their market leadership and expertise.
 - **Enhanced User Engagement** – Intuitive navigation and compelling content keep visitors engaged.
-- **Stronger Service Communication** – Clients can quickly grasp White Swan Advisors’ unique offerings.
+- **Stronger Service Communication** – Clients can quickly grasp White Swan Advisors' unique offerings.
 - **Global Network Visibility** – The interactive map strengthens credibility by showcasing their extensive reach.
 - **Reinforced Market Positioning** – The enhanced digital presence solidifies their standing as a premier financial advisory firm.
 While quantitative metrics are forthcoming, the website is expected to boost brand perception, drive user engagement, and increase conversion rates.

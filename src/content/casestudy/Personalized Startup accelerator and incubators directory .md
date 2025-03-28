@@ -1,5 +1,6 @@
 ---
 cstitle: 'Personalized Startup accelerator and incubators directory.'
+order: 3
 csimage:
   {
     src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1727442047/casestudies/ad2ad4d2-886f-4fdc-85ae-8978bba7ad37.png',
@@ -20,7 +21,7 @@ csimages:
     },
   ]
 cstag: 'mvp'
-cslivelink: ''
+cslivelink: 'http://startupnavigator.live/'
 ---
 
 ## Challenge
@@ -63,7 +64,7 @@ Startup Navigator has shown significant impact in its initial phase:
 - **500+ users** have used the startup navigator to find incubators, grants and accelerators they can apply to
 - **95% user satisfaction rate** based on post-use surveys
 
-## What’s next?
+## What's next?
 
 As we continue to develop and refine our directory, we're excited about future enhancements:
 

@@ -1,8 +1,9 @@
 ---
 cstitle: 'IceTribe Website Redesign'
+order: 3
 csimage:
   {
-    src: '/portfolio/ice-tribe-hero-2.png',
+    src: '/portfolio/ice-tribe-hero-banner.png',
     alt: 'Cover',
   }
 csmptag: 'ice_tribe'
@@ -12,7 +13,7 @@ cstags: ['Brand Perception Enhancement', 'Website Development', 'Conversion Opti
 csimages:
   [
     {
-      src: '/portfolio/ice-tribe-card-1.png',
+      src: '/portfolio/ice-tribe-hero-banner.png',
       alt: 'Image',
     },
     {
@@ -21,7 +22,7 @@ csimages:
     },
   ]
 cstag: 'website'
-cslivelink: ''
+cslivelink: 'https://icetribe.vercel.app/'
 ---
 
 ## Challenge
@@ -30,26 +31,28 @@ Ice Tribe, a Singapore-based innovator in cold therapy solutions, sought to elev
 
 - **Lack of Emotional Connection:** The website failed to evoke the invigorating and transformative experience associated with cold therapy.
 - **Confusing User Journey:** The navigation structure made it difficult for visitors to explore products, understand the benefits, and access wellness resources efficiently.
-- **Minimal Brand Authority:** Ice Tribe’s industry expertise and product superiority were not effectively communicated, making differentiation in the competitive market challenging.
+- **Minimal Brand Authority:** Ice Tribe's industry expertise and product superiority were not effectively communicated, making differentiation in the competitive market challenging.
 - **Limited Community Integration:** There was no centralized space for user stories, expert insights, or interactive features to engage the audience.
 ---
 
 ## Solution
 
-We executed a holistic redesign and development of Ice Tribe’s digital experience, emphasizing:
+We executed a holistic redesign and development of Ice Tribe's digital experience, emphasizing:
 
 - **Compelling Visual & Emotional Storytelling**: Integrating high-resolution lifestyle imagery and immersive content to transport users into the world of cold therapy.
 - **Seamless Navigation & UX Optimization**: Restructuring the website for intuitive browsing, ensuring that users can effortlessly discover products, services, and wellness insights.
-- **Authority & Trust Building**: Showcasing scientific backing, athlete endorsements, and expert opinions to reinforce Ice Tribe’s credibility in the wellness space.
+- **Authority & Trust Building**: Showcasing scientific backing, athlete endorsements, and expert opinions to reinforce Ice Tribe's credibility in the wellness space.
 - **Engaging Community Hub**: Introducing a dedicated space for success stories, expert tips, and interactive wellness challenges to foster deeper connections with users.
+
+![Ice Tribe Navigation](/portfolio/ice-tribe-solutions.png)
 ---
 
 ## The Power of Design
 
 ### Hero Section: A Bold Invitation to Wellness
-  The redesigned homepage presents an arresting visual of an athlete emerging from an ice bath, reinforcing themes of resilience and renewal. A compelling tagline, “Unlock Peak Recovery,” immediately captures attention and positions Ice Tribe as a leader in performance wellness.
+  The redesigned homepage presents an arresting visual of an athlete emerging from an ice bath, reinforcing themes of resilience and renewal. A compelling tagline, "Unlock Peak Recovery," immediately captures attention and positions Ice Tribe as a leader in performance wellness.
 ### Color Palette: A Refreshing & Energizing Aesthetic
-  A balanced mix of deep navy and icy blues conveys both stability and rejuvenation, while white accents evoke a sense of purity and clarity—mirroring the brand’s philosophy.
+  A balanced mix of deep navy and icy blues conveys both stability and rejuvenation, while white accents evoke a sense of purity and clarity—mirroring the brand's philosophy.
 ### Typography: Modern, Minimal, and Impactful
   A clean, sans-serif typeface ensures clear readability across all devices, maintaining a sophisticated and approachable brand identity.
 
@@ -66,13 +69,17 @@ We executed a holistic redesign and development of Ice Tribe’s digital experie
     5. **Learn More**
   - This structured approach allows for effortless discovery of products and educational content, improving the overall user experience.
 
+  ![Ice Tribe Navigation](/portfolio/ice-tribe-navigation.png)
+
 ### Product Showcase with a Performance-Driven Narrative
-  - A dedicated product page now presents Ice Tribe’s offerings with an emphasis on functionality, innovation, and user testimonials:
+  - A dedicated product page now presents Ice Tribe's offerings with an emphasis on functionality, innovation, and user testimonials:
     1. **Arctic Tub**: A portable, inflatable tub designed for easy setup and optimal temperature retention.
     2. **Glacier Barrel**: A high-performance plunge barrel built for enhanced durability and insulation.
     3. **Summit Spa**: A premium, self-cleaning system offering both hot and cold plunge therapy for advanced recovery.
     4. **Polar Pro**: A smart bath with adaptive cooling technology and an intuitive app for personalized therapy sessions.
   - Each product page includes interactive elements such as 360-degree views, real-life testimonials, and in-depth usage guides.
+
+  ![Ice Tribe Products](/portfolio/ice-tribe-product.png)
 
 ### Community Hub & Engagement Features
   - A newly introduced Community Hub encourages ongoing engagement through:
@@ -80,13 +87,16 @@ We executed a holistic redesign and development of Ice Tribe’s digital experie
     2. **Expert Insights**: Tips from physiotherapists, athletes, and wellness coaches on optimizing cold therapy.
     3. **Challenges & Events**: Virtual and in-person wellness challenges that encourage participation and brand loyalty.
   - Each product page includes interactive elements such as 360-degree views, real-life testimonials, and in-depth usage guides.
+
+![Ice Tribe Insights](/portfolio/ice-tribe-insights.png)
+
 ---
   
 ## Project Outcomes
 The transformed Ice Tribe website now acts as a dynamic and authoritative platform that:
 - **Creates Emotional Resonance**: The new design and storytelling approach make cold therapy feel aspirational and accessible.
 - **Enhances Usability**: Streamlined navigation and interactive elements guide users smoothly through their journey.
-- **Builds Brand Credibility**: Showcasing expertise, customer results, and scientific backing strengthens Ice Tribe’s market position.
+- **Builds Brand Credibility**: Showcasing expertise, customer results, and scientific backing strengthens Ice Tribe's market position.
 - **Drives Community Engagement**: The integration of social proof and interactive features fosters a loyal customer base.
 
 While specific performance metrics are still being tracked, the redesigned website is expected to:

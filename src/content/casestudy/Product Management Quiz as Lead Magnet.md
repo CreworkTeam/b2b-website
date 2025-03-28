@@ -1,5 +1,6 @@
 ---
 cstitle: 'Product Management Quiz as Lead Magnet'
+order: 2
 csimage:
   {
     src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1727439108/casestudies/33fff2b5-126b-45cd-8d53-2fa59fbe342b.png',
@@ -20,7 +21,7 @@ csimages:
     },
   ]
 cstag: 'website'
-cslivelink: ''
+cslivelink: 'http://crework.club/'
 ---
 
 ## Challenge

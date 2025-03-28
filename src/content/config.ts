@@ -40,6 +40,8 @@ const casestudy = defineCollection({
       }),
     ),
     cstag: z.string().default('website'),
+    cslivelink: z.string().optional(),
+    order: z.number(),
   }),
 });
 

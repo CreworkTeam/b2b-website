@@ -110,10 +110,6 @@ const portfolio = [
     name: 'Ice Tribe'
   },
   {
-    image: '/portfolio/growth-forge.png',
-    name: 'Growth Forge'
-  },
-  {
     image: '/portfolio/ace.png',
     name: 'Ace'
   },
@@ -162,6 +158,7 @@ const BLOG_RESULTS_LIMIT = 4;
 
 const WEBSITE_CASE_STUDY_CARDS = casestudies
   .filter(({ data: { cstag } }) => cstag === 'website')
+  .sort((a, b) => a.data.order - b.data.order)
   .map(({ data: { cstitle, csdescription, csspan, cstags, csimages, cslivelink }, slug }, index) => ({
     title: cstitle,
     description: csdescription,
@@ -175,6 +172,7 @@ const WEBSITE_CASE_STUDY_CARDS = casestudies
 
 const MVP_WEBSITE_CASE_STUDY_CARDS = casestudies
   .filter(({ data: { cstag } }) => cstag === 'mvp')
+  .sort((a, b) => a.data.order - b.data.order)
   .map(({ data: { cstitle, csdescription, csspan, cstags, csimages, cslivelink }, slug }, index) => ({
     title: cstitle,
     description: csdescription,

@@ -222,7 +222,7 @@ const CaseStudyCard = ({
             data-btntype="live website CTA"
             onClick={(e) => e.stopPropagation()}
           >
-            <span>Live Website</span> {" "} <ArrowRight />
+            <span>View Live Link</span> {" "} <ArrowRight />
           </a> }
         </div>
       </div>
