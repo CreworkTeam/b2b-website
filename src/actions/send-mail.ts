@@ -10,13 +10,13 @@ export async function sendMail({ to, subject, text }: EmailOptions): Promise<voi
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: import.meta.env.GMAIL_SMTP_USER,
-      pass: import.meta.env.GMAIL_SMTP_PASSWORD,
+      user: import.meta.env.PUBLIC_GMAIL_SMTP_USER,
+      pass: import.meta.env.PUBLIC_GMAIL_SMTP_PASSWORD,
     },
   });
 
   const mailOptions = {
-    from: import.meta.env.GMAIL_SMTP_USER,
+    from: import.meta.env.PUBLIC_GMAIL_SMTP_USER,
     to,
     subject,
     text,

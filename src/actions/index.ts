@@ -13,7 +13,7 @@ export const server = {
     }),
     handler: async ({ name, email, phone, message }) => {
       sendMail({
-        to: 'labs@crework.in',
+        to: 'aryangupta8291@gmail.com',
         subject: 'New Enquiry Crework Labs',
         text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
       });
