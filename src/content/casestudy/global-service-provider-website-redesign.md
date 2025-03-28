@@ -1,5 +1,6 @@
 ---
 cstitle: 'Global Service Provider Website Redesign'
+order: 4
 csimage: { src: '/portfolio/travaygroup-3.png', alt: 'Travay Group Cover' }
 csmptag: 'Travay'
 csdescription: 'How we helped Travay Group with a complete redesign of their website to improve user experience and navigation'
@@ -11,6 +12,7 @@ csimages:
     { src: '/portfolio/travaygroup-2.svg', alt: 'Image' },
   ]
 cstag: 'website'
+cslivelink: ''
 ---
 
 ## Challenge

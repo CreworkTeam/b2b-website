@@ -104,7 +104,19 @@ const portfolio = [
   {
     image: '/portfolio/quickfunds.png',
     name: 'QuickFunds'
-  }
+  },
+  {
+    image: '/portfolio/ice-tribe-portfolio.png',
+    name: 'Ice Tribe'
+  },
+  {
+    image: '/portfolio/ace.png',
+    name: 'Ace'
+  },
+  {
+    image: '/portfolio/scale-up.png',
+    name: 'Scale Up'
+  },
 ];
 
 const navLinks = [
@@ -146,7 +158,8 @@ const BLOG_RESULTS_LIMIT = 4;
 
 const WEBSITE_CASE_STUDY_CARDS = casestudies
   .filter(({ data: { cstag } }) => cstag === 'website')
-  .map(({ data: { cstitle, csdescription, csspan, cstags, csimages }, slug }, index) => ({
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(({ data: { cstitle, csdescription, csspan, cstags, csimages, cslivelink }, slug }, index) => ({
     title: cstitle,
     description: csdescription,
     span: csspan,
@@ -154,11 +167,13 @@ const WEBSITE_CASE_STUDY_CARDS = casestudies
     images: csimages?.map(({ src, alt }) => ({ src, alt })),
     rtl: index % 2 === 0,
     link: `/case-studies/${slug}`,
+    livelink: cslivelink
   }));
 
 const MVP_WEBSITE_CASE_STUDY_CARDS = casestudies
   .filter(({ data: { cstag } }) => cstag === 'mvp')
-  .map(({ data: { cstitle, csdescription, csspan, cstags, csimages }, slug }, index) => ({
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(({ data: { cstitle, csdescription, csspan, cstags, csimages, cslivelink }, slug }, index) => ({
     title: cstitle,
     description: csdescription,
     span: csspan,
@@ -166,6 +181,7 @@ const MVP_WEBSITE_CASE_STUDY_CARDS = casestudies
     images: csimages?.map(({ src, alt }) => ({ src, alt })),
     rtl: index % 2 === 0,
     link: `/case-studies/${slug}`,
+    livelink: cslivelink
   }));
 
 export {

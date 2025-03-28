@@ -1,5 +1,6 @@
 ---
 cstitle: 'Instant Business Valuation Web Application'
+order: 1
 csimage: { src: '/portfolio/fundsfinder.png', alt: 'Funds Finder Cover' }
 csmptag: 'fundsfinders'
 csdescription: 'How we built a quick, data-driven business valuations tool for FundsFinders'
@@ -10,7 +11,8 @@ csimages:
     { src: '/portfolio/fundsfinder.png', alt: 'Image' },
     { src: '/portfolio/fundsfinder-2.svg', alt: 'Image' },
   ]
-cstag: 'website'
+cstag: 'mvp'
+cslivelink: ''
 ---
 
 ## Challenge

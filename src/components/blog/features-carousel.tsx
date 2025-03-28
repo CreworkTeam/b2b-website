@@ -26,8 +26,8 @@ function FeaturedCarousel({ blogs }) {
           );
         })}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      {/* <CarouselPrevious /> */}
+      {/* <CarouselNext /> */}
     </Carousel>
   );
 }

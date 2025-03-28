@@ -3,6 +3,7 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import { TabsContent } from '@radix-ui/react-tabs';
 import { MVP_WEBSITE_CASE_STUDY_CARDS, WEBSITE_CASE_STUDY_CARDS } from '@/constants.ts';
+import { ArrowRight } from 'lucide-react';
 
 interface ImageProps {
   src: string;
@@ -16,6 +17,7 @@ interface CaseStudyCardProps {
   span: string;
   tags: string[];
   link: string;
+  livelink: string,
   rtl?: boolean;
 }
 
@@ -122,7 +124,7 @@ const CaseStudyCard = ({
   length: number;
   sticky: boolean;
 }) => {
-  const { images, title, description, span, tags, link, rtl } = cardContent;
+  const { images, title, description, span, tags, link, rtl, livelink } = cardContent;
 
   return (
     <div
@@ -166,7 +168,12 @@ const CaseStudyCard = ({
         </div>
       </div>
       <div className="relative flex-1 space-y-6">
-        <h2 className="text-2xl font-semibold text-[#020617] sm:text-3xl">{title}</h2>
+        <h2 
+          className="text-2xl font-semibold text-[#020617] sm:text-3xl"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevent event from bubbling up to parent
+          }}
+        >{title}</h2>
         <p>{description}</p>
         {span ? (
           <div className="flex w-fit space-x-1 rounded-full bg-[#EEF5F0] px-2 py-1 text-xs text-[#589E67]">
@@ -190,20 +197,34 @@ const CaseStudyCard = ({
             </div>
           ))}
         </div>
-        <a
-          href={link}
-          className="flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1 group-hover:gap-1"
-          data-btntype="view CTA"
-        >
-          <span>View Project</span>
-          <img
-            className="inline-block size-6"
-            src="/icons/arrow-right.svg"
-            alt="Arrow Right"
-            width={16}
-            height={16}
-          />
-        </a>
+        <div className="flex justify-between items-center">
+          <a
+            href={link}
+            className="flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1 group-hover:gap-1"
+            data-btntype="view CTA"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span>View Project</span>
+            <img
+              className="inline-block size-6"
+              src="/icons/arrow-right.svg"
+              alt="Arrow Right"
+              width={16}
+              height={16}
+            />
+          </a>
+          
+          { livelink && <a
+            href={livelink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn mx-auto text-center sm:mx-0 md:w-fit md:px-6 flex flex-row gap-2"
+            data-btntype="live website CTA"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <span>View Live Link</span> {" "} <ArrowRight />
+          </a> }
+        </div>
       </div>
     </div>
   );

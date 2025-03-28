@@ -1,5 +1,6 @@
 ---
 cstitle: 'Custom Learning Management System'
+order: 3
 csimage: { src: '/portfolio/dashboard-2.png', alt: 'Dashboard Cover' }
 csmptag: 'LMS'
 csdescription: 'A personalized CMS solution for an edtech platform designed to increase engagement by delivering tailored learning experiences.'
@@ -11,6 +12,7 @@ csimages:
     { src: '/portfolio/dashboard.png', alt: 'Image' },
   ]
 cstag: 'mvp'
+cslivelink: ''
 ---
 
 ## Problem

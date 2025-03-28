@@ -1,5 +1,6 @@
 ---
 cstitle: 'AI-powered ATS streamlining hiring for enhanced efficiency and ease.'
+order: 2
 csimage:
   {
     src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1727437882/casestudies/bd3e29b5-1901-4631-8fba-80bd2719a550.png',
@@ -20,6 +21,7 @@ csimages:
     },
   ]
 cstag: 'mvp'
+cslivelink: ''
 ---
 
 ## Challenge
@@ -54,7 +56,7 @@ Our approach to building this AI-enabled ATS was comprehensive and iterative:
 3. **Applications Development:** We developed the web application and trained existing LLM models to accurately parse resumes and match candidates to job requirements. The relevancy score algorithm was also built by us.
 4. **Iterative Improvement:** Based on user feedback, we continuously refined the UI and AI algorithms.
 
-## What’s next?
+## What's next?
 
 As we continue to develop and refine our AI-backed ATS, we're excited about future enhancements:
 
