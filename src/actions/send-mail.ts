@@ -1,4 +1,7 @@
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config(); 
 
 interface EmailOptions {
   to: string;
@@ -10,13 +13,13 @@ export async function sendMail({ to, subject, text }: EmailOptions): Promise<voi
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: import.meta.env.GMAIL_SMTP_USER,
-      pass: import.meta.env.GMAIL_SMTP_PASSWORD,
+      user: process.env.GMAIL_SMTP_USER,
+      pass: process.env.GMAIL_SMTP_PASSWORD,
     },
   });
 
   const mailOptions = {
-    from: import.meta.env.GMAIL_SMTP_USER,
+    from: process.env.GMAIL_SMTP_USER,
     to,
     subject,
     text,
