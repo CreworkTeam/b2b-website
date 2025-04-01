@@ -1,15 +1,15 @@
 ---
 cstitle: 'Instant Business Valuation Web Application'
 order: 1
-csimage: { src: '/portfolio/fundsfinder.png', alt: 'Funds Finder Cover' }
+csimage: { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530905/fundsfinder_cskpnf.png', alt: 'Funds Finder Cover' }
 csmptag: 'fundsfinders'
 csdescription: 'How we built a quick, data-driven business valuations tool for FundsFinders'
 csspan: '47% increase in leads generation'
 cstags: ['Product Design', 'User Experience Optimization', 'Web App Development']
 csimages:
   [
-    { src: '/portfolio/fundsfinder.png', alt: 'Image' },
-    { src: '/portfolio/fundsfinder-2.svg', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530905/fundsfinder_cskpnf.png', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530904/fundsfinder-2_uyppth.svg', alt: 'Image' },
   ]
 cstag: 'mvp'
 cslivelink: ''
@@ -55,7 +55,7 @@ We created a comprehensive selection of industry categories, including:
 
 This granular approach ensures more accurate valuations tailored to specific market sectors.
 
-![Funds Finder](/portfolio/fundsfinder-3.png)
+![Funds Finder](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530904/fundsfinder-3_oandly.png)
 
 ### Dynamic Data Collection
 
@@ -67,7 +67,7 @@ Our development team built a flexible business details section that gathers cruc
 
 We ensured that the questions dynamically adjust based on previous answers, providing a personalized user experience.
 
-![Funds Finder](/portfolio/fundsfinder-4.png)
+![Funds Finder](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530907/fundsfinder-4_s9ij50.png)
 
 ### Instant Results Generation
 
@@ -81,7 +81,7 @@ We developed an algorithm that processes user inputs to generate an immediate es
 
 Recognizing the increasing reliance on mobile devices in the business world, we employed a mobile-first development approach. Our team ensured that the FundsFinders tool is fully responsive, adapting seamlessly across devices from desktop computers to smartphones.
 
-![Funds Finder](/portfolio/fundsfinder-5.png)
+![Funds Finder](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530964/fundsfinder-5_qudqst.png)
 
 ## Project Outcomes
 
@@ -92,10 +92,10 @@ Our design and development work on the FundsFinders business valuation tool resu
 - Delivers instant, data-driven results to inform business decisions
 - Positions FundsFinders as an innovative leader in the FinTech space
 
-![Funds Finder](/portfolio/fundsfinder-6.png)
+![Funds Finder](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530906/fundsfinder-6_z7l88b.png)
 
 ## Client Testimonials
 
 The LMS presents a clean, user-friendly design that belies its powerful capabilities. We crafted specific modules for cohort creation, resource management, and performance tracking, complemented by an equally intuitive student interface for accessing resources and submitting assignments.
 
-![Funds Finder Testimonial](/portfolio/fundsfinder-testimonial.png)
+![Funds Finder Testimonial](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530907/fundsfinder-testimonial_g53tyu.png)

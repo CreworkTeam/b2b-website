@@ -1,15 +1,15 @@
 ---
 cstitle: 'Global Service Provider Website Redesign'
 order: 4
-csimage: { src: '/portfolio/travaygroup-3.png', alt: 'Travay Group Cover' }
+csimage: { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530897/travaygroup-3_t8upsi.png', alt: 'Travay Group Cover' }
 csmptag: 'Travay'
 csdescription: 'How we helped Travay Group with a complete redesign of their website to improve user experience and navigation'
 csspan: '50% increase in Conversion Rate'
 cstags: ['User Interface Redesign', 'Website Development', 'Information Architecture']
 csimages:
   [
-    { src: '/portfolio/travaygroup.png', alt: 'Image' },
-    { src: '/portfolio/travaygroup-2.svg', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530891/travaygroup_wy8odh.png', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530893/travaygroup-2_iztt7k.svg', alt: 'Image' },
   ]
 cstag: 'website'
 cslivelink: ''
@@ -43,7 +43,7 @@ We embarked on a comprehensive redesign and development of Travay Group's websit
 
 The redesigned homepage features a bold hero section with a captivating image of an airplane soaring through clouds. This visual metaphor immediately conveys Travay Group's international scope and aspirations. Overlaid on this dynamic backdrop is the powerful headline: "Your Global Partner in Excellence". This combination of visuals and text instantly communicates Travay Group's value proposition to visitors.
 
-![Travay Group](/portfolio/travaygroup-4.png)
+![Travay Group](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530897/travaygroup-3_t8upsi.png)
 
 ### Color Palette: Trust and Professionalism
 
@@ -66,7 +66,7 @@ We simplified the main navigation menu, prominently displaying key sections:
 
 This streamlined approach allows visitors to quickly find the information they need, reducing friction in the user journey.
 
-![Travay Group](/portfolio/travaygroup-5.png)
+![Travay Group](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530898/travaygroup-5_nzcivz.png)
 
 ### Services Showcase
 
@@ -78,13 +78,13 @@ We designed a visually appealing "Our Services" section featuring three distinct
 
 Each card includes a brief description, allowing visitors to quickly grasp Travay Group's diverse offerings.
 
-![Travay Group](/portfolio/travaygroup-6.png)
+![Travay Group](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530905/travaygroup-6_laukp7.png)
 
 ### Interactive Global Network Map
 
 To emphasize Travay Group's international presence, we incorporated an interactive world map highlighting their operational countries. This visual representation effectively communicates the company's global reach and capabilities.
 
-![Travay Group](/portfolio/travaygroup-7.png)
+![Travay Group](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530900/travaygroup-7_bent2u.png)
 
 ### Value Proposition Section
 
@@ -96,7 +96,7 @@ The "Why Choose Travay Group?" section uses icons and concise text to highlight 
 
 This helps potential clients quickly understand the benefits of partnering with Travay Group.
 
-![Travay Group](/portfolio/travaygroup-8.png)
+![Travay Group](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530903/travaygroup-8_jbpdsw.png)
 
 ## Project Outcomes
 

@@ -3,7 +3,7 @@ cstitle: 'IceTribe Website Redesign'
 order: 3
 csimage:
   {
-    src: '/portfolio/ice-tribe-hero-banner.png',
+    src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743531000/ice-tribe-hero-banner_qflmlf.png',
     alt: 'Cover',
   }
 csmptag: 'ice_tribe'
@@ -13,11 +13,11 @@ cstags: ['Brand Perception Enhancement', 'Website Development', 'Conversion Opti
 csimages:
   [
     {
-      src: '/portfolio/ice-tribe-hero-banner.png',
+      src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743531000/ice-tribe-hero-banner_qflmlf.png',
       alt: 'Image',
     },
     {
-      src: '/portfolio/ice-tribe-card-2.png',
+      src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530999/ice-tribe-card-2_a80bua.png',
       alt: 'Image',
     },
   ]
@@ -44,7 +44,7 @@ We executed a holistic redesign and development of Ice Tribe's digital experienc
 - **Authority & Trust Building**: Showcasing scientific backing, athlete endorsements, and expert opinions to reinforce Ice Tribe's credibility in the wellness space.
 - **Engaging Community Hub**: Introducing a dedicated space for success stories, expert tips, and interactive wellness challenges to foster deeper connections with users.
 
-![Ice Tribe Navigation](/portfolio/ice-tribe-solutions.png)
+![Ice Tribe Navigation](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530880/ice-tribe-solutions_kmxwbu.png)
 ---
 
 ## The Power of Design
@@ -69,7 +69,7 @@ We executed a holistic redesign and development of Ice Tribe's digital experienc
     5. **Learn More**
   - This structured approach allows for effortless discovery of products and educational content, improving the overall user experience.
 
-  ![Ice Tribe Navigation](/portfolio/ice-tribe-navigation.png)
+  ![Ice Tribe Navigation](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530869/ice-tribe-navigation_coxvqp.png)
 
 ### Product Showcase with a Performance-Driven Narrative
   - A dedicated product page now presents Ice Tribe's offerings with an emphasis on functionality, innovation, and user testimonials:
@@ -79,7 +79,7 @@ We executed a holistic redesign and development of Ice Tribe's digital experienc
     4. **Polar Pro**: A smart bath with adaptive cooling technology and an intuitive app for personalized therapy sessions.
   - Each product page includes interactive elements such as 360-degree views, real-life testimonials, and in-depth usage guides.
 
-  ![Ice Tribe Products](/portfolio/ice-tribe-product.png)
+  ![Ice Tribe Products](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530872/ice-tribe-product_wfy1wk.png)
 
 ### Community Hub & Engagement Features
   - A newly introduced Community Hub encourages ongoing engagement through:
@@ -88,7 +88,7 @@ We executed a holistic redesign and development of Ice Tribe's digital experienc
     3. **Challenges & Events**: Virtual and in-person wellness challenges that encourage participation and brand loyalty.
   - Each product page includes interactive elements such as 360-degree views, real-life testimonials, and in-depth usage guides.
 
-![Ice Tribe Insights](/portfolio/ice-tribe-insights.png)
+![Ice Tribe Insights](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530875/ice-tribe-insights_lpuhwb.png)
 
 ---
   
