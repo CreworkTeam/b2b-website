@@ -1,15 +1,15 @@
 ---
 cstitle: 'White Swan Advisor Website Redesign'
 order: 1
-csimage: { src: '/portfolio/white-swan-advisors.png', alt: 'White Swan Advisors Cover' }
+csimage: { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530984/white-swan-advisors_mwral3.png', alt: 'White Swan Advisors Cover' }
 csmptag: 'Travay'
 csdescription: 'How we helped White Swan Advisor with a complete redesign of their website to improve user experience and navigation'
 csspan: '50% increase in Conversion Rate'
 cstags: ['User Interface Redesign', 'Website Development', 'Information Architecture']
 csimages:
   [
-    { src: '/portfolio/white-swan-advisors.png', alt: 'Image' },
-    { src: '/portfolio/white-swan-card-2.png', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530984/white-swan-advisors_mwral3.png', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530964/white-swan-card-2_heqk54.png', alt: 'Image' },
   ]
 cstag: 'website'
 cslivelink: 'https://www.whiteswanadvisors.com/'
@@ -55,7 +55,7 @@ A dedicated "Why Choose White Swan Advisors?" section succinctly highlights thei
 - **Extensive Investor Network** – A growing Rolodex of 2,500+ investors.
 - **Proven Success** – Over $9 billion in total transaction volume as of 2024.
 
-![White Swan Track Record](/portfolio/white-swan-track-record.png) 
+![White Swan Track Record](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530969/white-swan-track-record_o5bekn.png) 
 
 ## Results and Impact
 

@@ -1,15 +1,15 @@
 ---
 cstitle: 'Custom Learning Management System'
 order: 3
-csimage: { src: '/portfolio/dashboard-2.png', alt: 'Dashboard Cover' }
+csimage: { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530880/lms_gl037a.png', alt: 'Dashboard Cover' }
 csmptag: 'LMS'
 csdescription: 'A personalized CMS solution for an edtech platform designed to increase engagement by delivering tailored learning experiences.'
 csspan: '65% increase in Engagement Rate'
 cstags: ['Custom LMS Development', 'Product Design', 'User Experience Research']
 csimages:
   [
-    { src: '/portfolio/dashboard-2.png', alt: 'Image' },
-    { src: '/portfolio/dashboard.png', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530880/lms_gl037a.png', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kscjsz/image/upload/v1743530875/dashboard_hrel6e.png', alt: 'Image' },
   ]
 cstag: 'mvp'
 cslivelink: ''
@@ -46,7 +46,7 @@ high-quality, engaging education that adapts to the unique needs of each cohort 
 learning outcomes in form of growing career opportunities.
 
 <img
-  src="/portfolio/pm-2.png"
+  src="https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530883/pm-2_zsox5x.png"
   alt="Dashboard"
   width="20"
   height="20"
@@ -63,7 +63,7 @@ the process of creating, assigning, and accessing learning materials, fostering 
 effective learning environment.
 
 <img
-  src="/portfolio/dashboard-3.png"
+  src="https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530879/dashboard-3_vzucew.png"
   alt="Dashboard"
   width="20"
   height="20"
@@ -79,7 +79,7 @@ of the cohort management and student interfaces, followed by rigorous testing an
 on user feedback. Overall, the MVP of the LMS took 1 month to build and iterations took another 1
 month.
 
-![Timeline](/portfolio/timeline.png)
+![Timeline](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530889/timeline_a7j4qy.png)
 
 ## Powerful yet Intuitive
 

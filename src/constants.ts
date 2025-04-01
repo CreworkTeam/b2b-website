@@ -70,51 +70,51 @@ const TESTIMONIALS = [
 
 const portfolio = [
   {
-    image: '/portfolio/butterflies.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530865/butterflies_mklega.png',
     name: 'Butterflies',
   },
   {
-    image: '/portfolio/fundsfinder.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530905/fundsfinder_cskpnf.png',
     name: 'Funds Finder',
   },
   {
-    image: '/portfolio/feelgoodclub.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530881/feel-good-club_zwcoke.png',
     name: 'Feel Good Club',
   },
   {
-    image: '/portfolio/travaygroup.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530891/travaygroup_wy8odh.png',
     name: 'Travay Group',
   },
   {
-    image: '/portfolio/PM.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530883/PM_c3jfyo.png',
     name: 'Product Management Cohort',
   },
   {
-    image: '/portfolio/blendstudio.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530875/blendstudio_ffnkxy.png',
     name: 'Blend Studio',
   },
   {
-    image: '/portfolio/white-swan.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530907/white-swan_dmavh1.png',
     name: 'White Swan',
   },
   {
-    image: '/portfolio/site-genius.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530886/site-genius_hw8fmv.png',
     name: 'Site Genius',
   },
   {
-    image: '/portfolio/quickfunds.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530894/quickfunds_iuqa2e.png',
     name: 'QuickFunds'
   },
   {
-    image: '/portfolio/ice-tribe-portfolio.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530875/ice-tribe-portfolio_ufskvk.png',
     name: 'Ice Tribe'
   },
   {
-    image: '/portfolio/ace.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530879/ace_kzjzte.png',
     name: 'Ace'
   },
   {
-    image: '/portfolio/scale-up.png',
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530887/scale-up_kf2n6c.png',
     name: 'Scale Up'
   },
 ];
