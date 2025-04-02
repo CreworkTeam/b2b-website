@@ -167,37 +167,38 @@ const CaseStudyCard = ({
           />
         </div>
       </div>
-      <div className="relative flex-1 space-y-6">
-        <h2 
-          className="text-2xl font-semibold text-[#020617] sm:text-3xl"
-          onClick={(e) => {
+      <div className="relative flex-1 flex flex-col justify-between">
+        <div className="space-y-6">
+          <div className="space-y-6" onClick={(e) => {
             e.stopPropagation(); // Prevent event from bubbling up to parent
-          }}
-        >{title}</h2>
-        <p>{description}</p>
-        {span ? (
-          <div className="flex w-fit space-x-1 rounded-full bg-[#EEF5F0] px-2 py-1 text-xs text-[#589E67]">
-            <img
-              className="inline-block h-4 w-4"
-              src="/icons/trend-up.svg"
-              alt="Arrow Up"
-              width={16}
-              height={16}
-            />
-            <span className="line-clamp-1 text-[clamp(0px,2.5vw,12px)]">{span}</span>
+          }}>
+            <h2 className="text-2xl font-semibold text-[#020617] sm:text-3xl">{title}</h2>
+            <p>{description}</p>
           </div>
-        ) : null}
-        <div className="space-y-4">
-          {tags.map((item, tagIndex) => (
-            <div
-              key={tagIndex}
-              className="w-fit rounded-full border border-[#CFCFCF] px-3 py-[0.3rem] text-[clamp(10px,3vw,12px)] shadow-[0px_0px_10px_0px_#00000012] sm:text-sm"
-            >
-              {item}
+          {span ? (
+            <div className="flex w-fit space-x-1 rounded-full bg-[#EEF5F0] px-2 py-1 text-xs text-[#589E67]">
+              <img
+                className="inline-block h-4 w-4"
+                src="/icons/trend-up.svg"
+                alt="Arrow Up"
+                width={16}
+                height={16}
+              />
+              <span className="line-clamp-1 text-[clamp(0px,2.5vw,12px)]">{span}</span>
             </div>
-          ))}
+          ) : null}
+          <div className="space-y-4">
+            {tags.map((item, tagIndex) => (
+              <div
+                key={tagIndex}
+                className="w-fit rounded-full border border-[#CFCFCF] px-3 py-[0.3rem] text-[clamp(10px,3vw,12px)] shadow-[0px_0px_10px_0px_#00000012] sm:text-sm"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center mb-4">
           <a
             href={link}
             className="flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1 group-hover:gap-1"
