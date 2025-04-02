@@ -9,7 +9,7 @@ cstags: ['Custom LMS Development', 'Product Design', 'User Experience Research']
 csimages:
   [
     { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530880/lms_gl037a.png', alt: 'Image' },
-    { src: 'https://res.cloudinary.com/doa5kscjsz/image/upload/v1743530875/dashboard_hrel6e.png', alt: 'Image' },
+    { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530875/dashboard_hrel6e.png', alt: 'Image' },
   ]
 cstag: 'mvp'
 cslivelink: ''
