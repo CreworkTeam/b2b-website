@@ -7,8 +7,8 @@ csimage:
     alt: 'Cover',
   }
 csmptag: 'AIPDR'
-csdescription: 'Get Data-Driven Feedback, Scoring & Actionable Insights to Perfect Your Fundraising Pitch'
-cstags: ['Pitch Deck Enhancement', 'AI Driven Feedback']
+csdescription: 'An AI-driven tool that provides insights to refine your pitch deck, geared towards founders looking to improve investor appeal, maximize their fundraising potential, and stand out.'
+cstags: ['Pitch Deck Enhancement', 'AI Driven Feedback', 'Custom AI tool development']
 csimages:
   [
     {
