@@ -7,18 +7,35 @@ const toc = buildHierarchy(headings);
 
 function buildHierarchy(headings: any) {
   const toc: any[] = [];
-  const parentHeadings = new Map();
+  const parentStack: any[] = [];
 
   if (!headings) return toc;
 
   headings.forEach((h: any) => {
     const heading = { ...h, subheadings: [] };
-    parentHeadings.set(heading.depth, heading);
-    // Change 2 to 1 if your markdown includes your <h1>
-    if (heading.depth === 2) {
+    
+    // h1 or h2 are main headings
+    if (heading.depth === 1 || heading.depth === 2) {
       toc.push(heading);
+      // Update parent stack - keep only headings at this depth or shallower
+      while (parentStack.length > 0 && parentStack[parentStack.length - 1].depth >= heading.depth) {
+        parentStack.pop();
+      }
+      parentStack.push(heading);
     } else {
-      parentHeadings.get(heading.depth - 1)?.subheadings.push(heading);
+      // h3+ are subheadings - add to the most recent parent
+      if (parentStack.length > 0) {
+        parentStack[parentStack.length - 1].subheadings.push(heading);
+        // Update parent stack if this is a new level
+        while (parentStack.length > 0 && parentStack[parentStack.length - 1].depth >= heading.depth) {
+          parentStack.pop();
+        }
+        parentStack.push(heading);
+      } else {
+        // No parent found, add as main heading (shouldn't happen but handle gracefully)
+        toc.push(heading);
+        parentStack.push(heading);
+      }
     }
   });
   return toc;
