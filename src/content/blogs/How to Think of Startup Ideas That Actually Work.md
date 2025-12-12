@@ -2,7 +2,7 @@
 blogTitle: "How to Think of Startup Ideas That Actually Work in the Real World"
 blogDate: January 20, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/opengraph.png', alt: 'How to think of startup ideas guide' }
+blogImage: { src: '/blogs/article-2.webp', alt: 'How to think of startup ideas guide' }
 blogDescription: Learn a proven framework to generate startup ideas by observing problems, studying global markets, fixing broken industries and improving existing products. A practical guide for early stage founders.
 draft: false
 featured: false
@@ -13,14 +13,10 @@ blogCategories: ['ideation', 'startup-ideas', 'idea-validation']
 
 Most people who want to build something face the same mental roadblock.
 
-"I don't have an idea."
-
-It feels like everything good has already been built.
-
-Every market feels crowded.
-
-Every problem feels solved.
-
+"I don't have an idea."  
+It feels like everything good has already been built.  
+Every market feels crowded.  
+Every problem feels solved.  
 But the truth is simpler than it seems.
 
 Good ideas do not appear out of nowhere. They are discovered, observed, or borrowed from patterns you learn to notice.
@@ -177,19 +173,18 @@ New products are emerging every day.
 
 **Subreddits:**
 
-- r startups
-- r sideproject
-- r entrepreneur
-- r MachineLearning
+- [r/startups](https://www.reddit.com/r/startups/)
+- [r/side project](https://www.reddit.com/r/SideProject/)
+- [r/entrepreneur](https://www.reddit.com/r/Entrepreneur/)
+- [r/MachineLearning](https://www.reddit.com/r/MachineLearning/)
 
 **Tech communities:**
 
-- Hacker News
-- Lobsters
-- realtech subreddit
+- [Hacker news](https://news.ycombinator.com/)
+- [https://lobste.rs/about](https://lobste.rs/about)
+- [https://www.reddit.com/r/realtech/](https://www.reddit.com/r/realtech/)
 
-You do not need to create cutting edge AI.
-
+You do not need to create cutting edge AI.  
 Sometimes a simple AI tool for a tiny niche turns into a million dollar business.
 
 ---
@@ -243,8 +238,7 @@ Not because it gives you ideas, but because it teaches you how to think like a f
 
 **His core message:**
 
-The best startup ideas are found by people solving their own problems.
-
+The best startup ideas are found by people solving their own problems.  
 This mindset alone changes how you see the world.
 
 ---
