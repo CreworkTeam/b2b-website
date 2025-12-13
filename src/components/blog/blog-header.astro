@@ -11,14 +11,7 @@ const {
 <header class="space-y-4">
   <div class="space-y-4">
     <h1 class="font-semibold">{blogTitle}</h1>
-    <div class="text-[#686868]">
-      <p class="text-sm">
-        By {blogAuthor.author}
-      </p>
-      <p class="text-sm">
-        {blogDate ? formatDate(blogDate, 'MMMM dd, yyyy') : null} • {reading_time}
-      </p>
-    </div>
+
   </div>
   <Image
     src={blogImage?.src || '/opengraph.png'}

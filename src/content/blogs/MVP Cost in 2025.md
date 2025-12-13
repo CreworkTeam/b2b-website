@@ -9,7 +9,7 @@ featured: false
 blogCategories: ['mvp', 'pricing', 'startup']
 ---
 
-# **MVP Cost in 2025: Real Pricing, Examples and What Founders Should Stop Overpaying For**
+<!-- # **MVP Cost in 2025: Real Pricing, Examples and What Founders Should Stop Overpaying For** -->
 
 ## **Introduction**
 

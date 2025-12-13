@@ -2,14 +2,14 @@
 blogTitle: "How to Think of Startup Ideas That Actually Work in the Real World"
 blogDate: January 20, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/article-2.webp', alt: 'How to think of startup ideas guide' }
+blogImage: { src: '/blogs/how-to-think-of-ideas.png', alt: 'How to think of startup ideas guide' }
 blogDescription: Learn a proven framework to generate startup ideas by observing problems, studying global markets, fixing broken industries and improving existing products. A practical guide for early stage founders.
 draft: false
-featured: false
+featured: true
 blogCategories: ['ideation', 'startup-ideas', 'idea-validation']
 ---
 
-# **How to Come Up With Startup Ideas in 2025: A Practical Guide for Builders**
+<!-- # **How to Come Up With Startup Ideas in 2025: A Practical Guide for Builders** -->
 
 Most people who want to build something face the same mental roadblock.
 

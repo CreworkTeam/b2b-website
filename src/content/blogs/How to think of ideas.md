@@ -4,7 +4,7 @@ blogDate: September 3, 2024
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-think-of-ideas.png', alt: 'A picture of a coder' }
 blogDescription: Discover powerful techniques for generating innovative product and business ideas by identifying genuine user problems.
-draft: false
+draft: true
 featured: true
 blogCategories: ['ideation', 'market-research']
 ---

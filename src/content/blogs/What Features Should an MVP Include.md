@@ -9,7 +9,7 @@ featured: false
 blogCategories: ['mvp', 'product-development', 'startup']
 ---
 
-# What Features Should Your MVP Include
+<!-- # What Features Should Your MVP Include -->
 
 <!-- A Simple Feature Prioritization Guide for Founders
 
@@ -43,9 +43,7 @@ If you are not fully sure about the problem you want to solve, read our guide on
 
 ---
 
-## Step One
-
-Identify the Primary User Problem
+## Step One: Identify the Primary User Problem
 
 Your MVP must solve one clear problem. A product that tries to solve three problems solves none.
 
@@ -59,9 +57,7 @@ This becomes the foundation of your MVP requirements.
 
 ---
 
-## Step Two
-
-Define the One Core Action
+## Step Two: Define the One Core Action
 
 Every successful MVP has one core action.
 
@@ -78,9 +74,7 @@ You can explore how teams plan these actions with [**product roadmaps** here](ht
 
 ---
 
-## Step Three
-
-List Every Possible Feature
+## Step Three: List Every Possible Feature
 
 Do a raw idea dump. Do not filter yet.
 
@@ -102,9 +96,7 @@ This list will shrink drastically in the next step.
 
 ---
 
-## Step Four
-
-Use a Simple Prioritization Framework
+## Step Four: Use a Simple Prioritization Framework
 
 Here are the easiest frameworks founders can use.
 
@@ -132,9 +124,7 @@ If the answer is no, it is not an MVP feature.
 
 ---
 
-## Step Five
-
-Create Your MVP Feature List
+## Step Five: Create Your MVP Feature List
 
 Your final MVP should only have three categories of features.
 
@@ -262,8 +252,6 @@ Your MVP does not need to be big. It needs to be clear. Identify the core proble
 This is how founders launch faster, reduce cost, and validate ideas with real users in weeks.
 
 ---
-
-## CTA
 
 If you want a clear feature list for your MVP or want a team that can build your MVP in four to six weeks, explore our [**MVP development services** here.](https://www.creworklabs.com/)
 

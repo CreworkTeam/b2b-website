@@ -9,7 +9,7 @@ featured: false
 blogCategories: ['mvp', 'prototype', 'product-development']
 ---
 
-# MVP vs Prototype: What's the Difference? Simple Explanation
+<!-- # MVP vs Prototype: What's the Difference? Simple Explanation -->
 
 ## Introduction: MVP vs Prototype — Why the Confusion?
 
