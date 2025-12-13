@@ -11,7 +11,9 @@ export const GET: APIRoute = async ({ request }) => {
     page: parseInt(url.searchParams.get('page') || BLOG_RESULTS_LIMIT.toString(), 10),
   };
 
-  const data = await getCollection('blogs');
+  const data = await getCollection('blogs', ({ data }) => {
+    return data.draft !== true;
+  });
 
   const filteredBlogs = data
     .filter(({ data }) => {
@@ -19,7 +21,9 @@ export const GET: APIRoute = async ({ request }) => {
         ? data?.blogTitle?.toLowerCase().includes(search.toLowerCase())
         : true;
       const matchesCategory =
-        category && category !== 'all' ? data.blogCategories.includes(category) : true;
+        category && category !== 'all'
+          ? data?.blogCategories?.includes(category) ?? false
+          : true;
       return matchesSearch && matchesCategory;
     })
     .sort((a, b) => {
@@ -28,9 +32,28 @@ export const GET: APIRoute = async ({ request }) => {
       return new Date(b.data.blogDate).getTime() - new Date(a.data.blogDate).getTime();
     });
 
+  const paginatedBlogs = filteredBlogs.slice(
+    (page - 1) * BLOG_RESULTS_LIMIT,
+    page * BLOG_RESULTS_LIMIT,
+  );
+
+  const serializedBlogs = paginatedBlogs.map((entry) => ({
+    slug: entry.slug,
+    data: {
+      blogTitle: entry.data.blogTitle,
+      blogDate: entry.data.blogDate,
+      blogAuthor: entry.data.blogAuthor,
+      blogImage: entry.data.blogImage,
+      blogDescription: entry.data.blogDescription,
+      draft: entry.data.draft,
+      featured: entry.data.featured,
+      blogCategories: entry.data.blogCategories || [],
+    },
+  }));
+
   return new Response(
     JSON.stringify({
-      blogs: filteredBlogs.slice((page - 1) * BLOG_RESULTS_LIMIT, page * BLOG_RESULTS_LIMIT),
+      blogs: serializedBlogs,
       totalBlogs: filteredBlogs.length,
       page,
     }),

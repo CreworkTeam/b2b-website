@@ -21,11 +21,16 @@ const {
 
 const url = Astro.url.href;
 
-const blogs = await getCollection('blogs');
+const blogs = await getCollection('blogs', ({ data }) => {
+  return data.draft !== true;
+});
+const currentBlogCategories = blogCategories || [];
 const rds = blogs.filter(({ data, slug: blogSlug }) => {
-  const isSameCategory = data.blogCategories.some((category: any) =>
-    blogCategories.includes(category),
-  );
+  const blogCategoriesArray = data.blogCategories || [];
+  const isSameCategory =
+    currentBlogCategories.length > 0 &&
+    blogCategoriesArray.length > 0 &&
+    blogCategoriesArray.some((category: any) => currentBlogCategories.includes(category));
   return isSameCategory && blogSlug !== slug;
 });
 const recommendations =
@@ -38,7 +43,7 @@ const recommendations =
   title={blogTitle}
   description={blogDescription}
   canonical={`https://www.creworklabs.com/blog/${slug}`}
-  og_image={blogImage.src}
+  og_image={blogImage?.src || '/opengraph.png'}
 >
   <Section className="border-b-0">
     <BlogHeader {...{ ...blogData, reading_time }} slug={slug} />

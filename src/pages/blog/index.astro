@@ -7,12 +7,14 @@ import BlogList from '@/components/blog/blog-list';
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
-const allBlogs = await getCollection('blogs');
+const allBlogs = await getCollection('blogs', ({ data }) => {
+  return data.draft !== true;
+});
 
 const featuredBlogs = allBlogs
   .map(({ slug, data: { ...rest } }) => ({ slug, ...rest }))
   .filter(({ featured }) => featured)
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  .sort((a, b) => new Date(b.blogDate).getTime() - new Date(a.blogDate).getTime());
 
 const title = "Builder's Guide Blog";
 const description =
