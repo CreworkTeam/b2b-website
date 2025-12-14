@@ -40,27 +40,27 @@ In 2025, learning speed is the real competitive advantage.
 
 This process is heavily inspired by the principles in the [Lean Startup methodology by Eric Ries](https://theleanstartup.com/principles) and used by the best product teams and the one we use for founders who want predictable outcomes.
 
-### 1. Product clarity
+### Product clarity
 
 Define the user, the problem, the primary use case, and the single action that proves value. This becomes the foundation of everything that follows.
 
-### 2. Feature selection
+### Feature selection
 
 List every feature you wish to build, then remove anything that does not support the core problem. The goal is to reach the smallest set of features that still deliver value. Clarity beats ambition at this stage.
 
-### 3. User experience mapping
+### User experience mapping
 
 Create a simple flow that shows the journey from login to value creation. The entire flow should feel short, logical, and free of distractions. This phase removes friction from the user journey.
 
-### 4. Building the functional prototype
+### Building the functional prototype
 
 The prototype should feel real and interactive. It helps validate whether users understand how to use the product and if the idea makes sense to real people before writing code.
 
-### 5. Engineering execution
+### Engineering execution
 
 Translate the validated prototype into a functioning product. Keep the architecture clean and modular so the product can grow after validation. Ship the working version as soon as the core action is stable.
 
-### 6. Real world testing
+### Real world testing
 
 Launch the MVP in a controlled environment. Collect feedback, usage patterns, drop off points, and qualitative insights. This data tells you what to build next and how to improve retention.
 

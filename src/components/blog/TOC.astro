@@ -24,12 +24,13 @@ function buildHierarchy(headings: any) {
       parentStack.push(heading);
     } else {
       // h3+ are subheadings - add to the most recent parent
+      // Update parent stack if this is a new level (pop parents equal or deeper)
+      while (parentStack.length > 0 && parentStack[parentStack.length - 1].depth >= heading.depth) {
+        parentStack.pop();
+      }
+
       if (parentStack.length > 0) {
         parentStack[parentStack.length - 1].subheadings.push(heading);
-        // Update parent stack if this is a new level
-        while (parentStack.length > 0 && parentStack[parentStack.length - 1].depth >= heading.depth) {
-          parentStack.pop();
-        }
         parentStack.push(heading);
       } else {
         // No parent found, add as main heading (shouldn't happen but handle gracefully)
