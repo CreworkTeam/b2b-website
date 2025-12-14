@@ -16,9 +16,9 @@ const featuredBlogs = allBlogs
   .filter(({ featured }) => featured)
   .sort((a, b) => new Date(b.blogDate).getTime() - new Date(a.blogDate).getTime());
 
-const title = "Builder's Guide Blog";
+const title = "Idea To Impact";
 const description =
-  'Practical insights and proven strategies to boost conversions, build profitable products, and scale your business.';
+  'AI shortcuts, Growth Tactics and Business Breakdowns that makes Founders Build Smarter in 5 minutes.';
 ---
 
 <MainLayout
@@ -43,7 +43,6 @@ const description =
   </Section>
   <Section>
     <div class="space-y-3">
-      <h4 class="text-black">Featured</h4>
       <div data-featured-blog="true">
         <FeaturedCarousel blogs={featuredBlogs} client:load />
       </div>

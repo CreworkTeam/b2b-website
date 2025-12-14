@@ -5,7 +5,7 @@ blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/blog-7.png', alt: 'A picture of a coder' }
 blogDescription: Find valuable resources, advice, and networking opportunities for both aspiring and established startup founders.
 draft: false
-featured: true
+featured: false
 blogCategories: ['marketing', 'ideation', 'market-research', 'reddit marketing', 'idea validation']
 ---
 

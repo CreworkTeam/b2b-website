@@ -1,6 +1,6 @@
 ---
 cstitle: 'Fintech SAAS: Simplifying fundraising for startups'
-order: 5
+order: 2
 csimage: { src: '/portfolio/fintech-saas-dashboard.svg', alt: 'Dashboard Cover' }
 csmptag: 'QuickFunds'
 csdescription: 'How we helped QuickFunds simplify fundraising with automated outreach, data sourcing, and campaign management.'
@@ -94,7 +94,7 @@ A centralized dashboard to track the performance of your campaigns. Monitor key 
 
 - Gain data-driven insights on investor engagement, helping you prioritize follow-ups and refine outreach strategies.
 
-![Key Features]( /portfolio/fintech-saas-analytics.svg)
+![Key Features]( /portfolio/fintech-saas-analytics.png)
 
 ## Impact
 
@@ -113,4 +113,4 @@ QuickFunds supports over 500 startups, growing with them as they scale, with 85%
 ![impact]( /portfolio/fintech-saas-impact.svg)
 
 ## Client Testimonials
-![testimonial]( /portfolio/fintech-saas-testimonial.svg)
+![testimonial]( /portfolio/fundsfinder-testimonial.png )

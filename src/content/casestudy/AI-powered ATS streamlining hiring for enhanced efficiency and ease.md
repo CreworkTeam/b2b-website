@@ -1,6 +1,6 @@
 ---
 cstitle: 'AI-powered ATS streamlining hiring for enhanced efficiency and ease.'
-order: 2
+order: 3
 csimage:
   {
     src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1727437882/casestudies/bd3e29b5-1901-4631-8fba-80bd2719a550.png',

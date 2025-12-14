@@ -1,7 +1,7 @@
 ---
 cstitle: 'PlanO - Activity Discovery & Booking Marketplace'
 order: 1
-csimage: { src: '/portfolio/planO.svg', alt: 'PlanO Cover' }
+csimage: { src: '/portfolio/planO-caseStudy.png', alt: 'PlanO Cover' }
 csmptag: 'PlanO'
 csdescription: 'A personalized, map-first marketplace that helps parents instantly discover and book the best activities for their kids.'
 csspan: 'MVP Development'

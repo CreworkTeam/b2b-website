@@ -110,21 +110,29 @@ const portfolio = [
     name: 'Ice Tribe'
   },
   {
-    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530879/ace_kzjzte.png',
-    name: 'Ace'
+    image: '/portfolio/planO-carousel.png',
+    name: 'PlanO'
   },
   {
-    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530887/scale-up_kf2n6c.png',
-    name: 'Scale Up'
+    image: '/portfolio/carret.png',
+    name: 'Carret'
   },
+  // {
+  //   image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530879/ace_kzjzte.png',
+  //   name: 'Ace'
+  // },
+  // {
+  //   image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530887/scale-up_kf2n6c.png',
+  //   name: 'Scale Up'
+  // },
 ];
 
 const navLinks = [
   { href: '/#testimonials', text: 'Testimonials' },
-  
+
   // { href: '/#our-impact', text: 'Our Impact' },
   { href: '/#case-studies', text: 'Case Studies' },
-  { href:'/#team', text: 'Team' },
+  { href: '/#team', text: 'Team' },
   { href: '/#pricing', text: 'Pricing' },
   { href: '/blog', text: 'Blogs', prefetch: true },
   { href: '/#contact-us', text: 'Contact Us' },
