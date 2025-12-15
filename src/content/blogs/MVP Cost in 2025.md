@@ -1,6 +1,6 @@
 ---
 blogTitle: "MVP Cost in 2025: Real Pricing, Examples and What Founders Should Stop Overpaying For"
-blogDate: November 24, 2025
+blogDate: September 24, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/article-5.webp', alt: 'MVP Cost in 2025 pricing guide' }
 blogDescription: Learn how much an MVP costs in 2025. Real pricing tiers, examples from Crework Labs, hidden costs, and tips to avoid overpaying for your MVP build.

@@ -70,10 +70,6 @@ const TESTIMONIALS = [
 
 const portfolio = [
   {
-    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530865/butterflies_mklega.png',
-    name: 'Butterflies',
-  },
-  {
     image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530905/fundsfinder_cskpnf.png',
     name: 'Funds Finder',
   },
@@ -82,9 +78,21 @@ const portfolio = [
     name: 'Feel Good Club',
   },
   {
-    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530891/travaygroup_wy8odh.png',
-    name: 'Travay Group',
+    image: '/portfolio/planO-carousel.png',
+    name: 'PlanO'
   },
+  {
+    image: '/portfolio/carret.png',
+    name: 'Carret'
+  },
+  {
+    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530865/butterflies_mklega.png',
+    name: 'Butterflies',
+  },
+  // {
+  //   image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530891/travaygroup_wy8odh.png',
+  //   name: 'Travay Group',
+  // },
   {
     image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530883/PM_c3jfyo.png',
     name: 'Product Management Cohort',
@@ -97,10 +105,10 @@ const portfolio = [
     image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530907/white-swan_dmavh1.png',
     name: 'White Swan',
   },
-  {
-    image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530886/site-genius_hw8fmv.png',
-    name: 'Site Genius',
-  },
+  // {
+  //   image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530886/site-genius_hw8fmv.png',
+  //   name: 'Site Genius',
+  // },
   {
     image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530894/quickfunds_iuqa2e.png',
     name: 'QuickFunds'
@@ -108,14 +116,6 @@ const portfolio = [
   {
     image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530875/ice-tribe-portfolio_ufskvk.png',
     name: 'Ice Tribe'
-  },
-  {
-    image: '/portfolio/planO-carousel.png',
-    name: 'PlanO'
-  },
-  {
-    image: '/portfolio/carret.png',
-    name: 'Carret'
   },
   // {
   //   image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530879/ace_kzjzte.png',

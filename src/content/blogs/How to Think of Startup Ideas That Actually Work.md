@@ -1,6 +1,6 @@
 ---
 blogTitle: "How to Think of Startup Ideas That Actually Work in the Real World"
-blogDate: September 25, 2025
+blogDate: November 25, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-think-of-ideas.png', alt: 'How to think of startup ideas guide' }
 blogDescription: Learn a proven framework to generate startup ideas by observing problems, studying global markets, fixing broken industries and improving existing products. A practical guide for early stage founders.

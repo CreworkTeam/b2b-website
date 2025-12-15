@@ -37,7 +37,7 @@ const SubscribeEmail = () => {
       <p className="text-lg font-medium">
         {form.formState.isSubmitSuccessful
           ? 'Thank you for subscribing!'
-          : 'Subscribe to our newsletter'}
+          : ''}
       </p>
       <Form {...form}>
         <form
