@@ -16,9 +16,9 @@ const featuredBlogs = allBlogs
   .filter(({ featured }) => featured)
   .sort((a, b) => new Date(b.blogDate).getTime() - new Date(a.blogDate).getTime());
 
-const title = "Builder's Guide Blog";
+const title = "Subscribe to our newsletter - Idea To Impact";
 const description =
-  'Practical insights and proven strategies to boost conversions, build profitable products, and scale your business.';
+  'AI shortcuts, Growth Tactics and Business Breakdowns that makes Founders Build Smarter in 5 minutes.';
 ---
 
 <MainLayout
@@ -27,11 +27,11 @@ const description =
   canonical="https://www.creworklabs.com/blog"
 >
   <Section>
+        <h2 class="text-2xl font-semibold sm:text-3xl md:text-4xl mb-2">
+          {title}
+        </h2>
     <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
       <div class="flex-[3] space-y-4 text-center md:space-y-2 md:text-start">
-        <h1 class="text-2xl font-semibold sm:text-3xl md:text-4xl">
-          {title}
-        </h1>
         <p class="text-sm font-normal text-[#686868] md:text-lg">
           {description}
         </p>
@@ -43,7 +43,6 @@ const description =
   </Section>
   <Section>
     <div class="space-y-3">
-      <h4 class="text-black">Featured</h4>
       <div data-featured-blog="true">
         <FeaturedCarousel blogs={featuredBlogs} client:load />
       </div>

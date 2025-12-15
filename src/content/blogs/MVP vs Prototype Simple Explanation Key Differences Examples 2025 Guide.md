@@ -1,6 +1,6 @@
 ---
 blogTitle: "MVP vs Prototype: Simple Explanation, Key Differences & Examples (2025 Guide)"
-blogDate: February 5, 2025
+blogDate: October 5, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/article-1.webp', alt: 'MVP vs Prototype guide' }
 blogDescription: Learn the clear difference between an MVP and a prototype. Simple explanation with examples, use cases, mistakes to avoid, and a decision framework for founders building products.
@@ -9,7 +9,7 @@ featured: false
 blogCategories: ['mvp', 'prototype', 'product-development']
 ---
 
-# MVP vs Prototype: What's the Difference? Simple Explanation
+<!-- # MVP vs Prototype: What's the Difference? Simple Explanation -->
 
 ## Introduction: MVP vs Prototype — Why the Confusion?
 

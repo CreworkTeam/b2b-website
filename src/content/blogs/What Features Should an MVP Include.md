@@ -1,6 +1,6 @@
 ---
 blogTitle: "MVP Feature List for 2025: How to Decide What Features Your MVP Should Include"
-blogDate: February 10, 2025
+blogDate: December 10, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/article-3.webp', alt: 'MVP feature list guide' }
 blogDescription: Learn how to choose the right features for your MVP. Simple prioritization frameworks, real examples, common mistakes to avoid, and a clear step by step guide for deciding what your MVP should include.
@@ -9,7 +9,7 @@ featured: false
 blogCategories: ['mvp', 'product-development', 'startup']
 ---
 
-# What Features Should Your MVP Include
+<!-- # What Features Should Your MVP Include -->
 
 <!-- A Simple Feature Prioritization Guide for Founders
 
@@ -43,9 +43,7 @@ If you are not fully sure about the problem you want to solve, read our guide on
 
 ---
 
-## Step One
-
-Identify the Primary User Problem
+### 1. Identify the Primary User Problem
 
 Your MVP must solve one clear problem. A product that tries to solve three problems solves none.
 
@@ -59,9 +57,7 @@ This becomes the foundation of your MVP requirements.
 
 ---
 
-## Step Two
-
-Define the One Core Action
+### 2. Define the One Core Action
 
 Every successful MVP has one core action.
 
@@ -78,9 +74,7 @@ You can explore how teams plan these actions with [**product roadmaps** here](ht
 
 ---
 
-## Step Three
-
-List Every Possible Feature
+### 3. List Every Possible Feature
 
 Do a raw idea dump. Do not filter yet.
 
@@ -102,9 +96,7 @@ This list will shrink drastically in the next step.
 
 ---
 
-## Step Four
-
-Use a Simple Prioritization Framework
+### 4. Use a Simple Prioritization Framework
 
 Here are the easiest frameworks founders can use.
 
@@ -132,13 +124,11 @@ If the answer is no, it is not an MVP feature.
 
 ---
 
-## Step Five
-
-Create Your MVP Feature List
+### 5. Create Your MVP Feature List
 
 Your final MVP should only have three categories of features.
 
-### One
+#### One
 
 - Foundation Features
 - These allow the product to function at a basic level.
@@ -146,7 +136,7 @@ Your final MVP should only have three categories of features.
 - Core task capability
 - Basic database storage
 
-### Two
+#### Two
 
 - Value Features
 - These deliver the primary outcome for the user.
@@ -155,7 +145,7 @@ Your final MVP should only have three categories of features.
 - Create a habit
 - Generate a response
 
-### Three
+#### Three
 
 - Minimum Support Features
 - These build user trust and provide clarity.
@@ -262,8 +252,6 @@ Your MVP does not need to be big. It needs to be clear. Identify the core proble
 This is how founders launch faster, reduce cost, and validate ideas with real users in weeks.
 
 ---
-
-## CTA
 
 If you want a clear feature list for your MVP or want a team that can build your MVP in four to six weeks, explore our [**MVP development services** here.](https://www.creworklabs.com/)
 
