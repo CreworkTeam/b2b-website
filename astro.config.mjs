@@ -11,7 +11,7 @@ import { remarkReadingTime } from './remark-reading-time.mjs';
 export default defineConfig({
   prefetch: true,
   output: 'server',
-  site: 'https://www.creworklabs.com',
+  site: 'https://creworklabs.com',
   integrations: [tailwind(), react(), sitemap()],
   adapter: vercel(),
   vite: {

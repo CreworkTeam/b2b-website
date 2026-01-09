@@ -37,14 +37,53 @@ const recommendations =
   rds.length >= 2
     ? rds.slice(0, 2)
     : blogs.filter(({ slug: blogSlug }) => slug !== blogSlug).slice(0, 2);
+    
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": blogTitle,
+  "image": blogImage?.src ? new URL(blogImage.src, Astro.site).href : new URL('/opengraph.png', Astro.site).href,
+  "datePublished": blogData.data.blogDate,
+  "author": {
+    "@type": "Person",
+    "name": blogData.data.blogAuthor?.author || "Crework Labs"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://creworklabs.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://creworklabs.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": blogTitle,
+      "item": `https://creworklabs.com/blog/${slug}`
+    }
+  ]
+};
 ---
 
 <MainLayout
   title={blogTitle}
   description={blogDescription}
-  canonical={`https://www.creworklabs.com/blog/${slug}`}
+  canonical={`https://creworklabs.com/blog/${slug}`}
   og_image={blogImage?.src || '/opengraph.png'}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head"></script>
   <Section className="border-b-0">
     <BlogHeader {...{ ...blogData, reading_time }} slug={slug} />
     <div class="flex flex-col-reverse gap-12 mt-6 md:flex-row md:gap-8" id="article-content">

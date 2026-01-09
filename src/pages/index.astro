@@ -10,13 +10,41 @@ import Pricing from '@/components/home/pricing.astro';
 import HowWeWork from '@/components/home/how-we-work.astro';
 import OurServices from '@/components/home/our-services.astro';
 import MeetTheTeam from '@/components/home/meet-the-team.astro';
+
+const schema = {
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://creworklabs.com/#organization",
+      "name":"Crework Labs",
+      "url":"https://creworklabs.com/",
+      "logo":"https://creworklabs.com/logo.png",
+      "description":"Crework Labs is an MVP development and product studio helping startup founders design, build, and launch scalable products fast.",
+      "sameAs":[
+        "https://www.linkedin.com/company/creworklabs",
+        "https://twitter.com/creworklabs"
+      ]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://creworklabs.com/#website",
+      "url":"https://creworklabs.com/",
+      "name":"Crework Labs",
+      "publisher":{
+        "@id":"https://creworklabs.com/#organization"
+      }
+    }
+  ]
+};
 ---
 
 <MainLayout
-  title="Crework Labs"
-  description="We are a product studio deeply focused on crafting experiences that connect you with your audience."
-  canonical="https://www.creworklabs.com"
+  title="Crework Labs | MVP Development Studio for Startup Founders"
+  description="Crework Labs is an MVP development studio helping startup founders design, build, and launch scalable products fast. Book a free strategy call."
+  canonical="https://creworklabs.com"
 >
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
   <Hero />
   <OurPortfolio />
   <Testimonials />

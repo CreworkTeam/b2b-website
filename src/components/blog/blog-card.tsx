@@ -21,7 +21,7 @@ const BlogCard = (props) => {
 
       <div className="flex min-h-0 flex-col overflow-hidden rounded-md bg-white p-4 md:h-36">
         <p className="mb-1 text-xs text-gray-500">
-          {blogDate ? format(new Date(blogDate), 'MMMM dd, yyyy') : null}
+          {/* {blogDate ? format(new Date(blogDate), 'MMMM dd, yyyy') : null} */}
         </p>
         <h3 className="line-clamp-2 mb-2 text-lg font-medium leading-tight">
           {blogTitle}

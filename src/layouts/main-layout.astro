@@ -7,6 +7,15 @@ const { title, description, canonical, og_image = '/opengraph.png' } = Astro.pro
 
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KSN3EWDFTD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KSN3EWDFTD');
+    </script>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
@@ -29,6 +38,7 @@ const { title, description, canonical, og_image = '/opengraph.png' } = Astro.pro
     <meta name="twitter:image" content={og_image} />
 
     <script src="reb2b.js"></script>
+    <slot name="head" />
   </head>
   <body>
     <Header />

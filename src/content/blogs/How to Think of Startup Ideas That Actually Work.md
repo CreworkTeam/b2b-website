@@ -9,7 +9,7 @@ featured: false
 blogCategories: ['ideation', 'startup-ideas', 'idea-validation']
 ---
 
-<!-- # **How to Come Up With Startup Ideas in 2025: A Practical Guide for Builders** -->
+<!-- # **How to Come Up With Startup Ideas in 2026: A Practical Guide for Builders** -->
 
 Most people who want to build something face the same mental roadblock.
 
