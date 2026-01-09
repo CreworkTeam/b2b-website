@@ -1,9 +1,9 @@
 ---
-blogTitle: "How to Get Your First Users in 2025 A Practical Guide for Early Stage Founders"
+blogTitle: "How to Get Your First Users in 2026 A Practical Guide for Early Stage Founders"
 blogDate: October 30, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'How to get your first users guide' }
-blogDescription: Learn how to get your first users for a new startup using simple strategies that work in 2025. A clear guide for early stage founders on product launches, user acquisition, target audience outreach, and real examples from successful companies.
+blogDescription: Learn how to get your first users for a new startup using simple strategies that work in 2026. A clear guide for early stage founders on product launches, user acquisition, target audience outreach, and real examples from successful companies.
 draft: false
 featured: false
 blogCategories: ['marketing', 'user-acquisition', 'startup']

@@ -7,7 +7,7 @@ const { heading } = Astro.props;
     href={'#' + heading.slug}
     class="inline-block text-[16px] leading-tight text-[#5D5D5D] underline-offset-4 transition-all duration-300 hover:text-black"
   >
-    {heading.text.replace(/[^a-zA-Z ]/g, '')}
+    {heading.text}
   </a>
   {
     heading.subheadings.length > 0 && (

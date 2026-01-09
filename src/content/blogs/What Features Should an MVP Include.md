@@ -1,5 +1,5 @@
 ---
-blogTitle: "MVP Feature List for 2025: How to Decide What Features Your MVP Should Include"
+blogTitle: "MVP Feature List for 2026: How to Decide What Features Your MVP Should Include"
 blogDate: December 10, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/article-3.webp', alt: 'MVP feature list guide' }

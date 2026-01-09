@@ -1,5 +1,5 @@
 ---
-blogTitle: "MVP vs Prototype: Simple Explanation, Key Differences & Examples (2025 Guide)"
+blogTitle: "MVP vs Prototype: Simple Explanation, Key Differences & Examples (2026 Guide)"
 blogDate: October 5, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/article-1.webp', alt: 'MVP vs Prototype guide' }
