@@ -51,15 +51,15 @@ Low quality leads receive automated follow up
 
 **Tools**
 
-[OpenAI API](https://openai.com/)
+- [OpenAI API](https://openai.com/)
 
-[Zapier](https://zapier.com/)
+- [Zapier](https://zapier.com/)
 
-CRM integrations
+- CRM integrations
 
 **Impact**
 
-Saves 5 to 10 hours per week.
+- Saves 5 to 10 hours per week.
 
 ### 2. AI Powered Customer Support Assistant
 
@@ -197,4 +197,8 @@ Yes. It increases leverage and reduces burn.
 AI enhances productivity but does not replace strategic roles.
 
 ---
-If you want to build AI into your product or internal workflows, explore our **[MVP Development Services Page](/blog/decoding-mvp-and-how-to-build-it)** to see how we help founders integrate automation early.
+If you are stuck deciding how much time it will take to your MVP
+
+We help founders evaluate their MVP honestly and choose the fastest path forward
+
+Book a call with us here → https://calendly.com/creworklabs/30mins
