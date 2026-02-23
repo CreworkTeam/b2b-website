@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/article-1.webp', alt: 'MVP vs Prototype guide' }
 blogDescription: Learn the clear difference between an MVP and a prototype. Simple explanation with examples, use cases, mistakes to avoid, and a decision framework for founders building products.
 draft: false
 featured: false
-blogCategories: ['mvp', 'prototype', 'product-development']
+mainCategory: "MVP"
+blogCategories: ['MVP', 'Prototype', 'Product Development']
 ---
 
 <!-- # MVP vs Prototype: What's the Difference? Simple Explanation -->

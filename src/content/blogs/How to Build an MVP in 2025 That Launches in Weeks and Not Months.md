@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/article-6.webp', alt: 'How to build an MVP in 2026 gui
 blogDescription: Learn how to build an MVP in 2026 using a fast and proven process that helps founders validate ideas, launch quickly, and avoid wasting money on features that do not matter. A complete guide created for early stage founders.
 draft: false
 featured: false
-blogCategories: ['mvp', 'product-development', 'startup']
+mainCategory: "MVP"
+blogCategories: ['MVP', 'Product Development', 'Startup']
 ---
 
 <!-- # **How to Build an MVP in 2026 That Launches in Weeks and Not Months** -->

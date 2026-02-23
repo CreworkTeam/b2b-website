@@ -10,7 +10,8 @@ blogImage:
 blogDescription: The Evolution of Healthcare Through Technology and How It's Shaping the Next Billion-Trillion Dollar Wave of Future Startups
 draft: false
 featured: false
-blogCategories: ['ideation', 'Healthcare', 'Healthtech']
+mainCategory: "Startup Ideas & Validation"
+blogCategories: ['Ideation', 'Healthcare', 'Healthtech']
 ---
 
 ## The current state of affairs in Healthcare

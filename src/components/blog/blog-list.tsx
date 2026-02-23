@@ -1,11 +1,12 @@
-import FilterForm from './filter-form';
-import { cn } from '@/lib/utils';
-import BlogCard from './blog-card';
-import { useEffect, useMemo, useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import { BLOG_RESULTS_LIMIT } from '@/constants';
+
+import FilterForm from './filter-form';
+import BlogCard from './blog-card';
+
+import { cn } from '@/lib/utils';
+import { BLOG_CATEGORIES_MAP, BLOG_RESULTS_LIMIT } from '@/constants';
 import { Skeleton } from '../ui/skeleton';
-import React from 'react';
 
 const initialState = {
   page: 1,
@@ -17,41 +18,47 @@ const initialState = {
   selectedCategory: 'all',
 };
 
-const reducer = (state, action) => {
+const reducer = (state: any, action: any) => {
   switch (action.type) {
     case 'SET_TAGS':
       return { ...state, tags: action.payload };
+
     case 'SET_LOADING':
       return { ...state, loading: action.payload };
+
     case 'SET_BLOG_DATA':
       return {
         ...state,
         filteredBlogs: action.payload.blogs,
         totalBlogs: action.payload.totalBlogs,
       };
+
     case 'SET_PAGE':
       return { ...state, page: action.payload };
+
     case 'SET_QUERY':
       return { ...state, query: action.payload };
+
     case 'SET_SELECTED_CATEGORY':
       return { ...state, selectedCategory: action.payload };
+
     default:
       return state;
   }
 };
 
-const BlogList = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const BlogList = ({ category }: { category?: string } = {}) => {
+  const [state, dispatch] = useReducer(reducer, { ...initialState, selectedCategory: category || 'all' });
 
   useEffect(() => {
-    axios.get('/api/tags.json', {}).then((response) => {
-      const tags = response.data;
-      dispatch({ type: 'SET_TAGS', payload: tags });
+    axios.get('/api/tags.json').then((response) => {
+      dispatch({ type: 'SET_TAGS', payload: response.data });
     });
   }, []);
 
   const handleSubmit = async () => {
     dispatch({ type: 'SET_LOADING', payload: true });
+
     try {
       const response = await axios.get('/api/blogs.json', {
         params: {
@@ -60,6 +67,7 @@ const BlogList = () => {
           category: state.selectedCategory,
         },
       });
+
       return response.data;
     } catch (error) {
       console.error('Error:', error);
@@ -84,10 +92,14 @@ const BlogList = () => {
 
   const handleSearch = () => {
     resetData();
+
     handleSubmit().then((res) => {
       dispatch({
         type: 'SET_BLOG_DATA',
-        payload: { blogs: res.blogs, totalBlogs: res.totalBlogs },
+        payload: {
+          blogs: res.blogs,
+          totalBlogs: res.totalBlogs,
+        },
       });
     });
   };
@@ -95,28 +107,69 @@ const BlogList = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await handleSubmit();
+
       dispatch({
         type: 'SET_BLOG_DATA',
-        payload: { blogs: [...state.filteredBlogs, ...res.blogs], totalBlogs: res.totalBlogs },
+        payload: {
+          blogs: [...state.filteredBlogs, ...res.blogs],
+          totalBlogs: res.totalBlogs,
+        },
       });
     };
+
     fetchData();
   }, [state.page, state.selectedCategory]);
 
   return (
-    <div className="my-4 space-y-2">
+    <div className="pb-4 space-y-2">
+      {/* Category Buttons */}
+      <div className="flex flex-wrap gap-2 pb-8">
+        <a
+          href="/blog"
+          className={cn(
+            'border px-4 py-1.5 rounded-full text-sm md:text-base transition-colors',
+            state.selectedCategory === 'all'
+              ? 'bg-black text-white border-black'
+              : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
+          )}
+        >
+          All
+        </a>
+
+        {BLOG_CATEGORIES_MAP.map(({ name, tag }: { name: string, tag: string }) => (
+          <a
+            key={tag}
+            href={`/category/${tag}`}
+            className={cn(
+              'border px-4 py-1.5 rounded-full text-sm md:text-base transition-colors whitespace-nowrap',
+              state.selectedCategory === tag
+                ? 'bg-black text-white border-black'
+                : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'
+            )}
+          >
+            {name}
+          </a>
+        ))}
+      </div>
+
+      {/* Header + Filter */}
       <div className="flex flex-col justify-between gap-2 md:flex-row">
-        <h4 className="text-black">All Articles</h4>
+        <h4 className="text-black">{state.selectedCategory === 'all' ? 'All' : BLOG_CATEGORIES_MAP.find((cat) => cat.tag === state.selectedCategory)?.name || ''} Articles</h4>
+
         <FilterForm
           uniqueTags={state.tags}
           query={state.query}
-          setQuery={(query: string) => dispatch({ type: 'SET_QUERY', payload: query })}
+          setQuery={(query: string) =>
+            dispatch({ type: 'SET_QUERY', payload: query })
+          }
           selectedCategory={state.selectedCategory}
           handleSubmit={handleSearch}
           handleChangeCategory={handleChangeCategory}
         />
       </div>
-      <div className={cn('flex flex-wrap')}>
+
+      {/* Blog List */}
+      <div className="flex flex-wrap">
         {state.filteredBlogs?.map(({ slug, data }: any, index: number) => (
           <div
             key={slug}
@@ -128,10 +181,13 @@ const BlogList = () => {
             <BlogCard {...data} slug={slug} client:load />
           </div>
         ))}
+
+        {/* Skeleton Loader */}
         {state.loading &&
           Array.from({
             length:
-              state.totalBlogs === 0 || state.totalBlogs > state.page * BLOG_RESULTS_LIMIT
+              state.totalBlogs === 0 ||
+                state.totalBlogs > state.page * BLOG_RESULTS_LIMIT
                 ? BLOG_RESULTS_LIMIT
                 : state.totalBlogs % BLOG_RESULTS_LIMIT,
           }).map((_, index) => (
@@ -152,13 +208,15 @@ const BlogList = () => {
             </div>
           ))}
       </div>
+
+      {/* View More Button */}
       {state.totalBlogs > state.page * BLOG_RESULTS_LIMIT && (
         <button
           className="btn mx-auto block px-14"
           data-btntype="view more"
-          onClick={() => {
-            dispatch({ type: 'SET_PAGE', payload: state.page + 1 });
-          }}
+          onClick={() =>
+            dispatch({ type: 'SET_PAGE', payload: state.page + 1 })
+          }
         >
           View More
         </button>

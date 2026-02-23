@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/mvp-agency-vs-in-house.png', alt: 'MVP Agency vs In Ho
 blogDescription: A clear comparison of hiring an MVP agency versus building an in house team including cost speed and tradeoffs founders face in 2026
 draft: false
 featured: false
-blogCategories: ['startup', 'mvp', 'development']
+mainCategory: "MVP"
+blogCategories: ['Startup', 'MVP', 'Development']
 ---
 
 

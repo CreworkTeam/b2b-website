@@ -3,7 +3,7 @@ import MainLayout from '@/layouts/main-layout.astro';
 import BlogHeader from '@/components/blog/blog-header.astro';
 import Section from '@/components/section.astro';
 import TOC from '@/components/blog/TOC.astro';
-import { socials, getSocialShareLinks } from '@/constants';
+import { socials, getSocialShareLinks, BLOG_CATEGORIES_MAP } from '@/constants';
 import { Image } from 'astro:assets';
 import TalkToUs from '@/components/talk-to-us.astro';
 import { getCollection } from 'astro:content';
@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils';
 
 const { blogData } = Astro.props;
 const {
-  data: { blogTitle, blogDescription, blogCategories, blogImage },
+  data: { blogTitle, blogDescription, blogCategories, blogImage, mainCategory },
   headings,
   slug,
   reading_time,
@@ -69,6 +69,12 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 3,
+      "name": mainCategory,
+      "item": `https://creworklabs.com/category/${BLOG_CATEGORIES_MAP.find((cat) => cat.name === mainCategory)?.tag}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
       "name": blogTitle,
       "item": `https://creworklabs.com/blog/${slug}`
     }
@@ -85,7 +91,7 @@ const breadcrumbSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head"></script>
   <Section className="border-b-0">
-    <BlogHeader {...{ ...blogData, reading_time }} slug={slug} />
+    <BlogHeader {...{ ...blogData, reading_time, breadcrumbSchema }} slug={slug} />
     <div class="flex flex-col-reverse gap-12 mt-6 md:flex-row md:gap-8" id="article-content">
       <div class="custom-prose">
         <slot />

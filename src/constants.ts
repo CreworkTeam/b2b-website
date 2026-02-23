@@ -134,7 +134,7 @@ const navLinks = [
   { href: '/#case-studies', text: 'Case Studies' },
   { href: '/#team', text: 'Team' },
   { href: '/#pricing', text: 'Pricing' },
-  { href: '/blog', text: 'Blogs', prefetch: true },
+  { href: '/blog', text: 'Blog', prefetch: true },
   { href: '/#contact-us', text: 'Contact Us' },
 ];
 
@@ -164,6 +164,12 @@ const BOOK_CALL = 'https://calendly.com/creworklabs/30mins';
 const LOOMS_ENDPOINT = 'https://app.loops.so/api/newsletter-form/clwv3dv6s014l11kiyput7szt';
 const BLOG_RESULTS_LIMIT = 4;
 
+const BLOG_CATEGORIES_MAP = [
+    { name: 'MVP', tag: "mvp" },
+    { name: 'Startup Ideas & Validation', tag: "startup_ideas_validation" },
+    { name: 'AI & Automation', tag: "ai_automation" },
+    { name: 'User Acquisition', tag: "user_acquisition" }
+];
 const WEBSITE_CASE_STUDY_CARDS = casestudies
   .filter(({ data: { cstag } }) => cstag === 'website')
   .sort((a, b) => a.data.order - b.data.order)
@@ -203,5 +209,6 @@ export {
   BLOG_RESULTS_LIMIT,
   WEBSITE_CASE_STUDY_CARDS,
   MVP_WEBSITE_CASE_STUDY_CARDS,
+  BLOG_CATEGORIES_MAP,
   getSocialShareLinks,
 };

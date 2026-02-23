@@ -6,10 +6,12 @@ export const GET: APIRoute = async ({ request }) => {
     return data.draft !== true;
   });
 
-  const uniqueTags = data
-    .map(({ data }) => data.blogCategories || [])
+  const allTags = data
+    .map(({ data }) => [...(data.blogCategories || []), data.mainCategory])
     .flat()
-    .filter((tag: any, index: any, self: string | any[]) => self.indexOf(tag) === index);
+    .filter(Boolean);
+
+  const uniqueTags = Array.from(new Set(allTags));
 
   return new Response(JSON.stringify(uniqueTags), {
     status: 200,

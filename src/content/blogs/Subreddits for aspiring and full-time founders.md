@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/blog-7.png', alt: 'A picture of a coder' }
 blogDescription: Find valuable resources, advice, and networking opportunities for both aspiring and established startup founders.
 draft: false
 featured: false
-blogCategories: ['marketing', 'ideation', 'market-research', 'reddit marketing', 'idea validation']
+mainCategory: "User Acquisition"
+blogCategories: ['Marketing', 'Ideation', 'Market Research', 'Reddit Marketing', 'Idea Validation']
 ---
 
 You are the average of the five people you spend the most time with. While I don’t know how true that is, working and spending time with people who have similar mindsets and aspirations is definitely a significant factor in reaching your goals.

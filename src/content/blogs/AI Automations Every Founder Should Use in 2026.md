@@ -8,7 +8,8 @@ blogImage:
     alt: 'AI Automations Every Founder Should Use in 2026 Real Use Cases',
   }
 blogDescription: Discover practical AI automations founders should use in 2026 to save time, reduce costs, and scale faster. Real examples and tools you can implement today.
-blogCategories: ['AI', 'AI Automation', 'AI For Entrepreneurs', 'AI tools for Startups']
+mainCategory: "AI & Automation"
+blogCategories: ['AI Automation', 'AI For Entrepreneurs', 'AI tools for Startups']
 draft: false
 featured: false
 ---

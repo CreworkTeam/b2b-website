@@ -8,6 +8,7 @@ blogImage:
     alt: 'MVP',
   }
 blogDescription: Discover the power of building an MVP (Minimum Viable Product) to validate your business idea with minimal resources. Learn the step-by-step process, from identifying core features to iterating for success, with real-world examples from companies like Airbnb, Facebook, and Yahoo!.
+mainCategory: "MVP"
 blogCategories: ['MVP']
 draft: false
 featured: false

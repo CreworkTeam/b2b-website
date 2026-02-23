@@ -7,7 +7,8 @@ blogImage:
 blogDescription: Master the art of problem idea validation. Learn key strategies to assess if your business idea addresses a real, marketable need before investing time and resources.
 draft: false
 featured: false
-blogCategories: ['idea validation']
+mainCategory: "Startup Ideas & Validation"
+blogCategories: ['Idea Validation']
 ---
 
 **8 out of 10 startup ideas fail.**

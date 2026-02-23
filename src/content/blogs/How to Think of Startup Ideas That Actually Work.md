@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/how-to-think-of-ideas.png', alt: 'How to think of star
 blogDescription: Learn a proven framework to generate startup ideas by observing problems, studying global markets, fixing broken industries and improving existing products. A practical guide for early stage founders.
 draft: false
 featured: false
-blogCategories: ['ideation', 'startup-ideas', 'idea-validation']
+mainCategory: "Startup Ideas & Validation"
+blogCategories: ['Ideation', 'Startup Ideas', 'Idea Validation']
 ---
 
 <!-- # **How to Come Up With Startup Ideas in 2026: A Practical Guide for Builders** -->

@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/mvp-timeline-2026.png', alt: 'MVP Timeline 2026' }
 blogDescription: A realistic breakdown of MVP timelines in 2026 including phases delays and launch expectations
 draft: false
 featured: false
-blogCategories: ['startup', 'mvp', 'development']
+mainCategory: "MVP"
+blogCategories: ['Startup', 'MVP', 'Development']
 ---
 
 
