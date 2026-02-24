@@ -16,10 +16,10 @@ const schema = {
   "@graph":[
     {
       "@type":"Organization",
-      "@id":"https://creworklabs.com/#organization",
+      "@id":"https://www.creworklabs.com/#organization",
       "name":"Crework Labs",
-      "url":"https://creworklabs.com/",
-      "logo":"https://creworklabs.com/logo.png",
+      "url":"https://www.creworklabs.com/",
+      "logo":"https://www.creworklabs.com/logo.png",
       "description":"Crework Labs is an MVP development and product studio helping startup founders design, build, and launch scalable products fast.",
       "sameAs":[
         "https://www.linkedin.com/company/creworklabs",
@@ -28,11 +28,11 @@ const schema = {
     },
     {
       "@type":"WebSite",
-      "@id":"https://creworklabs.com/#website",
-      "url":"https://creworklabs.com/",
+      "@id":"https://www.creworklabs.com/#website",
+      "url":"https://www.creworklabs.com/",
       "name":"Crework Labs",
       "publisher":{
-        "@id":"https://creworklabs.com/#organization"
+        "@id":"https://www.creworklabs.com/#organization"
       }
     }
   ]
@@ -42,7 +42,7 @@ const schema = {
 <MainLayout
   title="Crework Labs | MVP Development Studio for Startup Founders"
   description="Crework Labs is an MVP development studio helping startup founders design, build, and launch scalable products fast. Book a free strategy call."
-  canonical="https://creworklabs.com"
+  canonical="https://www.creworklabs.com"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
   <Hero />
