@@ -2,8 +2,9 @@
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import '../styles/global.css';
-const { title, description, canonical, og_image = '/hero.jpg' } = Astro.props;
-const imageURL = new URL(og_image, Astro.site);
+const { title, description, canonical, og_image = '/opengraph.png' } = Astro.props;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://creworklabs.com';
+const og_image_absolute = og_image.startsWith('http') ? og_image : `${siteUrl}${og_image}`;
 ---
 
 <html lang="en">
@@ -29,14 +30,14 @@ const imageURL = new URL(og_image, Astro.site);
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={imageURL} />
+    <meta property="og:image" content={og_image_absolute} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={og_image} />
+    <meta name="twitter:image" content={og_image_absolute} />
 
     <script src="reb2b.js"></script>
     <slot name="head" />
