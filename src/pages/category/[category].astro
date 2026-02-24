@@ -5,6 +5,22 @@ import FeaturedCarousel from '@/components/blog/features-carousel';
 import SubscribeEmail from '@/components/blog/subscribe-email';
 import BlogList from '@/components/blog/blog-list';
 import { getCollection } from 'astro:content';
+import { BLOG_CATEGORIES_MAP } from '@/constants';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const categoriesMap = BLOG_CATEGORIES_MAP;
+
+  return categoriesMap.map((cat) => {
+    return {
+      params: { category: cat.tag },
+      props: { category: cat.tag, categoryName: cat.name },
+    };
+  });
+}
+
+const { category, categoryName } = Astro.props;
 
 const allBlogs = await getCollection('blogs', ({ data }) => {
   return data.draft !== true;
@@ -12,10 +28,10 @@ const allBlogs = await getCollection('blogs', ({ data }) => {
 
 const featuredBlogs = allBlogs
   .map(({ slug, data: { ...rest } }) => ({ slug, ...rest }))
-  .filter(({ featured }) => featured)
+  .filter((blog) => blog.featured && (blog.mainCategory === categoryName || (blog.blogCategories || []).includes(categoryName)))
   .sort((a, b) => new Date(b.blogDate).getTime() - new Date(a.blogDate).getTime());
 
-const title = "Subscribe to our newsletter - Idea To Impact";
+const title = `${categoryName} Blogs`;
 const description =
   'AI shortcuts, Growth Tactics and Business Breakdowns that makes Founders Build Smarter in 5 minutes.';
 ---
@@ -23,11 +39,11 @@ const description =
 <MainLayout
   title={`${title} - Crework Labs`}
   description={description}
-  canonical="https://creworklabs.com/blog"
+  canonical={`https://creworklabs.com/category/${category}`}
 >
   <Section>
         <h2 class="text-2xl font-semibold sm:text-3xl md:text-4xl mb-2">
-          {title}
+          Subscribe to our newsletter - Idea To Impact
         </h2>
     <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
       <div class="flex-[3] space-y-4 text-center md:space-y-2 md:text-start">
@@ -41,18 +57,20 @@ const description =
     </div>
   </Section>
   <Section className="py-8">
-    <div class="space-y-3">
-      <div data-featured-blog="true">
-        <FeaturedCarousel blogs={featuredBlogs} client:load />
+    {featuredBlogs.length > 0 && (
+      <div class="space-y-3">
+        <div data-featured-blog="true">
+          <FeaturedCarousel blogs={featuredBlogs} client:load />
+        </div>
       </div>
-    </div>
-    <BlogList client:only="react" />
+    )}
+    <BlogList category={category} client:only="react" />
   </Section>
   <script>
     import { setupButtonTracking } from '@/utils/mixpanel';
 
     setupButtonTracking({
-      pageName: 'Blogs',
+      pageName: 'Category',
     });
   </script>
 </MainLayout>

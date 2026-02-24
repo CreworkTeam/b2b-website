@@ -1,4 +1,5 @@
 import { BLOG_RESULTS_LIMIT } from '@/constants';
+import { BLOG_CATEGORIES_MAP } from '@/constants';
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 
@@ -22,7 +23,10 @@ export const GET: APIRoute = async ({ request }) => {
         : true;
       const matchesCategory =
         category && category !== 'all'
-          ? data?.blogCategories?.includes(category) ?? false
+          ? (() => {
+            const matchedCategory = BLOG_CATEGORIES_MAP.find(cat => cat.tag === category)?.name || category;
+            return data?.mainCategory === matchedCategory || (data?.blogCategories?.includes(matchedCategory) ?? false);
+          })()
           : true;
       return matchesSearch && matchesCategory;
     })

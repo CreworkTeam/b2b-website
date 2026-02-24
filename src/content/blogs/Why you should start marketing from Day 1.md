@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/blog-6.png', alt: 'A picture of a coder' }
 blogDescription: Learn effective strategies to build brand awareness, attract customers, and grow your business from the very beginning.
 draft: false
 featured: false
-blogCategories: ['marketing']
+mainCategory: "User Acquisition"
+blogCategories: ['Marketing']
 ---
 
 Every founder is biased toward their own idea.

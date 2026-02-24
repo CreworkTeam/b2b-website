@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'How to get your
 blogDescription: Learn how to get your first users for a new startup using simple strategies that work in 2026. A clear guide for early stage founders on product launches, user acquisition, target audience outreach, and real examples from successful companies.
 draft: false
 featured: false
-blogCategories: ['marketing', 'user-acquisition', 'startup']
+mainCategory: "User Acquisition"
+blogCategories: ['Marketing', 'User Acquisition', 'Startup']
 ---
 
 <!-- # How to Get Your First User -->

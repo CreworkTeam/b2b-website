@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/article-3.webp', alt: 'MVP feature list guide' }
 blogDescription: Learn how to choose the right features for your MVP. Simple prioritization frameworks, real examples, common mistakes to avoid, and a clear step by step guide for deciding what your MVP should include.
 draft: false
 featured: false
-blogCategories: ['mvp', 'product-development', 'startup']
+mainCategory: "MVP"
+blogCategories: ['MVP', 'Product Development', 'Startup']
 ---
 
 <!-- # What Features Should Your MVP Include -->

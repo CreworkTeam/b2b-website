@@ -1,15 +1,38 @@
 ---
+import { BLOG_CATEGORIES_MAP } from '@/constants';
 import { Image } from 'astro:assets';
-import { formatDate } from 'date-fns';
 
 const {
-  data: { blogTitle, blogDate, blogAuthor, blogImage },
-  reading_time,
+  data: { blogTitle, blogDate, blogAuthor, blogImage, mainCategory },
 } = Astro.props;
+
+
+const breadcrumbs = [
+  {
+    name: "Home",
+    link: "/"
+  },
+  {
+    name: "Blog", 
+    link: "/blog"
+  },
+  {
+    name: mainCategory, 
+    link: `/category/${BLOG_CATEGORIES_MAP.find((cat) => cat.name === mainCategory)?.tag}`
+  }
+]
 ---
 
 <header class="space-y-4">
   <div class="space-y-4">
+    <div class="flex flex-wrap items-center gap-2 text-base md:text-lg font-medium text-gray-700">
+    {breadcrumbs.map((item: any, index: number) => (
+      <>
+        {index > 0 && <span>/</span>}
+        <a class={`hover:text-black underline transition-colors ${index === breadcrumbs.length - 1 ? 'font-semibold text-gray-800' : ''}`} href={item.link}>{item.name}</a>
+      </>
+    ))}
+  </div>
     <h1 class="font-semibold">{blogTitle}</h1>
 
   </div>
@@ -22,4 +45,5 @@ const {
     quality={80}
     class="aspect-video rounded-lg border object-cover object-center"
   />
+  
 </header>

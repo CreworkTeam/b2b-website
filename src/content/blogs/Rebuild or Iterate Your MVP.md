@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/rebuild-or-iterate-mvp.png', alt: 'Rebuild or Iterate 
 blogDescription: A clear framework founders use to decide whether to rebuild or iterate their MVP in 2026
 draft: false
 featured: false
-blogCategories: ['startup', 'mvp', 'development']
+mainCategory: "MVP"
+blogCategories: ['Startup', 'MVP', 'Development']
 ---
 
 

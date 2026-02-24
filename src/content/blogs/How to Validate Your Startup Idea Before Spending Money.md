@@ -8,6 +8,7 @@ blogImage:
     alt: 'AI Automations Every Founder Should Use in 2026 Real Use Cases',
   }
 blogDescription: Learn how to validate your startup idea before building an MVP. Step by step framework to test demand without wasting money.
+mainCategory: "Startup Ideas & Validation"
 blogCategories: ['Startup','MVP','Validation']
 draft: false
 featured: false

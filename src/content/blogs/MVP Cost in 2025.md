@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/article-5.webp', alt: 'MVP Cost in 2026 pricing guide'
 blogDescription: Learn how much an MVP costs in 2026. Real pricing tiers, examples from Crework Labs, hidden costs, and tips to avoid overpaying for your MVP build.
 draft: false
 featured: false
-blogCategories: ['mvp', 'pricing', 'startup']
+mainCategory: "MVP"
+blogCategories: ['MVP', 'Pricing', 'Startup']
 ---
 
 <!-- # **MVP Cost in 2026: Real Pricing, Examples and What Founders Should Stop Overpaying For** -->

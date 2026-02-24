@@ -6,7 +6,8 @@ blogImage: { src: '/blogs/how-to-think-of-ideas.png', alt: 'A picture of a coder
 blogDescription: Discover powerful techniques for generating innovative product and business ideas by identifying genuine user problems.
 draft: true
 featured: false
-blogCategories: ['ideation', 'market-research']
+mainCategory: "Startup Ideas & Validation"
+blogCategories: ['Ideation', 'Market Research']
 ---
 
 At its core, for anyone who wants to build, it often comes down to this: 'I don't have an idea.'
