@@ -58,25 +58,25 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://creworklabs.com"
+      "item": "https://www.creworklabs.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "https://creworklabs.com/blog"
+      "item": "https://www.creworklabs.com/blog"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": mainCategory,
-      "item": `https://creworklabs.com/category/${BLOG_CATEGORIES_MAP.find((cat) => cat.name === mainCategory)?.tag}`
+      "item": `https://www.creworklabs.com/category/${BLOG_CATEGORIES_MAP.find((cat) => cat.name === mainCategory)?.tag}`
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": blogTitle,
-      "item": `https://creworklabs.com/blog/${slug}`
+      "item": `https://www.creworklabs.com/blog/${slug}`
     }
   ]
 };
@@ -85,7 +85,7 @@ const breadcrumbSchema = {
 <MainLayout
   title={blogTitle}
   description={blogDescription}
-  canonical={`https://creworklabs.com/blog/${slug}`}
+  canonical={`https://www.creworklabs.com/blog/${slug}`}
   og_image={blogImage?.src || '/opengraph.png'}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
