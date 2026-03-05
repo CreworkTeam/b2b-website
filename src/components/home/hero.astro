@@ -31,15 +31,15 @@ import { BOOK_CALL } from '@/constants.ts';
     <h1 class="mb-4 text-3xl font-[450] text-[#020617] sm:text-4xl md:text-6xl max-w-[700px]">
       <span>Sleek, Powerful and User Focused</span>
       <span
-        class="slide_up_hero relative inline-block h-9 w-40 translate-y-[7px] overflow-hidden sm:h-10 sm:w-64 md:h-16 md:w-80 md:translate-y-3"
+        class="slide_up_hero relative inline-block h-9 w-52 translate-y-[7px] overflow-hidden sm:h-10 sm:w-72 md:h-16 md:w-[28rem] md:translate-y-3"
         style={{
-          '--item-count': 3,
-          '--duration': '7.5s',
+          '--item-count': 4,
+          '--duration': '10s',
         }}
       >
         {
-          ['Websites', 'Web Apps', 'MVPs'].map((item) => (
-            <span class="absolute top-full block h-fit truncate">{item}</span>
+          ['Apps', 'AI automations', 'MVPs', 'Websites'].map((item) => (
+            <span class="absolute top-[150%] block h-fit whitespace-nowrap">{item}</span>
           ))
         }
       </span>

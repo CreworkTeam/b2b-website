@@ -21,6 +21,7 @@
 
 .slide_up_hero>* {
   animation: var(--duration) slide_up_hero infinite linear;
+  animation-fill-mode: backwards;
 }
 
 .slide_up_hero>*:nth-child(1) {
@@ -35,25 +36,29 @@
   animation-delay: 5s;
 }
 
+.slide_up_hero>*:nth-child(4) {
+  animation-delay: 7.5s;
+}
+
 @keyframes slide_up_hero {
   0% {
-    top: 100%;
+    top: 150%;
   }
 
   4% {
     top: 0%;
   }
 
-  33.33% {
+  25% {
     top: 0%;
   }
 
-  37.33% {
-    top: -100%;
+  29% {
+    top: -150%;
   }
 
   100% {
-    top: -100%;
+    top: -150%;
   }
 }
 
