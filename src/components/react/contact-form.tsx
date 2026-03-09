@@ -104,7 +104,7 @@ export default function ContactForm() {
           />
           <div>
             <PhoneInput
-              defaultCountry="in"
+              defaultCountry="us"
               value={phone}
               placeholder="Phone Number"
               onChange={(val) => {
