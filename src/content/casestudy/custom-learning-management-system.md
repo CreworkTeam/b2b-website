@@ -1,6 +1,6 @@
 ---
 cstitle: 'Custom Learning Management System'
-order: 3
+order: 6
 csimage: { src: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530880/lms_gl037a.png', alt: 'Dashboard Cover' }
 csmptag: 'LMS'
 csdescription: 'A personalized CMS solution for an edtech platform designed to increase engagement by delivering tailored learning experiences.'
