@@ -1,15 +1,14 @@
 ---
 cstitle: 'RankBoost: AI-Powered SEO Audit Tool'
 order: 3
-csimage: { src: '/portfolio/placeholder.png', alt: 'RankBoost Cover' }
+csimage: { src: '/portfolio/seo-audit-tool.png', alt: 'RankBoost Cover' }
 csmptag: 'RankBoost'
 csdescription: 'How we built RankBoost, an AI-powered SEO analyzer that delivers actionable performance, technical SEO, and accessibility audits in seconds.'
 csspan: 'MVP Development'
 cstags: ['AI Tool Development', 'Product Design', 'MVP Development']
 csimages:
   [
-    { src: '/portfolio/placeholder.png', alt: 'Image' },
-    { src: '/portfolio/placeholder.png', alt: 'Image' },
+    { src: '/portfolio/seo-audit-tool.png', alt: 'Image' },
   ]
 cstag: 'mvp'
 cslivelink: 'https://seo-audit-chi-ashy.vercel.app/'
@@ -99,7 +98,4 @@ Non-technical founders and marketers can now run professional-grade SEO audits w
 **4. Comprehensive Coverage:**
 A single tool replaces multiple fragmented solutions by combining performance, technical SEO, and accessibility analysis in one report.
 
-
-
-//## Client Testimonials
 
