@@ -34,7 +34,7 @@ RankBoost addresses these challenges with a streamlined, AI-driven SEO audit pla
 Users simply enter their website URL and receive a beautifully designed, actionable breakdown of their site's SEO health.
 
 2. Actionable Fixes:
-The tool provides specific, prioritized recommendations — telling users exactly what to change to improve their rankings immediately.
+The tool provides specific, prioritized recommendations telling users exactly what to change to improve their rankings immediately.
 
 3. Core Web Vitals Deep Dive:
 Leveraging actual Lighthouse data, RankBoost provides detailed analysis of LCP, FID, and CLS scores, helping users understand and optimize their page experience.
@@ -97,5 +97,3 @@ Non-technical founders and marketers can now run professional-grade SEO audits w
 
 **4. Comprehensive Coverage:**
 A single tool replaces multiple fragmented solutions by combining performance, technical SEO, and accessibility analysis in one report.
-
-

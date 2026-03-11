@@ -74,6 +74,10 @@ const portfolio = [
     name: 'Funds Finder',
   },
   {
+    image: '/portfolio/nailfound.svg',
+    name: 'Nail Found'
+  },
+  {
     image: 'https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530881/feel-good-club_zwcoke.png',
     name: 'Feel Good Club',
   },
