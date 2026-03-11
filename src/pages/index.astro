@@ -21,6 +21,12 @@ const schema = {
       "url":"https://www.creworklabs.com/",
       "logo":"https://www.creworklabs.com/logo.png",
       "description":"Crework Labs is an MVP development and product studio helping startup founders design, build, and launch scalable products fast.",
+      "foundingDate":"2023",
+      "contactPoint":{
+        "@type":"ContactPoint",
+        "contactType":"sales",
+        "url":"https://www.creworklabs.com/#contact"
+      },
       "sameAs":[
         "https://www.linkedin.com/company/creworklabs",
         "https://twitter.com/creworklabs"
@@ -34,6 +40,89 @@ const schema = {
       "publisher":{
         "@id":"https://www.creworklabs.com/#organization"
       }
+    },
+    {
+      "@type":"Service",
+      "serviceType":"MVP Development",
+      "name":"MVP Development for Startups",
+      "description":"End-to-end MVP development including market research, product design, and full-stack development to help startup founders launch fast.",
+      "provider":{
+        "@id":"https://www.creworklabs.com/#organization"
+      },
+      "areaServed":"Worldwide",
+      "offers":{
+        "@type":"Offer",
+        "price":"3000",
+        "priceCurrency":"USD",
+        "priceSpecification":{
+          "@type":"UnitPriceSpecification",
+          "price":"3000",
+          "priceCurrency":"USD",
+          "unitText":"project"
+        }
+      }
+    },
+    {
+      "@type":"Service",
+      "serviceType":"Website Design & Development",
+      "name":"Website Design & Development",
+      "description":"Custom website design and development for founders and teams who want to launch a high-conversion website in 1 week.",
+      "provider":{
+        "@id":"https://www.creworklabs.com/#organization"
+      },
+      "areaServed":"Worldwide",
+      "offers":{
+        "@type":"Offer",
+        "price":"800",
+        "priceCurrency":"USD"
+      }
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is an MVP and why do I need one?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"An MVP (Minimum Viable Product) is the simplest version of your product that solves a core problem for users. It helps you validate your idea, attract early users, and secure funding without spending months or large budgets on full-scale development."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How long does it take to build an MVP with Crework Labs?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Depending on the complexity, we can deliver an MVP in as little as 4-8 weeks. Website projects are typically completed within 4-5 business days. We focus on speed without compromising quality."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What industries does Crework Labs work with?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"We work across multiple industries including Education, E-Commerce, Fintech, Healthcare, SaaS, and Enterprise Operations. Our team has delivered 25+ projects for clients across 9 industries."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What is included in the MVP development package?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Our MVP development package starts at $3000 and includes market research and competitor analysis, custom brand identity design, UI/UX design, end-to-end web or mobile app development, and project management with regular progress updates."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How is Crework Labs different from other development agencies?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Crework Labs combines AI-powered solutions with human expertise, specifically tailored for startup founders. We focus on rapid delivery, data-driven design, and scalable architecture so your product can grow with your business."
+      }
     }
   ]
 };
@@ -46,6 +135,7 @@ const schema = {
   og_image="/opengraph.png"
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head"></script>
   <Hero />
   <OurPortfolio />
   <Testimonials />

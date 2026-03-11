@@ -46,7 +46,16 @@ const schema = {
   "datePublished": blogData.data.blogDate,
   "author": {
     "@type": "Person",
-    "name": blogData.data.blogAuthor?.author || "Crework Labs"
+    "name": blogData.data.blogAuthor?.author || "Crework Labs",
+    "image": blogData.data.blogAuthor?.image ? new URL(blogData.data.blogAuthor.image, Astro.site).href : undefined
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Crework Labs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.creworklabs.com/logo.png"
+    }
   }
 };
 
