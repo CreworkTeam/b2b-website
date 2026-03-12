@@ -45,5 +45,22 @@ const breadcrumbs = [
     quality={80}
     class="aspect-video rounded-lg border object-cover object-center"
   />
+  {blogAuthor && (
+    <div class="flex items-center gap-3 pt-2">
+      {blogAuthor.image && (
+        <Image
+          src={blogAuthor.image}
+          alt={blogAuthor.author || 'Author'}
+          width={40}
+          height={40}
+          class="h-10 w-10 rounded-full object-cover"
+        />
+      )}
+      <div>
+        <p class="text-sm font-medium text-[#020617]">{blogAuthor.author}</p>
+        {blogDate && <p class="text-xs text-[#64748B]">{blogDate}</p>}
+      </div>
+    </div>
+  )}
   
 </header>

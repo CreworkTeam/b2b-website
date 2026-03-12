@@ -4,6 +4,45 @@
 @tailwind components;
 @tailwind utilities;
 
+/* react-international-phone overrides */
+.react-international-phone-input-container {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.react-international-phone-country-selector {
+  display: flex !important;
+  align-items: center !important;
+  align-self: stretch !important;
+}
+
+.react-international-phone-country-selector-button {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+.react-international-phone-country-selector-button__button-content {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+}
+
+.react-international-phone-flag-emoji {
+  display: flex !important;
+  align-items: center !important;
+  font-size: 1.25rem !important;
+  line-height: 1 !important;
+}
+
+.react-international-phone-input {
+  height: auto !important;
+  line-height: 1.5 !important;
+}
+
 .font-insrument-serif {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
@@ -21,6 +60,7 @@
 
 .slide_up_hero>* {
   animation: var(--duration) slide_up_hero infinite linear;
+  animation-fill-mode: backwards;
 }
 
 .slide_up_hero>*:nth-child(1) {
@@ -35,25 +75,29 @@
   animation-delay: 5s;
 }
 
+.slide_up_hero>*:nth-child(4) {
+  animation-delay: 7.5s;
+}
+
 @keyframes slide_up_hero {
   0% {
-    top: 100%;
+    top: 150%;
   }
 
   4% {
     top: 0%;
   }
 
-  33.33% {
+  25% {
     top: 0%;
   }
 
-  37.33% {
-    top: -100%;
+  29% {
+    top: -150%;
   }
 
   100% {
-    top: -100%;
+    top: -150%;
   }
 }
 

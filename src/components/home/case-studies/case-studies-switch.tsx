@@ -147,7 +147,7 @@ const CaseStudyCard = ({
       )}
       onClick={() => window.open(link, '_self')}
     >
-      <div className="-mb-2 flex-1 space-y-4 md:space-y-12">
+      <div className={cn("-mb-2 flex-1", images[1] ? "space-y-4 md:space-y-12" : "flex items-center justify-center")}>
         <div className="aspect-video">
           <img
             className="h-full w-full rounded-xl border object-cover object-top"
@@ -157,6 +157,7 @@ const CaseStudyCard = ({
             height={450}
           />
         </div>
+        {images[1] && (
         <div className="aspect-[16/8]">
           <img
             className="h-full w-full rounded-xl border object-cover object-top"
@@ -166,6 +167,7 @@ const CaseStudyCard = ({
             height={450}
           />
         </div>
+        )}
       </div>
       <div className="relative flex-1 flex flex-col justify-between">
         <div className="space-y-6">

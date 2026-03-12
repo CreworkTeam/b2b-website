@@ -1,6 +1,6 @@
 ---
 cstitle: 'AI Pitch Deck Reviewer'
-order: 4
+order: 7
 csimage:
   {
     src: '/portfolio/ai-pitch-deck.png',

@@ -1,28 +1,41 @@
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+import React from 'react';
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 import { actions } from 'astro:actions';
 import ContactGate from './contact-gate';
 
 interface IFormInputs {
   name: string;
   email: string;
-  phone: string;
   message: string;
 }
 
 export default function ContactForm() {
+  const [phone, setPhone] = useState('');
+  const [phoneError, setPhoneError] = useState('');
+  const [submitted, setSubmitted] = useState(false);
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<IFormInputs>({
     mode: 'onChange',
   });
 
   const onSubmit = async (data: IFormInputs) => {
+    if (phone.replace(/\D/g, '').length < 8) {
+      setPhoneError('Please enter a valid phone number');
+      return;
+    }
+    setPhoneError('');
     try {
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => formData.append(key, value));
-      const res = await actions.contact(formData);
+      formData.append('phone', phone);
+      await actions.contact(formData);
+      setSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
     }
@@ -35,13 +48,13 @@ export default function ContactForm() {
   return (
     <>
       <div
-        className={`absolute left-0 right-0 top-0 z-10 flex flex-col justify-start ${isSubmitSuccessful ? 'bottom-[calc(43%)] sm:bottom-[calc(46%)]' : ''}`}
+        className={`absolute left-0 right-0 top-0 z-10 flex flex-col justify-start ${submitted ? 'bottom-[calc(43%)] sm:bottom-[calc(46%)]' : ''}`}
       >
         <div
-          className={`flex w-full flex-col justify-end bg-white transition-all duration-[5000ms] ${isSubmitSuccessful ? 'h-full' : 'h-0'}`}
+          className={`flex w-full flex-col justify-end bg-white transition-all duration-[5000ms] ${submitted ? 'h-full' : 'h-0'}`}
         >
           <p
-            className={`-translate-y-2 text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${isSubmitSuccessful ? 'opacity-100' : 'opacity-0'}`}
+            className={`-translate-y-2 text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${submitted ? 'opacity-100' : 'opacity-0'}`}
           >
             Message received!
           </p>
@@ -51,16 +64,16 @@ export default function ContactForm() {
         </div>
       </div>
       <div
-        className={`absolute bottom-0 left-0 right-0 z-10 flex flex-col justify-end ${isSubmitSuccessful ? 'top-[calc(43%)] sm:top-[calc(45%)]' : ''}`}
+        className={`absolute bottom-0 left-0 right-0 z-10 flex flex-col justify-end ${submitted ? 'top-[calc(43%)] sm:top-[calc(45%)]' : ''}`}
       >
         <div>
           <ContactGate position="bottom" />
         </div>
         <div
-          className={`w-full bg-white transition-all duration-[5000ms] ${isSubmitSuccessful ? 'h-full' : 'h-0'}`}
+          className={`w-full bg-white transition-all duration-[5000ms] ${submitted ? 'h-full' : 'h-0'}`}
         >
           <p
-            className={`text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${isSubmitSuccessful ? 'opacity-100' : 'opacity-0'}`}
+            className={`text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${submitted ? 'opacity-100' : 'opacity-0'}`}
           >
             Our team will reach out shortly
           </p>
@@ -89,15 +102,51 @@ export default function ContactForm() {
             placeholder="Email"
             className={`${inputClass} ${errors.email ? errorClass : ''}`}
           />
-          <input
-            {...register('phone', {
-              required: 'Phone number is required',
-              pattern: { value: /^(\+\d{1,3}[- ]?)?\d{10}$/, message: 'Invalid phone number' },
-            })}
-            type="tel"
-            placeholder="Phone Number"
-            className={`${inputClass} ${errors.phone ? errorClass : ''}`}
-          />
+          <div>
+            <PhoneInput
+              defaultCountry="us"
+              value={phone}
+              placeholder="Phone Number"
+              onChange={(val) => {
+                setPhone(val);
+                if (phoneError) setPhoneError('');
+              }}
+              style={
+                {
+                  '--react-international-phone-height': 'auto',
+                  '--react-international-phone-border-radius': '0.5rem',
+                  '--react-international-phone-border-color': 'transparent',
+                  '--react-international-phone-background-color': '#F0F1F2',
+                  '--react-international-phone-text-color': '#434343',
+                  '--react-international-phone-selected-dropdown-item-background-color': '#F0F1F2',
+                  '--react-international-phone-font-size': 'inherit',
+                } as React.CSSProperties
+              }
+              inputStyle={{
+                width: '100%',
+                padding: '1rem 1rem 1rem 0.5rem',
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                fontSize: 'inherit',
+                color: '#434343',
+                lineHeight: '1.5',
+              }}
+              countrySelectorStyleProps={{
+                buttonStyle: {
+                  display: 'flex',
+                  alignItems: 'center',
+                  padding: '0 0.75rem 0 1rem',
+                  background: 'transparent',
+                  border: 'none',
+                  borderRight: '1px solid #D1D5DB',
+                  height: '100%',
+                },
+              }}
+              className={`flex w-full items-center rounded-lg border border-transparent bg-[#F0F1F2] focus-within:border-black ${phoneError ? '!border-[#DC2626] !bg-[#FFF9F9]' : ''}`}
+            />
+            {phoneError && <p className="mt-1 text-xs text-[#DC2626]">{phoneError}</p>}
+          </div>
           <textarea
             {...register('message', { required: 'Message is required' })}
             placeholder="Message"
