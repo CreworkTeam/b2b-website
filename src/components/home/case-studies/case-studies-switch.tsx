@@ -200,7 +200,7 @@ const CaseStudyCard = ({
             ))}
           </div>
         </div>
-        <div className="flex justify-between items-center mb-4">
+        <div className="mb-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
           <a
             href={link}
             className="flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1 group-hover:gap-1"
@@ -221,7 +221,7 @@ const CaseStudyCard = ({
             href={livelink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn mx-auto text-center sm:mx-0 md:w-fit md:px-6 flex flex-row gap-2"
+            className="btn flex w-full flex-row justify-center gap-2 text-center sm:mx-0 sm:w-fit md:px-6"
             data-btntype="live website CTA"
             onClick={(e) => e.stopPropagation()}
           >
