@@ -5,14 +5,14 @@ import { portfolio } from '@/constants.ts';
 
 <section
   id="our-portfolio"
-  class="mx-auto flex aspect-[16/10] w-10/12 max-w-5xl items-center border lg:w-9/12"
+  class="mx-auto flex aspect-[16/12] w-[92%] max-w-5xl items-center overflow-hidden border sm:aspect-[16/10] sm:w-10/12 lg:w-9/12"
   data-section="portfolio"
 >
-  <div class="absolute left-0 flex w-screen overflow-hidden">
+  <div class="absolute inset-x-0 flex w-full overflow-hidden">
     <div class="animate-marquee whitespace-nowrap">
       {
         portfolio.map(({ image, name }) => (
-          <div class="my-2 mr-6 inline-flex aspect-[16/10] w-[70vw] max-w-3xl rounded-3xl border p-[1px] shadow-[0px_0px_6px_0px_#00000040] md:w-[calc(50vw)]">
+          <div class="my-2 mr-4 inline-flex aspect-[16/10] w-[82vw] max-w-3xl rounded-3xl border p-[1px] shadow-[0px_0px_6px_0px_#00000040] sm:mr-6 sm:w-[70vw] md:w-[50vw]">
             <Image
               src={image}
               alt={name}
@@ -27,7 +27,7 @@ import { portfolio } from '@/constants.ts';
     <div class="absolute top-0 animate-marquee2 whitespace-nowrap">
       {
         portfolio.map(({ image, name }) => (
-          <div class="my-2 mr-6 inline-flex aspect-[16/10] w-[70vw] max-w-3xl rounded-3xl border p-[1px] shadow-[0px_0px_6px_0px_#00000040] md:w-[calc(50vw)]">
+          <div class="my-2 mr-4 inline-flex aspect-[16/10] w-[82vw] max-w-3xl rounded-3xl border p-[1px] shadow-[0px_0px_6px_0px_#00000040] sm:mr-6 sm:w-[70vw] md:w-[50vw]">
             <Image
               src={image}
               alt={name}

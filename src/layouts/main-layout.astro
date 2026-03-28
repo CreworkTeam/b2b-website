@@ -44,11 +44,11 @@ const og_image_absolute = og_image.startsWith('http') ? og_image : `${siteUrl}${
     <script src="reb2b.js"></script>
     <slot name="head" />
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <Header />
     <main class="relative">
       <section
-        class="relative -z-20 mx-auto h-12 w-10/12 max-w-5xl border-x border-[#F1F1F1] sm:px-16 lg:w-9/12"
+        class="relative -z-20 mx-auto h-10 w-[92%] max-w-5xl border-x border-[#F1F1F1] sm:h-12 sm:w-10/12 lg:w-9/12"
       >
       </section>
       <slot />

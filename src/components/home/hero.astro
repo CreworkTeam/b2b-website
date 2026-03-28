@@ -27,11 +27,11 @@ import { BOOK_CALL } from '@/constants.ts';
   >
     <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
   </div>
-  <div class="relative mb-4 space-y-6">
-    <h1 class="mb-4 text-3xl font-[450] text-[#020617] sm:text-4xl md:text-6xl max-w-[700px]">
+  <div class="relative mb-4 space-y-4 sm:space-y-6">
+    <h1 class="mb-4 max-w-[700px] text-[clamp(1.9rem,8.5vw,3.75rem)] font-[450] leading-tight text-[#020617]">
       <span>Sleek, Powerful and User Focused</span>
       <span
-        class="slide_up_hero relative inline-block h-9 w-52 translate-y-[7px] overflow-hidden sm:h-10 sm:w-72 md:h-16 md:w-[28rem] md:translate-y-3"
+        class="slide_up_hero relative inline-block h-[1.5em] w-[13ch] translate-y-[2px] overflow-hidden pb-[2px] pr-[3px] sm:h-[1.45em] sm:w-[15ch] sm:translate-y-[3px] md:h-[1.4em] md:w-[18ch] md:translate-y-[4px]"
         style={{
           '--item-count': 4,
           '--duration': '10s',
@@ -39,18 +39,18 @@ import { BOOK_CALL } from '@/constants.ts';
       >
         {
           ['Apps', 'AI Automations', 'MVPs', 'Websites'].map((item) => (
-            <span class="absolute top-[150%] block h-fit whitespace-nowrap">{item}</span>
+            <span class="absolute top-[150%] block h-fit whitespace-nowrap leading-[1.2]">{item}</span>
           ))
         }
       </span>
     </h1>
-    <p class="mb-8 text-sm text-[#64748B] sm:text-xl">
+    <p class="mb-8 text-sm leading-relaxed text-[#64748B] sm:text-xl">
       AI-powered solutions, guided by human expertise,  
       <br class="hidden md:block" />
       for founders who need results yesterday.
     </p>
   </div>
-  <div class="mt-11">
+  <div class="mt-8 sm:mt-11">
     <a href={BOOK_CALL} target="_blank" class="btn">Book a free discovery call</a>
   </div>
 </section>

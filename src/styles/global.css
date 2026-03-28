@@ -164,11 +164,12 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply overflow-x-hidden bg-background text-foreground;
   }
 
   html {
     @apply scroll-smooth;
+    overflow-x: hidden;
   }
 
   h1 {
@@ -210,7 +211,7 @@
 
 @layer components {
   .section-container {
-    @apply relative mx-auto w-10/12 max-w-5xl border border-[#F1F1F1] px-5 py-20 sm:px-16 lg:w-9/12;
+    @apply relative mx-auto w-[92%] max-w-5xl border border-[#F1F1F1] px-4 py-12 sm:w-10/12 sm:px-10 sm:py-16 lg:w-9/12 lg:px-16 lg:py-20;
   }
 
   .case-studies-container {
