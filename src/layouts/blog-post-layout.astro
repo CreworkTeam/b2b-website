@@ -44,6 +44,7 @@ const schema = {
   "headline": blogTitle,
   "image": blogImage?.src ? new URL(blogImage.src, Astro.site).href : new URL('/opengraph.png', Astro.site).href,
   "datePublished": blogData.data.blogDate,
+  "dateModified": blogData.data.blogModified ?? blogData.data.blogDate,
   "author": {
     "@type": "Person",
     "name": blogData.data.blogAuthor?.author || "Crework Labs",

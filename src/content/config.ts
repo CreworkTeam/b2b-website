@@ -15,6 +15,7 @@ const blog = defineCollection({
       alt: z.string().default('A picture of a coder'),
     }),
     blogDescription: z.string(),
+    blogModified: z.string().optional(),
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
     mainCategory: z.string(),
