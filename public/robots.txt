@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.creworklabs.com/sitemap-index.xml
+Sitemap: https://www.creworklabs.com/sitemap.xml
