@@ -68,23 +68,17 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.creworklabs.com"
+      "item": "https://www.creworklabs.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "item": "https://www.creworklabs.com/blog"
+      "item": "https://www.creworklabs.com/blog/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": mainCategory,
-      "item": `https://www.creworklabs.com/category/${BLOG_CATEGORIES_MAP.find((cat) => cat.name === mainCategory)?.tag}`
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
       "name": blogTitle,
       "item": `https://www.creworklabs.com/blog/${slug}`
     }
