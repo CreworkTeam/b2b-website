@@ -3,7 +3,7 @@ blogTitle: "How to Get Your First Users: The Early Adopter Playbook for Founders
 blogDate: October 30, 2025
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
 blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'How to get your first users guide' }
-blogDescription: Getting your first users is not a launch event. It is a research process. Here is the complete playbook: who to find, where to look, and how to turn early adopters into real traction.
+blogDescription: "Getting your first users is not a launch event. It is a research process. Here is the complete playbook: who to find, where to look, and how to turn early adopters into real traction."
 blogModified: 2026-05-25
 draft: false
 featured: false
