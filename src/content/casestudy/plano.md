@@ -12,7 +12,7 @@ csimages:
     { src: '/portfolio/PlanO-2.svg', alt: 'PlanO Onboarding' },
   ]
 cstag: 'mvp'
-cslivelink: '#'
+cslivelink: 'https://www.myplanoapp.com/'
 ---
 
 ## Challenge
@@ -60,5 +60,3 @@ The interface blends a modern, friendly feel with a simple navigation structure.
 ## Project Outcomes
 
 The final MVP offers a complete marketplace experience with personalized recommendations, interactive discovery, and automated listing creation. Parents can now find activities for their children much faster and with more confidence. Providers can onboard themselves by submitting a single link. PlanO is now positioned as a scalable, modern solution that simplifies the process of discovering and booking children’s activities in Seattle.
-
-![Impact](/portfolio/PlanO-6.svg)

@@ -7,93 +7,77 @@ import { BOOK_CALL } from '@/constants';
 <Section id="pricing" data-section="pricing">
   <div class="space-y-6 text-center">
     <div class="space-y-3">
-      <h2 class="font-semibold">Simple plans to get you started fast ⚡</h2>
-      <p>Ready to turn your idea into a product? Choose a plan that's right for you</p>
+      <h2 class="font-semibold text-3xl md:text-4xl">One flat price to launch ⚡</h2>
+      <p class="text-lg text-gray-600">No hourly billing. No scope creep invoices. You know the cost before we write a line of code.</p>
     </div>
-    <div
-      class="mx-auto flex w-full flex-col rounded-2xl border-[#BBBBBB] shadow-[0px_0px_4px_0px_#00000040] md:w-11/12 md:flex-row"
-    >
-      <div class="grid grid-cols-1 grid-rows-6 rounded-t-2xl p-5 text-center md:rounded-l-2xl">
-        <div class="row-span-1 flex flex-col justify-center">
-          <h5 class="text-balance text-[#191D23]">Website Design & Development</h5>
-          <p class="text-sm text-[#8A8A8A]">
-            For founders or teams who want to launch a perfect website in 1 week.
-          </p>
+    <div class="mx-auto flex w-full max-w-[500px] flex-col rounded-[2rem] bg-[#0A0A0A] p-6 sm:p-8 text-center text-white shadow-2xl">
+      <div class="flex flex-col items-center justify-center space-y-3">
+        <h2 class="text-balance text-3xl font-bold text-white tracking-tight">MVP Development</h2>
+        
+        <!-- Divider with dot -->
+        <div class="flex w-24 items-center justify-center gap-2">
+          <div class="h-[1px] w-full bg-[#333333]"></div>
+          <div class="size-1 rounded-full bg-[#666666]"></div>
+          <div class="h-[1px] w-full bg-[#333333]"></div>
         </div>
-        <div class="row-span-1 flex items-center justify-center p-2">
-          <h2 class="inline">$800</h2>
-        </div>
-        <div class="row-span-3 flex flex-col gap-2">
-          {
-            [
-              'Launch a high-conversion website in just 1 week',
-              'Custom design for all website pages',
-              'Regular communication and progress updates',
-              'Turnaround time: 4-5 business days',
-              'Responsive design for mobile and desktop',
-            ].map((item) => (
-              <div class="flex items-start gap-2 text-start">
-                <div class="flex size-8 items-center justify-center rounded-full bg-[#E1E1E1]">
-                  <Image src="/icons/tick.svg" alt="tick" class="size-3" width={4} height={4} />
-                </div>
-                <div class="flex-1 text-[#191D23]">{item}</div>
-              </div>
-            ))
-          }
-        </div>
-        <div class="flex items-center justify-center">
-          <a href={BOOK_CALL} target="_blank" class="btn block h-fit w-full md:w-fit"
-            >Get your website</a
-          >
-        </div>
+        
+        <p class="text-balance text-[#A0A0A0] text-sm sm:text-base">
+          For founders ready to launch a web or mobile app.
+        </p>
       </div>
-      <div
-        class="grid grid-cols-1 grid-rows-6 rounded-b-2xl bg-[#0A0A0A] p-5 text-center text-white md:rounded-r-2xl md:rounded-bl-none"
-      >
-        <div class="row-span-1 flex flex-col justify-center">
-          <h5 class="text-balance text-white">MVP Development</h5>
-          <p class="text-balance text-sm text-[#C8C8C8]">
-            For founders or teams looking to build new products and initiatives.
-          </p>
-        </div>
-        <div class="row-span-1 flex items-center justify-center gap-2 p-2">
+      
+      <div class="mt-6 mb-6 flex flex-col items-center justify-center space-y-1">
+        <div class="flex items-center gap-3 text-[#888888] font-medium text-sm">
+          <div class="h-[1px] w-8 bg-[#333333]"></div>
           <span>Starts from</span>
-          <h2 class="inline text-white">$3000</h2>
+          <div class="h-[1px] w-8 bg-[#333333]"></div>
         </div>
-        <div class="row-span-3 flex flex-col gap-2">
-          {
-            [
-              'Transform your ideas into functional products',
-              'Market research and competitor analysis',
-              'Custom brand identity design',
-              'UI/UX design for website and the product',
-              'End-to-end development (web or mobile app)',
-              'Project management and regular progress updates',
-            ].map((item) => (
-              <div class="flex items-start gap-2 text-start">
-                <div class="flex size-8 items-center justify-center rounded-full bg-[#252525]">
-                  <Image
-                    src="/icons/tick-white.svg"
-                    alt="tick"
-                    class="size-3"
-                    width={4}
-                    height={4}
-                  />
-                </div>
-                <div class="flex-1">{item}</div>
-              </div>
-            ))
-          }
-        </div>
-        <div class="flex items-center justify-center">
-          <a
-            href={BOOK_CALL}
-            target="_blank"
-            class="mx-auto block w-full cursor-pointer text-balance rounded-md bg-white px-4 py-2 text-xs font-medium leading-tight text-black active:bg-gradient-to-b active:from-black/20 active:to-white sm:px-6 sm:text-[16px] md:w-fit"
-            >Get your MVP</a
-          >
-        </div>
+        <h2 class="text-white text-5xl font-bold tracking-tighter">$3000</h2>
       </div>
+      
+      <!-- Inner bordered checklist container -->
+      <div class="flex flex-col rounded-2xl border border-[#222222] bg-[#0F0F0F] p-1 mb-6">
+        {
+          [
+            "A working web or mobile app in your users' hands in 3 to 4 weeks",
+            'Scoping session to pressure test the idea before we build',
+            'Market research and competitor analysis',
+            'Brand identity and full UI/UX design',
+            'End to end development, launch and deployment',
+            'Weekly demos so you always know where things stand',
+            'You own all code, IP and infrastructure from day one'
+          ].map((item, i, arr) => (
+            <div class={`flex items-center gap-3 p-3 ${i !== arr.length - 1 ? 'border-b border-[#222222]' : ''}`}>
+              <div class="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#1E1E1E] border border-[#333333]">
+                <Image
+                  src="/icons/tick-white.svg"
+                  alt="tick"
+                  class="size-2.5"
+                  width={10}
+                  height={10}
+                />
+              </div>
+              <div class="flex-1 text-left text-sm text-[#E0E0E0] leading-snug">{item}</div>
+            </div>
+          ))
+        }
+      </div>
+      
+      <div class="flex items-center justify-center">
+        <a
+          href={BOOK_CALL}
+          target="_blank"
+          class="block w-full cursor-pointer rounded-xl bg-white px-8 py-3 text-base font-semibold leading-tight text-black transition-transform hover:scale-[1.02] sm:w-auto min-w-[200px]"
+        >
+          Get your MVP
+        </a>
+      </div>
+    </div>
+    
+    <div class="mx-auto max-w-2xl mt-8 pt-8 border-t border-gray-200">
+      <p class="text-[#666666] text-balance">
+        After launch, most founders keep us on as their product team. Same setup, same shared goal: paying users. We scope that together on your call.
+      </p>
     </div>
   </div>
 </Section>

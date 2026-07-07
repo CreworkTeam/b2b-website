@@ -8,8 +8,9 @@ import CaseStudies from '../components/home/case-studies/case-studies.astro';
 import Contact from '../components/home/contact.astro';
 import Pricing from '@/components/home/pricing.astro';
 import HowWeWork from '@/components/home/how-we-work.astro';
-import OurServices from '@/components/home/our-services.astro';
 import MeetTheTeam from '@/components/home/meet-the-team.astro';
+import Positioning from '@/components/home/positioning.astro';
+import LeadMagnet from '@/components/home/lead-magnet.astro';
 
 const schema = {
   "@context":"https://schema.org",
@@ -138,10 +139,11 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head"></script>
   <Hero />
   <OurPortfolio />
+  <Positioning />
   <Testimonials />
   <OurImpact />
-  <OurServices />
   <CaseStudies />
+  <LeadMagnet />
   <MeetTheTeam />
   <HowWeWork />
   <Pricing />

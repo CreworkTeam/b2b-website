@@ -21,7 +21,7 @@ interface CaseStudyCardProps {
   rtl?: boolean;
 }
 
-const CaseStudiesSwitch = ({ sticky }: { sticky: boolean }) => {
+const CaseStudiesSwitch = ({ sticky, limit }: { sticky: boolean; limit?: number }) => {
   const [tab, setTab] = useState('mvp');
 
   const onTabChange = (value: React.SetStateAction<string>) => {
@@ -97,12 +97,12 @@ const CaseStudiesSwitch = ({ sticky }: { sticky: boolean }) => {
       <div id="case-study-container" ref={caseStudyContainerRef}>
         {items.map((item) => (
           <TabsContent key={item.tab.value} value={item.tab.value} className="space-y-16">
-            {item?.content?.map((content, index) => (
+            {item?.content?.slice(0, limit || item.content.length).map((content, index) => (
               <CaseStudyCard
                 key={`${item.tab.value}-${index}`}
                 cardContent={content}
                 index={index}
-                length={item.content.length}
+                length={Math.min(item.content.length, limit || item.content.length)}
                 sticky={sticky}
               />
             ))}
