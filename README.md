@@ -10,7 +10,7 @@
 │   └── social/
 │   └── styles/
 ├── src/
-│   └── coomponents/
+│   └── components/
 │   └── pages/
 │       └── index.astro
 └── .prettierrc.mjs
@@ -20,6 +20,10 @@
 
 Currently, we have our components for the landing page in the `src/components/` directory. We created components because each file doesn’t have many lines of code.
 We will place our images or other static content into the `public/` directory, and we’ll try to organize them by grouping similar items into folders.
+
+### 🛠️ Working Branch
+We are using the `feature/Website-updates` branch to integrate the crework-dashboard components and pages.
+
 
 ## 🧞 Commands
 
