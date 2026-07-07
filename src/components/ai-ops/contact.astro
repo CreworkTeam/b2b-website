@@ -1,0 +1,30 @@
+---
+---
+<section class="contact" id="contact">
+  <div class="container">
+    <h2 class="reveal">Contact Us</h2>
+    <p class="sub reveal">We usually respond before 24 hours.</p>
+    <form class="form reveal" id="ai-contact-form">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="+1" />
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit" class="btn">Let's Chat</button>
+      <p class="form-note" id="form-success-note" style="display: none;">Message received! Our team will reach out shortly.</p>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('ai-contact-form');
+    const note = document.getElementById('form-success-note');
+    if (form && note) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        note.style.display = 'block';
+        (form as HTMLFormElement).reset();
+      });
+    }
+  });
+</script>

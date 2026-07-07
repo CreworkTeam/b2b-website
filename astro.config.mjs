@@ -15,6 +15,9 @@ export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
   adapter: vercel(),
   vite: {
+    resolve: {
+      dedupe: ['react', 'react-dom'],
+    },
     build: {
       rollupOptions: {
         external: [],

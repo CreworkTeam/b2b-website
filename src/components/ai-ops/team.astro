@@ -1,0 +1,28 @@
+---
+const teamData = [
+  { initials: 'SJ', name: 'Shikshita Juyal', role: 'Founder & CEO', cred: 'Crework | UPenn' },
+  { initials: 'HS', name: 'Herumb Shandilya', role: 'Data Science Partner', cred: 'Stanford' },
+  { initials: 'TC', name: 'Tharun Chowary', role: 'Tech Partner', cred: 'Amazon' },
+  { initials: 'ID', name: 'Ishan Dutta', role: 'ML Partner', cred: 'Adobe' },
+  { initials: 'DJ', name: 'Dinkar Juyal', role: 'Data Science Partner', cred: 'Meta | UC Berkeley' },
+  { initials: 'SR', name: 'Shweta Roy', role: 'Tech Partner', cred: 'Daimler' },
+  { initials: 'DS', name: 'Dushyant Singh', role: 'Tech Partner', cred: 'Springworks' },
+  { initials: 'ML', name: 'Mitali Laroia', role: 'Tech Partner', cred: 'JPMC' },
+];
+---
+<section class="team">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">03 / Team</span></div>
+    <h2 class="reveal">Meet the Team</h2>
+    <div class="team-grid">
+      {teamData.map((m) => (
+        <div class="member reveal">
+          <div class="avatar">{m.initials}</div>
+          <h3>{m.name}</h3>
+          <p class="role">{m.role}</p>
+          <p class="cred">{m.cred}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
