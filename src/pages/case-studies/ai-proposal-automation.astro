@@ -1,0 +1,112 @@
+---
+import CaseStudyLayout from '../../components/case-studies/CaseStudyLayout.astro';
+import Hero from '../../components/case-studies/Hero.astro';
+import Glance from '../../components/case-studies/Glance.astro';
+import ResultsBand from '../../components/case-studies/ResultsBand.astro';
+import Section from '../../components/case-studies/Section.astro';
+import Agents from '../../components/case-studies/Agents.astro';
+import Timeline from '../../components/case-studies/Timeline.astro';
+import Metrics from '../../components/case-studies/Metrics.astro';
+import EndGrid from '../../components/case-studies/EndGrid.astro';
+---
+
+<CaseStudyLayout 
+  title="Lead to Proposal in 2 Hours, Down From a Week"
+  description="How a residential home services contractor stopped losing deals to slow paperwork. Proposal turnaround cut 98.8% with agentic automation on their existing CRM."
+>
+  <Hero
+    crumbLink="/agentic-ai-systems#case-studies"
+    crumbText="← All case studies"
+    category="Revenue Operations"
+    title="Lead to Proposal in 2 hours, down from a week"
+    subtitle="How a residential home services contractor stopped losing deals to slow paperwork."
+  >
+    <svg slot="art" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+      <g class="float-slow">
+        <rect x="120" y="90" width="200" height="260" rx="14" fill="none" stroke="rgba(255,255,255,0.09)"/>
+        <line x1="150" y1="136" x2="290" y2="136" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+        <line x1="150" y1="168" x2="270" y2="168" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+        <line x1="150" y1="200" x2="284" y2="200" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+        <line x1="150" y1="232" x2="252" y2="232" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+        <line x1="150" y1="264" x2="276" y2="264" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+      </g>
+      <circle cx="318" cy="318" r="42" fill="rgba(10,10,10,0.6)" stroke="rgba(255,255,255,0.14)" class="art-pulse"/>
+      <path d="M 300 318 L 313 331 L 338 304" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="art-pulse"/>
+    </svg>
+  </Hero>
+
+  <Glance 
+    items={[
+      { k: 'Industry', v: 'Residential home services' },
+      { k: 'Team', v: '10 person team' },
+      { k: 'Stack', v: 'Their existing CRM' },
+      { k: 'Engagement', v: '5 weeks, audit to deployment' },
+    ]} 
+  />
+
+  <ResultsBand 
+    results={[
+      { num: '1 week → 2 hrs', cap: 'from lead to proposal, a 98.8% reduction' },
+      { num: '1 to 2 / day', cap: 'leads landing, every one now proposed and followed up' },
+      { num: '8 → 0', cap: 'manual steps between lead and proposal' },
+    ]} 
+  />
+
+  <Section index="01" title="The problem">
+    <p class="body reveal">
+      Every job started with the same grind: pull the job details out of the CRM by hand, write a proposal from scratch, chase the follow-ups. The business was landing 1 to 2 new leads every day, and the owner traced most lost deals to the same two failures. Proposals went out too late and the lead fizzled before a number ever reached them, or the proposal went out in time and then died in silence, because with everything else on the team's plate, nobody had hours left for follow-ups. In home services, speed is the sale: the contractor who quotes first and follows up usually wins, and this team was doing neither reliably. The bottleneck wasn't demand and it wasn't workmanship. It was paperwork sitting between an interested customer and a number they could say yes to.
+    </p>
+  </Section>
+
+  <Section index="02" title="What the audit found" padTop={false}>
+    <p class="body reveal">
+      The proposal process had 8 manual steps between "lead comes in" and "proposal sent," and none of them involved a decision the owner actually needed to make. Job details already lived in the CRM in structured form. Proposal language was 90% consistent across jobs. Follow-up timing followed a pattern everyone knew and nobody had time to execute. The entire chain was execution, not judgment, which is exactly the chain agents remove.
+    </p>
+  </Section>
+
+  <Section index="03" title="The system" padTop={false}>
+    <Agents 
+      title="Three agents, zero manual steps"
+      agents={[
+        { title: 'Intake agent', desc: 'Reads job details directly from the CRM the moment a lead is ready to quote. No copying, no re-entry.' },
+        { title: 'Proposal agent', desc: 'Drafts a complete, customized, professional proposal from the job details, in the company\'s format and voice, in minutes.' },
+        { title: 'Follow-up agent', desc: 'Triggers the follow-up sequence automatically after every proposal goes out, calibrated to each lead\'s potential, so no interested customer goes quiet from neglect.' },
+      ]}
+    />
+  </Section>
+
+  <Section index="04" title="How it rolled out" padTop={false}>
+    <Timeline 
+      items={[
+        { week: 'Week 1', desc: 'Audit. Mapped all 8 manual steps from lead to sent proposal and the follow-up pattern nobody had time to run.' },
+        { week: 'Week 2', desc: 'Intake and proposal agents live in parallel with the manual process, the owner reviewing every draft against what would have been written by hand.' },
+        { week: 'Week 3', desc: 'Proposal voice and format tuned from the owner\'s edits until drafts needed only a glance.' },
+        { week: 'Week 4', desc: 'Follow-up agent live, sequences firing automatically after every sent proposal.' },
+        { week: 'Week 5', desc: 'Straight-to-send after review. Manual proposal writing retired.' },
+      ]}
+    />
+  </Section>
+
+  <Section index="05" title="The numbers" padTop={false}>
+    <Metrics 
+      metrics={[
+        { big: '98.8%', exp: 'reduction in time from lead to proposal. What took as long as a week now takes 2 hours, and in home services the first number in a customer\'s hands usually wins the job.' },
+        { big: '100%', exp: 'of inbound leads now get a proposal and a follow-up sequence. At 1 to 2 leads landing every day, deals no longer fizzle from a late quote or die of silence from a missed follow-up.' },
+        { big: '8 → 0', exp: 'manual steps between a lead arriving and a proposal going out. The owner glances at a draft. The system does everything else, including the follow-ups nobody had hours for.' },
+      ]}
+    >
+      The two leaks the owner had lived with for years closed in the same five weeks: proposals that arrived too late, and proposals that arrived on time and were never followed up. The team's time moved from paperwork to sales conversations and the work itself.
+    </Metrics>
+  </Section>
+
+  <Section index="06" title="What compounds" padTop={false}>
+    <p class="body reveal">
+      Every proposal the system produces refines the next: the formats, the language, the follow-up rhythms are now company assets instead of habits living in one person's head. Effects we haven't counted: the owner's evenings.
+    </p>
+  </Section>
+
+  <EndGrid 
+    nextLink="/case-studies/learning-operations" 
+    nextTitle="Learning Operations on Autopilot: 40% larger cohort, zero new hires"
+  />
+</CaseStudyLayout>

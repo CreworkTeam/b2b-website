@@ -1,0 +1,18 @@
+---
+export interface Props {
+  results: { num: string; cap: string }[];
+}
+const { results } = Astro.props;
+---
+<div class="results-band">
+  <div class="container">
+    <div class="results-grid">
+      {results.map(res => (
+        <div class="reveal">
+          <div class="rnum">{res.num}</div>
+          <div class="rcap">{res.cap}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

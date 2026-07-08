@@ -58,6 +58,19 @@
   text-fill-color: transparent;
 }
 
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .slide_up_hero>* {
   animation: var(--duration) slide_up_hero infinite linear;
   animation-fill-mode: backwards;
@@ -249,3 +262,16 @@
     @apply prose max-w-none flex-1 [&_a]:break-words [&_h2:first-child]:mt-0 [&_img]:rounded-md [&_img]:border [&_li.task-list-item>input]:mr-2 [&_p:has(img)]:flex [&_p:has(img)]:justify-center [&_ul.contains-task-list]:list-inside [&_ul.contains-task-list]:list-none [&_ul.contains-task-list]:pl-0 [&_ul]:list-outside [&_p]:my-2;
   }
 }
+
+.cto-page, .cto-page * {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.cto-page h1,
+.cto-page h2,
+.cto-page h3,
+.cto-page h1 *,
+.cto-page h2 *,
+.cto-page h3 * {
+  font-family: 'Chakra Petch', sans-serif;
+}

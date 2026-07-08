@@ -1,95 +1,77 @@
 ---
-import { navLinks, socials } from '@/constants';
-import { Image } from 'astro:assets';
+interface Props {
+  theme?: 'light' | 'dark';
+}
+const { theme = 'light' } = Astro.props;
+
+const bgClass = theme === 'dark' ? 'bg-black' : 'bg-white';
+const textMain = theme === 'dark' ? 'text-white' : 'text-[#111]';
+const textMuted = theme === 'dark' ? 'text-[#a1a1aa]' : 'text-[#888]';
+const borderClass = theme === 'dark' ? 'border-[#333]' : 'border-[#F1F1F1]';
+const hoverText = theme === 'dark' ? 'hover:text-white' : 'hover:text-black';
+const iconBorder = theme === 'dark' ? 'border-[#333]' : 'border-gray-200';
 ---
-
-<footer class="mx-auto w-10/12 max-w-5xl lg:w-9/12">
-  <div class="relative mx-auto border-x border-t border-[#F1F1F1]">
-    <div
-      class="absolute left-0 top-0 z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-      style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
-    >
-      <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
-    </div>
-    <div
-      class="absolute right-0 top-0 z-20 m-0 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-      style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
-    >
-      <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
-    </div>
-    <div class="relative pb-5 pt-10 md:py-14">
-      <svg
-        width="100%"
-        height="97"
-        viewBox="0 0 1048 97"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="absolute -z-10"
-      >
-        <path
-          d="M0.0517578 95.8152C173.552 32.8152 332.552 0.815186 524.052 0.815186C715.552 0.815186 867.552 30.8152 1048.05 95.8152"
-          stroke="#DFDFE0"></path>
-      </svg>
-
-      <div class="mt-28 flex flex-col items-center gap-5 md:mt-16">
-        <a href="/" class="">
-          <img src="/logo.svg" alt="Crework Labs" class="h-5 md:h-auto" />
+<footer class={`w-full py-16 px-4 md:px-8 ${bgClass} ${textMain} ${theme === 'dark' ? '' : 'border-t'} ${borderClass}`}>
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8">
+    
+    <!-- Column 1 -->
+    <div class="flex flex-col max-w-xs gap-4">
+      <div class="flex items-center gap-2 mb-2">
+        <a href="/">
+          {theme === 'dark' ? (
+            <img src="/logo.svg" alt="Crework Labs" class="h-6 invert brightness-0" />
+          ) : (
+            <img src="/logo.svg" alt="Crework Labs" class="h-6" />
+          )}
         </a>
-        <p class="px-5 text-center text-xs text-[#919191]">
-          Product studio crafting experiences to connect you with your audience
-        </p>
-        <div class="flex justify-center gap-2">
-          {
-            socials.map((social) => (
-              <a
-                href={social.url}
-                target="_blank"
-                class="flex h-10 w-10 items-center justify-center rounded-full bg-[#F6F6F6]"
-              >
-                <label class="sr-only">{social.name}</label>
-                <Image src={social.icon} alt={social.name} class="h-4 w-4" width={16} height={16} />
-              </a>
-            ))
-          }
-        </div>
       </div>
-      <div
-        class="mt-6 flex flex-col items-center justify-center text-xs text-[#9A9EA6] md:flex-row md:gap-8"
-      >
-        {
-          navLinks.map(
-            ({ href, text, prefetch }: { href: string; text: string; prefetch?: boolean }) => (
-              <a
-                href={href}
-                class="flex h-8 w-full items-center justify-center truncate hover:text-black sm:w-fit"
-                {...(prefetch && { 'data-astro-prefetch': 'viewport' })}
-              >
-                {text}
-              </a>
-            ),
-          )
-        }
-      </div>
-      <div
-        class="mt-6 flex flex-col items-center justify-between gap-9 md:flex-row md:px-10 lg:px-20"
-      >
-        <div class="flex flex-col gap-5 md:flex-row md:gap-8 lg:gap-10">
-          <div class="flex items-center gap-2">
-            <span
-              class="flex min-h-10 min-w-10 items-center justify-center rounded-full bg-[#F6F6F6]"
-            >
-              <Image src="/social/email.svg" alt="Email" class="h-4 w-4" width={16} height={16} />
-            </span>
-            <div>
-              <p class="text-xs text-[#9A9EA6]">Contact us at</p>
-              <a href="mailto:labs@crework.in" class="text-sm font-bold">labs@crework.in</a>
-            </div>
-          </div>
-        </div>
-        <p class="text-center text-xs text-[#9A9EA6] md:text-right">
-          Copyright © 2025 Crework Labs LLP. <br class="md:hidden" /> All Rights Reserved.
-        </p>
+      <p class={`${textMuted} text-sm leading-relaxed`}>
+        Building custom software and AI systems that keep your business running without you.
+      </p>
+      <div class="flex items-center gap-3 mt-4">
+        <a href="https://www.linkedin.com/company/creworklabs" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
+          in
+        </a>
+        <a href="https://twitter.com/creworklabs" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
+          x
+        </a>
       </div>
     </div>
+
+    <!-- Column 2 -->
+    <div class="flex flex-col gap-4 md:ml-12">
+      <h3 class="font-semibold text-[15px] mb-2">Agentic AI Systems</h3>
+      <a href="/agentic-ai-systems" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
+      <a href="/agentic-ai-systems#impact" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Impact</a>
+      <a href="/agentic-ai-systems#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case studies</a>
+      <a href="/agentic-ai-systems#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
+      <a href="/agentic-ai-systems#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
+      <a href="/agentic-ai-systems#faq" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>FAQs</a>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold text-[15px] mb-2">Overnight CTO</h3>
+      <a href="/overnight-cto" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
+      <a href="/overnight-cto#testimonials" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Testimonials</a>
+      <a href="/overnight-cto#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case Studies</a>
+      <a href="/overnight-cto#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
+      <a href="/overnight-cto#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
+      <a href="/overnight-cto#pricing" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Pricing</a>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="flex flex-col gap-4">
+      <h3 class="font-semibold text-[15px] mb-2">Company</h3>
+      <a href="/blog" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Blog</a>
+      <a href="https://crework-founderos.vercel.app/" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Validate your Idea</a>
+      <a href="#contact" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
+      <a href="https://calendly.com/crework-labs" target="_blank" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Book a call directly</a>
+    </div>
+  </div>
+
+  <div class={`max-w-6xl mx-auto mt-16 pt-8 border-t ${borderClass} flex flex-col md:flex-row items-center justify-between gap-4`}>
+    <p class={`text-xs ${theme === 'dark' ? 'text-[#888]' : 'text-[#9A9EA6]'}`}>Copyright © 2026 Crework Labs LLP. All Rights Reserved.</p>
+    <a href="mailto:labs@crework.in" class={`text-xs font-semibold ${theme === 'dark' ? 'text-[#888]' : 'text-[#9A9EA6]'} ${hoverText} transition-colors`}>labs@crework.in</a>
   </div>
 </footer>

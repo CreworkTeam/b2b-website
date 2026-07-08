@@ -1,0 +1,18 @@
+---
+export interface Props {
+  index: string;
+  title: string;
+  padTop?: boolean;
+  borderTop?: boolean;
+}
+const { index, title, padTop = true, borderTop = false } = Astro.props;
+---
+<section style={`padding-top:${padTop ? '90px' : '0'}; ${borderTop ? 'border-top:1px solid var(--border)' : ''}`}>
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-index">{index} / {title}</span>
+      <span class="sec-rule"></span>
+    </div>
+    <slot />
+  </div>
+</section>

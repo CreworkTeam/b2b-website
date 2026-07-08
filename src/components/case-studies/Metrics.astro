@@ -1,0 +1,17 @@
+---
+export interface Props {
+  metrics: { big: string; exp: string }[];
+}
+const { metrics } = Astro.props;
+---
+<div class="metric-rows">
+  {metrics.map(metric => (
+    <div class="metric-row reveal">
+      <div class="big">{metric.big}</div>
+      <p class="exp">{metric.exp}</p>
+    </div>
+  ))}
+</div>
+<p class="body reveal">
+  <slot />
+</p>

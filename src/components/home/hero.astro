@@ -28,15 +28,37 @@ import { BOOK_CALL } from '@/constants.ts';
     <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
   </div>
   <div class="relative mb-4 space-y-4 sm:space-y-6">
-    <h1 class="mb-4 max-w-[700px] text-[clamp(1.9rem,8.5vw,3.75rem)] font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-[#111111] to-[#777777] pb-2">
-      The Overnight CTO
+    <h1 class="mb-4 max-w-[700px] mx-auto text-center text-[clamp(1.9rem,8.5vw,3.75rem)] font-bold leading-tight text-black pb-2">
+      <span class="fluid-word" style="animation-delay: 0.1s">The</span>
+      <span class="fluid-word" style="animation-delay: 0.2s">Overnight</span>
+      <span class="fluid-word" style="animation-delay: 0.3s">CTO</span>
     </h1>
-    <p class="mb-8 text-sm leading-relaxed text-[#64748B] sm:text-xl">
+    <p class="mb-8 text-sm font-semibold leading-relaxed text-[#64748B] sm:text-xl fade-in-up" style="animation-delay: 0.5s">
       A product lead, a designer and an engineer behind your idea, working as your in house product team toward one shared goal: your first 100 paying users.
     </p>
   </div>
-  <div class="mt-8 flex flex-wrap items-center gap-4 sm:mt-11">
+  <div class="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-11 fade-in-up" style="animation-delay: 0.7s">
     <a href={BOOK_CALL} target="_blank" class="btn">Book a free discovery call</a>
-    <a href="#contact" class="btn !bg-white !text-black border border-gray-200 shadow-sm hover:!bg-gray-50">Validate your idea</a>
+    <a href="https://crework-founderos.vercel.app/" class="btn !bg-white !text-black border border-gray-200 shadow-sm hover:!bg-gray-50">Validate your idea</a>
   </div>
 </section>
+
+<style>
+  .fluid-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fluidReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fluidReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes fluidReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

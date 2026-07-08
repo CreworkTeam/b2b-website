@@ -1,0 +1,25 @@
+<svg viewBox="0 0 340 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="background-color: #141414;">
+  <defs>
+    <pattern id="d1" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.07)" />
+    </pattern>
+  </defs>
+  <rect width="340" height="180" fill="url(#d1)" />
+  <circle cx="170" cy="90" r="4" fill="rgba(255,255,255,0.8)" />
+  <circle cx="170" cy="90" r="24" fill="none" stroke="rgba(255,255,255,0.3)" />
+  <circle cx="170" cy="90" r="46" fill="none" stroke="rgba(255,255,255,0.2)" />
+  <circle cx="170" cy="90" r="68" fill="none" stroke="rgba(255,255,255,0.1)" />
+
+  <g class="orbit-group orbit-group-1">
+    <circle cx="170" cy="66" r="3" fill="rgba(255,255,255,0.7)" />
+  </g>
+  <g class="orbit-group orbit-group-2">
+    <circle cx="212" cy="64" r="3.5" fill="rgba(255,255,255,0.55)" />
+    <circle cx="128" cy="116" r="3.5" fill="rgba(255,255,255,0.55)" />
+  </g>
+  <g class="orbit-group orbit-group-3">
+    <circle cx="196" cy="140" r="3.5" fill="rgba(255,255,255,0.4)" />
+    <circle cx="110" cy="58" r="3.5" fill="rgba(255,255,255,0.4)" />
+    <circle cx="236" cy="108" r="3.5" fill="rgba(255,255,255,0.55)" />
+  </g>
+</svg>

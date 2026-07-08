@@ -7,7 +7,7 @@ const CASE_STUDIES = [
     description: 'How we built a quick, data-driven business valuations tool for FundsFinders.',
     src: '/portfolio/fundsfinder.png',
     alt: 'FundsFinder',
-    link: '/case-studies/instant-business-valuation-web-application',
+    link: '/case-studies/quickfunds',
   },
   {
     title: 'Custom Learning Management System',
@@ -15,7 +15,7 @@ const CASE_STUDIES = [
       'How we empowered Crework to increase engagement by deliver tailored learning experiences to aspiring Product Managers',
     src: '/portfolio/dashboard-2.png',
     alt: 'Custom Learning Management System',
-    link: '/case-studies/custom-learning-management-system',
+    link: '/case-studies/learning-operations',
   },
   {
     title: 'Global Service Provider Website Redesign',
@@ -132,14 +132,14 @@ const portfolio = [
 ];
 
 const navLinks = [
-  { href: '/#testimonials', text: 'Testimonials' },
+  { href: '/overnight-cto#testimonials', text: 'Testimonials' },
 
   // { href: '/#our-impact', text: 'Our Impact' },
-  { href: '/#case-studies', text: 'Case Studies' },
-  { href: '/#team', text: 'Team' },
-  { href: '/#pricing', text: 'Pricing' },
+  { href: '/overnight-cto#case-studies', text: 'Case Studies' },
+  { href: '/overnight-cto#team', text: 'Team' },
+  { href: '/overnight-cto#pricing', text: 'Pricing' },
   { href: '/blog', text: 'Blog', prefetch: true },
-  { href: '/#contact-us', text: 'Contact Us' },
+  { href: '#contact', text: 'Contact Us' },
 ];
 
 const socials = [
@@ -202,6 +202,39 @@ const MVP_WEBSITE_CASE_STUDY_CARDS = casestudies
     livelink: cslivelink
   }));
 
+const AI_CASE_STUDY_CARDS = [
+  {
+    title: 'Same Day Proposals for a Roofing Contractor',
+    description: 'An agentic proposal engine reads job details from the CRM and drafts complete proposals automatically. Faster responses converted directly into more closed jobs.',
+    span: '2 weeks to same day turnaround',
+    tags: ['Agentic Proposal Engine', 'CRM Integration', 'Revenue Automation'],
+    images: [{src: '/how-we-work/launch-in-weeks.png', alt: 'Proposal'}, {src: '/how-we-work/design-for-conversion.png', alt: 'Proposal'}],
+    rtl: true,
+    link: '/case-studies/ai-proposal-automation',
+    livelink: ''
+  },
+  {
+    title: 'Learning Operations on Autopilot',
+    description: 'Learner health, mentor matching and cohort intelligence agents took over an edtech platform\'s operations end to end. The next cohort grew 40% with zero new hires.',
+    span: '50% Ops Capacity Recovered',
+    tags: ['Multi Agent System', 'Learner Intelligence', 'Cohort Analytics'],
+    images: [{src: '/how-we-work/iterate-toward-paying-users.png', alt: 'Learning'}, {src: '/how-we-work/brainstorm-and-scope.png', alt: 'Learning'}],
+    rtl: false,
+    link: '/case-studies/ai-learning-operations',
+    livelink: ''
+  },
+  {
+    title: 'Lead Intelligence at 5x Volume',
+    description: 'A research and qualification system that finds, researches and qualifies prospects around the clock, cutting manual research from 15 hours a week to 2.',
+    span: '5x Outreach Capacity',
+    tags: ['Research Automation', 'Lead Qualification', 'Personalized Outreach'],
+    images: [{src: '/how-we-work/brainstorm-and-scope.png', alt: 'Lead intelligence'}, {src: '/how-we-work/launch-in-weeks.png', alt: 'Lead intelligence'}],
+    rtl: true,
+    link: '/case-studies/ai-lead-intelligence',
+    livelink: ''
+  }
+];
+
 export {
   CASE_STUDIES,
   TESTIMONIALS,
@@ -213,6 +246,7 @@ export {
   BLOG_RESULTS_LIMIT,
   WEBSITE_CASE_STUDY_CARDS,
   MVP_WEBSITE_CASE_STUDY_CARDS,
+  AI_CASE_STUDY_CARDS,
   BLOG_CATEGORIES_MAP,
   getSocialShareLinks,
 };

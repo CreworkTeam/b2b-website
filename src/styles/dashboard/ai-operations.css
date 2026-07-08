@@ -1276,12 +1276,39 @@
 }
 
 /* ============ custom cursor ============ */
-.ai-ops-page,
+.ai-ops-page {
+  cursor: none !important;
+}
+
 .ai-ops-page a,
+.ai-ops-page a *,
 .ai-ops-page button,
+.ai-ops-page button *,
+.ai-ops-page [role="button"],
+.ai-ops-page [role="button"] * {
+  cursor: default !important;
+}
+
+.ai-ops-page input,
+.ai-ops-page input *,
+.ai-ops-page textarea,
+.ai-ops-page textarea *,
+.ai-ops-page select,
+.ai-ops-page select * {
+  cursor: text !important;
+}
+
 .ai-ops-page * {
   cursor: none !important;
 }
+
+/* Hide custom cursor when hovering over interactive elements */
+.ai-ops-page:has(a:hover, button:hover, [role="button"]:hover, input:hover, textarea:hover, select:hover) .aiops-cursor,
+.ai-ops-page:has(a:hover, button:hover, [role="button"]:hover, input:hover, textarea:hover, select:hover) .aiops-cursor-trail {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
 
 .aiops-cursor {
   position: fixed;
@@ -1420,4 +1447,16 @@
   to { transform: rotate(0deg); }
 }
 
+/* Fade in up animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

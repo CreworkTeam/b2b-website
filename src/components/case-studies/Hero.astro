@@ -1,0 +1,21 @@
+---
+export interface Props {
+  crumbLink: string;
+  crumbText: string;
+  category: string;
+  title: string;
+  subtitle: string;
+}
+const { crumbLink, crumbText, category, title, subtitle } = Astro.props;
+---
+<header class="hero">
+  <div class="hero-art" aria-hidden="true">
+    <slot name="art" />
+  </div>
+  <div class="container">
+    <a class="crumb reveal" href={crumbLink}>{crumbText}</a><br>
+    <span class="cat reveal">{category}</span>
+    <h1 class="reveal">{title}</h1>
+    <p class="sub reveal">{subtitle}</p>
+  </div>
+</header>

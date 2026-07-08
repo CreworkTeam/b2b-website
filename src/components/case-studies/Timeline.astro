@@ -1,0 +1,14 @@
+---
+export interface Props {
+  items: { week: string; desc: string }[];
+}
+const { items } = Astro.props;
+---
+<div class="timeline">
+  {items.map(item => (
+    <div class="tl-item reveal">
+      <div class="wk">{item.week}</div>
+      <p>{item.desc}</p>
+    </div>
+  ))}
+</div>

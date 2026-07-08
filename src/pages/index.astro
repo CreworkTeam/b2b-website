@@ -3,7 +3,7 @@ import Nav from '../components/main-dashboard/nav.astro';
 import Hero from '../components/main-dashboard/hero.astro';
 import Cards from '../components/main-dashboard/cards.astro';
 import Cta from '../components/main-dashboard/cta.astro';
-import Footer from '../components/main-dashboard/footer.astro';
+import Footer from '../components/footer.astro';
 
 import '../styles/dashboard/main-dashboard.css';
 ---
@@ -51,7 +51,9 @@ import '../styles/dashboard/main-dashboard.css';
         <Cards />
         <Cta />
       </div>
-      <Footer />
+      <div class="fade-in-footer w-full" style="opacity: 0;">
+        <Footer />
+      </div>
     </div>
 
     <script>
@@ -131,6 +133,14 @@ import '../styles/dashboard/main-dashboard.css';
             cta.classList.add('visible');
           }
         }, 2000);
+
+        // Footer fade
+        setTimeout(() => {
+          const footer = document.querySelector('.fade-in-footer');
+          if (footer) {
+            footer.style.animation = 'fade-in-simple 1s ease-out forwards';
+          }
+        }, 2100);
       });
     </script>
   </body>

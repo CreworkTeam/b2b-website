@@ -5,10 +5,10 @@ import { portfolio } from '@/constants.ts';
 
 <section
   id="our-portfolio"
-  class="mx-auto flex aspect-[16/12] w-[92%] max-w-5xl items-center overflow-hidden border sm:aspect-[16/10] sm:w-10/12 lg:w-9/12"
+  class="flex w-full items-center overflow-hidden py-8 my-12"
   data-section="portfolio"
 >
-  <div class="absolute inset-x-0 flex w-full overflow-hidden">
+  <div class="relative flex w-full overflow-hidden">
     <div class="animate-marquee whitespace-nowrap">
       {
         portfolio.map(({ image, name }) => (
