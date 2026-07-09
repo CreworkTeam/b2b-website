@@ -278,4 +278,23 @@
 
 html, body, *, h1, h2, h3, h4, h5, h6, p, span, a, div, button, input, textarea {
   font-family: 'Chakra Petch', sans-serif !important;
-}
+}
+
+/* Custom scrollbar (Black on Light) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdfbf7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+

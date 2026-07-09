@@ -1,5 +1,5 @@
 ---
-import Nav from '../components/ai-ops/nav.astro';
+import Nav from '../components/main-dashboard/nav.astro';
 import Hero from '../components/ai-ops/hero.astro';
 import Stats from '../components/ai-ops/stats.astro';
 import Positioning from '../components/ai-ops/positioning.astro';
@@ -40,17 +40,17 @@ import '../styles/dashboard/ai-operations.css';
       <!-- Guide Rails -->
       <div class="rails" aria-hidden="true"></div>
 
-      <Nav />
-      <Hero />
-      <Stats />
-      <Positioning />
-      <Credentials />
-      <CaseStudies />
-      <Team />
-      <HowWeWork />
-      <Faq />
-      <Agenda />
-      <Contact />
+      <Nav theme="dark" />
+      <div id="hero"><Hero /></div>
+      <div id="stats"><Stats /></div>
+      <div id="positioning"><Positioning /></div>
+      <div id="credentials"><Credentials /></div>
+      <div id="case-studies"><CaseStudies /></div>
+      <div id="team"><Team /></div>
+      <div id="how-we-work"><HowWeWork /></div>
+      <div id="faq"><Faq /></div>
+      <div id="agenda"><Agenda /></div>
+      <div id="contact"><Contact /></div>
       <Footer />
     </div>
 
@@ -74,8 +74,8 @@ import '../styles/dashboard/ai-operations.css';
           // Hover checks for black cursor
           // Text hover check for magnifying effect
           const target = e.target as HTMLElement;
-          const isText = target.closest('p, h1, h2, h3, span, a:not(.btn)');
-          const isBtn = target.closest('.btn');
+          const isBtn = target.closest('.btn, button, a, [role="button"]');
+          const isText = target.closest('p, h1, h2, h3, span');
 
           if (isText && !isBtn) {
             cursor?.classList.add('is-hovering');
@@ -84,7 +84,12 @@ import '../styles/dashboard/ai-operations.css';
           }
 
           if (isBtn) {
-            cursor?.classList.add('is-btn-hovering', 'btn-light');
+            cursor?.classList.add('is-btn-hovering');
+            if (target.closest('.btn')) {
+              cursor?.classList.add('btn-light');
+            } else {
+              cursor?.classList.remove('btn-light');
+            }
           } else {
             cursor?.classList.remove('is-btn-hovering', 'btn-light');
           }

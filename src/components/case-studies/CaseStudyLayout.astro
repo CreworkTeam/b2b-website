@@ -5,7 +5,7 @@ export interface Props {
   hideRails?: boolean;
 }
 const { title, description, hideRails = false } = Astro.props;
-import Nav from '../../components/ai-ops/nav.astro';
+import Nav from '../../components/main-dashboard/nav.astro';
 import Footer from '../../components/footer.astro';
 import Cursor from '../../components/cursor.astro';
 ---
@@ -78,6 +78,85 @@ background:radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transpa
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .art-pulse{animation:artPulse 5s ease-in-out infinite}
 @keyframes artPulse{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* Proposal lines animation */
+line.proposal-line {
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: draw-proposal-lines 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+line.proposal-line:nth-of-type(1) { animation-delay: 0.1s; }
+line.proposal-line:nth-of-type(2) { animation-delay: 0.3s; }
+line.proposal-line:nth-of-type(3) { animation-delay: 0.5s; }
+line.proposal-line:nth-of-type(4) { animation-delay: 0.7s; }
+line.proposal-line:nth-of-type(5) { animation-delay: 0.9s; }
+
+@keyframes draw-proposal-lines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Shifting dot animation */
+#shifting-dot {
+  animation: shift-circles-hero 6s infinite ease-in-out;
+}
+
+@keyframes shift-circles-hero {
+  0%, 20% {
+    cx: 330px;
+    cy: 220px;
+  }
+  25%, 45% {
+    cx: 220px;
+    cy: 320px;
+  }
+  50%, 70% {
+    cx: 110px;
+    cy: 220px;
+  }
+  75%, 95% {
+    cx: 220px;
+    cy: 120px;
+  }
+  100% {
+    cx: 330px;
+    cy: 220px;
+  }
+}
+
+/* Orbit planets animation */
+.orbit-group {
+  transform-origin: 220px 220px;
+  transform-box: view-box;
+}
+.orbit-group-1 {
+  animation: aiops-spin-clockwise 10s linear infinite;
+}
+.orbit-group-2 {
+  animation: aiops-spin-counter 16s linear infinite;
+}
+.orbit-group-3 {
+  animation: aiops-spin-clockwise 22s linear infinite;
+}
+
+@keyframes aiops-spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes aiops-spin-counter {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 .crumb{font-family:var(--mono);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--t45);display:inline-block;margin-bottom:38px;transition:color .2s}
 .crumb:hover{color:#FFFFFF}
 .cat{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--t45);
@@ -149,12 +228,30 @@ section{padding:64px 0}
 .sweep,.float-slow,.art-pulse{animation:none}
 html{scroll-behavior:auto}
 }
+
+/* Custom scrollbar (White on Dark) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cccccc;
+}
 </style>
 </head>
 <body>
 <Cursor />
 {!hideRails && <div class="rails" aria-hidden="true"></div>}
-<Nav />
+<Nav theme="dark" />
 
 <slot />
 

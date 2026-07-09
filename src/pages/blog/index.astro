@@ -24,6 +24,7 @@ const description =
   title={`${title} - Crework Labs`}
   description={description}
   canonical="https://www.creworklabs.com/blog"
+  useDashboardNav={true}
 >
   <Section>
         <h2 class="text-2xl font-semibold sm:text-3xl md:text-4xl mb-2">
@@ -46,7 +47,9 @@ const description =
         <FeaturedCarousel blogs={featuredBlogs} client:load />
       </div>
     </div>
-    <BlogList client:only="react" />
+    <div class="min-h-[800px]">
+      <BlogList client:only="react" />
+    </div>
   </Section>
   <script>
     import { setupButtonTracking } from '@/utils/mixpanel';

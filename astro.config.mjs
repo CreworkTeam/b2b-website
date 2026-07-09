@@ -22,7 +22,7 @@ export default defineConfig({
       rollupOptions: {
         external: [],
       },
-    },
+    }
   },
   markdown: {
     rehypePlugins: [sectionize],

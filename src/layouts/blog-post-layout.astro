@@ -91,6 +91,7 @@ const breadcrumbSchema = {
   description={blogDescription}
   canonical={`https://www.creworklabs.com/blog/${slug}`}
   og_image={blogImage?.src || '/opengraph.png'}
+  useDashboardNav={true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="head"></script>

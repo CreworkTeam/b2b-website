@@ -64,7 +64,9 @@ const description =
         </div>
       </div>
     )}
-    <BlogList category={category} client:only="react" />
+    <div class="min-h-[800px]">
+      <BlogList category={category} client:only="react" />
+    </div>
   </Section>
   <script>
     import { setupButtonTracking } from '@/utils/mixpanel';

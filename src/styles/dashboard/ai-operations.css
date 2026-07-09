@@ -183,7 +183,6 @@
   background: rgba(10, 10, 10, 0.82);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
 }
 
 .ai-ops-page .nav-inner {
@@ -326,15 +325,46 @@
   animation: aiops-ringGlow 9s ease-in-out infinite;
 }
 
-.ai-ops-page .orbit:nth-child(1) { width: 240px; height: 240px; animation-delay: 0s; }
-.ai-ops-page .orbit:nth-child(2) { width: 480px; height: 480px; animation-delay: 1.5s; }
-.ai-ops-page .orbit:nth-child(3) { width: 720px; height: 720px; animation-delay: 3s; }
-.ai-ops-page .orbit:nth-child(4) { width: 960px; height: 960px; animation-delay: 4.5s; }
-.ai-ops-page .orbit:nth-child(5) { width: 1200px; height: 1200px; animation-delay: 6s; }
+.ai-ops-page .orbit:nth-child(1) {
+  width: 240px;
+  height: 240px;
+  animation-delay: 0s;
+}
+
+.ai-ops-page .orbit:nth-child(2) {
+  width: 480px;
+  height: 480px;
+  animation-delay: 1.5s;
+}
+
+.ai-ops-page .orbit:nth-child(3) {
+  width: 720px;
+  height: 720px;
+  animation-delay: 3s;
+}
+
+.ai-ops-page .orbit:nth-child(4) {
+  width: 960px;
+  height: 960px;
+  animation-delay: 4.5s;
+}
+
+.ai-ops-page .orbit:nth-child(5) {
+  width: 1200px;
+  height: 1200px;
+  animation-delay: 6s;
+}
 
 @keyframes aiops-ringGlow {
-  0%, 100% { border-color: rgba(255, 255, 255, 0.06); }
-  50% { border-color: rgba(255, 255, 255, 0.14); }
+
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.14);
+  }
 }
 
 .ai-ops-page .orbit-spin {
@@ -344,13 +374,27 @@
   animation: aiops-spin linear infinite;
 }
 
-.ai-ops-page .orbit:nth-child(1) .orbit-spin { animation-duration: 44s; }
-.ai-ops-page .orbit:nth-child(2) .orbit-spin { animation-duration: 70s; }
-.ai-ops-page .orbit:nth-child(3) .orbit-spin { animation-duration: 100s; animation-direction: reverse; }
-.ai-ops-page .orbit:nth-child(4) .orbit-spin { animation-duration: 140s; }
+.ai-ops-page .orbit:nth-child(1) .orbit-spin {
+  animation-duration: 44s;
+}
+
+.ai-ops-page .orbit:nth-child(2) .orbit-spin {
+  animation-duration: 70s;
+}
+
+.ai-ops-page .orbit:nth-child(3) .orbit-spin {
+  animation-duration: 100s;
+  animation-direction: reverse;
+}
+
+.ai-ops-page .orbit:nth-child(4) .orbit-spin {
+  animation-duration: 140s;
+}
 
 @keyframes aiops-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .ai-ops-page .planet {
@@ -365,13 +409,34 @@
   animation: aiops-blink 4.5s ease-in-out infinite;
 }
 
-.ai-ops-page .orbit:nth-child(2) .planet { animation-delay: 1.2s; width: 5px; height: 5px; }
-.ai-ops-page .orbit:nth-child(3) .planet { animation-delay: 2.4s; }
-.ai-ops-page .orbit:nth-child(4) .planet { animation-delay: 3.6s; width: 5px; height: 5px; }
+.ai-ops-page .orbit:nth-child(2) .planet {
+  animation-delay: 1.2s;
+  width: 5px;
+  height: 5px;
+}
+
+.ai-ops-page .orbit:nth-child(3) .planet {
+  animation-delay: 2.4s;
+}
+
+.ai-ops-page .orbit:nth-child(4) .planet {
+  animation-delay: 3.6s;
+  width: 5px;
+  height: 5px;
+}
 
 @keyframes aiops-blink {
-  0%, 100% { opacity: .25; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
-  50% { opacity: 1; box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.25); }
+
+  0%,
+  100% {
+    opacity: .25;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.25);
+  }
 }
 
 .ai-ops-page .hero .container {
@@ -404,8 +469,17 @@
 }
 
 @keyframes aiops-pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35); }
-  50% { opacity: .55; box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.35);
+  }
+
+  50% {
+    opacity: .55;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+  }
 }
 
 .ai-ops-page .hero h1 {
@@ -451,12 +525,12 @@
   text-align: center;
 }
 
-.ai-ops-page .stats-grid > div {
+.ai-ops-page .stats-grid>div {
   padding: 0 32px;
   position: relative;
 }
 
-.ai-ops-page .stats-grid > div + div::before {
+.ai-ops-page .stats-grid>div+div::before {
   content: '';
   position: absolute;
   left: 0;
@@ -619,10 +693,21 @@
   transition: opacity .5s ease;
 }
 
-.ai-ops-page .diagram.drawn .pulse-node { opacity: 1; }
-.ai-ops-page .diagram.drawn .pulse-node:nth-of-type(1) { transition-delay: .7s; }
-.ai-ops-page .diagram.drawn .pulse-node:nth-of-type(2) { transition-delay: 1.2s; }
-.ai-ops-page .diagram.drawn .pulse-node:nth-of-type(3) { transition-delay: 1.7s; }
+.ai-ops-page .diagram.drawn .pulse-node {
+  opacity: 1;
+}
+
+.ai-ops-page .diagram.drawn .pulse-node:nth-of-type(1) {
+  transition-delay: .7s;
+}
+
+.ai-ops-page .diagram.drawn .pulse-node:nth-of-type(2) {
+  transition-delay: 1.2s;
+}
+
+.ai-ops-page .diagram.drawn .pulse-node:nth-of-type(3) {
+  transition-delay: 1.7s;
+}
 
 .ai-ops-page .diagram .black-text {
   fill: #000000;
@@ -632,15 +717,23 @@
   letter-spacing: 0.1em;
 }
 
-.ai-ops-page #traveler { opacity: 0; }
+.ai-ops-page #traveler {
+  opacity: 0;
+}
+
 .ai-ops-page .diagram.drawn #traveler {
   opacity: 1;
   animation: aiops-travel 5s linear 2.4s infinite;
 }
 
 @keyframes aiops-travel {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(545px); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(545px);
+  }
 }
 
 .ai-ops-page .diagram .checkmark {
@@ -663,9 +756,11 @@
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(1) circle:first-child {
   animation: aiops-scale-1 5s linear 2.4s infinite;
 }
+
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(1) .checkmark {
   animation: aiops-check-1 5s linear 2.4s infinite;
 }
+
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(1) .label-group {
   animation: aiops-label-scale-1 5s linear 2.4s infinite;
 }
@@ -673,9 +768,11 @@
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(2) circle:first-child {
   animation: aiops-scale-2 5s linear 2.4s infinite;
 }
+
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(2) .checkmark {
   animation: aiops-check-2 5s linear 2.4s infinite;
 }
+
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(2) .label-group {
   animation: aiops-label-scale-2 5s linear 2.4s infinite;
 }
@@ -683,56 +780,136 @@
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(3) circle:first-child {
   animation: aiops-scale-3 5s linear 2.4s infinite;
 }
+
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(3) .checkmark {
   animation: aiops-check-3 5s linear 2.4s infinite;
 }
+
 .ai-ops-page .diagram.drawn .pulse-node:nth-of-type(3) .label-group {
   animation: aiops-label-scale-3 5s linear 2.4s infinite;
 }
 
 @keyframes aiops-scale-1 {
-  0%, 25% { transform: scale(1); }
-  30%, 100% { transform: scale(1.1); }
+
+  0%,
+  25% {
+    transform: scale(1);
+  }
+
+  30%,
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 @keyframes aiops-scale-2 {
-  0%, 50% { transform: scale(1); }
-  55%, 100% { transform: scale(1.1); }
+
+  0%,
+  50% {
+    transform: scale(1);
+  }
+
+  55%,
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 @keyframes aiops-scale-3 {
-  0%, 75% { transform: scale(1); }
-  80%, 100% { transform: scale(1.1); }
+
+  0%,
+  75% {
+    transform: scale(1);
+  }
+
+  80%,
+  100% {
+    transform: scale(1.1);
+  }
 }
 
 @keyframes aiops-label-scale-1 {
-  0%, 25% { transform: scale(1); }
-  30%, 100% { transform: scale(1.05); }
+
+  0%,
+  25% {
+    transform: scale(1);
+  }
+
+  30%,
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes aiops-label-scale-2 {
-  0%, 50% { transform: scale(1); }
-  55%, 100% { transform: scale(1.05); }
+
+  0%,
+  50% {
+    transform: scale(1);
+  }
+
+  55%,
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes aiops-label-scale-3 {
-  0%, 75% { transform: scale(1); }
-  80%, 100% { transform: scale(1.05); }
+
+  0%,
+  75% {
+    transform: scale(1);
+  }
+
+  80%,
+  100% {
+    transform: scale(1.05);
+  }
 }
 
 @keyframes aiops-check-1 {
-  0%, 25% { opacity: 0; stroke-dashoffset: 10; }
-  30%, 100% { opacity: 1; stroke-dashoffset: 0; }
+
+  0%,
+  25% {
+    opacity: 0;
+    stroke-dashoffset: 10;
+  }
+
+  30%,
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes aiops-check-2 {
-  0%, 50% { opacity: 0; stroke-dashoffset: 10; }
-  55%, 100% { opacity: 1; stroke-dashoffset: 0; }
+
+  0%,
+  50% {
+    opacity: 0;
+    stroke-dashoffset: 10;
+  }
+
+  55%,
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes aiops-check-3 {
-  0%, 75% { opacity: 0; stroke-dashoffset: 10; }
-  80%, 100% { opacity: 1; stroke-dashoffset: 0; }
+
+  0%,
+  75% {
+    opacity: 0;
+    stroke-dashoffset: 10;
+  }
+
+  80%,
+  100% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
 }
 
 /* ============ credentials strip ============ */
@@ -786,8 +963,13 @@
 }
 
 @keyframes aiops-drift {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ============ live cycling ============ */
@@ -806,7 +988,9 @@
 }
 
 /* ============ case studies ============ */
-.ai-ops-page .cases h2 { margin-bottom: 60px; }
+.ai-ops-page .cases h2 {
+  margin-bottom: 60px;
+}
 
 .ai-ops-page .case-grid {
   display: grid;
@@ -824,8 +1008,14 @@
   transition: border-color .25s ease, transform .25s ease;
 }
 
-.ai-ops-page .case-card:nth-child(even) .case-img { order: 2; }
-.ai-ops-page .case-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+.ai-ops-page .case-card:nth-child(even) .case-img {
+  order: 2;
+}
+
+.ai-ops-page .case-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+}
 
 .ai-ops-page .case-img {
   min-height: 280px;
@@ -849,7 +1039,9 @@
   object-fit: cover;
 }
 
-.ai-ops-page .case-card:hover .case-img svg { transform: scale(1.05); }
+.ai-ops-page .case-card:hover .case-img svg {
+  transform: scale(1.05);
+}
 
 .ai-ops-page .case-body {
   padding: 40px;
@@ -907,9 +1099,18 @@
 }
 
 /* ============ team ============ */
-.ai-ops-page .team .sec-head { justify-content: center; }
-.ai-ops-page .team .sec-rule { display: none; }
-.ai-ops-page .team h2 { text-align: center; margin-bottom: 60px; }
+.ai-ops-page .team .sec-head {
+  justify-content: center;
+}
+
+.ai-ops-page .team .sec-rule {
+  display: none;
+}
+
+.ai-ops-page .team h2 {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
 .ai-ops-page .team-grid {
   display: grid;
@@ -946,8 +1147,17 @@
   color: var(--t65);
 }
 
-.ai-ops-page .member h3 { font-size: 15.5px; font-weight: 600; margin-bottom: 4px; }
-.ai-ops-page .member .role { font-size: 13px; color: var(--t65); }
+.ai-ops-page .member h3 {
+  font-size: 15.5px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ai-ops-page .member .role {
+  font-size: 13px;
+  color: var(--t65);
+}
+
 .ai-ops-page .member .cred {
   font-family: var(--mono);
   font-size: 10.5px;
@@ -958,8 +1168,13 @@
 }
 
 /* ============ how we work ============ */
-.ai-ops-page .how h2 { margin-bottom: 10px; }
-.ai-ops-page .how .sub { margin-bottom: 64px; }
+.ai-ops-page .how h2 {
+  margin-bottom: 10px;
+}
+
+.ai-ops-page .how .sub {
+  margin-bottom: 64px;
+}
 
 .ai-ops-page .steps {
   display: grid;
@@ -989,14 +1204,30 @@
   color: rgba(255, 255, 255, 0.08);
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.15);
 }
-.ai-ops-page .steps .card h3 { font-size: 16.5px; font-weight: 600; margin-bottom: 12px; position: relative; }
-.ai-ops-page .steps .card p { position: relative; }
+
+.ai-ops-page .steps .card h3 {
+  font-size: 16.5px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.ai-ops-page .steps .card p {
+  position: relative;
+}
 
 /* ============ faq ============ */
-.ai-ops-page .faq h2 { margin-bottom: 52px; }
+.ai-ops-page .faq h2 {
+  margin-bottom: 52px;
+}
 
-.ai-ops-page .faq-item { border-bottom: 1px solid var(--border); }
-.ai-ops-page .faq-item:first-of-type { border-top: 1px solid var(--border); }
+.ai-ops-page .faq-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.ai-ops-page .faq-item:first-of-type {
+  border-top: 1px solid var(--border);
+}
 
 .ai-ops-page .faq-q {
   width: 100%;
@@ -1054,10 +1285,21 @@
 }
 
 /* ============ discovery agenda ============ */
-.ai-ops-page .agenda { text-align: center; }
-.ai-ops-page .agenda .sec-head { justify-content: center; }
-.ai-ops-page .agenda .sec-rule { display: none; }
-.ai-ops-page .agenda h2 { margin-bottom: 60px; }
+.ai-ops-page .agenda {
+  text-align: center;
+}
+
+.ai-ops-page .agenda .sec-head {
+  justify-content: center;
+}
+
+.ai-ops-page .agenda .sec-rule {
+  display: none;
+}
+
+.ai-ops-page .agenda h2 {
+  margin-bottom: 60px;
+}
 
 .ai-ops-page .agenda-grid {
   display: grid;
@@ -1068,8 +1310,15 @@
   counter-reset: agenda;
 }
 
-.ai-ops-page .agenda-grid .card { counter-increment: agenda; }
-.ai-ops-page .agenda-grid .card h3 { font-size: 16.5px; font-weight: 600; margin-bottom: 12px; }
+.ai-ops-page .agenda-grid .card {
+  counter-increment: agenda;
+}
+
+.ai-ops-page .agenda-grid .card h3 {
+  font-size: 16.5px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
 
 .ai-ops-page .agenda-grid .card h3::before {
   content: '0' counter(agenda);
@@ -1082,9 +1331,17 @@
 }
 
 /* ============ contact ============ */
-.ai-ops-page .contact { text-align: center; }
-.ai-ops-page .contact h2 { margin-bottom: 10px; }
-.ai-ops-page .contact .sub { margin-bottom: 52px; }
+.ai-ops-page .contact {
+  text-align: center;
+}
+
+.ai-ops-page .contact h2 {
+  margin-bottom: 10px;
+}
+
+.ai-ops-page .contact .sub {
+  margin-bottom: 52px;
+}
 
 .ai-ops-page .form {
   max-width: 520px;
@@ -1109,13 +1366,25 @@
 }
 
 .ai-ops-page .form input::placeholder,
-.ai-ops-page .form textarea::placeholder { color: var(--t45); }
+.ai-ops-page .form textarea::placeholder {
+  color: var(--t45);
+}
 
 .ai-ops-page .form input:focus,
-.ai-ops-page .form textarea:focus { outline: none; border-color: var(--border-strong); }
+.ai-ops-page .form textarea:focus {
+  outline: none;
+  border-color: var(--border-strong);
+}
 
-.ai-ops-page .form textarea { min-height: 140px; resize: vertical; }
-.ai-ops-page .form .btn { margin-top: 8px; justify-content: center; }
+.ai-ops-page .form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.ai-ops-page .form .btn {
+  margin-top: 8px;
+  justify-content: center;
+}
 
 .ai-ops-page .form-note {
   font-size: 13px;
@@ -1151,7 +1420,10 @@
   margin-bottom: 14px;
 }
 
-.ai-ops-page .foot-logo span { font-weight: 400; color: var(--t65); }
+.ai-ops-page .foot-logo span {
+  font-weight: 400;
+  color: var(--t65);
+}
 
 .ai-ops-page .foot-tag {
   color: var(--t65);
@@ -1195,10 +1467,20 @@
   margin-bottom: 28px;
 }
 
-.ai-ops-page .foot-links a:hover { color: #FFFFFF; }
+.ai-ops-page .foot-links a:hover {
+  color: #FFFFFF;
+}
 
-.ai-ops-page .foot-email { font-size: 14px; color: var(--t45); margin-bottom: 26px; }
-.ai-ops-page .foot-email a { color: var(--t65); border-bottom: 1px solid var(--border); }
+.ai-ops-page .foot-email {
+  font-size: 14px;
+  color: var(--t45);
+  margin-bottom: 26px;
+}
+
+.ai-ops-page .foot-email a {
+  color: var(--t65);
+  border-bottom: 1px solid var(--border);
+}
 
 .ai-ops-page .foot-copy {
   font-family: var(--mono);
@@ -1221,23 +1503,66 @@
 
 /* ============ responsive ============ */
 @media (max-width: 900px) {
+
   .ai-ops-page .stats-grid,
   .ai-ops-page .contrast-grid,
   .ai-ops-page .steps,
-  .ai-ops-page .agenda-grid { grid-template-columns: 1fr; }
+  .ai-ops-page .agenda-grid {
+    grid-template-columns: 1fr;
+  }
 
-  .ai-ops-page .case-card { grid-template-columns: 1fr; }
-  .ai-ops-page .case-card:nth-child(even) .case-img { order: 0; border-left: none; }
-  .ai-ops-page .case-img { min-height: 200px; border-right: none; border-bottom: 1px solid var(--border); }
-  .ai-ops-page .case-body { padding: 28px; }
-  .ai-ops-page .stats-grid > div { padding: 28px 0; }
-  .ai-ops-page .stats-grid > div + div::before { left: 20%; right: 20%; top: 0; bottom: auto; width: auto; height: 1px; }
-  .ai-ops-page .team-grid { grid-template-columns: repeat(2, 1fr); }
-  .ai-ops-page section { padding: 88px 0; }
-  .ai-ops-page .hero { padding: 110px 0 84px; }
+  .ai-ops-page .case-card {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-ops-page .case-card:nth-child(even) .case-img {
+    order: 0;
+    border-left: none;
+  }
+
+  .ai-ops-page .case-img {
+    min-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ai-ops-page .case-body {
+    padding: 28px;
+  }
+
+  .ai-ops-page .stats-grid>div {
+    padding: 28px 0;
+  }
+
+  .ai-ops-page .stats-grid>div+div::before {
+    left: 20%;
+    right: 20%;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+
+  .ai-ops-page .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ai-ops-page section {
+    padding: 88px 0;
+  }
+
+  .ai-ops-page .hero {
+    padding: 110px 0 84px;
+  }
+
   .ai-ops-page .orbit:nth-child(4),
-  .ai-ops-page .orbit:nth-child(5) { display: none; }
-  .ai-ops-page .rails { display: none; }
+  .ai-ops-page .orbit:nth-child(5) {
+    display: none;
+  }
+
+  .ai-ops-page .rails {
+    display: none;
+  }
 
   .ai-ops-page .nav-links {
     display: none;
@@ -1253,26 +1578,70 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .ai-ops-page .nav-links.show { display: flex; }
-  .ai-ops-page .nav-toggle { display: block; }
+  .ai-ops-page .nav-links.show {
+    display: flex;
+  }
+
+  .ai-ops-page .nav-toggle {
+    display: block;
+  }
 }
 
 @media (max-width: 560px) {
-  .ai-ops-page .team-grid { grid-template-columns: 1fr; }
-  .ai-ops-page .container { padding: 0 22px; }
-  .ai-ops-page .faq-a p { padding-left: 0; }
+  .ai-ops-page .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-ops-page .container {
+    padding: 0 22px;
+  }
+
+  .ai-ops-page .faq-a p {
+    padding-left: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ai-ops-page .reveal { opacity: 1; transform: none; transition: none; }
-  .ai-ops-page .marquee-track { animation: none; }
-  .ai-ops-page #flowline { stroke-dashoffset: 0; transition: none; }
-  .ai-ops-page .pulse-node { opacity: 1; transition: none; }
-  .ai-ops-page #traveler { display: none; }
-  .ai-ops-page .eyebrow::before { animation: none; }
-  .ai-ops-page .orbit { animation: none; }
-  .ai-ops-page .orbit-spin { animation: none; }
-  .ai-ops-page .planet { animation: none; opacity: .4; }
+  .ai-ops-page .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .ai-ops-page .marquee-track {
+    animation: none;
+  }
+
+  .ai-ops-page #flowline {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+
+  .ai-ops-page .pulse-node {
+    opacity: 1;
+    transition: none;
+  }
+
+  .ai-ops-page #traveler {
+    display: none;
+  }
+
+  .ai-ops-page .eyebrow::before {
+    animation: none;
+  }
+
+  .ai-ops-page .orbit {
+    animation: none;
+  }
+
+  .ai-ops-page .orbit-spin {
+    animation: none;
+  }
+
+  .ai-ops-page .planet {
+    animation: none;
+    opacity: .4;
+  }
 }
 
 /* ============ custom cursor ============ */
@@ -1286,7 +1655,7 @@
 .ai-ops-page button *,
 .ai-ops-page [role="button"],
 .ai-ops-page [role="button"] * {
-  cursor: default !important;
+  cursor: none !important;
 }
 
 .ai-ops-page input,
@@ -1302,12 +1671,6 @@
   cursor: none !important;
 }
 
-/* Hide custom cursor when hovering over interactive elements */
-.ai-ops-page:has(a:hover, button:hover, [role="button"]:hover, input:hover, textarea:hover, select:hover) .aiops-cursor,
-.ai-ops-page:has(a:hover, button:hover, [role="button"]:hover, input:hover, textarea:hover, select:hover) .aiops-cursor-trail {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
 
 
 .aiops-cursor {
@@ -1354,7 +1717,7 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
-.aiops-cursor.is-hovering ~ .aiops-cursor-trail {
+.aiops-cursor.is-hovering~.aiops-cursor-trail {
   opacity: 0;
 }
 
@@ -1383,14 +1746,19 @@
   fill: #000000;
 }
 
-.aiops-cursor.is-btn-hovering ~ .aiops-cursor-trail {
+.aiops-cursor.is-btn-hovering~.aiops-cursor-trail {
   opacity: 0 !important;
   transform: translate(-50%, -50%) scale(0.5);
 }
 
 /* ============ Case Studies SVG Animations ============ */
 
-/* Case 1: Proposal lines drawing in when in-viewport */
+/* Hover zoom for Case Studies page cards */
+.ai-ops-page .case-studies-container:hover .case-img svg {
+  transform: scale(1.05);
+}
+
+/* Case 1: Proposal lines drawing in when in-viewport (agentic-ai-systems page) */
 .ai-ops-page .case-card:nth-of-type(1) .case-img line.proposal-line {
   stroke-dasharray: 120;
   stroke-dashoffset: 120;
@@ -1401,22 +1769,87 @@
   stroke-dashoffset: 0;
 }
 
-.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(1) { transition-delay: 0.1s; }
-.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(2) { transition-delay: 0.3s; }
-.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(3) { transition-delay: 0.5s; }
-.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(4) { transition-delay: 0.7s; }
+.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(1) {
+  transition-delay: 0.1s;
+}
+
+.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(2) {
+  transition-delay: 0.3s;
+}
+
+.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(3) {
+  transition-delay: 0.5s;
+}
+
+.ai-ops-page .case-card:nth-of-type(1).in .case-img line.proposal-line:nth-of-type(4) {
+  transition-delay: 0.7s;
+}
+
+/* Case 1: Proposal lines drawing in automatically on mount (ai-case-studies page) */
+.ai-ops-page .case-studies-container line.proposal-line {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: draw-proposal-lines 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ai-ops-page .case-studies-container line.proposal-line:nth-of-type(1) {
+  animation-delay: 0.1s;
+}
+
+.ai-ops-page .case-studies-container line.proposal-line:nth-of-type(2) {
+  animation-delay: 0.3s;
+}
+
+.ai-ops-page .case-studies-container line.proposal-line:nth-of-type(3) {
+  animation-delay: 0.5s;
+}
+
+.ai-ops-page .case-studies-container line.proposal-line:nth-of-type(4) {
+  animation-delay: 0.7s;
+}
+
+@keyframes draw-proposal-lines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
 /* Case 2: Shifting dot among outer nodes */
-.ai-ops-page .case-card:nth-of-type(2) #shifting-dot {
+.ai-ops-page .case-card:nth-of-type(2) #shifting-dot,
+.ai-ops-page .case-studies-container #shifting-dot {
   animation: shift-circles 5s infinite ease-in-out;
 }
 
 @keyframes shift-circles {
-  0%, 20% { cx: 250px; cy: 90px; }
-  25%, 45% { cx: 170px; cy: 134px; }
-  50%, 70% { cx: 90px; cy: 90px; }
-  75%, 95% { cx: 170px; cy: 46px; }
-  100% { cx: 250px; cy: 90px; }
+
+  0%,
+  20% {
+    cx: 250px;
+    cy: 90px;
+  }
+
+  25%,
+  45% {
+    cx: 170px;
+    cy: 134px;
+  }
+
+  50%,
+  70% {
+    cx: 90px;
+    cy: 90px;
+  }
+
+  75%,
+  95% {
+    cx: 170px;
+    cy: 46px;
+  }
+
+  100% {
+    cx: 250px;
+    cy: 90px;
+  }
 }
 
 /* Case 3: Orbits revolving like main solar system */
@@ -1438,13 +1871,23 @@
 }
 
 @keyframes aiops-spin-clockwise {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes aiops-spin-counter {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
 }
 
 /* Fade in up animations */
@@ -1459,4 +1902,22 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Custom scrollbar (White on Dark) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cccccc;
 }

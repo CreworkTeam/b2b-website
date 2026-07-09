@@ -1,9 +1,13 @@
 ---
+export interface Props {
+  theme?: 'light' | 'dark';
+}
+const { theme = 'light' } = Astro.props;
 ---
-<header class="header">
+<header class={`header ${theme === 'dark' ? 'theme-dark' : ''}`}>
   <div class="header-container">
     <div class="header-logo">
-      <a href="/" style="display:flex;align-items:center;">
+      <a href="/" style="display:flex;align-items:center;" class="nav-link">
         <img src="/logo.svg" alt="Company Logo" class="header-logo-image" />
       </a>
     </div>
@@ -15,9 +19,9 @@
         <a href="/blog" class="nav-link">Blog</a>
       </nav>
 
-      <button class="header-cta" onclick="window.location.href='https://calendly.com/creworklabs/30mins'">
+      <a href="https://calendly.com/creworklabs/30mins" target="_blank" rel="noopener noreferrer" class="header-cta">
         Book a call
-      </button>
+      </a>
     </div>
   </div>
 </header>
@@ -84,10 +88,34 @@
     border: none;
     cursor: pointer;
     transition: opacity 0.2s;
+    text-decoration: none;
+    display: inline-block;
   }
 
   .header-cta:hover {
     opacity: 0.85;
+  }
+
+  /* Dark Theme Overrides */
+  .header.theme-dark {
+    border-bottom-color: #333333;
+  }
+
+  .header.theme-dark .nav-link {
+    color: #a1a1aa;
+  }
+
+  .header.theme-dark .nav-link:hover {
+    color: #ffffff;
+  }
+
+  .header.theme-dark .header-cta {
+    background: #ffffff;
+    color: #111111;
+  }
+
+  .header.theme-dark .header-logo-image {
+    filter: invert(1) brightness(2);
   }
 
   @media (max-width: 768px) {

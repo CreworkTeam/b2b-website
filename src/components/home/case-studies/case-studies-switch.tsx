@@ -57,6 +57,86 @@ const LOCAL_AI_CASE_STUDY_CARDS = [
   },
 ];
 
+const ProposalSVG = () => (
+  <div className="case-img w-full h-full border border-[#262626] rounded-xl overflow-hidden" aria-hidden="true">
+    <svg viewBox="0 0 340 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">
+      <defs>
+        <pattern id="d1-proposal" width="16" height="16" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.07)" />
+        </pattern>
+      </defs>
+      <rect width="340" height="180" fill="url(#d1-proposal)" />
+      <rect x="60" y="34" width="150" height="112" rx="8" fill="none" stroke="rgba(255,255,255,0.22)" />
+      <line x1="78" y1="58" x2="192" y2="58" stroke="rgba(255,255,255,0.30)" strokeWidth={2} className="proposal-line" />
+      <line x1="78" y1="76" x2="176" y2="76" stroke="rgba(255,255,255,0.16)" strokeWidth={2} className="proposal-line" />
+      <line x1="78" y1="94" x2="186" y2="94" stroke="rgba(255,255,255,0.16)" strokeWidth={2} className="proposal-line" />
+      <line x1="78" y1="112" x2="160" y2="112" stroke="rgba(255,255,255,0.16)" strokeWidth={2} className="proposal-line" />
+      <circle cx="248" cy="118" r="26" fill="none" stroke="rgba(255,255,255,0.35)" />
+      <path d="M 238 118 L 246 126 L 260 110" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  </div>
+);
+
+const LearningSVG = () => (
+  <div className="case-img w-full h-full border border-[#262626] rounded-xl overflow-hidden" aria-hidden="true">
+    <svg viewBox="0 0 340 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">
+      <defs>
+        <pattern id="d1-learning" width="16" height="16" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.07)" />
+        </pattern>
+      </defs>
+      <rect width="340" height="180" fill="url(#d1-learning)" />
+      <line x1="90" y1="90" x2="170" y2="46" stroke="rgba(255,255,255,0.18)" />
+      <line x1="90" y1="90" x2="170" y2="134" stroke="rgba(255,255,255,0.18)" />
+      <line x1="170" y1="46" x2="250" y2="90" stroke="rgba(255,255,255,0.18)" />
+      <line x1="170" y1="134" x2="250" y2="90" stroke="rgba(255,255,255,0.18)" />
+      <line x1="170" y1="46" x2="170" y2="134" stroke="rgba(255,255,255,0.12)" />
+      <circle cx="90" cy="90" r="7" fill="none" stroke="rgba(255,255,255,0.45)" />
+      <circle cx="170" cy="46" r="7" fill="none" stroke="rgba(255,255,255,0.45)" />
+      <circle cx="170" cy="134" r="7" fill="none" stroke="rgba(255,255,255,0.45)" />
+      <circle cx="250" cy="90" r="7" fill="none" stroke="rgba(255,255,255,0.45)" />
+      <circle id="shifting-dot" cx="250" cy="90" r="3" fill="rgba(255,255,255,0.8)" />
+    </svg>
+  </div>
+);
+
+const LeadSVG = () => (
+  <div className="case-img w-full h-full border border-[#262626] rounded-xl overflow-hidden" aria-hidden="true">
+    <svg viewBox="0 0 340 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" className="w-full h-full object-cover">
+      <defs>
+        <pattern id="d1-lead" width="16" height="16" patternUnits="userSpaceOnUse">
+          <circle cx="1" cy="1" r="1" fill="rgba(255,255,255,0.07)" />
+        </pattern>
+      </defs>
+      <rect width="340" height="180" fill="url(#d1-lead)" />
+      <circle cx="170" cy="90" r="4" fill="rgba(255,255,255,0.8)" />
+      <circle cx="170" cy="90" r="24" fill="none" stroke="rgba(255,255,255,0.3)" />
+      <circle cx="170" cy="90" r="46" fill="none" stroke="rgba(255,255,255,0.2)" />
+      <circle cx="170" cy="90" r="68" fill="none" stroke="rgba(255,255,255,0.1)" />
+
+      <g className="orbit-group orbit-group-1">
+        <circle cx="170" cy="66" r="3" fill="rgba(255,255,255,0.7)" />
+      </g>
+      <g className="orbit-group orbit-group-2">
+        <circle cx="212" cy="64" r="3.5" fill="rgba(255,255,255,0.55)" />
+        <circle cx="128" cy="116" r="3.5" fill="rgba(255,255,255,0.55)" />
+      </g>
+      <g className="orbit-group orbit-group-3">
+        <circle cx="196" cy="140" r="3.5" fill="rgba(255,255,255,0.4)" />
+        <circle cx="110" cy="58" r="3.5" fill="rgba(255,255,255,0.4)" />
+        <circle cx="236" cy="108" r="3.5" fill="rgba(255,255,255,0.55)" />
+      </g>
+    </svg>
+  </div>
+);
+
+const getAiSvg = (src: string) => {
+  if (src.includes('ai-proposal.svg')) return <ProposalSVG />;
+  if (src.includes('ai-learning.svg')) return <LearningSVG />;
+  if (src.includes('ai-lead.svg')) return <LeadSVG />;
+  return null;
+};
+
 const CaseStudiesSwitch = ({ sticky, limit, showSearch, isAi }: { sticky: boolean; limit?: number; showSearch?: boolean; isAi?: boolean }) => {
   const [tab, setTab] = useState(isAi ? 'ai' : 'mvp');
   const [searchQuery, setSearchQuery] = useState('');
@@ -85,30 +165,30 @@ const CaseStudiesSwitch = ({ sticky, limit, showSearch, isAi }: { sticky: boolea
 
   const items = isAi
     ? [
-        {
-          tab: {
-            value: 'ai',
-            label: 'AI Systems',
-          },
-          content: LOCAL_AI_CASE_STUDY_CARDS,
+      {
+        tab: {
+          value: 'ai',
+          label: 'AI Systems',
         },
-      ]
+        content: LOCAL_AI_CASE_STUDY_CARDS,
+      },
+    ]
     : [
-        {
-          tab: {
-            value: 'website',
-            label: 'Website',
-          },
-          content: WEBSITE_CASE_STUDY_CARDS,
+      {
+        tab: {
+          value: 'website',
+          label: 'Website',
         },
-        {
-          tab: {
-            value: 'mvp',
-            label: 'MVP',
-          },
-          content: MVP_WEBSITE_CASE_STUDY_CARDS,
+        content: WEBSITE_CASE_STUDY_CARDS,
+      },
+      {
+        tab: {
+          value: 'mvp',
+          label: 'MVP',
         },
-      ];
+        content: MVP_WEBSITE_CASE_STUDY_CARDS,
+      },
+    ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -136,7 +216,7 @@ const CaseStudiesSwitch = ({ sticky, limit, showSearch, isAi }: { sticky: boolea
             })}
           >
             {items.map((item) => (
-              <TabsTrigger key={item.tab.value} value={item.tab.value} className="h-full rounded-xl">
+              <TabsTrigger key={item.tab.value} value={item.tab.value} className="h-full rounded-xl nav-link">
                 {item.tab.label}
               </TabsTrigger>
             ))}
@@ -223,13 +303,17 @@ const CaseStudyCard = ({
     >
       <div className={cn('flex-1', images[1] && !isAi ? 'space-y-4 md:space-y-12' : 'flex items-center justify-center')}>
         <div className={cn('w-full', isAi ? 'aspect-[2/1] md:aspect-[2.2/1]' : 'aspect-video')}>
-          <img
-            className={cn('h-full w-full rounded-xl object-cover object-top', isAi ? 'border border-[#262626]' : 'border')}
-            src={images[0]?.src}
-            alt={images[0]?.alt}
-            width={800}
-            height={450}
-          />
+          {isAi && images[0]?.src && getAiSvg(images[0].src) ? (
+            getAiSvg(images[0].src)
+          ) : (
+            <img
+              className={cn('h-full w-full rounded-xl object-cover object-top', isAi ? 'border border-[#262626]' : 'border')}
+              src={images[0]?.src}
+              alt={images[0]?.alt}
+              width={800}
+              height={450}
+            />
+          )}
         </div>
         {images[1] && !isAi && (
           <div className="aspect-[16/8]">
@@ -281,7 +365,10 @@ const CaseStudyCard = ({
         <div className="mb-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
           <a
             href={link}
-            className={cn('flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1 group-hover:gap-1', isAi ? 'text-white' : '')}
+            className={cn(
+              'card-btn card-btn--light flex cursor-pointer items-center gap-0 py-4 font-semibold transition-all hover:gap-1 group-hover:gap-1',
+              isAi ? 'text-white' : ''
+            )}
             data-btntype="view CTA"
             onClick={(e) => e.stopPropagation()}
           >

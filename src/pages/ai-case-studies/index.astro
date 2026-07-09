@@ -1,5 +1,5 @@
 ---
-import Nav from '../../components/ai-ops/nav.astro';
+import Nav from '../../components/main-dashboard/nav.astro';
 import Footer from '../../components/ai-ops/footer.astro';
 import CaseStudiesSwitch from '@/components/home/case-studies/case-studies-switch';
 import Section from '@/components/section.astro';
@@ -29,7 +29,7 @@ import '../../styles/dashboard/ai-operations.css';
       </div>
       <div class="aiops-cursor-trail" id="aiops-cursor-trail"></div>
 
-      <Nav />
+      <Nav theme="dark" />
       <main class="pt-32 pb-16">
         <div class="w-full" data-section="case-studies">
           <div class="mx-auto mb-[72px] max-w-3xl space-y-4 text-center">
@@ -69,8 +69,8 @@ import '../../styles/dashboard/ai-operations.css';
           }
 
           const target = e.target as HTMLElement;
-          const isText = target.closest('p, h1, h2, h3, span, a:not(.btn)');
-          const isBtn = target.closest('.btn');
+          const isBtn = target.closest('.btn, button, a, [role="button"]');
+          const isText = target.closest('p, h1, h2, h3, span');
 
           if (isText && !isBtn) {
             cursor?.classList.add('is-hovering');
@@ -79,7 +79,12 @@ import '../../styles/dashboard/ai-operations.css';
           }
 
           if (isBtn) {
-            cursor?.classList.add('is-btn-hovering', 'btn-light');
+            cursor?.classList.add('is-btn-hovering');
+            if (target.closest('.btn')) {
+              cursor?.classList.add('btn-light');
+            } else {
+              cursor?.classList.remove('btn-light');
+            }
           } else {
             cursor?.classList.remove('is-btn-hovering', 'btn-light');
           }

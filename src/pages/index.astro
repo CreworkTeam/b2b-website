@@ -75,8 +75,8 @@ import '../styles/dashboard/main-dashboard.css';
 
           // Check if hovering over interactive elements
           const target = e.target as HTMLElement;
-          const isText = target.closest('p, h1, h2, h3, span, a:not(.card-btn), .social-icon, .footer-tagline, .footer-brand-name');
-          const isBtn = target.closest('.header-cta, .card-btn, .footer-link, .footer-email, .nav-link');
+          const isBtn = target.closest('.header-cta, .card-btn, .footer-link, .footer-email, .nav-link, button, a, [role="button"]');
+          const isText = target.closest('p, h1, h2, h3, span, .social-icon, .footer-tagline, .footer-brand-name');
           
           if (isText && !isBtn) {
             cursor?.classList.add('is-hovering');
@@ -88,8 +88,10 @@ import '../styles/dashboard/main-dashboard.css';
             cursor?.classList.add('is-btn-hovering');
             if (target.closest('.card-btn--dark') || target.closest('.header-cta')) {
               cursor?.classList.add('btn-dark');
-            } else if (target.closest('.card-btn--light') || target.closest('.nav-link')) {
+              cursor?.classList.remove('btn-light');
+            } else {
               cursor?.classList.add('btn-light');
+              cursor?.classList.remove('btn-dark');
             }
           } else {
             cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
@@ -140,7 +142,7 @@ import '../styles/dashboard/main-dashboard.css';
           if (footer) {
             footer.style.animation = 'fade-in-simple 1s ease-out forwards';
           }
-        }, 2100);
+        }, 0);
       });
     </script>
   </body>
