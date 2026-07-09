@@ -2,8 +2,8 @@
    BASE & RESET
    =========================== */
 :root {
-  --font-inter: 'Inter', sans-serif;
-  --font-outfit: 'Outfit', sans-serif;
+  --font-inter: 'Chakra Petch', sans-serif;
+  --font-outfit: 'Chakra Petch', sans-serif;
   --bg-primary: #fbfbfb;
   --bg-secondary: #ffffff;
   --text-primary: #111111;
@@ -19,12 +19,13 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .landing-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   align-items: center;
-  padding-bottom: 80px;
+  padding-bottom: 0px;
 }
 
 /* ===========================
@@ -55,7 +56,8 @@ body {
   height: 28.5px;
   width: auto;
   object-fit: contain;
-  margin-left: -8px; /* Adjusting for visual alignment with the grid */
+  margin-left: -8px;
+  /* Adjusting for visual alignment with the grid */
 }
 
 .header-right {
@@ -423,7 +425,6 @@ body {
   max-width: 1040px;
   position: relative;
   padding-top: 50px;
-  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

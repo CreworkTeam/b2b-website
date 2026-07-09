@@ -112,5 +112,3 @@ QuickFunds supports over 500 startups, growing with them as they scale, with 85%
 
 ![impact]( /portfolio/fintech-saas-impact.svg)
 
-## Client Testimonials
-![testimonial]( /portfolio/fundsfinder-testimonial.png )

@@ -3,20 +3,102 @@
 <header class="header">
   <div class="header-container">
     <div class="header-logo">
-      <img src="/logo.svg" alt="Company Logo" class="header-logo-image" />
+      <a href="/" style="display:flex;align-items:center;">
+        <img src="/logo.svg" alt="Company Logo" class="header-logo-image" />
+      </a>
     </div>
 
     <div class="header-right">
       <nav class="header-nav">
         <a href="/agentic-ai-systems" class="nav-link">Agentic AI systems</a>
         <a href="/overnight-cto" class="nav-link">Overnight CTO</a>
-        <a href="/#case-studies" class="nav-link">Case studies</a>
         <a href="/blog" class="nav-link">Blog</a>
       </nav>
 
-      <button class="header-cta">
+      <button class="header-cta" onclick="window.location.href='https://calendly.com/creworklabs/30mins'">
         Book a call
       </button>
     </div>
   </div>
 </header>
+
+<style is:global>
+  .header {
+    width: 100%;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1040px;
+    padding: 16px 20px;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-logo-image {
+    height: 28.5px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    color: #666666;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: #111111; 
+  }
+
+  .header-cta {
+    background: #111111;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .header-cta:hover {
+    opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .header-nav {
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>

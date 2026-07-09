@@ -1,10 +1,10 @@
 ---
 cstitle: 'Nail Found: Artist Visibility Platform'
-order: 2
+order: 1
 csimage: { src: '/Nail-Found-Main-Logo.png', alt: 'Nail Found Cover' }
 csmptag: '50+ signups within 1 week'
 csdescription: 'A visual, filter-first platform that helps people in Tampa Bay, Florida instantly discover and connect with the right nail artist for their style and budget.'
-csspan: 'MVP Development'
+csspan: '120% increase in signups'
 cstags: ['Visual First Design', 'One Tap Visibility', 'Local First Platform']
 csimages:
   [
@@ -12,7 +12,7 @@ csimages:
     { src: '/Nail-Found-VDG.png', alt: 'Visual Discovery Grid' },
   ]
 cstag: 'mvp'
-cslivelink: '#'
+cslivelink: 'https://www.nailfound.com/ '
 ---
 
 

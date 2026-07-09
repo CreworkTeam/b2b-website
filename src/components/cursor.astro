@@ -1,0 +1,154 @@
+---
+---
+<!-- Custom Cursor -->
+<div class="custom-cursor" id="custom-cursor">
+  <div class="cursor-dot"></div>
+  <svg class="cursor-arrow" width="20" height="20" viewBox="0 0 24 24" fill="white">
+    <path d="M4 0l16 16h-6.8l3.8 8-2.6 1.2-3.8-8-5.4 5.2z" />
+  </svg>
+</div>
+<div class="cursor-trail" id="cursor-trail"></div>
+
+<style is:global>
+  body, a, button, .nav-link, * {
+    cursor: none !important;
+  }
+
+  /* Custom Cursor */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mix-blend-mode: difference;
+  }
+
+  .cursor-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    transition: opacity 0.2s, transform 0.2s, background-color 0.2s, border-color 0.2s;
+  }
+
+  .cursor-arrow {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-30%, -30%);
+  }
+
+  .custom-cursor.is-hovering .cursor-dot {
+    transform: scale(4);
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .custom-cursor.is-btn-hovering {
+    mix-blend-mode: normal;
+  }
+
+  .custom-cursor.is-btn-hovering .cursor-dot {
+    display: none;
+  }
+
+  .custom-cursor.is-btn-hovering .cursor-arrow {
+    display: block;
+  }
+
+  .custom-cursor.is-btn-hovering.btn-light .cursor-arrow {
+    fill: #111111;
+  }
+
+  .custom-cursor.is-btn-hovering.btn-dark .cursor-arrow {
+    fill: #ffffff;
+  }
+
+  /* Cursor Trail Ring */
+  .cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .custom-cursor.is-hovering+.cursor-trail,
+  .custom-cursor.is-btn-hovering+.cursor-trail {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- CUSTOM CURSOR ---
+    const cursor = document.getElementById('custom-cursor');
+    const trail = document.getElementById('cursor-trail');
+    const mouse = { x: 0, y: 0 };
+    const trailPos = { x: 0, y: 0 };
+
+    const handleMouseMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+
+      if (cursor) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      }
+
+      // Check if hovering over interactive elements
+      const target = e.target;
+      const isText = target.closest('p, h1, h2, h3, span, a:not(.card-btn), .social-icon, .footer-tagline, .footer-brand-name');
+      const isBtn = target.closest('.header-cta, .card-btn, .footer-link, .footer-email, .nav-link, .btn, button');
+      
+      if (isText && !isBtn) {
+        cursor?.classList.add('is-hovering');
+      } else {
+        cursor?.classList.remove('is-hovering');
+      }
+
+      if (isBtn) {
+        cursor?.classList.add('is-btn-hovering');
+        if (target.closest('.card-btn--dark') || target.closest('.header-cta')) {
+          cursor?.classList.add('btn-dark');
+        } else if (target.closest('.card-btn--light') || target.closest('.nav-link')) {
+          cursor?.classList.add('btn-light');
+        }
+      } else {
+        cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
+      }
+    };
+
+    let animFrameId;
+    const updateTrail = () => {
+      const dx = mouse.x - trailPos.x;
+      const dy = mouse.y - trailPos.y;
+      trailPos.x += dx * 0.15;
+      trailPos.y += dy * 0.15;
+
+      if (trail) {
+        trail.style.left = `${trailPos.x}px`;
+        trail.style.top = `${trailPos.y}px`;
+      }
+      animFrameId = requestAnimationFrame(updateTrail);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    animFrameId = requestAnimationFrame(updateTrail);
+  });
+</script>

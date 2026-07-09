@@ -4,18 +4,44 @@ import Section from '../section.astro';
 
 <Section id="lead-magnet" data-section="lead-magnet" className="py-24">
   <div class="relative mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] border border-[#EAEAEA] bg-white px-8 py-16 text-center shadow-[0_8px_30px_rgb(0,0,0,0.08)] md:px-16 md:py-24">
-    <div class="relative z-10 mx-auto max-w-4xl space-y-8">
-      <h2 class="text-balance text-3xl font-bold md:text-5xl lg:leading-[1.15] text-black">
-        Not sure your idea is ready? <br class="hidden md:block" />
-        Prove it first.
-      </h2>
-      <p class="mx-auto max-w-3xl text-balance text-lg text-[#666666] md:text-xl md:leading-relaxed">
-        <span class="text-[#111111] font-semibold">Founder OS</span> is our free tool that takes your raw idea and shows you the real conversations already happening around it. Exact posts and discussions where your future users are describing the problem, plus a scoped plan for what to build first.
-      </p>
+    <div class="relative z-10 mx-auto max-w-3xl flex flex-col items-center gap-10">
       
-      <a href="https://crework-founderos.vercel.app/" class="btn mx-auto mt-8 block w-fit px-10 py-4 text-center text-lg font-semibold transition-transform hover:scale-[1.02] bg-[#111111] text-white hover:bg-black rounded-xl">
+      {/* Premium Heading & Subheading Group */}
+      <div class="space-y-6">
+        <h2 class="text-balance text-4xl font-extrabold tracking-tight text-black sm:text-5xl md:text-6xl lg:leading-[1.1]">
+          Not sure your idea is ready? <br class="hidden md:block" /> Prove it first.
+        </h2>
+        
+        <p class="mx-auto max-w-2xl text-balance text-lg leading-relaxed text-[#666666] md:text-xl">
+          <strong class="font-semibold text-black">Founder OS</strong> is our free tool that takes your raw idea and shows you the real conversations already happening around it. Exact posts and discussions where your future users are describing the problem, plus a scoped plan for what to build first.
+        </p>
+      </div>
+
+      {/* High-Converting CTA Button */}
+      <a 
+        href="https://crework-founderos.vercel.app/" 
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex w-fit items-center justify-center gap-2 rounded-xl bg-[#111111] px-10 py-4 text-center text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-black hover:shadow-2xl active:scale-95"
+      >
         Validate your idea for free
+        {/* Sleek inline SVG arrow that slides right on hover */}
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="20" 
+          height="20" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          stroke-width="2.5" 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          class="transition-transform duration-300 group-hover:translate-x-1"
+        >
+          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+        </svg>
       </a>
+      
     </div>
   </div>
 </Section>

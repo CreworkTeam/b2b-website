@@ -11,7 +11,7 @@ const borderClass = theme === 'dark' ? 'border-[#333]' : 'border-[#F1F1F1]';
 const hoverText = theme === 'dark' ? 'hover:text-white' : 'hover:text-black';
 const iconBorder = theme === 'dark' ? 'border-[#333]' : 'border-gray-200';
 ---
-<footer class={`w-full py-16 px-4 md:px-8 ${bgClass} ${textMain} ${theme === 'dark' ? '' : 'border-t'} ${borderClass}`}>
+<footer class={`w-full pt-16 pb-4 px-4 md:px-8 ${bgClass} ${textMain} ${theme === 'dark' ? '' : 'border-t'} ${borderClass}`}>
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8">
     
     <!-- Column 1 -->
@@ -26,7 +26,7 @@ const iconBorder = theme === 'dark' ? 'border-[#333]' : 'border-gray-200';
         </a>
       </div>
       <p class={`${textMuted} text-sm leading-relaxed`}>
-        Building custom software and AI systems that keep your business running without you.
+        Custom software and AI systems that do the work, so you can do the growing
       </p>
       <div class="flex items-center gap-3 mt-4">
         <a href="https://www.linkedin.com/company/creworklabs" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
@@ -42,22 +42,22 @@ const iconBorder = theme === 'dark' ? 'border-[#333]' : 'border-gray-200';
     <div class="flex flex-col gap-4 md:ml-12">
       <h3 class="font-semibold text-[15px] mb-2">Agentic AI Systems</h3>
       <a href="/agentic-ai-systems" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
-      <a href="/agentic-ai-systems#impact" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Impact</a>
       <a href="/agentic-ai-systems#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case studies</a>
       <a href="/agentic-ai-systems#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
       <a href="/agentic-ai-systems#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
       <a href="/agentic-ai-systems#faq" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>FAQs</a>
+      <a href="#contact" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
     </div>
 
     <!-- Column 3 -->
     <div class="flex flex-col gap-4">
       <h3 class="font-semibold text-[15px] mb-2">Overnight CTO</h3>
       <a href="/overnight-cto" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
-      <a href="/overnight-cto#testimonials" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Testimonials</a>
       <a href="/overnight-cto#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case Studies</a>
       <a href="/overnight-cto#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
       <a href="/overnight-cto#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
       <a href="/overnight-cto#pricing" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Pricing</a>
+      <a href="#contact" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
     </div>
 
     <!-- Column 4 -->
@@ -65,8 +65,7 @@ const iconBorder = theme === 'dark' ? 'border-[#333]' : 'border-gray-200';
       <h3 class="font-semibold text-[15px] mb-2">Company</h3>
       <a href="/blog" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Blog</a>
       <a href="https://crework-founderos.vercel.app/" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Validate your Idea</a>
-      <a href="#contact" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
-      <a href="https://calendly.com/crework-labs" target="_blank" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Book a call directly</a>
+      
     </div>
   </div>
 

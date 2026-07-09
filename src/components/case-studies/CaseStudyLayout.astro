@@ -6,6 +6,8 @@ export interface Props {
 }
 const { title, description, hideRails = false } = Astro.props;
 import Nav from '../../components/ai-ops/nav.astro';
+import Footer from '../../components/footer.astro';
+import Cursor from '../../components/cursor.astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -150,24 +152,13 @@ html{scroll-behavior:auto}
 </style>
 </head>
 <body>
+<Cursor />
 {!hideRails && <div class="rails" aria-hidden="true"></div>}
 <Nav />
 
 <slot />
 
-<footer>
-<div class="foot-inner">
-<div class="foot-logo"><span class="logo-mark" aria-hidden="true"></span>CREWORK&nbsp;<span>LABS</span></div>
-<p class="foot-tag">Building custom software and AI systems that keep your business running without you.</p>
-<div class="foot-links">
-<a href="/agentic-ai-systems">Agentic AI systems</a>
-<a href="/overnight-cto">Overnight CTO</a>
-<a href="/blog">Blog</a>
-<a href="mailto:labs@crework.in">Contact Us</a>
-</div>
-<p class="foot-copy">COPYRIGHT © 2026 CREWORK LABS LLP. ALL RIGHTS RESERVED.</p>
-</div>
-</footer>
+<Footer theme="dark" />
 
 <script is:inline>
 (function(){

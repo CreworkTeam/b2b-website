@@ -88,7 +88,7 @@ import '../styles/dashboard/main-dashboard.css';
             cursor?.classList.add('is-btn-hovering');
             if (target.closest('.card-btn--dark') || target.closest('.header-cta')) {
               cursor?.classList.add('btn-dark');
-            } else if (target.closest('.card-btn--light')) {
+            } else if (target.closest('.card-btn--light') || target.closest('.nav-link')) {
               cursor?.classList.add('btn-light');
             }
           } else {

@@ -134,6 +134,7 @@ const faqSchema = {
   description="Crework Labs is an MVP development studio helping startup founders design, build, and launch scalable products fast. Book a free strategy call."
   canonical="https://www.creworklabs.com"
   og_image="/opengraph.png?v=2"
+  useDashboardNav={true}
 >
   <link rel="preconnect" href="https://fonts.googleapis.com" slot="head" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head" />
@@ -142,6 +143,15 @@ const faqSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head"></script>
   
   <div class="cto-page">
+    <!-- Custom Cursor (same as dashboard) -->
+    <div class="custom-cursor" id="custom-cursor">
+      <div class="cursor-dot"></div>
+      <svg class="cursor-arrow" width="20" height="20" viewBox="0 0 24 24" fill="white">
+        <path d="M4 0l16 16h-6.8l3.8 8-2.6 1.2-3.8-8-5.4 5.2z" />
+      </svg>
+    </div>
+    <div class="cursor-trail" id="cursor-trail"></div>
+
     <Hero />
     <OurPortfolio />
     <Positioning />
@@ -166,6 +176,90 @@ const faqSchema = {
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Hide default cursor on overnight-cto page */
+    html, body, a, button, .nav-link, * {
+      cursor: none !important;
+    }
+
+    /* Custom Cursor — exact copy from dashboard */
+    .custom-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      mix-blend-mode: difference;
+    }
+
+    .cursor-dot {
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      transition: opacity 0.2s, transform 0.2s, background-color 0.2s, border-color 0.2s;
+    }
+
+    .cursor-arrow {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-30%, -30%);
+    }
+
+    .custom-cursor.is-hovering .cursor-dot {
+      transform: scale(4);
+      background-color: transparent;
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .custom-cursor.is-btn-hovering {
+      mix-blend-mode: normal;
+    }
+
+    .custom-cursor.is-btn-hovering .cursor-dot {
+      display: none;
+    }
+
+    .custom-cursor.is-btn-hovering .cursor-arrow {
+      display: block;
+    }
+
+    .custom-cursor.is-btn-hovering.btn-light .cursor-arrow {
+      fill: #111111;
+    }
+
+    .custom-cursor.is-btn-hovering.btn-dark .cursor-arrow {
+      fill: #ffffff;
+    }
+
+    /* Cursor Trail Ring */
+    .cursor-trail {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .custom-cursor.is-hovering + .cursor-trail,
+    .custom-cursor.is-btn-hovering + .cursor-trail {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.5);
+    }
   </style>
 
   <script>
@@ -175,8 +269,8 @@ const faqSchema = {
       pageName: 'LandingPage',
     });
 
-    // Scroll animation for cto-page sections
     document.addEventListener("DOMContentLoaded", () => {
+      // Scroll animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -191,8 +285,77 @@ const faqSchema = {
 
       const sections = document.querySelectorAll('.cto-page > *');
       sections.forEach((section) => {
-        observer.observe(section);
+        const rect = section.getBoundingClientRect();
+        // Check if the section is already in the viewport on load
+        if (rect.top < window.innerHeight) {
+          section.classList.add('is-visible');
+        } else {
+          observer.observe(section);
+        }
       });
+
+      // Custom Cursor — exact same logic as dashboard
+      const cursor = document.getElementById('custom-cursor');
+      const trail = document.getElementById('cursor-trail');
+      const mouse = { x: 0, y: 0 };
+      const trailPos = { x: 0, y: 0 };
+
+      const handleMouseMove = (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+
+        if (cursor) {
+          cursor.style.left = `${e.clientX}px`;
+          cursor.style.top = `${e.clientY}px`;
+        }
+
+        const target = e.target;
+        const isText = target.closest('p, h1, h2, h3, span, a:not(.nav-link):not(.btn), li');
+        const isBtn = target.closest('.btn, a.btn, button, .nav-link, .header-cta');
+
+        if (isText && !isBtn) {
+          cursor?.classList.add('is-hovering');
+        } else {
+          cursor?.classList.remove('is-hovering');
+        }
+
+        if (isBtn) {
+          cursor?.classList.add('is-btn-hovering');
+          const btnElement = target.closest('.btn, a.btn, button, .nav-link, .header-cta');
+          const btnText = btnElement?.textContent?.trim() || "";
+          const isWhiteArrow = 
+            btnText.includes("Book a free discovery call") ||
+            btnText.includes("View Live Link") ||
+            btnText.includes("View All Case Studies") ||
+            btnText.includes("Validate your idea for free") ||
+            btnText.includes("More") ||
+            btnText.includes("Let's Chat");
+
+          if (target.closest('.btn-dark') || target.closest('.btn[style*="background: #000"], .btn[style*="background:#000"]') || target.closest('.header-cta') || isWhiteArrow) {
+            cursor?.classList.add('btn-dark');
+          } else {
+            cursor?.classList.add('btn-light');
+          }
+        } else {
+          cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
+        }
+      };
+
+      const updateTrail = () => {
+        const dx = mouse.x - trailPos.x;
+        const dy = mouse.y - trailPos.y;
+        trailPos.x += dx * 0.15;
+        trailPos.y += dy * 0.15;
+
+        if (trail) {
+          trail.style.left = `${trailPos.x}px`;
+          trail.style.top = `${trailPos.y}px`;
+        }
+        requestAnimationFrame(updateTrail);
+      };
+
+      window.addEventListener('mousemove', handleMouseMove);
+      requestAnimationFrame(updateTrail);
     });
   </script>
 </MainLayout>
