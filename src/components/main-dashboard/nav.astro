@@ -32,6 +32,9 @@ const { theme = 'light' } = Astro.props;
     border-bottom: 1px solid #eaeaea;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 10;
+    background: #ffffff;
   }
 
   .header-container {
@@ -39,8 +42,8 @@ const { theme = 'light' } = Astro.props;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1040px;
-    padding: 16px 20px;
+    max-width: 1140px;
+    padding: 16px 24px;
   }
 
   .header-logo {
@@ -99,6 +102,7 @@ const { theme = 'light' } = Astro.props;
   /* Dark Theme Overrides */
   .header.theme-dark {
     border-bottom-color: #333333;
+    background: #0A0A0A;
   }
 
   .header.theme-dark .nav-link {

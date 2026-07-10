@@ -521,7 +521,9 @@
 
 .ai-ops-page .stats-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
 
