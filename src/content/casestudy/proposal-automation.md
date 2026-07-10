@@ -51,7 +51,7 @@ We developed an AI-powered pitch deck review tool, an intuitive, data-driven pla
 1. **Minimalist UI:** A sleek, distraction-free dashboard that provides clear navigation and instant access to insights.
 2. **Mobile-Friendly Access:** Built with a responsive design, ensuring founders can review feedback anytime, anywhere.
 
-## Project Outcomes
+## Product Outcomes
 
 - **Accelerated Fundraising Preparation:** Founders gain quick, reliable feedback without waiting on investors or mentors.
 - **Higher Pitch Quality:** Users refine their decks with AI-driven insights, improving their chances of securing funding.

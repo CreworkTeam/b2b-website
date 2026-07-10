@@ -92,7 +92,7 @@ We executed a holistic redesign and development of Ice Tribe's digital experienc
 
 ---
   
-## Project Outcomes
+## Product Outcomes
 The transformed Ice Tribe website now acts as a dynamic and authoritative platform that:
 - **Creates Emotional Resonance**: The new design and storytelling approach make cold therapy feel aspirational and accessible.
 - **Enhances Usability**: Streamlined navigation and interactive elements guide users smoothly through their journey.

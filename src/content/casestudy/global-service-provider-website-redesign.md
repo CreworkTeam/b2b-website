@@ -98,7 +98,7 @@ This helps potential clients quickly understand the benefits of partnering with 
 
 ![Travay Group](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530903/travaygroup-8_jbpdsw.png)
 
-## Project Outcomes
+## Product Outcomes
 
 The redesigned Travay Group website now serves as a powerful digital asset:
 

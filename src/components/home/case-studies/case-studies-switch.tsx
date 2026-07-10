@@ -330,12 +330,7 @@ const CaseStudyCard = ({
 
       <div className={cn('relative flex-1 flex flex-col justify-between', isAi ? 'px-6 py-3 md:px-8 md:py-5' : '')}>
         <div className="space-y-6">
-          <div
-            className="space-y-6"
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-          >
+          <div className="space-y-6">
             <h2 className={cn('text-2xl font-semibold sm:text-3xl', isAi ? 'text-white' : 'text-[#020617]')}>{title}</h2>
             <p className={cn(isAi ? 'text-[#A3A3A3]' : '')}>{description}</p>
           </div>
@@ -372,7 +367,7 @@ const CaseStudyCard = ({
             data-btntype="view CTA"
             onClick={(e) => e.stopPropagation()}
           >
-            <span>View Project</span>
+            <span>View Product</span>
             <img className={cn('inline-block size-6', isAi && 'invert')} src="/icons/arrow-right.svg" alt="Arrow Right" width={16} height={16} />
           </a>
 

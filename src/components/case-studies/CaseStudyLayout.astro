@@ -13,6 +13,7 @@ import Cursor from '../../components/cursor.astro';
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} | Crework Labs</title>
 <meta name="description" content={description}>
@@ -53,19 +54,7 @@ transition:transform .2s ease, box-shadow .2s ease;box-shadow:0 1px 0 rgba(255,2
 .btn .a{transition:transform .2s ease}
 .btn:hover{transform:translateY(-2px)}
 .btn:hover .a{transform:translateX(3px)}
-nav{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1000px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:0.06em;font-family:var(--font-display)}
-.logo span{font-weight:400;color:var(--t65)}
-.logo-mark{width:26px;height:26px;background:#FFFFFF;border-radius:8px;position:relative;flex-shrink:0}
-.logo-mark::after{content:'';position:absolute;inset:7px;background:var(--bg);border-radius:50%}
-.nav-links{display:flex;align-items:center;gap:28px;font-size:14px}
-.nav-links a{color:var(--t65);transition:color .2s}
-.nav-links a:hover{color:#FFFFFF}
-.nav-links a.active{color:#FFFFFF;font-weight:600}
-.nav-links .btn{padding:10px 18px;font-size:14px;color:#000000 !important}
-.nav-links .btn:hover{color:#000000 !important}
-.nav-toggle{display:none;background:none;border:1px solid var(--border);border-radius:8px;color:#fff;font-size:20px;width:40px;height:40px;cursor:pointer}
+
 .hero{padding:100px 0 70px;position:relative;z-index:2;overflow:hidden;background:var(--bg);background-image:radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);background-size:28px 28px}
 .hero::before{content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:900px;height:520px;
 background:radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transparent 62%);pointer-events:none}
@@ -83,7 +72,7 @@ background:radial-gradient(ellipse at center, rgba(255,255,255,0.05) 0%, transpa
 line.proposal-line {
   stroke-dasharray: 150;
   stroke-dashoffset: 150;
-  animation: draw-proposal-lines 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: draw-proposal-lines 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 line.proposal-line:nth-of-type(1) { animation-delay: 0.1s; }
 line.proposal-line:nth-of-type(2) { animation-delay: 0.3s; }
@@ -92,8 +81,14 @@ line.proposal-line:nth-of-type(4) { animation-delay: 0.7s; }
 line.proposal-line:nth-of-type(5) { animation-delay: 0.9s; }
 
 @keyframes draw-proposal-lines {
-  to {
+  0% {
+    stroke-dashoffset: 150;
+  }
+  30%, 65% {
     stroke-dashoffset: 0;
+  }
+  90%, 100% {
+    stroke-dashoffset: -150;
   }
 }
 
@@ -219,9 +214,7 @@ footer{border-top:1px solid var(--border);padding:66px 0 48px;position:relative;
 .hero-art{display:none}
 section{padding:64px 0}
 .rails{display:none}
-.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(10,10,10,0.97);flex-direction:column;align-items:flex-start;padding:24px 32px;gap:20px;border-bottom:1px solid var(--border)}
-.nav-links.show{display:flex}
-.nav-toggle{display:block}
+
 }
 @media (prefers-reduced-motion:reduce){
 .reveal{opacity:1;transform:none;transition:none}

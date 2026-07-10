@@ -79,17 +79,19 @@ const companies = [
           [
             {
               number: '25',
-              text: 'Projects Built',
+              text: 'Products Built',
             },
             {
               number: '16',
-              text: 'Clients',
+              text: 'founders',
             },
             {
-              number: '9',
-              text: 'Industries',
+              number: '3',
+              text: 'wks from launch',
+              prefix: 'upto ',
+              noPlus: true,
             },
-          ].map(({ number, text }, index) => (
+          ].map(({ number, text, prefix = '', noPlus = false }, index) => (
             <div
               class:list={[
                 'h-16 w-8/12 max-w-48 flex-1 rounded-lg bg-gray-500 bg-gradient-to-l from-[#FFFFFF] to-[#ECECEC] p-[1px]',
@@ -118,7 +120,7 @@ const companies = [
                   style="box-shadow: inset 0px 1.04771px 1.04771px rgba(0, 0, 0, 0.15);"
                 />
                 <p class="font-insrument-serif inline-block w-full bg-clip-text p-2 pr-1 text-center text-xl text-transparent sm:p-3 sm:text-2xl">
-                  <Increment number={parseInt(number)} client:only="react" />+ {text}
+                  {prefix}<Increment number={parseInt(number)} client:only="react" />{!noPlus && '+'} {text}
                 </p>
               </div>
             </div>

@@ -68,8 +68,8 @@ The platform is designed for people making visual decisions on their phones. The
 
 The artist side follows the same logic. Onboarding is step-by-step and straightforward. The artist dashboard shows only what they need to manage their profile and track how they are performing.
 
-## Project Outcomes
+## Product Outcomes
 
 We shipped a production-ready platform in 3 weeks. Within 1 week of launch, Nail Found had 50+ nail artists signed up and live across Florida.
 
-![Project Outcomes](/Nail-Found-Project-Outcomes.png)
+![Product Outcomes](/Nail-Found-Project-Outcomes.png)

@@ -1,13 +1,59 @@
 ---
 const teamData = [
-  { initials: 'SJ', name: 'Shikshita Juyal', role: 'Founder & CEO', cred: 'Crework | UPenn' },
-  { initials: 'HS', name: 'Herumb Shandilya', role: 'Data Science Partner', cred: 'Stanford' },
-  { initials: 'TC', name: 'Tharun Chowary', role: 'Tech Partner', cred: 'Amazon' },
-  { initials: 'ID', name: 'Ishan Dutta', role: 'ML Partner', cred: 'Adobe' },
-  { initials: 'DJ', name: 'Dinkar Juyal', role: 'Data Science Partner', cred: 'Meta | UC Berkeley' },
-  { initials: 'SR', name: 'Shweta Roy', role: 'Tech Partner', cred: 'Daimler' },
-  { initials: 'DS', name: 'Dushyant Singh', role: 'Tech Partner', cred: 'Springworks' },
-  { initials: 'ML', name: 'Mitali Laroia', role: 'Tech Partner', cred: 'JPMC' },
+  {
+    initials: 'SJ',
+    name: 'Shikshita Juyal',
+    role: 'Founder & CEO',
+    company: 'CREWORK | UPenn',
+    img: '/team/shikshita.png',
+    companyLogo: '/logos/crework.png',
+    linkedin: 'https://www.linkedin.com/in/shikshita-juyal/'
+  },
+  {
+    initials: 'HS',
+    name: 'Herumb Shandilya',
+    role: 'Data Science Partner',
+    company: 'STANFORD',
+    img: '/team/herumb.png',
+    companyLogo: '/logos/standford.png',
+    linkedin: 'https://www.linkedin.com/in/herumb-shandilya'
+  },
+  {
+    initials: 'TC',
+    name: 'Tharun Chowary',
+    role: 'Tech Partner',
+    company: 'AMAZON',
+    img: '/team/tharun.png',
+    companyLogo: '/logos/amazon.png',
+    linkedin: 'https://www.linkedin.com/in/tharun0102/'
+  },
+  {
+    initials: 'ID',
+    name: 'Ishan Dutta',
+    role: 'ML Partner',
+    company: 'ADOBE',
+    img: '/team/ishan.png',
+    companyLogo: '/logos/adobe.png',
+    linkedin: 'https://www.linkedin.com/in/ishandutta0098/'
+  },
+  {
+    initials: 'DJ',
+    name: 'Dinkar Juyal',
+    role: 'Data Science Partner',
+    company: 'Meta | UC BERKELEY',
+    img: '/team/dinkar.png',
+    companyLogo: '/logos/UCBerkley.png',
+    linkedin: 'https://www.linkedin.com/in/dinkarjuyal1/'
+  },
+  {
+    initials: 'ML',
+    name: 'Mitali Laroia',
+    role: 'Tech Partner',
+    company: 'WALMART',
+    img: '/team/mitali.png',
+    companyLogo: '/Walmart.png',
+    linkedin: 'https://www.linkedin.com/in/mitali-laroia-b52763191/'
+  }
 ];
 ---
 <section class="team">
@@ -17,10 +63,41 @@ const teamData = [
     <div class="team-grid">
       {teamData.map((m) => (
         <div class="member reveal">
-          <div class="avatar">{m.initials}</div>
-          <h3>{m.name}</h3>
-          <p class="role">{m.role}</p>
-          <p class="cred">{m.cred}</p>
+          <div class="member-header">
+            <h3 class="member-name">{m.name}</h3>
+            <img 
+              src={m.companyLogo} 
+              alt={m.company}
+              class="company-badge"
+            />
+          </div>
+          
+          <div class="avatar-container">
+            <img
+              src={m.img}
+              alt={m.name}
+              class="avatar-img"
+            />
+          </div>
+          
+          <div class="member-footer">
+            <div class="meta">
+              <p class="role">{m.role}</p>
+              <p class="cred">{m.company}</p>
+            </div>
+            <a 
+              href={m.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="linkedin-link"
+            >
+              <img
+                src="/icons/linkedin.png"
+                alt="LinkedIn"
+                class="linkedin-icon"
+              />
+            </a>
+          </div>
         </div>
       ))}
     </div>
