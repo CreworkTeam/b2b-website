@@ -1,0 +1,67 @@
+---
+const faqData = [
+  { q: 'Will this break the systems we already use?', a: 'No. Agents are deployed on top of your existing tools, your CRM, your billing system, your spreadsheets. Nothing gets migrated, nothing gets replaced.' },
+  { q: 'Why not just use no code automation tools?', a: "Generic automations piped into generic workflows make your business interchangeable with everyone running the same templates. What we build is trained on your workflows, your data and your expertise. It compounds. Every week it runs, it knows your business better and gets harder to copy." },
+  { q: 'How long until agents are actually doing work?', a: "Most systems go from audit to a working deployment in 3 to 6 weeks depending on the workflow. You'll see it working on real tasks before full handover." },
+  { q: 'Do we need technical people on our side?', a: 'No. We need your team\'s knowledge of how the work happens today, a few hours in total. We handle everything technical.' },
+  { q: 'What happens to our data?', a: 'Your data stays in your systems and your accounts. Agents work through controlled access you can see and revoke, and every action is logged.' },
+];
+---
+<section class="faq">
+  <div class="container">
+    <div class="sec-head reveal"><span class="sec-index">05 / Questions</span><span class="sec-rule"></span></div>
+    <h2 class="reveal">Questions operators actually ask</h2>
+    <div class="reveal faq-container">
+      {faqData.map((item, idx) => (
+        <div class="faq-item" data-idx={idx}>
+          <button
+            class="faq-q"
+            aria-expanded="false"
+          >
+            <span class="qn">Q.{String(idx + 1).padStart(2, '0')}</span>
+            {item.q}
+          </button>
+          <div class="faq-a" style="max-height: 0;">
+            <p>{item.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqContainer = document.querySelector('.faq-container');
+    if (!faqContainer) return;
+
+    faqContainer.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('.faq-q');
+      if (!btn) return;
+      
+      const currentItem = btn.closest('.faq-item');
+      if (!currentItem) return;
+
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('open');
+        const qBtn = item.querySelector('.faq-q');
+        const ans = item.querySelector('.faq-a') as HTMLElement;
+        if (qBtn) qBtn.setAttribute('aria-expanded', 'false');
+        if (ans) ans.style.maxHeight = '0';
+      });
+
+      // Open clicked one if it was not already expanded
+      if (!isExpanded) {
+        currentItem.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        const ans = currentItem.querySelector('.faq-a') as HTMLElement;
+        if (ans) {
+          ans.style.maxHeight = '300px';
+        }
+      }
+    });
+  });
+</script>

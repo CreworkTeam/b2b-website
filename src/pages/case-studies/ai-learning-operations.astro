@@ -1,0 +1,116 @@
+---
+import CaseStudyLayout from '../../components/case-studies/CaseStudyLayout.astro';
+import Hero from '../../components/case-studies/Hero.astro';
+import Glance from '../../components/case-studies/Glance.astro';
+import ResultsBand from '../../components/case-studies/ResultsBand.astro';
+import Section from '../../components/case-studies/Section.astro';
+import Agents from '../../components/case-studies/Agents.astro';
+import Timeline from '../../components/case-studies/Timeline.astro';
+import Metrics from '../../components/case-studies/Metrics.astro';
+import EndGrid from '../../components/case-studies/EndGrid.astro';
+---
+
+<CaseStudyLayout 
+  title="Learning Operations on Autopilot"
+  description="How an education platform grew its next cohort 40% with zero new hires. Learner health, mentor matching and cohort intelligence agents recovered 50% of ops capacity."
+>
+  <Hero
+    crumbLink="/agentic-ai-systems#case-studies"
+    crumbText="← All case studies"
+    category="Learning Operations"
+    title="Learning operations on autopilot"
+    subtitle="How an education platform grew its next cohort 40% with zero new hires."
+  >
+    <svg slot="art" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+      <g class="float-slow">
+        <line x1="110" y1="220" x2="220" y2="120" stroke="rgba(255,255,255,0.08)"/>
+        <line x1="110" y1="220" x2="220" y2="320" stroke="rgba(255,255,255,0.08)"/>
+        <line x1="220" y1="120" x2="330" y2="220" stroke="rgba(255,255,255,0.08)"/>
+        <line x1="220" y1="320" x2="330" y2="220" stroke="rgba(255,255,255,0.08)"/>
+        <line x1="220" y1="120" x2="220" y2="320" stroke="rgba(255,255,255,0.05)"/>
+        <line x1="110" y1="220" x2="330" y2="220" stroke="rgba(255,255,255,0.05)"/>
+        <circle cx="110" cy="220" r="9" fill="none" stroke="rgba(255,255,255,0.16)"/>
+        <circle cx="220" cy="120" r="9" fill="none" stroke="rgba(255,255,255,0.16)" class="art-pulse"/>
+        <circle cx="220" cy="320" r="9" fill="none" stroke="rgba(255,255,255,0.16)"/>
+        <circle cx="330" cy="220" r="13" fill="none" stroke="rgba(255,255,255,0.22)" class="art-pulse"/>
+        <circle cx="330" cy="220" r="4" fill="rgba(255,255,255,0.3)"/>
+        <circle id="shifting-dot" cx="330" cy="220" r="4.5" fill="rgba(255,255,255,0.8)" />
+      </g>
+    </svg>
+  </Hero>
+
+  <Glance 
+    items={[
+      { k: 'Industry', v: 'Cohort-based education' },
+      { k: 'Team', v: '15 person operations team' },
+      { k: 'Scope', v: 'Learner health, mentor matching, cohort analytics' },
+      { k: 'Engagement', v: '6 weeks, audit to deployment' },
+    ]} 
+  />
+
+  <ResultsBand 
+    results={[
+      { num: '50%', cap: 'of operations capacity recovered' },
+      { num: '40%', cap: 'larger next cohort' },
+      { num: '0', cap: 'new operational hires' },
+    ]} 
+  />
+
+  <Section index="01" title="The problem">
+    <p class="body reveal">
+      Running a cohort is an operations treadmill. Someone has to notice which learners are falling behind before they quietly drop out. Someone has to match learners with the right mentors, and rematch when schedules or needs change. Someone has to answer, week after week, the same question: how is this cohort actually doing? All of it was manual, all of it scaled linearly with learner count, and all of it meant that growing the next cohort meant growing the ops team first. Growth had a headcount tax.
+    </p>
+  </Section>
+
+  <Section index="02" title="What the audit found" padTop={false}>
+    <p class="body reveal">
+      The operations team's week divided into three recurring loops: monitoring learner engagement signals scattered across the learning platform, community, attendance and assignment data, coordinating mentor availability and matches by hand, and assembling cohort status reports from raw exports. None of the three required judgment most of the time. All three required attention all of the time. That's the exact profile of work agents take over cleanly: high frequency, clear signals, occasional escalation.
+    </p>
+  </Section>
+
+  <Section index="03" title="The system" padTop={false}>
+    <Agents 
+      title="Three agents running the treadmill"
+      agents={[
+        { title: 'Learner health agent', desc: 'Watches engagement signals continuously, scores every learner\'s trajectory and flags the ones drifting toward dropout while there\'s still time to intervene, with the reason attached.' },
+        { title: 'Mentor matching agent', desc: 'Collects mentor availability in real time and matches learners to mentors on expertise, schedule and need, rematching automatically when circumstances change.' },
+        { title: 'Cohort intelligence agent', desc: 'Maintains a live picture of cohort health: completion trajectories, engagement trends, at-risk clusters, so "how is the cohort doing" is a glance, not a reporting product.' },
+      ]}
+    />
+  </Section>
+
+  <Section index="04" title="How it rolled out" padTop={false}>
+    <Timeline 
+      items={[
+        { week: 'Week 1', desc: 'Audit. Mapped the three operational loops (monitoring, matching, reporting) and the signals feeding each.' },
+        { week: 'Weeks 2 to 3', desc: 'Learner health agent live in shadow mode, its flags compared daily against the team\'s manual catches until precision held.' },
+        { week: 'Week 4', desc: 'Mentor matching agent live for new enrollments, rematching logic tested on schedule changes.' },
+        { week: 'Week 5', desc: 'Cohort intelligence agent live, weekly reporting assembly retired.' },
+        { week: 'Week 6', desc: 'Full handover. Ops team working from agent queues and escalations only, manual monitoring loops shut down.' },
+      ]}
+    />
+  </Section>
+
+  <Section index="05" title="The numbers" padTop={false}>
+    <Metrics 
+      metrics={[
+        { big: '50%', exp: 'of a 15 person operations team\'s capacity recovered. Not by working faster, by retiring the monitoring, matching and reporting loops entirely. That\'s the working hours of roughly 7 people, returned.' },
+        { big: '+40%', exp: 'larger next cohort, enrolled against the same ops headcount. The growth ceiling stopped being the team\'s attention span.' },
+        { big: '0', exp: 'new operational hires to get there. Interventions got earlier rather than sparser, because the health agent doesn\'t get busier when the cohort gets bigger.' },
+      ]}
+    >
+      Growth stopped carrying a headcount tax. The next cohort opened 40% larger, the ops team ran it from agent queues and escalations instead of spreadsheets and the question "how is the cohort doing" became a glance at a live picture instead of a weekly reporting product.
+    </Metrics>
+  </Section>
+
+  <Section index="06" title="What compounds" padTop={false}>
+    <p class="body reveal">
+      The health agent's flags get sharper every cohort as it sees more patterns of who struggles and who recovers. The platform now has something most education businesses never build: an operational memory that doesn't leave when a team member does. Effects we haven't counted: mentor retention, since mentors get matched to learners they can actually help, and the founder's time, which stopped going into weekly status assembly.
+    </p>
+  </Section>
+
+  <EndGrid 
+    nextLink="/case-studies/lead-intelligence" 
+    nextTitle="Lead Intelligence at 5x Volume: research time cut 87%, same team"
+  />
+</CaseStudyLayout>

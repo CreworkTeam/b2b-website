@@ -1,6 +1,6 @@
 ---
 cstitle: 'PlanO - Activity Discovery & Booking Marketplace'
-order: 1
+order: 2
 csimage: { src: '/portfolio/planO-caseStudy.png', alt: 'PlanO Cover' }
 csmptag: 'PlanO'
 csdescription: 'A personalized, map-first marketplace that helps parents instantly discover and book the best activities for their kids.'
@@ -12,7 +12,7 @@ csimages:
     { src: '/portfolio/PlanO-2.svg', alt: 'PlanO Onboarding' },
   ]
 cstag: 'mvp'
-cslivelink: '#'
+cslivelink: 'https://www.myplanoapp.com/'
 ---
 
 ## Challenge
@@ -57,8 +57,6 @@ Providers receive their own flow to oversee their listings, update information, 
 
 The interface blends a modern, friendly feel with a simple navigation structure. Since the target audience is busy parents, the design emphasizes clarity, easy scanning, and minimal friction. The product is built mobile-first to ensure that discovery and booking can happen on the go.
 
-## Project Outcomes
+## Product Outcomes
 
 The final MVP offers a complete marketplace experience with personalized recommendations, interactive discovery, and automated listing creation. Parents can now find activities for their children much faster and with more confidence. Providers can onboard themselves by submitting a single link. PlanO is now positioned as a scalable, modern solution that simplifies the process of discovering and booking children’s activities in Seattle.
-
-![Impact](/portfolio/PlanO-6.svg)

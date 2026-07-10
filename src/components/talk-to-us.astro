@@ -2,40 +2,46 @@
 import Dot from '../components/dot.astro';
 import BorderBeam from '../components/border.astro';
 import { BOOK_CALL } from '@/constants.ts';
-const { text = 'Tell us about your project' } = Astro.props;
+const { text = 'Tell us about your Product', isWhite = false } = Astro.props;
 ---
 
 <div class="section-container border-t-0 pt-0">
   <div
-    class="relative flex w-full items-center justify-center overflow-hidden rounded-2xl border bg-black bg-gradient-to-b from-[#ffffff4d] from-[7.29%] to-[#ffffff00] to-[65.62%] shadow-lg md:shadow-xl"
+    class:list={[
+      "relative flex w-full items-center justify-center overflow-hidden rounded-2xl border shadow-lg md:shadow-xl",
+      isWhite ? "bg-gradient-to-b from-neutral-800 to-black border-neutral-800" : "bg-black bg-gradient-to-b from-[#ffffff4d] from-[7.29%] to-[#ffffff00] to-[65.62%]"
+    ]}
   >
     <div
-      class="relative m-8 flex w-10/12 flex-col items-center gap-8 border border-[#FFFFFF] border-opacity-35 px-4 py-8 md:m-16"
+      class:list={[
+        "relative m-8 flex w-10/12 flex-col items-center gap-8 border px-4 py-8 md:m-16",
+        isWhite ? "border-white/10" : "border-[#FFFFFF] border-opacity-35"
+      ]}
     >
-      <div
-        class="absolute left-0 top-0 h-[1px] w-screen -translate-x-1/4 bg-[#ffffff] bg-opacity-35"
-      >
-      </div>
-      <div class="absolute left-0 h-screen w-[1px] -translate-y-1/4 bg-[#ffffff] bg-opacity-35">
-      </div>
-      <div
-        class="absolute bottom-0 left-0 h-[1px] w-screen -translate-x-1/4 bg-[#ffffff] bg-opacity-35"
-      >
-      </div>
-      <div class="absolute right-0 h-screen w-[1px] -translate-y-1/4 bg-[#ffffff] bg-opacity-35">
-      </div>
-      <Dot class="left-0 top-0 -translate-x-1/2 -translate-y-1/2" />
-      <Dot class="right-0 top-0 -translate-y-1/2 translate-x-1/2" />
-      <Dot class="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" />
-      <Dot class="bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
-      <h2 class="text-center text-white">{text}</h2>
+      {/* Grid Lines */}
+      <div class:list={["absolute left-0 top-0 h-[1px] w-screen -translate-x-1/4", isWhite ? "bg-white/10" : "bg-[#ffffff] bg-opacity-35"]}></div>
+      <div class:list={["absolute left-0 h-screen w-[1px] -translate-y-1/4", isWhite ? "bg-white/10" : "bg-[#ffffff] bg-opacity-35"]}></div>
+      <div class:list={["absolute bottom-0 left-0 h-[1px] w-screen -translate-x-1/4", isWhite ? "bg-white/10" : "bg-[#ffffff] bg-opacity-35"]}></div>
+      <div class:list={["absolute right-0 h-screen w-[1px] -translate-y-1/4", isWhite ? "bg-white/10" : "bg-[#ffffff] bg-opacity-35"]}></div>
+      
+      {/* Dots */}
+      <Dot class="left-0 top-0 -translate-x-1/2 -translate-y-1/2" isWhite={false} />
+      <Dot class="right-0 top-0 -translate-y-1/2 translate-x-1/2" isWhite={false} />
+      <Dot class="bottom-0 left-0 -translate-x-1/2 translate-y-1/2" isWhite={false} />
+      <Dot class="bottom-0 right-0 translate-x-1/2 translate-y-1/2" isWhite={false} />
+      
+      <h2 class:list={["text-center font-semibold text-white"]}>{text}</h2>
+      
       <a
-        href={BOOK_CALL}
-        target="_blank"
-        data-btntype="book call - secondary"
-        class="mx-auto block cursor-pointer text-balance rounded-xl bg-white px-4 py-2 text-center text-xs active:bg-gradient-to-b active:from-black/20 active:to-white md:px-14 md:py-4 md:text-2xl"
-        >Book a free discovery call</a
-      >
+  href={BOOK_CALL}
+  target="_blank"
+  data-btntype="book call - secondary"
+  class:list={[
+    "mx-auto block cursor-pointer text-balance rounded-xl px-4 py-2 text-center text-xs md:px-14 md:py-4 md:text-2xl transition-all",
+    "bg-[#111111] text-white hover:bg-[#222222] active:scale-95 border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.05)]"
+  ]}
+>Book a free discovery call</a>
+      
       <BorderBeam size={250} duration={12} delay={9} colorFrom="#ffffff" colorTo="transparent" />
     </div>
   </div>

@@ -2,7 +2,7 @@
 blogTitle: "AI Automation ROI for Small Business: Real Numbers, Real Workflows, and How to Measure It"
 blogDate: May 15, 2026
 blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.png }
-blogImage: { src: 'https://www.crework.in/blog/images/ai-automation-roi-small-business.png', alt: 'AI Automation ROI for Small Business' }
+blogImage: { src: '/blogs/Article Image 4.png', alt: 'AI Automation ROI for Small Business' }
 blogDescription: What ROI can a small business actually expect from AI automation? Real data, specific workflows with time savings, and a simple framework to calculate your own return.
 blogModified: 2026-05-15
 draft: false

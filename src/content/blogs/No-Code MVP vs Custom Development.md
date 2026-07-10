@@ -2,7 +2,7 @@
 blogTitle: "No-Code MVP vs Custom Development: Which One Should You Build First?"
 blogDate: May 05, 2026
 blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.png }
-blogImage: { src: 'https://www.crework.in/blog/images/no-code-vs-custom-mvp.png', alt: 'No-Code MVP vs Custom Development' }
+blogImage: { src: '/blogs/Article image 3.png', alt: 'No-Code MVP vs Custom Development' }
 blogDescription: No-code or custom development for your MVP? This guide breaks down the real tradeoffs, costs, and when each approach wins for non-technical founders in 2026.
 blogModified: 2026-05-05
 draft: false

@@ -2,55 +2,302 @@
 import { BOOK_CALL } from '@/constants.ts';
 ---
 
-<section class="section-container" data-section="hero">
-  <div
-    class="absolute left-0 top-0 z-20 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-    style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
-  >
-    <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
+<section class="section-container hero-grid-wrapper" data-section="hero">
+  <!-- Elliptical canvas container -->
+  <div class="hero-canvas-container">
+    <canvas id="hero-grid-canvas" class="hero-grid-canvas"></canvas>
   </div>
+
+  <!-- Corner dots — positioned at exact corners so grid lines intersect at their center -->
   <div
-    class="absolute right-0 top-0 z-20 m-0 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-    style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
+    class="hero-corner-dot"
+    style="top: 0; left: 0; transform: translate(-50%, -50%); box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
   >
-    <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
-  </div>
-  <div
-    class="absolute bottom-0 right-0 h-3 w-3 translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-    style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
-  >
-    <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
+    <div class="hero-corner-dot-inner"></div>
   </div>
   <div
-    class="absolute bottom-0 left-0 m-0 h-3 w-3 -translate-x-1/2 translate-y-1/2 rounded-full bg-gradient-to-b from-white to-[#ECECEC] p-[2px] sm:h-7 sm:w-7"
-    style="box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
+    class="hero-corner-dot"
+    style="top: 0; right: 0; transform: translate(50%, -50%); box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
   >
-    <div class="h-full w-full rounded-full bg-gradient-to-b from-[#F4F4F4] to-[#FEFEFE]"></div>
+    <div class="hero-corner-dot-inner"></div>
   </div>
-  <div class="relative mb-4 space-y-4 sm:space-y-6">
-    <h1 class="mb-4 max-w-[700px] text-[clamp(1.9rem,8.5vw,3.75rem)] font-[450] leading-tight text-[#020617]">
-      <span>Sleek, Powerful and User Focused</span>
-      <span
-        class="slide_up_hero relative inline-block h-[1.5em] w-[13ch] translate-y-[2px] overflow-hidden pb-[2px] pr-[3px] sm:h-[1.45em] sm:w-[15ch] sm:translate-y-[3px] md:h-[1.4em] md:w-[18ch] md:translate-y-[4px]"
-        style={{
-          '--item-count': 4,
-          '--duration': '10s',
-        }}
-      >
-        {
-          ['Apps', 'AI Automations', 'MVPs', 'Websites'].map((item) => (
-            <span class="absolute top-[150%] block h-fit whitespace-nowrap leading-[1.2]">{item}</span>
-          ))
-        }
-      </span>
-    </h1>
-    <p class="mb-8 text-sm leading-relaxed text-[#64748B] sm:text-xl">
-      AI-powered solutions, guided by human expertise,  
-      <br class="hidden md:block" />
-      for founders who need results yesterday.
-    </p>
+  <div
+    class="hero-corner-dot"
+    style="bottom: 0; right: 0; transform: translate(50%, 50%); box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
+  >
+    <div class="hero-corner-dot-inner"></div>
   </div>
-  <div class="mt-8 sm:mt-11">
-    <a href={BOOK_CALL} target="_blank" class="btn">Book a free discovery call</a>
+  <div
+    class="hero-corner-dot"
+    style="bottom: 0; left: 0; transform: translate(-50%, 50%); box-shadow: 0px 0px 0.468888px 0.468888px rgba(0, 0, 0, 0.07), 0px 0px 0.468888px 1.40666px rgba(0, 0, 0, 0.05), 0px 5.62666px 6.09555px -2.81333px rgba(0, 0, 0, 0.25), 0px 1.87555px 7.50221px 1.87555px rgba(0, 0, 0, 0.12);"
+  >
+    <div class="hero-corner-dot-inner"></div>
+  </div>
+
+  <!-- Content overlay -->
+  <div class="hero-grid-content">
+    <div class="relative mb-4 space-y-4 sm:space-y-6">
+      <h1 class="mb-4 max-w-[700px] mx-auto text-center text-[clamp(1.9rem,8.5vw,3.75rem)] font-bold leading-tight text-black pb-2">
+        <span class="fluid-word" style="animation-delay: 0.1s">The</span>
+        <span class="fluid-word" style="animation-delay: 0.2s">Overnight</span>
+        <span class="fluid-word" style="animation-delay: 0.3s">CTO</span>
+      </h1>
+      <p class="mb-8 text-center text-sm font-semibold leading-relaxed text-[#64748B] sm:text-xl fade-in-up" style="animation-delay: 0.5s">
+        A product lead, a designer and an engineer behind your idea, working as your in house product team toward one shared goal: your first 100 paying users.
+      </p>
+    </div>
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-11 fade-in-up" style="animation-delay: 0.7s">
+      <a href={BOOK_CALL} target="_blank" class="btn">Book a free discovery call</a>
+      <a href="https://crework-founderos.vercel.app/" 
+   class="btn !bg-white !text-black border border-gray-200 shadow-sm hover:!bg-gray-50" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   Validate your idea
+</a>
+
+    </div>
   </div>
 </section>
+
+<style>
+  .hero-grid-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    overflow: visible;
+  }
+
+  .hero-canvas-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 92%;
+    height: 88%;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 80%);
+    mask-image: radial-gradient(ellipse 65% 60% at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 80%);
+  }
+
+  .hero-grid-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Corner dots — fully visible inside the section */
+  .hero-corner-dot {
+    position: absolute;
+    z-index: 20;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #FFFFFF, #ECECEC);
+    padding: 2px;
+  }
+
+  @media (min-width: 640px) {
+    .hero-corner-dot {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .hero-corner-dot-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #F4F4F4, #FEFEFE);
+  }
+
+  .hero-grid-content {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .fluid-word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fluidReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fluidReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes fluidReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('hero-grid-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const container = canvas.parentElement;
+    const section = container?.parentElement;
+    if (!container || !section) return;
+
+    const CELL = 44;
+    const LINE_COLOR = 'rgba(0, 0, 0, 0.04)';
+    const GREY_PEAK = 0.10;
+    const LERP_SPEED = 0.05;         // smooth interpolation for gentle transitions
+    const HOVER_RADIUS = 130;         // px radius around cursor
+    const HOVER_ALPHA = 0.16;         // grey intensity for hovered cells
+
+    let cols = 0, rows = 0;
+    let mouse = { x: -9999, y: -9999 };  // mouse position relative to canvas
+    let cells: { alpha: number; target: number; hoverLock: number }[] = [];
+
+    function resize() {
+      const rect = container!.getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+
+      cols = Math.ceil(canvas.width / CELL) + 1;
+      rows = Math.ceil(canvas.height / CELL) + 1;
+
+      const oldCells = cells;
+      const total = cols * rows;
+      cells = [];
+      for (let i = 0; i < total; i++) {
+        cells.push({
+          alpha: oldCells[i]?.alpha ?? 0,
+          target: 0,
+          hoverLock: oldCells[i]?.hoverLock ?? 0,
+        });
+      }
+    }
+
+    // Random glow scheduler — faster batches
+    function scheduleGlow() {
+      const total = cells.length;
+      if (total === 0) return;
+
+      // Pick 5–12 random cells per batch
+      const count = 5 + Math.floor(Math.random() * 8);
+      for (let i = 0; i < count; i++) {
+        const idx = Math.floor(Math.random() * total);
+        // Don't override hover-locked cells
+        if (cells[idx].hoverLock > Date.now()) continue;
+        cells[idx].target = GREY_PEAK;
+
+        // Fade back after 800–1800ms (faster)
+        const fadeDelay = 800 + Math.random() * 1000;
+        setTimeout(() => {
+          if (cells[idx] && cells[idx].hoverLock < Date.now()) {
+            cells[idx].target = 0;
+          }
+        }, fadeDelay);
+      }
+
+      // Next batch in 150–500ms (much faster)
+      const nextDelay = 150 + Math.random() * 350;
+      setTimeout(scheduleGlow, nextDelay);
+    }
+
+    // Mouse hover handling — map section coords to canvas coords
+    section.addEventListener('mousemove', (e: MouseEvent) => {
+      const containerRect = container!.getBoundingClientRect();
+      mouse.x = e.clientX - containerRect.left;
+      mouse.y = e.clientY - containerRect.top;
+
+      // Light up cells within radius
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cx = c * CELL + CELL / 2;
+          const cy = r * CELL + CELL / 2;
+          const dx = mouse.x - cx;
+          const dy = mouse.y - cy;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < HOVER_RADIUS) {
+            const idx = r * cols + c;
+            if (!cells[idx]) continue;
+            const intensity = HOVER_ALPHA * (1 - dist / HOVER_RADIUS);
+            // Snap alpha instantly for responsive feel
+            cells[idx].alpha = Math.max(cells[idx].alpha, intensity);
+            cells[idx].target = Math.max(cells[idx].target, intensity);
+            cells[idx].hoverLock = Date.now() + 400;  // lock for 400ms then fade
+          }
+        }
+      }
+    });
+
+    section.addEventListener('mouseleave', () => {
+      mouse.x = -9999;
+      mouse.y = -9999;
+    });
+
+    // Fade back hover-locked cells after their lock expires
+    setInterval(() => {
+      const now = Date.now();
+      for (const cell of cells) {
+        if (cell.hoverLock > 0 && cell.hoverLock < now) {
+          cell.target = 0;
+          cell.hoverLock = 0;
+        }
+      }
+    }, 100);
+
+    function draw() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const cell = cells[r * cols + c];
+          if (!cell) continue;
+
+          cell.alpha += (cell.target - cell.alpha) * LERP_SPEED;
+
+          if (cell.alpha > 0.001) {
+            ctx.fillStyle = `rgba(0, 0, 0, ${cell.alpha})`;
+            ctx.fillRect(c * CELL, r * CELL, CELL, CELL);
+          }
+        }
+      }
+
+      ctx.strokeStyle = LINE_COLOR;
+      ctx.lineWidth = 0.5;
+
+      for (let c = 0; c <= cols; c++) {
+        const x = c * CELL;
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+      }
+      for (let r = 0; r <= rows; r++) {
+        const y = r * CELL;
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    scheduleGlow();
+    requestAnimationFrame(draw);
+  });
+</script>

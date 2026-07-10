@@ -1,0 +1,23 @@
+---
+export interface Props {
+  nextLink: string;
+  nextTitle: string;
+}
+const { nextLink, nextTitle } = Astro.props;
+---
+<section style="border-top:1px solid var(--border)">
+  <div class="container">
+    <div class="end-grid">
+      <a class="end-card reveal" href={nextLink}>
+        <span class="k">Next case study</span>
+        <h3>{nextTitle}</h3>
+        <span class="go">Read the case study →</span>
+      </a>
+      <div class="end-card cta-card reveal">
+        <span class="k">Your operation</span>
+        <h3>See where your business is leaking hours.</h3>
+        <a href="https://calendly.com/crework-labs" target="_blank" class="btn">Book a free discovery call<span class="a">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>

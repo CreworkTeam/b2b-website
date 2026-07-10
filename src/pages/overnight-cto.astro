@@ -1,0 +1,208 @@
+---
+import MainLayout from '../layouts/main-layout.astro';
+import Hero from '../components/home/hero.astro';
+import OurImpact from '../components/home/impact.astro';
+import Testimonials from '../components/home/testimonials.astro';
+import OurPortfolio from '../components/home/portfolio.astro';
+import CaseStudies from '../components/home/case-studies/case-studies.astro';
+import Contact from '../components/home/contact.astro';
+import Pricing from '@/components/home/pricing.astro';
+import HowWeWork from '@/components/home/how-we-work.astro';
+import MeetTheTeam from '@/components/home/meet-the-team.astro';
+import Positioning from '@/components/home/positioning.astro';
+import LeadMagnet from '@/components/home/lead-magnet.astro';
+
+const schema = {
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://www.creworklabs.com/#organization",
+      "name":"Crework Labs",
+      "url":"https://www.creworklabs.com/",
+      "logo":"https://www.creworklabs.com/logo.png",
+      "description":"Crework Labs is an MVP development and product studio helping startup founders design, build, and launch scalable products fast.",
+      "foundingDate":"2023",
+      "contactPoint":{
+        "@type":"ContactPoint",
+        "contactType":"sales",
+        "url":"https://www.creworklabs.com/#contact"
+      },
+      "sameAs":[
+        "https://www.linkedin.com/school/creworklabss/",
+        "https://x.com/CreworkHQ"
+      ]
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://www.creworklabs.com/#website",
+      "url":"https://www.creworklabs.com/",
+      "name":"Crework Labs",
+      "publisher":{
+        "@id":"https://www.creworklabs.com/#organization"
+      }
+    },
+    {
+      "@type":"Service",
+      "serviceType":"MVP Development",
+      "name":"MVP Development for Startups",
+      "description":"End-to-end MVP development including market research, product design, and full-stack development to help startup founders launch fast.",
+      "provider":{
+        "@id":"https://www.creworklabs.com/#organization"
+      },
+      "areaServed":"Worldwide",
+      "offers":{
+        "@type":"Offer",
+        "price":"3000",
+        "priceCurrency":"USD",
+        "priceSpecification":{
+          "@type":"UnitPriceSpecification",
+          "price":"3000",
+          "priceCurrency":"USD",
+          "unitText":"project"
+        }
+      }
+    },
+    {
+      "@type":"Service",
+      "serviceType":"Website Design & Development",
+      "name":"Website Design & Development",
+      "description":"Custom website design and development for founders and teams who want to launch a high-conversion website in 1 week.",
+      "provider":{
+        "@id":"https://www.creworklabs.com/#organization"
+      },
+      "areaServed":"Worldwide",
+      "offers":{
+        "@type":"Offer",
+        "price":"800",
+        "priceCurrency":"USD"
+      }
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"What is an MVP and why do I need one?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"An MVP (Minimum Viable Product) is the simplest version of your product that solves a core problem for users. It helps you validate your idea, attract early users, and secure funding without spending months or large budgets on full-scale development."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How long does it take to build an MVP with Crework Labs?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Depending on the complexity, we can deliver an MVP in as little as 4-8 weeks. Website projects are typically completed within 4-5 business days. We focus on speed without compromising quality."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What industries does Crework Labs work with?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"We work across multiple industries including Education, E-Commerce, Fintech, Healthcare, SaaS, and Enterprise Operations. Our team has delivered 25+ projects for clients across 9 industries."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"What is included in the MVP development package?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Our MVP development package starts at $3000 and includes market research and competitor analysis, custom brand identity design, UI/UX design, end-to-end web or mobile app development, and project management with regular progress updates."
+      }
+    },
+    {
+      "@type":"Question",
+      "name":"How is Crework Labs different from other development agencies?",
+      "acceptedAnswer":{
+        "@type":"Answer",
+        "text":"Crework Labs combines AI-powered solutions with human expertise, specifically tailored for startup founders. We focus on rapid delivery, data-driven design, and scalable architecture so your product can grow with your business."
+      }
+    }
+  ]
+};
+---
+
+<MainLayout
+  title="Crework Labs | MVP Development Studio for Startup Founders"
+  description="Crework Labs is an MVP development studio helping startup founders design, build, and launch scalable products fast. Book a free strategy call."
+  canonical="https://www.creworklabs.com"
+  og_image="/opengraph.png?v=2"
+  useDashboardNav={true}
+>
+  <link rel="preconnect" href="https://fonts.googleapis.com" slot="head" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin slot="head" />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" slot="head" />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head"></script>
+  
+  <div class="cto-page">
+
+    <Hero />
+    <OurPortfolio />
+    <Positioning />
+    <Testimonials />
+    <OurImpact />
+    <CaseStudies />
+    <LeadMagnet />
+    <MeetTheTeam />
+    <HowWeWork />
+    <Pricing />
+    <Contact />
+  </div>
+
+  <style is:global>
+    .cto-page > * {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .cto-page > *.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    import { setupButtonTracking } from '../utils/mixpanel';
+
+    setupButtonTracking({
+      pageName: 'LandingPage',
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Scroll animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      const sections = document.querySelectorAll('.cto-page > *');
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        // Check if the section is already in the viewport on load
+        if (rect.top < window.innerHeight) {
+          section.classList.add('is-visible');
+        } else {
+          observer.observe(section);
+        }
+      });
+
+      });
+    
+  </script>
+</MainLayout>

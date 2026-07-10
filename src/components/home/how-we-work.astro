@@ -2,86 +2,58 @@
 import { cn } from '@/lib/utils';
 import Section from '../section.astro';
 import { Image } from 'astro:assets';
-import { BOOK_CALL } from '@/constants.ts';
 ---
 
-<Section data-section="how-we-work" className="space-y-12">
+<Section data-section="how-we-work" className="space-y-12" id="how-we-work">
   <div class="space-y-3 text-center">
-    <h2 class="font-semibold">How We Work</h2>
-    <p>At Crework Labs, we turn your ideas into reality through our streamlined process.</p>
+    <h2 class="font-semibold text-3xl md:text-4xl">How we work</h2>
+    <p class="text-lg text-gray-600">Your in house product team, from first call to paying users.</p>
   </div>
-  <div class="space-y-4">
-    <div class="flex flex-col gap-3">
-      <div class="flex flex-col lg:flex-row">
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+    {
+      [
         {
-          [
-            {
-              text: 'Initial discovery call to gather requirements.',
-              src: '/how-we-work/initial.svg',
-            },
-            {
-              text: 'Competitor Analysis and Research to develop a tailored strategy.',
-              src: '/how-we-work/competitor.svg',
-            },
-            {
-              text: 'Implementation and Iterations.',
-              src: '/how-we-work/implementation.svg',
-            },
-          ].map(({ text, src }, index) => (
-            <div
-              class={cn('rounded-3xl py-2', {
-                'flex-[2] lg:pr-4': index === 0,
-                'flex-[3]': index === 1,
-                'flex-[2] lg:pl-4': index === 2,
-              })}
-            >
-              <div class="flex size-full flex-col space-y-2 rounded-3xl border border-[#C1C1C1] px-1 py-4 text-center md:px-8">
-                <h5 class="mx-auto line-clamp-3 w-10/12 font-semibold md:w-full">{text}</h5>
-                <div class="flex h-44 items-center justify-center">
-                  <Image
-                    src={src}
-                    alt={text}
-                    class="h-full w-10/12 object-contain sm:w-full"
-                    width={12}
-                    height={12}
-                  />
-                </div>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-      <div class="flex flex-col lg:flex-row">
-        <div class="flex-1 lg:pr-2">
-          <div
-            class="flex h-full flex-col justify-between space-y-2 rounded-3xl border border-[#C1C1C1] p-4 text-center"
-          >
-            <h5 class="text-balance font-semibold text-[#333333]">
-              Post-launch support to ensure smooth operations
-            </h5>
+          title: 'Brainstorm and scope.',
+          text: 'One working session. We pressure test the idea, decide together which features actually matter and lock scope. You know exactly what\'s being built and why.',
+          src: '/how-we-work/brainstorm-and-scope.png',
+        },
+        {
+          title: 'Design for conversion.',
+          text: 'We design the experience end to end. Clean, intuitive and built so the users who land actually convert.',
+          src: '/how-we-work/design-for-conversion.png',
+        },
+        {
+          title: 'Launch in weeks.',
+          text: 'We build and ship your web or mobile app in 3 to 4 weeks. Weekly demos. No black box.',
+          src: '/how-we-work/launch-in-weeks.png',
+        },
+        {
+          title: 'Iterate toward paying users.',
+          text: 'Launch is the starting line. We sit in the data with you, decide what to build next and ship weekly. Every decision aimed at the same goal: users who pay.',
+          src: '/how-we-work/iterate-toward-paying-users.png',
+        },
+      ].map(({ title, text, src }) => (
+        <div class="flex size-full flex-col justify-between space-y-4 rounded-3xl border border-[#C1C1C1] px-6 py-8 text-center md:px-10">
+          <div class="space-y-2">
+            <h5 class="text-xl font-semibold text-[#333333]">{title}</h5>
+            <p class="text-[#666666] leading-relaxed">{text}</p>
+          </div>
+          <div class={cn("flex h-48 md:h-56 items-center justify-center w-full", title === 'Launch in weeks.' && "mb-4 md:mb-8")}>
             <Image
-              src="/how-we-work/post-launch.svg"
-              alt="Initial discovery call to gather requirements."
-              class="mx-auto w-8/12 object-contain sm:w-5/12 lg:w-2/3"
-              width={12}
-              height={12}
+              src={src}
+              alt={title}
+              class="h-full w-full object-contain scale-[1.15] md:scale-[1.25]"
+              width={400}
+              height={400}
             />
           </div>
         </div>
-        <div class="flex-1 py-3 lg:py-0 lg:pl-2">
-          <div
-            class="flex size-full flex-col justify-between space-y-6 rounded-3xl border border-[#C1C1C1] px-6 py-8"
-          >
-            <h2 class="text-balance text-xl font-semibold text-[#333333] md:text-3xl">
-              One stop solution for all your design and tech needs
-            </h2>
-            <p>Have an idea you want to build? Reach out to us now!</p>
-            <a target="_blank" class="btn block w-fit text-center" href={BOOK_CALL}>
-              <span class="text-sm">Book a free consultation call</span>
-            </a>
-          </div>
-        </div>
-      </div>
+      ))
+    }
+    
+    <div class="col-span-1 lg:col-span-2 flex flex-col items-center justify-center space-y-6 rounded-3xl border border-[#C1C1C1] bg-[#F9F9F9] px-6 py-10 md:px-12 md:py-14 text-center mt-4">
+      <p class="text-xl md:text-2xl font-medium text-[#333333]">Book a 30 minute call. Leave with a scoped plan, whether you work with us or not.</p>
+      <a href="https://calendly.com/creworklabs/30mins" target="_blank" class="btn">Book a free discovery call</a>
     </div>
   </div>
 </Section>

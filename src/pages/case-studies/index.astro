@@ -9,13 +9,14 @@ import Section from '@/components/section.astro';
   title="Case Studies"
   description="We are a product studio deeply focused on crafting experiences that connect you with your audience."
   canonical="https://www.creworklabs.com/case-studies"
+  useDashboardNav={true}
 >
   <Section className="border-b-0" data-section="case-studies">
     <div class="mx-auto mb-[72px] max-w-3xl space-y-4 text-center">
       <h1 class="text-3xl font-semibold">Case Studies: Transforming Ideas into Impact</h1>
       <p>Discover the creative process that drives our success.</p>
     </div>
-    <CaseStudiesSwitch sticky={false} client:load />
+    <CaseStudiesSwitch sticky={false} showSearch={true} client:load />
   </Section>
   <TalkToUs />
   <script>

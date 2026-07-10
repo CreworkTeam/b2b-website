@@ -1,0 +1,18 @@
+---
+export interface Props {
+  items: { k: string; v: string }[];
+}
+const { items } = Astro.props;
+---
+<div class="glance">
+  <div class="container">
+    <div class="glance-grid">
+      {items.map(item => (
+        <div class="glance-item reveal">
+          <div class="k">{item.k}</div>
+          <div class="v">{item.v}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

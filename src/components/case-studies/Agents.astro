@@ -1,0 +1,19 @@
+---
+export interface Props {
+  title?: string;
+  agents: { title: string; desc: string }[];
+}
+const { title, agents } = Astro.props;
+---
+{title && <h2 class="reveal">{title}</h2>}
+<div class="agents">
+  {agents.map(agent => (
+    <div class="agent reveal">
+      <span class="dot" aria-hidden="true"></span>
+      <div>
+        <h3>{agent.title}</h3>
+        <p>{agent.desc}</p>
+      </div>
+    </div>
+  ))}
+</div>

@@ -1,157 +1,149 @@
 ---
-import MainLayout from '../layouts/main-layout.astro';
-import Hero from '../components/home/hero.astro';
-import OurImpact from '../components/home/impact.astro';
-import Testimonials from '../components/home/testimonials.astro';
-import OurPortfolio from '../components/home/portfolio.astro';
-import CaseStudies from '../components/home/case-studies/case-studies.astro';
-import Contact from '../components/home/contact.astro';
-import Pricing from '@/components/home/pricing.astro';
-import HowWeWork from '@/components/home/how-we-work.astro';
-import OurServices from '@/components/home/our-services.astro';
-import MeetTheTeam from '@/components/home/meet-the-team.astro';
+import Nav from '../components/main-dashboard/nav.astro';
+import Hero from '../components/main-dashboard/hero.astro';
+import Cards from '../components/main-dashboard/cards.astro';
+import Cta from '../components/main-dashboard/cta.astro';
+import Footer from '../components/footer.astro';
 
-const schema = {
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"Organization",
-      "@id":"https://www.creworklabs.com/#organization",
-      "name":"Crework Labs",
-      "url":"https://www.creworklabs.com/",
-      "logo":"https://www.creworklabs.com/logo.png",
-      "description":"Crework Labs is an MVP development and product studio helping startup founders design, build, and launch scalable products fast.",
-      "foundingDate":"2023",
-      "contactPoint":{
-        "@type":"ContactPoint",
-        "contactType":"sales",
-        "url":"https://www.creworklabs.com/#contact"
-      },
-      "sameAs":[
-        "https://www.linkedin.com/company/creworklabs",
-        "https://twitter.com/creworklabs"
-      ]
-    },
-    {
-      "@type":"WebSite",
-      "@id":"https://www.creworklabs.com/#website",
-      "url":"https://www.creworklabs.com/",
-      "name":"Crework Labs",
-      "publisher":{
-        "@id":"https://www.creworklabs.com/#organization"
-      }
-    },
-    {
-      "@type":"Service",
-      "serviceType":"MVP Development",
-      "name":"MVP Development for Startups",
-      "description":"End-to-end MVP development including market research, product design, and full-stack development to help startup founders launch fast.",
-      "provider":{
-        "@id":"https://www.creworklabs.com/#organization"
-      },
-      "areaServed":"Worldwide",
-      "offers":{
-        "@type":"Offer",
-        "price":"3000",
-        "priceCurrency":"USD",
-        "priceSpecification":{
-          "@type":"UnitPriceSpecification",
-          "price":"3000",
-          "priceCurrency":"USD",
-          "unitText":"project"
-        }
-      }
-    },
-    {
-      "@type":"Service",
-      "serviceType":"Website Design & Development",
-      "name":"Website Design & Development",
-      "description":"Custom website design and development for founders and teams who want to launch a high-conversion website in 1 week.",
-      "provider":{
-        "@id":"https://www.creworklabs.com/#organization"
-      },
-      "areaServed":"Worldwide",
-      "offers":{
-        "@type":"Offer",
-        "price":"800",
-        "priceCurrency":"USD"
-      }
-    }
-  ]
-};
-
-const faqSchema = {
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"What is an MVP and why do I need one?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"An MVP (Minimum Viable Product) is the simplest version of your product that solves a core problem for users. It helps you validate your idea, attract early users, and secure funding without spending months or large budgets on full-scale development."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"How long does it take to build an MVP with Crework Labs?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Depending on the complexity, we can deliver an MVP in as little as 4-8 weeks. Website projects are typically completed within 4-5 business days. We focus on speed without compromising quality."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"What industries does Crework Labs work with?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"We work across multiple industries including Education, E-Commerce, Fintech, Healthcare, SaaS, and Enterprise Operations. Our team has delivered 25+ projects for clients across 9 industries."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"What is included in the MVP development package?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Our MVP development package starts at $3000 and includes market research and competitor analysis, custom brand identity design, UI/UX design, end-to-end web or mobile app development, and project management with regular progress updates."
-      }
-    },
-    {
-      "@type":"Question",
-      "name":"How is Crework Labs different from other development agencies?",
-      "acceptedAnswer":{
-        "@type":"Answer",
-        "text":"Crework Labs combines AI-powered solutions with human expertise, specifically tailored for startup founders. We focus on rapid delivery, data-driven design, and scalable architecture so your product can grow with your business."
-      }
-    }
-  ]
-};
+import '../styles/dashboard/main-dashboard.css';
 ---
 
-<MainLayout
-  title="Crework Labs | MVP Development Studio for Startup Founders"
-  description="Crework Labs is an MVP development studio helping startup founders design, build, and launch scalable products fast. Book a free strategy call."
-  canonical="https://www.creworklabs.com"
-  og_image="/opengraph.png?v=2"
->
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="head"></script>
-  <Hero />
-  <OurPortfolio />
-  <Testimonials />
-  <OurImpact />
-  <OurServices />
-  <CaseStudies />
-  <MeetTheTeam />
-  <HowWeWork />
-  <Pricing />
-  <Contact />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Crework Dashboard" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <title>Crework Dashboard</title>
+  </head>
+  <body>
+    <div class="landing-page">
+      <!-- Custom Cursor -->
+      <div class="custom-cursor" id="custom-cursor">
+        <div class="cursor-dot"></div>
+        <svg class="cursor-arrow" width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M4 0l16 16h-6.8l3.8 8-2.6 1.2-3.8-8-5.4 5.2z" />
+        </svg>
+      </div>
+      <div class="cursor-trail" id="cursor-trail"></div>
 
-  <script>
-    import { setupButtonTracking } from '../utils/mixpanel';
+      <Nav />
+      <div class="grid-wrapper">
+        <!-- Decorative Grid Lines -->
+        <div class="grid-line grid-line--top"></div>
+        <div class="grid-line grid-line--bottom"></div>
+        <div class="grid-line grid-line--left"></div>
+        <div class="grid-line grid-line--right"></div>
 
-    setupButtonTracking({
-      pageName: 'LandingPage',
-    });
-  </script>
-</MainLayout>
+        <!-- Decorative Corner Nodes -->
+        <div class="grid-node grid-node--tl"></div>
+        <div class="grid-node grid-node--tr"></div>
+        <div class="grid-node grid-node--bl"></div>
+        <div class="grid-node grid-node--br"></div>
+
+        <Hero />
+        <Cards />
+        <Cta />
+      </div>
+      <div class="fade-in-footer w-full" style="opacity: 0;">
+        <Footer />
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- CUSTOM CURSOR ---
+        const cursor = document.getElementById('custom-cursor');
+        const trail = document.getElementById('cursor-trail');
+        const mouse = { x: 0, y: 0 };
+        const trailPos = { x: 0, y: 0 };
+
+        const handleMouseMove = (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+
+          if (cursor) {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+          }
+
+          // Check if hovering over interactive elements
+          const target = e.target as HTMLElement;
+          const isBtn = target.closest('.header-cta, .card-btn, .footer-link, .footer-email, .nav-link, button, a, [role="button"]');
+          const isText = target.closest('p, h1, h2, h3, span, .social-icon, .footer-tagline, .footer-brand-name');
+          
+          if (isText && !isBtn) {
+            cursor?.classList.add('is-hovering');
+          } else {
+            cursor?.classList.remove('is-hovering');
+          }
+
+          if (isBtn) {
+            cursor?.classList.add('is-btn-hovering');
+            if (target.closest('.card-btn--dark') || target.closest('.header-cta')) {
+              cursor?.classList.add('btn-dark');
+              cursor?.classList.remove('btn-light');
+            } else {
+              cursor?.classList.add('btn-light');
+              cursor?.classList.remove('btn-dark');
+            }
+          } else {
+            cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
+          }
+        };
+
+        let animFrameId;
+        const updateTrail = () => {
+          const dx = mouse.x - trailPos.x;
+          const dy = mouse.y - trailPos.y;
+          trailPos.x += dx * 0.15;
+          trailPos.y += dy * 0.15;
+
+          if (trail) {
+            trail.style.left = `${trailPos.x}px`;
+            trail.style.top = `${trailPos.y}px`;
+          }
+          animFrameId = requestAnimationFrame(updateTrail);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        animFrameId = requestAnimationFrame(updateTrail);
+        // Reveal text words
+        const words = document.querySelectorAll('.fade-word');
+        words.forEach((word) => {
+          word.classList.add('visible');
+        });
+
+        // Subtitle fade
+        setTimeout(() => {
+          const subtitle = document.querySelector('.fade-in-subtitle');
+          if (subtitle) {
+            subtitle.classList.add('visible');
+          }
+        }, 1500);
+
+        // CTA fade
+        setTimeout(() => {
+          const cta = document.querySelector('.fade-in-cta');
+          if (cta) {
+            cta.classList.add('visible');
+          }
+        }, 2000);
+
+        // Footer fade
+        setTimeout(() => {
+          const footer = document.querySelector('.fade-in-footer');
+          if (footer) {
+            footer.style.animation = 'fade-in-simple 1s ease-out forwards';
+          }
+        }, 0);
+      });
+    </script>
+  </body>
+</html>

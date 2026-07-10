@@ -1,0 +1,117 @@
+---
+import CaseStudyLayout from '../../components/case-studies/CaseStudyLayout.astro';
+import Hero from '../../components/case-studies/Hero.astro';
+import Glance from '../../components/case-studies/Glance.astro';
+import ResultsBand from '../../components/case-studies/ResultsBand.astro';
+import Section from '../../components/case-studies/Section.astro';
+import Agents from '../../components/case-studies/Agents.astro';
+import Timeline from '../../components/case-studies/Timeline.astro';
+import Metrics from '../../components/case-studies/Metrics.astro';
+import EndGrid from '../../components/case-studies/EndGrid.astro';
+---
+
+<CaseStudyLayout 
+  title="Lead Intelligence at 5x Volume"
+  description="How a B2B sales team cut prospect research from 15 hours a week to 2 and grew outreach volume 5x with the same headcount."
+>
+  <Hero
+    crumbLink="/agentic-ai-systems#case-studies"
+    crumbText="← All case studies"
+    category="Revenue Operations"
+    title="Lead intelligence at 5x volume"
+    subtitle="How a sales team stopped hunting for prospects and started talking to them."
+  >
+    <svg slot="art" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="220" cy="220" r="5" fill="rgba(255,255,255,0.8)" />
+      <circle cx="220" cy="220" r="60" fill="none" stroke="rgba(255,255,255,0.22)" />
+      <circle cx="220" cy="220" r="120" fill="none" stroke="rgba(255,255,255,0.14)" />
+      <circle cx="220" cy="220" r="180" fill="none" stroke="rgba(255,255,255,0.07)" />
+
+      <g class="orbit-group orbit-group-1">
+        <circle cx="220" cy="160" r="5" fill="rgba(255,255,255,0.7)" />
+      </g>
+      <g class="orbit-group orbit-group-2">
+        <circle cx="324" cy="160" r="6" fill="rgba(255,255,255,0.55)" />
+        <circle cx="116" cy="280" r="6" fill="rgba(255,255,255,0.55)" />
+      </g>
+      <g class="orbit-group orbit-group-3">
+        <circle cx="400" cy="220" r="6" fill="rgba(255,255,255,0.4)" />
+        <circle cx="130" cy="376" r="6" fill="rgba(255,255,255,0.4)" />
+        <circle cx="130" cy="64" r="6" fill="rgba(255,255,255,0.55)" />
+      </g>
+    </svg>
+  </Hero>
+
+  <Glance 
+    items={[
+      { k: 'Industry', v: 'B2B sales firm' },
+      { k: 'Team', v: '5 to 6 person sales team' },
+      { k: 'Signal sources', v: 'Reddit, X, Crunchbase, LinkedIn, Yelp, Google search' },
+      { k: 'Engagement', v: '3 weeks, audit to deployment' },
+    ]} 
+  />
+
+  <ResultsBand 
+    results={[
+      { num: '15 hrs → 2 hrs', cap: 'weekly prospect research per rep' },
+      { num: '5x', cap: 'outreach volume, same team' },
+      { num: '0', cap: 'new hires to get there' },
+    ]} 
+  />
+
+  <Section index="01" title="The problem">
+    <p class="body reveal">
+      The sales team was spending 15+ hours per week per person hunting for prospects across platforms. Every hour spent researching was an hour not spent selling, and the research itself was shallow by necessity: with that much ground to cover, reps skimmed. High-intent prospects, the ones actively describing their problem in public, were being found late or not at all. The team's pipeline wasn't limited by market demand. It was limited by how many browser tabs a human can read in a week.
+    </p>
+  </Section>
+
+  <Section index="02" title="What the audit found" padTop={false}>
+    <p class="body reveal">
+      Mapping how a lead actually moved from "exists somewhere on the internet" to "conversation booked" revealed that most of the week's research hours produced nothing: a large share of researched prospects never fit the ideal customer profile in the first place. The intent signals were public and constant, prospects were describing their problems on Reddit, X, LinkedIn, Yelp and in Google-indexed discussions around the clock, with company signals surfacing on Crunchbase, but the team could only look during work hours, and only in one place at a time.
+    </p>
+  </Section>
+
+  <Section index="03" title="The system" padTop={false}>
+    <Agents 
+      title="Three agents replacing the hunt"
+      agents={[
+        { title: 'Signal agent', desc: 'Monitors Reddit, X, Crunchbase, LinkedIn, Yelp, Google searches and other platforms where prospects actively discuss their problems, around the clock. Flags conversations and signals showing buying intent.' },
+        { title: 'Qualification agent', desc: 'Compares every flagged prospect against the ideal customer profile and scores fit, so nothing shallow-matched reaches a rep.' },
+        { title: 'Prioritization agent', desc: 'Builds ranked prospect lists daily, ordered by intent strength and profile fit, so reps open a queue, not a search engine.' },
+      ]}
+    />
+  </Section>
+
+  <Section index="04" title="How it rolled out" padTop={false}>
+    <Timeline 
+      items={[
+        { week: 'Week 1', desc: 'Audit and mapping of how leads actually moved from signal to conversation. Signal agent live on the first platforms, running in shadow mode while precision was reviewed against what reps would have found manually.' },
+        { week: 'Week 2', desc: 'Qualification agent tuned against the ideal customer profile with rep feedback on every scored prospect. Coverage expanded to the full platform set.' },
+        { week: 'Week 3', desc: 'Full deployment. Reps working from the ranked daily queue only, manual prospect hunting retired.' },
+      ]}
+    />
+  </Section>
+
+  <Section index="05" title="The numbers" padTop={false}>
+    <Metrics 
+      metrics={[
+        { big: '87%', exp: 'less time on prospect research. 15+ hours per rep per week became 2, and the reclaimed hours went where revenue actually happens: conversations.' },
+        { big: '5x', exp: 'outreach volume with the same 5 to 6 person team. The pipeline\'s ceiling stopped being how many browser tabs a human can read in a week.' },
+        { big: '24/7', exp: 'signal coverage. Prospects describe their problems around the clock. Now something is always listening, and reps open a ranked queue every morning instead of a blank search bar.' },
+      ]}
+    >
+      The team's constraint moved from "how much can we read" to "how many conversations can we hold," which is the constraint a sales team is supposed to have. Same people, same market, five times the at-bats.
+    </Metrics>
+  </Section>
+
+  <Section index="06" title="What compounds" padTop={false}>
+    <p class="body reveal">
+      Every week the system runs, the qualification agent sees more of what actually converts and sharpens its scoring. Prospect research is no longer a skill the company rents from each new hire's work ethic; it's infrastructure the company owns. Effects we haven't counted: faster ramp time for new reps, who start with a full queue on day one instead of a blank search bar.
+    </p>
+  </Section>
+
+  <EndGrid 
+    nextLink="/case-studies/proposal-automation" 
+    nextTitle="Lead to Proposal in 2 Hours, Down From a Week: two revenue leaks closed"
+  />
+</CaseStudyLayout>

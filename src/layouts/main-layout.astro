@@ -1,8 +1,10 @@
 ---
 import Header from '../components/header.astro';
+import DashboardNav from '../components/main-dashboard/nav.astro';
 import Footer from '../components/footer.astro';
+import Cursor from '../components/cursor.astro';
 import '../styles/global.css';
-const { title, description, canonical, og_image = '/opengraph.png' } = Astro.props;
+const { title, description, canonical, og_image = '/opengraph.png', useDashboardNav = false } = Astro.props;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://www.creworklabs.com';
 const og_image_absolute = og_image.startsWith('http') ? og_image : `${siteUrl}${og_image}`;
 ---
@@ -44,7 +46,8 @@ const og_image_absolute = og_image.startsWith('http') ? og_image : `${siteUrl}${
     <slot name="head" />
   </head>
   <body class="overflow-x-hidden">
-    <Header />
+    <Cursor />
+    {useDashboardNav ? <DashboardNav /> : <Header />}
     <main class="relative">
       <section
         class="relative -z-20 mx-auto h-10 w-[92%] max-w-5xl border-x border-[#F1F1F1] sm:h-12 sm:w-10/12 lg:w-9/12"

@@ -1,0 +1,29 @@
+---
+---
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>CREWORK <span>LABS</span>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle menu" id="nav-toggle-btn">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="/agentic-ai-systems" >Agentic AI systems</a>
+      <a href="/overnight-cto">Overnight CTO</a>
+      <a href="/blog">Blog</a>
+      <a href="https://calendly.com/creworklabs/30mins" target="_blank" 
+   rel="noopener noreferrer" class="btn">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('nav-toggle-btn');
+    const links = document.getElementById('nav-links');
+    if (btn && links) {
+      btn.addEventListener('click', () => {
+        links.classList.toggle('show');
+      });
+    }
+  });
+</script>

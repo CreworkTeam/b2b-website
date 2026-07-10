@@ -1,0 +1,220 @@
+---
+import Nav from '../components/main-dashboard/nav.astro';
+import Hero from '../components/ai-ops/hero.astro';
+import Stats from '../components/ai-ops/stats.astro';
+import Positioning from '../components/ai-ops/positioning.astro';
+import Credentials from '../components/ai-ops/credentials.astro';
+import CaseStudies from '../components/ai-ops/case-studies.astro';
+import Team from '../components/ai-ops/team.astro';
+import HowWeWork from '../components/ai-ops/how-we-work.astro';
+import Faq from '../components/ai-ops/faq.astro';
+import Agenda from '../components/ai-ops/agenda.astro';
+import Contact from '../components/ai-ops/contact.astro';
+import Footer from '../components/ai-ops/footer.astro';
+
+import '../styles/dashboard/ai-operations.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AI Operations Dashboard" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>AI Operations Dashboard | Crework Labs</title>
+  </head>
+  <body>
+    <div class="ai-ops-page">
+      <!-- Custom Cursor -->
+      <div class="aiops-cursor" id="aiops-cursor">
+        <div class="aiops-cursor-dot"></div>
+        <svg class="cursor-arrow" width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M4 0l16 16h-6.8l3.8 8-2.6 1.2-3.8-8-5.4 5.2z" />
+        </svg>
+      </div>
+      <div class="aiops-cursor-trail" id="aiops-cursor-trail"></div>
+
+      <!-- Guide Rails -->
+      <div class="rails" aria-hidden="true"></div>
+
+      <Nav theme="dark" />
+      <div id="hero"><Hero /></div>
+      <div id="stats"><Stats /></div>
+      <div id="positioning"><Positioning /></div>
+      <div id="credentials"><Credentials /></div>
+      <div id="case-studies"><CaseStudies /></div>
+      <div id="team"><Team /></div>
+      <div id="how-we-work"><HowWeWork /></div>
+      <div id="faq"><Faq /></div>
+      <div id="agenda"><Agenda /></div>
+      <div id="contact"><Contact /></div>
+      <Footer />
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- CUSTOM CURSOR ---
+        const cursor = document.getElementById('aiops-cursor');
+        const trail = document.getElementById('aiops-cursor-trail');
+        const mouse = { x: 0, y: 0 };
+        const trailPos = { x: 0, y: 0 };
+
+        const handleMouseMove = (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+
+          if (cursor) {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+          }
+
+          // Hover checks for black cursor
+          // Text hover check for magnifying effect
+          const target = e.target as HTMLElement;
+          const isBtn = target.closest('.btn, button, a, [role="button"]');
+          const isText = target.closest('p, h1, h2, h3, span');
+
+          if (isText && !isBtn) {
+            cursor?.classList.add('is-hovering');
+          } else {
+            cursor?.classList.remove('is-hovering');
+          }
+
+          if (isBtn) {
+            cursor?.classList.add('is-btn-hovering');
+            if (target.closest('.btn') || target.closest('.header-cta')) {
+              cursor?.classList.add('btn-light');
+            } else {
+              cursor?.classList.remove('btn-light');
+            }
+          } else {
+            cursor?.classList.remove('is-btn-hovering', 'btn-light');
+          }
+        };
+
+        let animFrameId;
+        const updateTrail = () => {
+          const dx = mouse.x - trailPos.x;
+          const dy = mouse.y - trailPos.y;
+          trailPos.x += dx * 0.15;
+          trailPos.y += dy * 0.15;
+
+          if (trail) {
+            trail.style.left = `${trailPos.x}px`;
+            trail.style.top = `${trailPos.y}px`;
+          }
+          animFrameId = requestAnimationFrame(updateTrail);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        animFrameId = requestAnimationFrame(updateTrail);
+
+        // --- SCROLL REVEALS ---
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealEls = document.querySelectorAll('.reveal');
+        
+        if (reduced) {
+          revealEls.forEach((el) => el.classList.add('in'));
+        } else {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const siblings = entry.target.parentElement?.querySelectorAll(':scope > .reveal');
+                let idx = 0;
+                if (siblings) {
+                  idx = Array.prototype.indexOf.call(siblings, entry.target);
+                }
+                (entry.target as HTMLElement).style.transitionDelay = (idx > -1 ? idx * 80 : 0) + 'ms';
+                entry.target.classList.add('in');
+                io.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.15 });
+          revealEls.forEach((el) => io.observe(el));
+        }
+
+        // --- COUNTERS ---
+        const counters = document.querySelectorAll('.count');
+        const cio = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target as HTMLElement;
+            const target = parseInt(el.dataset.target || '0', 10);
+            if (reduced) { el.textContent = String(target); cio.unobserve(el); return; }
+            let startTs = null;
+            function tick(ts) {
+              if (!startTs) startTs = ts;
+              const p = Math.min((ts - startTs) / 1500, 1);
+              el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+            cio.unobserve(el);
+          });
+        }, { threshold: 0.6 });
+        counters.forEach((el) => cio.observe(el));
+
+        // --- DIAGRAM DRAW ---
+        const diagram = document.getElementById('diagram');
+        if (diagram) {
+          const dio = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                diagram.classList.add('drawn');
+                dio.unobserve(diagram);
+              }
+            });
+          }, { threshold: 0.5 });
+          dio.observe(diagram);
+        }
+
+        // --- CARD CYCLING ---
+        function cycleCards(selector) {
+          const cards = document.querySelectorAll(selector);
+          if (!cards.length || reduced) return;
+          const grid = cards[0].parentElement;
+          if (!grid) return;
+
+          let i = -1, timer = null, started = false;
+          function step() {
+            cards.forEach((c) => c.classList.remove('live'));
+            i = (i + 1) % cards.length;
+            cards[i].classList.add('live');
+          }
+          function start() { if (!timer) { step(); timer = setInterval(step, 2600); } }
+          function stop() { if (timer) clearInterval(timer); timer = null; cards.forEach((c) => c.classList.remove('live')); }
+          
+          grid.addEventListener('mouseenter', stop);
+          grid.addEventListener('mouseleave', start);
+          
+          const gio = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && !started) { started = true; start(); }
+              else if (!entry.isIntersecting && started) { stop(); started = false; }
+            });
+          }, { threshold: 0.35 });
+          gio.observe(grid);
+        }
+        cycleCards('.steps .card');
+        cycleCards('.agenda-grid .card');
+
+        // --- GLOW CARDS ---
+        const handleGlow = (e) => {
+          const cards = document.querySelectorAll('.glow-card');
+          cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            (card as HTMLElement).style.setProperty('--mouse-x', `${x}px`);
+            (card as HTMLElement).style.setProperty('--mouse-y', `${y}px`);
+          });
+        };
+        window.addEventListener('mousemove', handleGlow);
+      });
+    </script>
+  </body>
+</html>

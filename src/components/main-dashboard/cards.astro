@@ -1,0 +1,30 @@
+---
+import { AnimatedFeatureCard } from '../react/animated-feature-card';
+---
+<section class="cards-section">
+  <div class="cards-container">
+    <AnimatedFeatureCard
+      client:load
+      isDark={true}
+      label="For operators and business owners"
+      title="Your AI operations team"
+      description="Sales, service delivery, billing, back office: agentic systems that do the work end to end, so your team steers instead of grinding."
+      buttonText="Explore agentic AI systems"
+      link="/agentic-ai-systems"
+      traceDelay={0}
+      scanDelay={1.2}
+    />
+
+    <AnimatedFeatureCard
+      client:load
+      isDark={false}
+      label="For founders"
+      title="The overnight CTO"
+      description="A full product team behind your idea. We decide together what to build, ship it in weeks and aim everything at your first 100 paying users."
+      buttonText="Meet your overnight CTO"
+      link="/overnight-cto"
+      traceDelay={0}
+      scanDelay={1.2}
+    />
+  </div>
+</section>

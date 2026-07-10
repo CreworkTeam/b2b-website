@@ -1,5 +1,6 @@
 ---
-import Header from '../components/header.astro';
+import Cursor from '../components/cursor.astro';
+import DashboardNav from '../components/main-dashboard/nav.astro';
 import Footer from '../components/footer.astro';
 import '../styles/global.css';
 import TalkToUs from '../components/talk-to-us.astro';
@@ -65,7 +66,8 @@ const recommendations =
     <script src="reb2b.js"></script>
   </head>
   <body>
-    <Header />
+    <Cursor />
+    <DashboardNav />
     <main class="relative">
       <section
         class="relative -z-10 mx-auto h-12 w-10/12 max-w-5xl border-x border-[#F1F1F1] sm:px-16 lg:w-9/12"
@@ -101,14 +103,14 @@ const recommendations =
                 </>
               )
             }
-            <h4 class="text-xl text-black">Have a project?</h4>
+            <h4 class="text-xl text-black">Have a product?</h4>
             <a href={BOOK_CALL} target="_blank" class="btn block w-fit text-balance text-center"
               ><span class="text-sm">Book a free discovery call</span></a
             >
           </div>
         </div>
         <div class="mt-12 space-y-6">
-          <h2 class="font-bold">Read some more of our amazing projects</h2>
+          <h2 class="font-bold">Read some more of our amazing products</h2>
           <div class="flex flex-col gap-4 md:flex-row md:gap-16">
             {
               recommendations.map(
@@ -131,7 +133,7 @@ const recommendations =
               )
             }
           </div>
-          <a href="/case-studies" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
+          <a href="/overnight-cto#case-studies" class="btn mx-auto block w-fit md:px-16">View All Case Studies</a>
         </div>
       </Section>
       <TalkToUs />

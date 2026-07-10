@@ -15,11 +15,19 @@ export default defineConfig({
   integrations: [tailwind(), react(), sitemap()],
   adapter: vercel(),
   vite: {
+    server: {
+      allowedHosts: [
+        'monkhood-petticoat-ramble.ngrok-free.dev'
+      ]
+    },
+    resolve: {
+      dedupe: ['react', 'react-dom'],
+    },
     build: {
       rollupOptions: {
         external: [],
       },
-    },
+    }
   },
   markdown: {
     rehypePlugins: [sectionize],

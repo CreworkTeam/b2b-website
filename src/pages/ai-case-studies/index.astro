@@ -1,0 +1,113 @@
+---
+import Nav from '../../components/main-dashboard/nav.astro';
+import Footer from '../../components/ai-ops/footer.astro';
+import CaseStudiesSwitch from '@/components/home/case-studies/case-studies-switch';
+import Section from '@/components/section.astro';
+import TalkToUs from '../../components/talk-to-us.astro';
+import '../../styles/dashboard/ai-operations.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AI Case Studies" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>AI Case Studies | Crework Labs</title>
+  </head>
+  <body>
+    <div class="ai-ops-page min-h-screen bg-[#0A0A0A] text-white">
+      <!-- Custom Cursor -->
+      <div class="aiops-cursor" id="aiops-cursor">
+        <div class="aiops-cursor-dot"></div>
+        <svg class="cursor-arrow" width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M4 0l16 16h-6.8l3.8 8-2.6 1.2-3.8-8-5.4 5.2z" />
+        </svg>
+      </div>
+      <div class="aiops-cursor-trail" id="aiops-cursor-trail"></div>
+
+      <Nav theme="dark" />
+      <main class="pt-32 pb-16">
+        <div class="w-full" data-section="case-studies">
+          <div class="mx-auto mb-[72px] max-w-3xl space-y-4 text-center">
+            <h1 class="text-3xl font-semibold text-white fade-in-up" style="animation-delay: 0.1s">AI Case Studies: Transforming Ideas into Impact</h1>
+            <p class="text-[#A3A3A3] fade-in-up" style="animation-delay: 0.25s">Discover the creative process that drives our success.</p>
+          </div>
+          <div class="mx-auto flex w-[50vw] flex-col gap-20">
+            <CaseStudiesSwitch sticky={false} showSearch={true} isAi={true} client:load />
+            <div class="w-full fade-in-up" style="animation-delay: 0.4s">
+              <TalkToUs isWhite={true} class="w-full" />
+            </div>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+    <script>
+      import { setupButtonTracking } from '../../utils/mixpanel';
+      setupButtonTracking({
+        pageName: 'AICaseStudies',
+      });
+
+      // --- CUSTOM CURSOR ---
+      document.addEventListener('DOMContentLoaded', () => {
+        const cursor = document.getElementById('aiops-cursor');
+        const trail = document.getElementById('aiops-cursor-trail');
+        const mouse = { x: 0, y: 0 };
+        const trailPos = { x: 0, y: 0 };
+
+        const handleMouseMove = (e: MouseEvent) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+
+          if (cursor) {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+          }
+
+          const target = e.target as HTMLElement;
+          const isBtn = target.closest('.btn, button, a, [role="button"]');
+          const isText = target.closest('p, h1, h2, h3, span');
+
+          if (isText && !isBtn) {
+            cursor?.classList.add('is-hovering');
+          } else {
+            cursor?.classList.remove('is-hovering');
+          }
+
+          if (isBtn) {
+            cursor?.classList.add('is-btn-hovering');
+            if (target.closest('.btn') || target.closest('.header-cta')) {
+              cursor?.classList.add('btn-light');
+            } else {
+              cursor?.classList.remove('btn-light');
+            }
+          } else {
+            cursor?.classList.remove('is-btn-hovering', 'btn-light');
+          }
+        };
+
+        let animFrameId: number;
+        const updateTrail = () => {
+          const dx = mouse.x - trailPos.x;
+          const dy = mouse.y - trailPos.y;
+          trailPos.x += dx * 0.15;
+          trailPos.y += dy * 0.15;
+
+          if (trail) {
+            trail.style.left = `${trailPos.x}px`;
+            trail.style.top = `${trailPos.y}px`;
+          }
+          animFrameId = requestAnimationFrame(updateTrail);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        animFrameId = requestAnimationFrame(updateTrail);
+      });
+    </script>
+  </body>
+</html>

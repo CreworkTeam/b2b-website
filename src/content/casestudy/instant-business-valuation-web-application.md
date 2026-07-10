@@ -83,7 +83,7 @@ Recognizing the increasing reliance on mobile devices in the business world, we 
 
 ![Funds Finder](https://res.cloudinary.com/doa5kcjsz/image/upload/v1743530964/fundsfinder-5_qudqst.png)
 
-## Project Outcomes
+## Product Outcomes
 
 Our design and development work on the FundsFinders business valuation tool resulted in a cutting-edge application that:
 

@@ -72,8 +72,8 @@ effective learning environment.
 
 ## Timeline At Crework
 
-Labs, we approach each project with a structured timeline to ensure efficiency and clarity. For this
-LMS project, we began with extensive user research and experience design, crucial for understanding
+Labs, we approach each Product with a structured timeline to ensure efficiency and clarity. For this
+LMS Product, we began with extensive user research and experience design, crucial for understanding
 the unique needs of both cohort managers and students. We then progressed to coordinated development
 of the cohort management and student interfaces, followed by rigorous testing and refinement based
 on user feedback. Overall, the MVP of the LMS took 1 month to build and iterations took another 1
