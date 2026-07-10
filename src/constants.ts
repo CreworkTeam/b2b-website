@@ -145,12 +145,12 @@ const navLinks = [
 const socials = [
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/company/creworklabs',
+    url: 'https://www.linkedin.com/school/creworklabss/',
     icon: '/social/linkedin.svg',
   },
   {
     name: 'Twitter',
-    url: 'https://twitter.com/CreworkHQ',
+    url: 'https://x.com/CreworkHQ',
     icon: '/social/twitter.svg',
   },
 ];

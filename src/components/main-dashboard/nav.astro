@@ -23,8 +23,30 @@ const { theme = 'light' } = Astro.props;
         Book a call
       </a>
     </div>
+
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle menu">☰</button>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="/agentic-ai-systems" class="nav-link">Agentic AI systems</a>
+      <a href="/overnight-cto" class="nav-link">Overnight CTO</a>
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="https://calendly.com/creworklabs/30mins" target="_blank" rel="noopener noreferrer" class="header-cta">Book a call</a>
+    </div>
   </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('hamburger-btn');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('open');
+        btn.textContent = isOpen ? '✕' : '☰';
+      });
+    }
+  });
+</script>
 
 <style is:global>
   .header {
@@ -122,15 +144,71 @@ const { theme = 'light' } = Astro.props;
     filter: invert(1) brightness(2);
   }
 
-  @media (max-width: 768px) {
-    .header-container {
-      flex-direction: column;
-      gap: 16px;
+  /* Hamburger button — hidden on desktop */
+  .hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    color: #111111;
+    padding: 4px;
+  }
+  .header.theme-dark .hamburger-btn {
+    color: #ffffff;
+  }
+
+  /* Mobile menu — hidden on desktop */
+  .mobile-menu {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    /* Hide the desktop nav + CTA */
+    .header-right {
+      display: none;
     }
-    .header-nav {
-      gap: 16px;
+
+    /* Logo takes 50% of header width */
+    .header-logo {
+      width: 50%;
+    }
+    .header-logo-image {
+      width: 100%;
+      height: auto;
+    }
+
+    /* Show hamburger */
+    .hamburger-btn {
+      display: block;
+    }
+
+    /* Allow container to wrap the mobile-menu below */
+    .header-container {
       flex-wrap: wrap;
-      justify-content: center;
+    }
+
+    /* Mobile menu: full-width collapsible panel */
+    .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 12px;
+      padding: 0;
+      border-top: none;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .mobile-menu.open {
+      max-height: 400px;
+      padding: 16px 0 8px;
+      border-top: 1px solid #eaeaea;
+    }
+
+    .header.theme-dark .mobile-menu {
+      border-top-color: #333333;
     }
   }
 </style>

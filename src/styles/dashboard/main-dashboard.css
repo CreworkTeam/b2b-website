@@ -777,3 +777,65 @@ button,
     opacity: 1;
   }
 }
+
+/* ===========================
+   Mobile Responsive Header
+   =========================== */
+@media (max-width: 1024px) {
+  .header-right {
+    display: none !important;
+  }
+
+  .hamburger-btn {
+    display: block !important;
+  }
+
+  .header-logo {
+    width: 60%;
+  }
+
+  .header-logo-image {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .header-container {
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    padding: 0;
+    border-top: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+
+  .mobile-menu.open {
+    max-height: 400px;
+    padding: 16px 0 8px;
+    border-top: 1px solid #eaeaea;
+  }
+
+  /* Scale hero heading on mobile */
+  .hero-content h1 {
+    font-size: clamp(38px, 8vw, 56px);
+  }
+
+  .hero-content {
+    padding-top: 0;
+  }
+
+  /* Hide custom cursor on mobile */
+  .custom-cursor,
+  .cursor-trail {
+    display: none !important;
+  }
+}

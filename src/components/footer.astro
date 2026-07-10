@@ -29,43 +29,46 @@ const iconBorder = theme === 'dark' ? 'border-[#333]' : 'border-gray-200';
         Custom software and AI systems that do the work, so you can do the growing
       </p>
       <div class="flex items-center gap-3 mt-4">
-        <a href="https://www.linkedin.com/company/creworklabs" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
+        <a href="https://www.linkedin.com/school/creworklabss/" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
           in
         </a>
-        <a href="https://twitter.com/creworklabs" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
+        <a href="https://x.com/CreworkHQ" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
           x
         </a>
       </div>
     </div>
 
-    <!-- Column 2 -->
-    <div class="flex flex-col gap-4 md:ml-12">
-      <h3 class="font-semibold text-[15px] mb-2">Agentic AI Systems</h3>
-      <a href="/agentic-ai-systems" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
-      <a href="/agentic-ai-systems#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case studies</a>
-      <a href="/agentic-ai-systems#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
-      <a href="/agentic-ai-systems#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
-      <a href="/agentic-ai-systems#faq" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>FAQs</a>
-      <a href="/agentic-ai-systems#contact-us" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
-    </div>
+    <!-- Link columns: 2-col grid on mobile, inline on desktop -->
+    <div class="grid grid-cols-2 gap-8 sm:flex sm:gap-12 md:gap-16 md:ml-12">
+      <!-- Column 2 -->
+      <div class="flex flex-col gap-4">
+        <h3 class="font-semibold text-[15px] mb-2">Agentic AI Systems</h3>
+        <a href="/agentic-ai-systems" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
+        <a href="/agentic-ai-systems#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case studies</a>
+        <a href="/agentic-ai-systems#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
+        <a href="/agentic-ai-systems#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
+        <a href="/agentic-ai-systems#faq" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>FAQs</a>
+        <a href="/agentic-ai-systems#contact-us" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
+      </div>
 
-    <!-- Column 3 -->
-    <div class="flex flex-col gap-4">
-      <h3 class="font-semibold text-[15px] mb-2">Overnight CTO</h3>
-      <a href="/overnight-cto" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
-      <a href="/overnight-cto#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case Studies</a>
-      <a href="/overnight-cto#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
-      <a href="/overnight-cto#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
-      <a href="/overnight-cto#pricing" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Pricing</a>
-      <a href="/overnight-cto#contact-us" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
-    </div>
+      <!-- Column 3 -->
+      <div class="flex flex-col gap-4">
+        <h3 class="font-semibold text-[15px] mb-2">Overnight CTO</h3>
+        <a href="/overnight-cto" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
+        <a href="/overnight-cto#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case Studies</a>
+        <a href="/overnight-cto#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
+        <a href="/overnight-cto#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
+        <a href="/overnight-cto#pricing" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Pricing</a>
+        <a href="/overnight-cto#contact-us" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
+      </div>
 
-    <!-- Column 4 -->
-    <div class="flex flex-col gap-4">
-      <h3 class="font-semibold text-[15px] mb-2">Company</h3>
-      <a href="/blog" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Blog</a>
-      <a href="https://crework-founderos.vercel.app/" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Validate your Idea</a>
-      
+      <!-- Column 4 -->
+      <div class="flex flex-col gap-4">
+        <h3 class="font-semibold text-[15px] mb-2">Company</h3>
+        <a href="/blog" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Blog</a>
+        <a href="https://crework-founderos.vercel.app/" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Validate your Idea</a>
+        
+      </div>
     </div>
   </div>
 
