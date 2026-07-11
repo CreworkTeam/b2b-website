@@ -1466,7 +1466,8 @@
 /* ============ footer ============ */
 .ai-ops-page footer {
   border-top: 1px solid var(--border);
-  padding: 76px 0 54px;
+  padding-top: 76px;
+  padding-bottom: 54px;
   position: relative;
   z-index: 2;
 }
@@ -1880,10 +1881,14 @@
   0% {
     stroke-dashoffset: 120;
   }
-  30%, 65% {
+
+  30%,
+  65% {
     stroke-dashoffset: 0;
   }
-  90%, 100% {
+
+  90%,
+  100% {
     stroke-dashoffset: -120;
   }
 }
@@ -1994,4 +1999,13 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #cccccc;
+}
+
+@media (max-width: 900px) {
+
+  /* Hide custom cursor on mobile */
+  .aiops-cursor,
+  .aiops-cursor-trail {
+    display: none !important;
+  }
 }
