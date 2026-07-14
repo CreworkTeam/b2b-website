@@ -34,8 +34,16 @@ export function ScopeSection({ reportB, gateUnlocked, socialPosts = [], socialLo
       ? { border: 'border-[#fde68a]', bg: 'bg-[#fffbeb]', text: 'text-[#78350f]', dot: 'bg-[#78350f]' }
       : { border: 'border-[#fecaca]', bg: 'bg-[#fff7f7]', text: 'text-[#7f1d1d]', dot: 'bg-[#7f1d1d]' }
 
+  interface ChannelItem {
+    platform: string;
+    title: string;
+    body: string;
+    color: string;
+    badge?: string;
+  }
+
   // 1. Serper Data (Reddit & LinkedIn)
-  const serperChannels = socialPosts.map((post) => {
+  const serperChannels: ChannelItem[] = socialPosts.map((post) => {
     let color = '#6b6860'
     if (post.platform === 'reddit') color = '#ff4500'
     else if (post.platform === 'linkedin') color = '#0077b5'
@@ -50,7 +58,7 @@ export function ScopeSection({ reportB, gateUnlocked, socialPosts = [], socialLo
   })
 
   // 2. Groq Data (Twitter)
-  const groqTwitterChannels = (reportB?.marketingPlan?.activeThreads || [])
+  const groqTwitterChannels: ChannelItem[] = (reportB?.marketingPlan?.activeThreads || [])
     .filter(thread => thread.community.toLowerCase().includes('twitter') || thread.community.toLowerCase().includes('x'))
     .map(thread => ({
       platform: 'Twitter',
@@ -60,7 +68,7 @@ export function ScopeSection({ reportB, gateUnlocked, socialPosts = [], socialLo
     }))
 
   // 3. Combine them (take up to 5 total)
-  let combinedChannels = [...serperChannels, ...groqTwitterChannels].slice(0, 5)
+  let combinedChannels: ChannelItem[] = [...serperChannels, ...groqTwitterChannels].slice(0, 5)
 
   // Fallback if empty (e.g. API fails or no data yet)
   if (combinedChannels.length === 0 && !socialLoading) {

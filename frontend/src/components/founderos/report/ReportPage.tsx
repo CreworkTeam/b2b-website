@@ -511,8 +511,8 @@ export function ReportPage() {
                 onDownloadReport={handleDownloadReport}
                 newsArticles={newsArticles}
                 newsLoading={newsLoading}
-                socialPosts={filteredPosts}
                 socialLoading={socialLoading}
+                disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
               />
             )}
 
