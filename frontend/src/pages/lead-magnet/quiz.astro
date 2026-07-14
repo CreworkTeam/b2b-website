@@ -1,0 +1,43 @@
+---
+import { QuizPageView } from '../../components/founderos/quiz/QuizPageView';
+import '../../styles/founderos.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Founder OS Quiz | Crework Labs</title>
+    <style is:global>
+      :root {
+        --font-geist-sans: 'Inter', sans-serif;
+        --font-geist-mono: 'DM Mono', monospace;
+        --font-instrument: 'Instrument Serif', serif;
+        --font-manrope: 'Manrope', sans-serif;
+        --font-inter: 'Inter', sans-serif;
+      }
+      body {
+        background-color: #FEF9ED;
+        margin: 0;
+      }
+      .font-space-grotesk { font-family: 'Space Grotesk', sans-serif; }
+      .font-instrument { font-family: var(--font-instrument); }
+      .font-manrope { font-family: var(--font-manrope); }
+      .font-dm-mono { font-family: var(--font-dm-mono); }
+      .font-inter { font-family: var(--font-inter); }
+
+      /* Pulse dot for classifier */
+      @keyframes pulseDot {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      .pulse-dot {
+        animation: pulseDot 1s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body>
+    <QuizPageView client:load titleFontClass="font-space-grotesk" bodyFontClass="font-inter" />
+  </body>
+</html>

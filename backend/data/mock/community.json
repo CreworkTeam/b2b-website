@@ -1,0 +1,99 @@
+{
+  "A": {
+    "archetype": "community",
+    "demandSignals": [
+      { "theme": "online communities for niche professional interests outside of LinkedIn", "intent": "looking for belonging, current platforms feel generic", "estimatedVolume": "moderate" },
+      { "theme": "private communities for specific industries or skill sets", "intent": "high-intent, willing to pay for quality connections", "estimatedVolume": "moderate" },
+      { "theme": "alternatives to Facebook groups that feel more professional", "intent": "frustrated with existing platforms, open to new ones", "estimatedVolume": "high" },
+      { "theme": "how to find people working on the same problems as me", "intent": "seeking connection, problem-aware", "estimatedVolume": "high" },
+      { "theme": "paid communities worth joining for professionals", "intent": "solution-aware, evaluating quality", "estimatedVolume": "moderate" }
+    ],
+    "communities": [
+      { "platform": "Reddit", "name": "r/community", "description": "Community builders discussing engagement tactics, platform choices, and monetisation models.", "url": "https://reddit.com/r/community" },
+      { "platform": "X", "name": "Community building Twitter/X", "description": "Active discussion of community strategy, tools, and case studies from practitioners.", "url": "https://x.com" },
+      { "platform": "IndieHackers", "name": "Indie Hackers community", "description": "Founders who've built and monetised communities sharing what works.", "url": "https://indiehackers.com" },
+      { "platform": "Slack", "name": "Community Club Slack", "description": "Community managers and builders sharing tactics and platform discussions.", "url": "https://slack.com" },
+      { "platform": "Discord", "name": "Creator economy Discord servers", "description": "Creators and community builders experimenting with new community formats.", "url": "https://discord.com" },
+      { "platform": "LinkedIn", "name": "Professional association groups", "description": "Where your target audience currently tries to find the professional community they're looking for.", "url": "https://linkedin.com" }
+    ],
+    "competitors": [
+      { "name": "Circle", "whatTheyDo": "White-label community platform for creators and businesses", "gap": "Feature-rich but expensive for early communities — and the generic structure means communities look and feel the same regardless of their purpose." },
+      { "name": "Discord", "whatTheyDo": "Real-time messaging and community platform originally built for gamers", "gap": "Channel structure is chaotic for non-gaming communities — knowledge gets lost, async conversation is hard, and it feels too informal for professional contexts." },
+      { "name": "Slack (for community)", "whatTheyDo": "Workplace messaging repurposed for community use", "gap": "Not designed for community — no member discovery, no content persistence after 90 days on free plan, and it feels like work." }
+    ],
+    "validationScore": { "searchDemand": 7, "communityDensity": 8, "competitionIntensity": 7, "overall": 7 },
+    "keywordNote": "Community platforms face a paradox: the demand for niche communities is high, but starting a new platform requires convincing people to change where they spend their time. The strongest community products in 2025 win on a single killer feature or a tightly defined niche — not by being a better Discord.",
+    "blogLinks": [{ "label": "How to find exact Reddit discussions where your future users are venting", "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where", "context": "Find the communities where your potential members currently gather and are frustrated — that's your best source of early adopters." }]
+  },
+  "B": {
+    "archetype": "community",
+    "coreFeatures": [
+      { "name": "Member profiles and discovery", "why": "The core value of a community is connecting people. If members can't find each other based on shared interests or context, the community has no unique value over a mailing list." },
+      { "name": "Discussion or content feed", "why": "The place where the community actually happens. Start with one type of content — posts, questions, or events — not all three. Depth beats breadth in early communities." },
+      { "name": "Invitation or application flow", "why": "Who gets in and how they get in defines your community's quality and culture. A curated entry point is your most important trust mechanism." }
+    ],
+    "skipFeatures": [
+      { "name": "Live events and video rooms", "why": "Events need critical mass to feel alive. With under 500 members, an empty events calendar is demoralising. Add this when you have engagement, not before." },
+      { "name": "Courses and content library", "why": "You're building a community, not a course platform. Content should emerge from members, not be produced by you. Keep the focus on connection." },
+      { "name": "Mobile app", "why": "Communities succeed on habit and engagement, not app store presence. A responsive web app or a Telegram/Discord channel is enough for early communities." },
+      { "name": "Analytics dashboard for members", "why": "Members don't join communities to see stats. Focus on the interaction quality, not instrumentation." }
+    ],
+    "complexityLevel": "Medium",
+    "complexityExplanation": "Community platforms are Medium technical complexity but High community management complexity. The product is relatively straightforward — profiles, posts, messaging. The hard part is not technical: it's creating the conditions for genuine connection and maintaining quality as you scale. Budget as much time for community management as for engineering.",
+    "techApproach": "Start with an existing community platform like Circle, Slack, or Discord and customise it rather than building from scratch. Custom-built community platforms almost always lose to well-managed communities on established platforms. Build custom only when you have a specific technical requirement that existing platforms can't meet.",
+    "commonMistakes": [
+      "Launching publicly before the community has enough members to feel alive. A community with 10 members where nothing is happening is worse than no community. Curate your first 50 members intensely before opening the doors.",
+      "Over-investing in features instead of community management. The most engaged communities are well-managed, not well-featured. Hire a community manager before hiring a second developer.",
+      "Building for scale before you have engagement. A community of 100 highly engaged members is worth more than 10,000 lurkers."
+    ],
+    "aiTools": [
+      { "tool": "Circle", "useCase": "Launch your community without building a platform — validate engagement before committing to custom development", "url": "https://circle.so" },
+      { "tool": "Lovable", "useCase": "Build custom community features on top of an existing backend when Circle or Discord isn't enough", "url": "https://lovable.dev" },
+      { "tool": "Beehiiv", "useCase": "Newsletter layer for your community — keeps members engaged between platform visits", "url": "https://beehiiv.com" }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "Community waitlists work differently — the value prop is 'who you'll meet', not 'what you'll get access to'. Name 3–5 impressive founding members on your waitlist page. Social proof from the supply side of the community drives demand-side signups.",
+      "communities": ["Communities where your target members currently gather — be present and valuable there first", "LinkedIn — where professional community builders and your potential members spend time", "Twitter/X — where community case studies and social proof spread fastest", "IndieHackers — for strategy and peer support on building the community", "Existing adjacent communities — position your community as the more focused version"],
+      "activeThreads": [
+        { "community": "Existing communities in your niche", "topic": "Threads where members express frustration with the current community format", "suggestedComment": "This is exactly why we're building [your community] — a more focused space specifically for [your niche]. We're hand-picking the first 50 members. Would you be interested?" },
+        { "community": "LinkedIn", "topic": "Posts from professionals looking for their people", "suggestedComment": "We're building a community specifically for this — small, curated, and focused on [your value prop]. Currently at 30 founding members. Happy to share more if you're interested." },
+        { "community": "Twitter/X", "topic": "Tweets about the lack of good professional communities in your niche", "suggestedComment": "Building exactly this. 6 founding member spots left. DM me if you want in — we're being selective to keep the quality high." },
+        { "community": "IndieHackers", "topic": "Community building threads", "suggestedComment": "Launching a community for [niche]. One thing we're doing differently: only accepting 50 founding members and curating each one. Does the selectivity model worry you or attract you?" },
+        { "community": "Reddit", "topic": "Threads in your niche where people ask for community recommendations", "suggestedComment": "We're building a private community specifically for [your niche]. Not open yet — DM if you'd like to be considered for founding membership." }
+      ],
+      "weekOneChecklist": [
+        "Identify 20 people who would be perfect founding members. Reach out personally — not a mass message. Explain why you thought of them specifically.",
+        "Set up the community platform (Circle, Slack, or Discord) with basic structure. Don't over-design — you'll restructure it based on how members actually use it.",
+        "Onboard your first 10 founding members personally — introduce them to each other, seed the first 3 conversations.",
+        "Define your community's single most important value: connection, knowledge, accountability, or opportunity. Make this the headline of everything.",
+        "Post content yourself for the first 2 weeks. The community is cold — you need to create the warmth before members will."
+      ]
+    },
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "If you do need custom community features, this stack helps you build them fast on top of an existing platform foundation." }]
+  },
+  "C": {
+    "archetype": "community",
+    "specItems": [
+      { "label": "The single reason someone joins", "status": "missing", "note": "One sentence: 'People join [community name] because ___.' If you can't complete that sentence, you don't have a community yet — you have a platform." },
+      { "label": "Founding member selection criteria", "status": "missing", "note": "Who is and isn't allowed in, and why? This defines your culture. Without explicit criteria, quality degrades as you scale." },
+      { "label": "Platform choice — existing or custom", "status": "needs_clarity", "note": "Strong recommendation: use Circle, Slack, or Discord for V1. Build custom only when you have a specific requirement that existing platforms genuinely can't meet." },
+      { "label": "Monetisation — free, paid, or freemium", "status": "missing", "note": "Paid communities have higher-quality engagement. Free communities are easier to grow but harder to monetise later. Decide before launch." },
+      { "label": "Community manager — you or hire", "status": "missing", "note": "Communities need active management from day one. If this is you, budget 10+ hours per week. If not, define who it is before launch." },
+      { "label": "Content seeding strategy for launch week", "status": "missing", "note": "What are the first 10 posts or discussions in the community? These set the tone and template for everything that follows. Write them before you launch." }
+    ],
+    "teamFit": "Community platforms are people businesses first, technology businesses second. The most important hire is a community manager, not a developer. If you're building custom tech, a single full-stack developer is enough for V1 — the complexity is in the community operations, not the code.",
+    "roadmap": [
+      { "week": 1, "title": "Founding member cohort", "deliverables": ["Platform set up with basic structure — spaces, channels, or categories defined", "First 20 founding members personally onboarded", "You have personally introduced every founding member to at least one other member", "10 pieces of seed content posted — questions, provocations, or resources"] },
+      { "week": 2, "title": "First organic engagement", "deliverables": ["At least 3 member-to-member conversations happening without your prompting", "Founding member feedback collected — what's missing, what's working", "Top structural issue identified and fixed", "First community event or live touchpoint completed"] },
+      { "week": 3, "title": "Monetisation and growth", "deliverables": ["Paid tier launched if applicable — even one paying member validates the model", "Referral mechanism live — how do founding members invite others?", "Community health metrics defined: DAU, weekly posts, member-to-member connections", "Decision: is this community growing on its own or do you need to change the value proposition?"] }
+    ],
+    "questionsToAskAgency": [
+      "Have you built community platforms before — and did those communities actually become engaged, or just technically functional?",
+      "What's your recommendation on building custom vs launching on Circle or Discord first — and what would change your answer?",
+      "How do you handle the member experience design — the onboarding flow and the first-session experience that determines whether someone comes back?",
+      "What does handover look like — specifically for a community platform where the engagement mechanics need to be tunable over time?",
+      "What's the one thing community platform founders underestimate that you always flag at the start?"
+    ],
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "When you're ready for custom community features, this stack helps you build them efficiently." }]
+  }
+}

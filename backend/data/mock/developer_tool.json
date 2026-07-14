@@ -1,0 +1,99 @@
+{
+  "A": {
+    "archetype": "developer_tool",
+    "demandSignals": [
+      { "theme": "developer tools to reduce boilerplate and speed up project setup", "intent": "problem-aware, regularly feels this pain", "estimatedVolume": "high" },
+      { "theme": "open source alternatives to expensive developer infrastructure", "intent": "cost-conscious, high technical literacy", "estimatedVolume": "high" },
+      { "theme": "APIs and SDKs for specific technical capabilities", "intent": "solution-seeking, ready to integrate", "estimatedVolume": "moderate" },
+      { "theme": "observability and debugging tools for specific tech stacks", "intent": "pain-driven, high purchase intent", "estimatedVolume": "moderate" },
+      { "theme": "developer productivity tools for specific workflows", "intent": "evaluating, comparison stage", "estimatedVolume": "high" }
+    ],
+    "communities": [
+      { "platform": "Reddit", "name": "r/programming", "description": "Broad developer community where new tools are discovered and evaluated — high-quality technical feedback.", "url": "https://reddit.com/r/programming" },
+      { "platform": "Reddit", "name": "r/webdev", "description": "Frontend and full-stack developers sharing tools and discussing pain points in their workflows.", "url": "https://reddit.com/r/webdev" },
+      { "platform": "X", "name": "Developer Twitter/X", "description": "The most active developer community for tool discovery — a well-timed demo tweet can reach thousands of relevant developers.", "url": "https://x.com" },
+      { "platform": "IndieHackers", "name": "Indie Hackers — Developer tools", "description": "Bootstrapped developer tool founders sharing revenue, growth, and distribution strategies.", "url": "https://indiehackers.com" },
+      { "platform": "Discord", "name": "Stack-specific Discord servers", "description": "Next.js, Supabase, Vercel, etc. — developer communities where your target users spend time and ask questions.", "url": "https://discord.com" },
+      { "platform": "Reddit", "name": "Stack-specific subreddits", "description": "r/nextjs, r/node, r/python, etc. — where developers in your target stack discuss tools and patterns.", "url": "https://reddit.com" }
+    ],
+    "competitors": [
+      { "name": "GitHub / GitLab", "whatTheyDo": "Version control and CI/CD platforms with extensive tooling ecosystems", "gap": "General-purpose — specific workflow pain points and niche integrations are underserved by platforms that must serve everyone." },
+      { "name": "Vercel / Netlify", "whatTheyDo": "Deployment and hosting platforms for frontend and full-stack applications", "gap": "Focused on deployment — the gap is in development workflow, debugging, and tooling for specific use cases they don't address." },
+      { "name": "Datadog / New Relic", "whatTheyDo": "Enterprise observability and monitoring platforms", "gap": "Enterprise pricing and complexity — individual developers and small teams need lightweight, affordable observability for specific use cases." }
+    ],
+    "validationScore": { "searchDemand": 8, "communityDensity": 9, "competitionIntensity": 7, "overall": 8 },
+    "keywordNote": "Developer tools have unique demand characteristics — developers search for specific technical terms, not general descriptions. Your SEO and discoverability depend entirely on being findable for the exact stack and use case your tool addresses. Strong communities and word-of-mouth within specific tech stacks are more valuable than broad marketing.",
+    "blogLinks": [{ "label": "How to find exact Reddit discussions where your future users are venting", "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where", "context": "r/programming, r/webdev, and stack-specific subreddits are where developers discuss their tool frustrations — find those threads before you build." }]
+  },
+  "B": {
+    "archetype": "developer_tool",
+    "coreFeatures": [
+      { "name": "The core developer experience — the thing that saves time or removes pain", "why": "Developer tools succeed or fail on the quality of the developer experience. The first interaction must be frictionless and produce value in under 5 minutes. If the setup is painful, developers leave and never come back." },
+      { "name": "Clear, accurate documentation", "why": "Documentation is not secondary to the product — for developer tools, it IS the product. Developers evaluate tools by their docs before they write a single line of code." },
+      { "name": "Working example or starter template", "why": "Developers want to see the tool working before they integrate it. A working example that takes 2 minutes to run removes the biggest adoption barrier." }
+    ],
+    "skipFeatures": [
+      { "name": "Dashboard and analytics UI", "why": "Developers prefer CLI and API interfaces. Build the interface developers actually use first — a GUI dashboard is often not that." },
+      { "name": "Multi-language SDKs", "why": "Build one SDK for the language your first users work in. Additional language support is a V2 investment based on demand signals." },
+      { "name": "Enterprise features — SSO, audit logs, SLAs", "why": "These are enterprise sales requirements, not developer needs. Individual developers and small teams will adopt without them. Add when a large customer makes it a requirement." },
+      { "name": "Hosted managed service", "why": "Offer self-hosted first. Developers trust tools they can run themselves. A hosted option is a business model decision you make after validating the core tool." }
+    ],
+    "complexityLevel": "Medium",
+    "complexityExplanation": "Developer tools vary enormously in complexity depending on what they do. A CLI tool or SDK is typically Low-Medium — the engineering is focused and well-scoped. An observability platform or infrastructure tool is High complexity. The documentation and developer experience work often takes as long as the engineering itself.",
+    "techApproach": "Open source from day one if your distribution strategy relies on community adoption — open source developer tools spread through GitHub stars, blog posts, and word of mouth in ways that closed-source tools can't match. Monetise through a hosted version, enterprise support, or premium features.",
+    "commonMistakes": [
+      "Building the tool before writing the README. Write the README first — describe what the tool does, why it exists, and how to use it in 5 minutes. If you can't write this clearly, you don't have a clear enough product vision.",
+      "Underinvesting in documentation. Developers will not use a tool with poor docs, no matter how technically impressive it is. Budget equal time for docs and code.",
+      "Targeting too broad a stack. 'Works with any language' means it's not optimised for any language. Pick the one stack where you have the deepest insight and own it."
+    ],
+    "aiTools": [
+      { "tool": "Cursor", "useCase": "Build the developer tool itself with AI assistance — deeply meta and appropriate", "url": "https://cursor.com" },
+      { "tool": "Mintlify", "useCase": "AI-powered documentation platform — beautiful docs from your codebase with minimal effort", "url": "https://mintlify.com" },
+      { "tool": "GitHub Copilot", "useCase": "Accelerate the SDK and library code that requires high code quality and coverage", "url": "https://github.com/features/copilot" }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "Developer tool waitlists don't work as well as early access through GitHub. Put your repo on GitHub with a clear README and a simple working example. Developers evaluate tools through code, not marketing copy.",
+      "communities": ["Hacker News (Show HN) — the most influential developer community for tool launches", "Developer Twitter/X — a compelling demo or benchmark tweet reaches thousands of relevant developers", "Stack-specific Discord servers — where your exact target developers hang out daily", "r/programming and stack-specific subreddits", "Dev.to and Hashnode — developer blogs where tutorials spread organically"],
+      "activeThreads": [
+        { "community": "r/programming or stack-specific subreddit", "topic": "Threads discussing the pain point your tool solves", "suggestedComment": "We built a tool specifically for this. Open source, MIT license, works in 5 minutes. Happy to get your feedback on whether it actually solves the problem you're describing." },
+        { "community": "Developer Twitter/X", "topic": "Share a compelling demo or benchmark", "suggestedComment": "Just shipped [tool name] — solves [specific problem] for [specific stack]. Took me [X days] to go from idea to working. Demo thread below. GitHub link in bio." },
+        { "community": "Hacker News", "topic": "Show HN launch post", "suggestedComment": "Show HN: [Tool name] — [one sentence description]. Built this because [specific problem I had]. It does [X]. GitHub: [link]. Feedback welcome." },
+        { "community": "Discord stack communities", "topic": "Help threads where your tool would solve the exact problem", "suggestedComment": "I built something specifically for this — [tool name]. Here's a 2-minute setup guide. Would love feedback on whether this is the right abstraction for the problem." },
+        { "community": "IndieHackers", "topic": "Developer tool builder threads", "suggestedComment": "Shipping a developer tool in public. Current challenge: documentation quality vs shipping speed. How do others balance this?" }
+      ],
+      "weekOneChecklist": [
+        "Write the README before writing any code. The README is your product spec — if you can't write it clearly, your product isn't clear yet.",
+        "Build a working example that runs in under 5 minutes from a fresh clone. Test it on a machine that hasn't touched the codebase.",
+        "Create a public GitHub repo with MIT license. A closed-source developer tool with no credibility signals won't get traction.",
+        "Post a Show HN or demo tweet with the working example. Developer tools live on technical credibility — show the code, show it working.",
+        "Get 3 developers outside your network to run through the getting started guide and time how long it takes. Fix every friction point they encounter."
+      ]
+    },
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "Building a developer tool with developer tools — the stack in this guide is directly relevant to your build process." }]
+  },
+  "C": {
+    "archetype": "developer_tool",
+    "specItems": [
+      { "label": "The specific stack and use case", "status": "needs_clarity", "note": "Which language, framework, and use case exactly? 'Works for all developers' is not a spec. The more specific, the better the developer experience you can build." },
+      { "label": "Primary interface — CLI, SDK, API, or GUI", "status": "missing", "note": "This determines your entire architecture. Decide before building. Wrong interface choice means rebuilding from scratch." },
+      { "label": "README written", "status": "missing", "note": "Write the README before writing code. If you haven't done this yet, do it before your first development session." },
+      { "label": "Working example or starter template", "status": "missing", "note": "Defined what the 5-minute getting started experience looks like? This needs to be spec'd before you build — it's your most important onboarding investment." },
+      { "label": "Open source vs closed source", "status": "missing", "note": "For developer tools, open source dramatically accelerates adoption. Closed source requires a very compelling unique value proposition to overcome trust barriers." },
+      { "label": "Monetisation model", "status": "missing", "note": "Open core (free + paid features), hosted service, or enterprise support? Define this before launch — it affects your architecture." }
+    ],
+    "teamFit": "Developer tools are ideal for technical founders building for themselves — you're your own best customer. If you're technical, you may be able to build V1 solo. If not, you need a developer with deep expertise in the specific stack your tool targets — a generalist will build the wrong abstractions.",
+    "roadmap": [
+      { "week": 1, "title": "Core functionality and documentation", "deliverables": ["Core feature working and tested across the target stack", "README written and reviewed by someone who hasn't seen the code", "5-minute getting started guide validated on a fresh machine", "GitHub repo public with MIT license"] },
+      { "week": 2, "title": "Developer experience polish", "deliverables": ["Getting started time reduced to under 3 minutes based on tester feedback", "Error messages are helpful — they tell you what went wrong and how to fix it", "10 developers outside your network have run the getting started guide", "Top 5 friction points from testing addressed"] },
+      { "week": 3, "title": "Distribution and first users", "deliverables": ["Show HN or demo tweet published", "50 GitHub stars (organic)", "First 10 developers using the tool in a real project", "Monetisation mechanism defined and documented — even if not yet implemented"] }
+    ],
+    "questionsToAskAgency": [
+      "Do you have experience building developer-facing tools — SDKs, CLIs, or APIs — not just web apps? Can I see examples?",
+      "How do you approach developer experience design — the getting started flow, error messages, and documentation — is that in scope for you?",
+      "What's your recommendation on open source vs closed source for our specific situation, and why?",
+      "Who owns the code and can continue development independently after the engagement — specifically around the SDK and API contract?",
+      "What's the hardest part of developer tool builds you've seen founders get wrong?"
+    ],
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "Building a developer tool with the latest AI-assisted development stack — directly applicable to your situation." }]
+  }
+}

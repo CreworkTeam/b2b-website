@@ -1,0 +1,350 @@
+{
+  "A": {
+    "archetype": "marketplace",
+    "demandSignals": [
+      {
+        "theme": "how to find reliable freelancers without getting burned",
+        "intent": "problem-aware, burned by past experience",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "platforms to connect local service providers with customers",
+        "intent": "solution-seeking, comparison stage",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "alternatives to Fiverr and Upwork for niche services",
+        "intent": "frustrated with incumbents, open to new solutions",
+        "estimatedVolume": "moderate"
+      },
+      {
+        "theme": "how to hire vetted specialists in specific industries",
+        "intent": "high purchase intent, quality-focused",
+        "estimatedVolume": "moderate"
+      },
+      {
+        "theme": "peer-to-peer rental platforms for underused assets",
+        "intent": "cost-conscious, supply-side motivated",
+        "estimatedVolume": "moderate"
+      }
+    ],
+    "communities": [
+      {
+        "platform": "Reddit",
+        "name": "r/Entrepreneur",
+        "description": "Founders discussing marketplace unit economics, supply/demand bootstrapping, and growth strategies.",
+        "url": "https://reddit.com/r/Entrepreneur"
+      },
+      {
+        "platform": "Reddit",
+        "name": "r/digitalnomad",
+        "description": "Freelancers and remote workers actively looking for platforms and discussing pain points with existing ones.",
+        "url": "https://reddit.com/r/digitalnomad"
+      },
+      {
+        "platform": "IndieHackers",
+        "name": "Indie Hackers — Marketplace category",
+        "description": "Founders who've built and monetised niche marketplaces sharing real revenue numbers and supply-side strategies.",
+        "url": "https://indiehackers.com"
+      },
+      {
+        "platform": "LinkedIn",
+        "name": "Procurement and sourcing professionals",
+        "description": "Buyers who are actively frustrated with current vendor discovery and vetting processes.",
+        "url": "https://linkedin.com"
+      },
+      {
+        "platform": "Facebook",
+        "name": "Niche industry Facebook groups",
+        "description": "Often the organic home of your supply side — where service providers already gather and network.",
+        "url": "https://facebook.com/groups"
+      },
+      {
+        "platform": "Discord",
+        "name": "Creator economy and gig worker communities",
+        "description": "Supply-side users who are vocal about what existing platforms get wrong.",
+        "url": "https://discord.com"
+      }
+    ],
+    "competitors": [
+      {
+        "name": "Fiverr",
+        "whatTheyDo": "Global freelance marketplace for digital services at all price points",
+        "gap": "Raced to the bottom on price — trust and quality signals are weak for buyers who need reliable specialists."
+      },
+      {
+        "name": "Upwork",
+        "whatTheyDo": "Enterprise-facing freelance platform with time tracking and contracts",
+        "gap": "Expensive fees on both sides, complex for simple engagements, and dominated by large agencies rather than individual specialists."
+      },
+      {
+        "name": "Thumbtack",
+        "whatTheyDo": "Local services marketplace for home and professional services",
+        "gap": "Generic across too many verticals — niche buyers don't trust a platform that lists both electricians and wedding photographers."
+      }
+    ],
+    "validationScore": {
+      "searchDemand": 9,
+      "communityDensity": 8,
+      "competitionIntensity": 9,
+      "overall": 9
+    },
+    "keywordNote": "Marketplace problems attract some of the highest search volumes in the startup space — people actively searching for better ways to find and hire specialists signals strong pull demand. Competition is high but niche marketplaces consistently outperform generalist ones on trust metrics.",
+    "blogLinks": [
+      {
+        "label": "How to find exact Reddit discussions where your future users are venting",
+        "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where",
+        "context": "Your supply side is already gathering in communities — this guide shows you how to find the exact threads where they're discussing what they hate about existing platforms."
+      }
+    ]
+  },
+
+  "B": {
+    "archetype": "marketplace",
+    "coreFeatures": [
+      {
+        "name": "Supply-side profile and listing",
+        "why": "The marketplace has no value without quality supply. Profiles need enough signal for buyers to trust — photo, bio, work samples, and at least one verification step."
+      },
+      {
+        "name": "Demand-side search and discovery",
+        "why": "Buyers need to find exactly what they're looking for fast. Filters, categories, and a clear presentation of available supply is your entire value proposition for the demand side."
+      },
+      {
+        "name": "Booking or contact flow",
+        "why": "The transaction or connection is the core loop. Even a simple enquiry form or calendar integration is enough for V1 — you don't need full payment processing on day one."
+      }
+    ],
+    "skipFeatures": [
+      {
+        "name": "Built-in payments and escrow",
+        "why": "Use Stripe Connect or a simple redirect to handle money in V1. Building your own payment escrow is a compliance and engineering rabbit hole. Ship the matching first."
+      },
+      {
+        "name": "Reviews and ratings system",
+        "why": "You have no transactions yet. A reviews system with zero reviews is worse than no reviews system. Add this in V2 when you have real volume."
+      },
+      {
+        "name": "Advanced matching algorithm",
+        "why": "Manual curation and simple category filters work better than ML matching when you have under 500 listings. Algorithms need data — you don't have it yet."
+      },
+      {
+        "name": "Mobile app for supply side",
+        "why": "A responsive web app is enough for V1. Marketplaces succeed on trust and matching quality, not app store presence. That comes later."
+      }
+    ],
+    "complexityLevel": "High",
+    "complexityExplanation": "Marketplaces are genuinely Hard builds because you're building two products simultaneously — one for supply and one for demand — plus the matching layer between them. The engineering complexity is compounded by the cold start problem: you need to solve supply before you can promise demand, and promise demand before supply will sign up. Expect 6–10 weeks for a real V1 with a focused team.",
+    "techApproach": "Resist building a symmetric two-sided platform from day one. Start supply-only: get 20–30 quality listings live manually before you build demand-side search. This lets you validate supply quality and your curation criteria without a full platform. The demand side comes once you have something worth showing buyers.",
+    "commonMistakes": [
+      "Launching with a balanced but thin marketplace — 15 suppliers and 10 buyers means nobody finds value. Pick one side to dominate first, usually supply, and manually curate it before opening demand.",
+      "Building the transaction layer before validating that matches actually happen. If buyers and sellers don't connect on your platform, payments don't matter. Prove the match first.",
+      "Underestimating the trust problem. Marketplaces live and die on trust signals. Spend more time on profile completeness, verification, and social proof than any feature."
+    ],
+    "aiTools": [
+      {
+        "tool": "Bubble",
+        "useCase": "No-code platform ideal for marketplace MVPs — handles profiles, listings, search, and basic matching without backend engineering",
+        "url": "https://bubble.io"
+      },
+      {
+        "tool": "Lovable",
+        "useCase": "Build your frontend UI fast with AI — good for the listing pages and search interface",
+        "url": "https://lovable.dev"
+      },
+      {
+        "tool": "Stripe Connect",
+        "useCase": "Handles the complex multi-party payment routing marketplaces need — don't build this yourself",
+        "url": "https://stripe.com/connect"
+      }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "Run supply and demand waitlists separately. Supply waitlist headline: 'Get your first clients — join as a [provider type].' Demand waitlist headline: 'Find vetted [providers] — join the waitlist.' Different landing pages, different value props, same underlying product.",
+      "communities": [
+        "r/freelance — where your supply side lives and vents about existing platforms",
+        "r/Entrepreneur — demand side who've tried hiring and been disappointed",
+        "Relevant industry-specific Facebook groups — where supply already gathers organically",
+        "LinkedIn groups in your target vertical — where professional buyers spend time",
+        "Product Hunt — register an upcoming page early to build demand-side interest"
+      ],
+      "activeThreads": [
+        {
+          "community": "r/freelance",
+          "topic": "Complaints about Fiverr or Upwork fees and quality",
+          "suggestedComment": "We're building a more curated alternative focused specifically on [your niche]. Would love to have you as one of our founding providers — we're hand-picking the first 50. Interested?"
+        },
+        {
+          "community": "r/Entrepreneur",
+          "topic": "Threads asking for recommendations to find specialist freelancers",
+          "suggestedComment": "This is exactly the gap we're solving. We're in early access — if you're open to trying it, I'd love to get your feedback on whether our supply side meets your quality bar."
+        },
+        {
+          "community": "Facebook groups",
+          "topic": "Industry groups where your supply side already gathers",
+          "suggestedComment": "Hi everyone — I'm building a platform specifically for [your niche] professionals and looking for founding members. No fees for the first 6 months. Would love to chat if you're interested in getting clients this way."
+        },
+        {
+          "community": "LinkedIn",
+          "topic": "Posts from hiring managers frustrated with freelance platform quality",
+          "suggestedComment": "We're building a curated marketplace specifically for this. Would you be open to a 15-minute call? We're designing the vetting criteria right now and your input would genuinely shape what we build."
+        },
+        {
+          "community": "IndieHackers",
+          "topic": "Marketplace founder stories and Show IH posts",
+          "suggestedComment": "Building in a similar space — your supply-side acquisition strategy was really insightful. One question: how did you handle the trust problem before you had any reviews?"
+        }
+      ],
+      "weekOneChecklist": [
+        "Identify 20 potential supply-side providers manually. DM each one personally — not a mass message. Offer founding member status with zero fees for 6 months.",
+        "Set up a simple supply-side landing page explaining the founding member offer. Email input only — no product yet.",
+        "Set up a demand-side landing page separately. Different headline, same email capture.",
+        "Post in the top 2 community groups where your supply side gathers. Be transparent: 'I'm building this, looking for founding providers.'",
+        "Have 5 conversations with potential demand-side users about their current frustrations. Don't pitch — just listen."
+      ]
+    },
+    "blogLinks": [
+      {
+        "label": "The perfect vibe coding stack for building your MVP in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "Marketplaces have a lot of moving parts — this guide shows which AI tools can handle profile pages, search, and listings so you can ship faster without a full engineering team."
+      }
+    ]
+  },
+
+  "C": {
+    "archetype": "marketplace",
+    "specItems": [
+      {
+        "label": "Which side to acquire first — supply or demand",
+        "status": "missing",
+        "note": "Critical decision before you write a line of code. Most successful marketplaces start supply-first. Define this explicitly or your product will try to serve both sides equally and fail both."
+      },
+      {
+        "label": "Minimum viable supply — how many listings before demand launch",
+        "status": "missing",
+        "note": "You need a number. 20? 50? 200? Without a defined threshold, you'll either launch too thin or never launch."
+      },
+      {
+        "label": "Trust and vetting mechanism",
+        "status": "needs_clarity",
+        "note": "What makes a supplier trustworthy on your platform? ID verification, portfolio review, test project, references? Define the minimum bar before building profiles."
+      },
+      {
+        "label": "Transaction model — commission, subscription, or lead fee",
+        "status": "needs_clarity",
+        "note": "This affects your entire product architecture. Commission needs payment infrastructure. Subscription means recurring billing. Lead fee is simpler. Decide before building."
+      },
+      {
+        "label": "Core matching mechanic",
+        "status": "defined",
+        "note": "Search + filter is enough for V1. Do not over-engineer matching before you have real transaction data."
+      },
+      {
+        "label": "Geographic scope",
+        "status": "missing",
+        "note": "Local, national, or global? This fundamentally changes your supply acquisition strategy and trust requirements."
+      }
+    ],
+    "teamFit": "Marketplace MVPs need a full-stack developer comfortable with database-heavy applications and a strong product mind to navigate the two-sided complexity. A solo developer can build it but will struggle with the product decisions simultaneously — a developer plus a product-focused founder is the ideal pair. Budget for 6–10 weeks minimum.",
+    "roadmap": [
+      {
+        "week": 1,
+        "title": "Supply side only",
+        "deliverables": [
+          "Provider profile creation flow — sign up, add bio, upload work samples",
+          "Basic listing page visible at a public URL",
+          "Manual admin approval flow so you control quality from day one",
+          "20 real providers onboarded by end of week — manually if needed"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Demand-side discovery",
+        "deliverables": [
+          "Search and filter interface — category, location, price range minimum",
+          "Individual listing pages with contact or enquiry CTA",
+          "5 real demand-side users have browsed and given feedback",
+          "At least 1 real connection between a buyer and a supplier has happened"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "First transaction loop",
+        "deliverables": [
+          "Booking request or enquiry flow working end to end",
+          "Basic notification system — supplier knows when they get an enquiry",
+          "Simple admin dashboard showing active listings and enquiry volume",
+          "Decision made: what's the monetisation trigger and when do you turn it on"
+        ]
+      }
+    ],
+    "questionsToAskAgency": [
+      "Have you built a two-sided marketplace before? Can I speak to that founder about how you handled the supply/demand sequencing problem?",
+      "How do you handle scope changes mid-project — specifically if we discover the supply-side onboarding needs to change based on early user feedback?",
+      "What's your recommended tech stack for a marketplace at our scale and why — specifically around the matching and transaction layers?",
+      "Who owns the database schema and infrastructure at handover — and what does it cost to make changes independently after the engagement ends?",
+      "What's the one thing marketplace founders get wrong that you always flag at the start of an engagement?"
+    ],
+    "whatToBuildPlan": {
+      "buildDecisions": [
+        {
+          "group": "build_first",
+          "title": "Artist profile + portfolio",
+          "body": "Name, location, style tags, photo gallery of past work. This is why people open the app - it needs to be beautiful and fast."
+        },
+        {
+          "group": "build_first",
+          "title": "Location-based search",
+          "body": "Simple map or list filtered by city or neighbourhood. This is the core unlock - no existing competitor does this well for independents."
+        },
+        {
+          "group": "build_v2",
+          "title": "In-app booking + payments",
+          "body": "Powerful, but complex. Start by sending a WhatsApp or DM booking request. Automate payments once you have 50+ active artists."
+        },
+        {
+          "group": "build_v2",
+          "title": "Reviews and ratings",
+          "body": "Critical for trust long-term, but not needed to get your first 20 artists onboarded. Focus on supply first."
+        },
+        {
+          "group": "skip_for_now",
+          "title": "AI style matching",
+          "body": "A nice-to-have but not a need-to-have at this stage. Nail the basics first."
+        },
+        {
+          "group": "skip_for_now",
+          "title": "Subscription tiers for artists",
+          "body": "Monetise through commission per booking first. Pricing tiers add friction before you have proven core value."
+        }
+      ],
+      "northStarMetric": {
+        "metric": "Bookings completed per artist per month",
+        "explanation": "If each artist on your platform is getting more than 5 bookings per month through your app, you have a product worth building. Below 5, your discovery or trust layer is not working yet.",
+        "target": "Target: 5+ bookings/artist/month",
+        "trackingNote": "Track from day 1"
+      },
+      "unitEconomics": {
+        "title": "How many bookings you need at different commission rates",
+        "description": "Based on average appointment value of 50. At 10% commission, 200 bookings = 1k MRR.",
+        "points": [
+          { "commissionLabel": "5% commission", "bookingsToTarget": 400, "artistsNeeded": 40 },
+          { "commissionLabel": "10% commission", "bookingsToTarget": 200, "artistsNeeded": 20 },
+          { "commissionLabel": "15% commission", "bookingsToTarget": 133, "artistsNeeded": 14 },
+          { "commissionLabel": "20% commission", "bookingsToTarget": 100, "artistsNeeded": 10 }
+        ]
+      },
+      "riskCallout": {
+        "title": "Your biggest risk isn't building the wrong product.",
+        "body": "It's the classic two-sided marketplace cold start: artists won't join without customers, and customers won't come without artists. Solve supply first."
+      }
+    },
+    "blogLinks": [
+      {
+        "label": "The perfect vibe coding stack for building your MVP in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "Before committing full dev budget, see how far you can get with no-code and AI tools on the supply-side profile and listing flow."
+      }
+    ]
+  }
+}

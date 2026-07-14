@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 3.9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 32.2%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 3.9%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 9%;
+    --radius: 0.25rem;
+
+    --font-geist-sans: 'Inter', sans-serif;
+    --font-geist-mono: 'DM Mono', monospace;
+    --font-instrument: 'Instrument Serif', serif;
+    --font-manrope: 'Manrope', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Scrollbar styling for FounderOS */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #fafafa; }
+::-webkit-scrollbar-thumb { background: #d4d4d4; border-radius: 2px; }
+::selection { background: #0a0a0a; color: #ffffff; }
+
+/* Section fade-in animation */
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.section-animate {
+  animation: sectionFadeIn 300ms ease-out both;
+}
+
+/* Pulse dot for classifier */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.pulse-dot {
+  animation: pulseDot 1s ease-in-out infinite;
+}
+
+/* Strikethrough draw animation */
+@keyframes strikeGrow {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+.strike-line {
+  animation: strikeGrow 400ms ease-out forwards;
+}
+
+/* Community signal feed scroll */
+@keyframes feedScroll {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+.feed-scroll {
+  animation: feedScroll 28s linear infinite;
+}
+.feed-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Hero blueprint card — painted arrow */
+@keyframes arrowFlowDown {
+  to { stroke-dashoffset: -14; }
+}
+@keyframes arrowBob {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(3px); }
+}
+.arrow-flow { animation: arrowFlowDown 0.55s linear infinite; }
+.arrow-bob  { animation: arrowBob 1.4s ease-in-out infinite; }
