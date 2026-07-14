@@ -26,6 +26,10 @@ export function ReportPage() {
   const [downloadLoading, setDownloadLoading] = useState(false)
   const [downloadSuccess, setDownloadSuccess] = useState(false)
   const [downloadError, setDownloadError] = useState('')
+  const [newsArticles, setNewsArticles] = useState<{ title: string, source: string, url: string }[]>([])
+  const [newsLoading, setNewsLoading] = useState(false)
+  const [socialPosts, setSocialPosts] = useState<any[]>([])
+  const [socialLoading, setSocialLoading] = useState(false)
 
   const {
     sessionId,
@@ -50,6 +54,8 @@ export function ReportPage() {
   const routeAKeyRef = useRef<string | null>(null)
   const routeBKeyRef = useRef<string | null>(null)
   const routeCKeyRef = useRef<string | null>(null)
+  const newsKeyRef = useRef<string | null>(null)
+  const socialKeyRef = useRef<string | null>(null)
 
   const activeArchetype = archetype
   const reportA = reports.A
@@ -61,15 +67,11 @@ export function ReportPage() {
     [activeArchetype, quiz.q1, quiz.q2, quiz.q3, quiz.q4]
   )
 
-  const generatedPosts = useMemo(() => {
-    if (!reportB?.marketingPlan?.activeThreads?.length) return []
-    return reportB.marketingPlan.activeThreads.slice(0, 8).map(toFeedPost)
-  }, [reportB])
-
   const filteredPosts = useMemo(() => {
-    if (platform === 'all') return generatedPosts
-    return generatedPosts.filter((post) => post.platform === platform)
-  }, [platform, generatedPosts])
+    if (!socialPosts) return []
+    if (platform === 'all') return socialPosts
+    return socialPosts.filter((p) => p.platform === platform)
+  }, [socialPosts, platform])
 
   useEffect(() => {
     let cancelled = false
@@ -106,6 +108,53 @@ export function ReportPage() {
       cancelled = true
     }
   }, [reportA, quiz, activeArchetype, requestKey, setReport])
+
+  useEffect(() => {
+    let cancelled = false
+    async function loadNews() {
+      if (!activeArchetype) return
+      if (!reportA) return // Wait for reportA to get the keywords
+      if (newsKeyRef.current === requestKey && newsArticles.length > 0) return
+      
+      setNewsLoading(true)
+      try {
+        const keywords = reportA.demandSignals?.map(s => s.theme) || []
+        const { articles } = await api.getNews(quiz.q2 || 'startup idea', keywords)
+        if (!cancelled) {
+          setNewsArticles(articles)
+          newsKeyRef.current = requestKey
+        }
+      } catch (err) {
+        console.error('Failed to load news:', err)
+      } finally {
+        if (!cancelled) setNewsLoading(false)
+      }
+    }
+    loadNews()
+
+    async function loadSocial() {
+      if (!activeArchetype) return
+      if (!reportA) return
+      if (socialKeyRef.current === requestKey && socialPosts.length > 0) return
+      
+      setSocialLoading(true)
+      try {
+        const keywords = reportA.demandSignals?.map(s => s.theme) || []
+        const { posts } = await api.getSocialPosts(quiz.q2 || 'startup idea', keywords)
+        if (!cancelled) {
+          setSocialPosts(posts)
+          socialKeyRef.current = requestKey
+        }
+      } catch (err) {
+        console.error('Failed to load social posts:', err)
+      } finally {
+        if (!cancelled) setSocialLoading(false)
+      }
+    }
+    loadSocial()
+    
+    return () => { cancelled = true }
+  }, [activeArchetype, requestKey, quiz.q2, newsArticles.length, socialPosts.length, reportA])
 
   useEffect(() => {
     let cancelled = false
@@ -180,7 +229,11 @@ export function ReportPage() {
         setLeadTag(leadTag)
         persistToStorage()
       }
-      await api.sendReport({ email: emailToUse, sessionId })
+      await api.sendReport({
+        email: emailToUse,
+        sessionId,
+        reports: { A: reportA, B: reportB, C: reportC }
+      })
       setDownloadSuccess(true)
     } catch (err) {
       console.error(err)
@@ -456,6 +509,10 @@ export function ReportPage() {
                 downloadSuccess={downloadSuccess}
                 downloadError={downloadError}
                 onDownloadReport={handleDownloadReport}
+                newsArticles={newsArticles}
+                newsLoading={newsLoading}
+                socialLoading={socialLoading}
+                disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
               />
             )}
 
@@ -471,6 +528,8 @@ export function ReportPage() {
                 <ScopeSection
                   reportB={reportB}
                   gateUnlocked={gateUnlocked}
+                  socialPosts={socialPosts}
+                  socialLoading={socialLoading}
                   onContinuePlan={() => setSection('plan')}
                   onBackValidate={() => setSection('validate')}
                 />
@@ -497,6 +556,7 @@ export function ReportPage() {
                   downloadSuccess={downloadSuccess}
                   downloadError={downloadError}
                   onDownloadReport={handleDownloadReport}
+                  disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
                 />
               </>
             )}

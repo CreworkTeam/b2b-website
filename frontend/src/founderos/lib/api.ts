@@ -55,10 +55,18 @@ export const api = {
     )
   },
 
-  sendReport(body: { email: string; sessionId: string }) {
-    return post<{ email: string; sessionId: string }, { success: boolean }>(
+  sendReport(body: { email: string; sessionId: string; reports: any }) {
+    return post<{ email: string; sessionId: string; reports: any }, { success: boolean }>(
       '/api/send-report',
       body
     )
+  },
+
+  getNews(idea: string, keywords?: string[]) {
+    return post<{ idea: string; keywords?: string[] }, { articles: Array<{ title: string, source: string, url: string }> }>('/api/news', { idea, keywords })
+  },
+
+  getSocialPosts(idea: string, keywords?: string[]) {
+    return post<{ idea: string; keywords?: string[] }, { posts: any[] }>('/api/social', { idea, keywords })
   },
 }

@@ -1,0 +1,46 @@
+/* Hamburger button — hidden on desktop */
+.landing-hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #020617;
+  padding: 4px;
+}
+
+/* Mobile menu — hidden on desktop */
+.landing-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Show hamburger */
+  .landing-hamburger-btn {
+    display: block;
+  }
+
+  /* Allow container to wrap the mobile-menu below */
+  .landing-header-container {
+    flex-wrap: wrap;
+  }
+
+  /* Mobile menu: full-width collapsible panel */
+  .landing-mobile-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    padding: 0;
+    border-top: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+  .landing-mobile-menu.open {
+    max-height: 400px;
+    padding: 16px 0 8px;
+    border-top: 1px solid #E7E2D7;
+  }
+}
