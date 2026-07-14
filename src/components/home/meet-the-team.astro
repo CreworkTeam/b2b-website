@@ -62,7 +62,7 @@ const teamMembers = [
     </div>
 
     <div class="relative">
-      <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-[height] duration-300 ease-in-out overflow-hidden" style="height: 800px;">
+      <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {teamMembers.map((member) => (
           <div class="team-member bg-[#fcfbfb] rounded-2xl px-4 py-8  shadow-md border-grey-200 border hover:shadow-lg transition-shadow">
             <div class="mb-4">
@@ -108,44 +108,7 @@ const teamMembers = [
         ))}
       </div>
 
-      <div id="gradient-overlay" class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
-    </div>
-
-    <div class="text-center mt-8">
-      <button id="toggleButton" class="btn bg-primary text-white px-5 py-2 rounded-xl hover:bg-primary/90 transition-colors">
-        More
-      </button>
     </div>
   </div>
 </Section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const teamGrid = document.getElementById('team-grid');
-    const toggleButton = document.getElementById('toggleButton');
-    const gradientOverlay = document.getElementById('gradient-overlay');
-    
-    let isExpanded = false;
-
-    toggleButton?.addEventListener('click', () => {
-      isExpanded = !isExpanded;
-      
-      if (teamGrid) {
-        teamGrid.style.height = isExpanded ? `${teamGrid.scrollHeight}px` : '800px';
-      }
-      if (gradientOverlay) {
-        gradientOverlay.style.opacity = isExpanded ? '0' : '1';
-      }
-      if (toggleButton) {
-        toggleButton.textContent = isExpanded ? 'Show Less' : 'More';
-        gradientOverlay.style.display = isExpanded ? 'none' : 'block';
-      }
-    });
-  });
-</script>
-
-<style>
-  #gradient-overlay {
-    transition: opacity 0.3s ease-in-out;
-  }
-</style>
+
