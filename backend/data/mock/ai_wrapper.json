@@ -1,0 +1,296 @@
+{
+  "A": {
+    "archetype": "ai_wrapper",
+    "demandSignals": [
+      {
+        "theme": "AI tools to automate repetitive writing and content tasks",
+        "intent": "actively evaluating, budget available",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "ChatGPT alternatives built for specific workflows",
+        "intent": "solution-aware, wants something more specialised",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "AI tools that integrate with existing business software",
+        "intent": "practical, integration-focused buyer",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "how to use AI to save time on specific professional tasks",
+        "intent": "learning-oriented, high intent to adopt tools",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "AI tools with better prompt control than generic chatbots",
+        "intent": "power user, frustrated with one-size-fits-all AI",
+        "estimatedVolume": "moderate"
+      }
+    ],
+    "communities": [
+      {
+        "platform": "Reddit",
+        "name": "r/artificial",
+        "description": "Broad AI community where power users share new tools and discuss practical use cases.",
+        "url": "https://reddit.com/r/artificial"
+      },
+      {
+        "platform": "Reddit",
+        "name": "r/ChatGPT",
+        "description": "Millions of users discussing prompts, use cases, and limitations — a direct window into what people wish AI could do better.",
+        "url": "https://reddit.com/r/ChatGPT"
+      },
+      {
+        "platform": "X",
+        "name": "AI Twitter / X",
+        "description": "The most active community for AI tool discovery and early adoption — builders and buyers share new tools here daily.",
+        "url": "https://x.com"
+      },
+      {
+        "platform": "IndieHackers",
+        "name": "Indie Hackers — AI Tools",
+        "description": "Bootstrapped founders building and monetising AI tools sharing what works in 2025.",
+        "url": "https://indiehackers.com"
+      },
+      {
+        "platform": "Slack",
+        "name": "AI-focused professional Slack communities",
+        "description": "Industry-specific Slack groups where professionals discuss AI adoption in their workflows.",
+        "url": "https://slack.com"
+      },
+      {
+        "platform": "Discord",
+        "name": "AI builders Discord servers",
+        "description": "Technical early adopters who test and share new AI tools — your best source of early beta testers.",
+        "url": "https://discord.com"
+      }
+    ],
+    "competitors": [
+      {
+        "name": "ChatGPT",
+        "whatTheyDo": "General-purpose AI assistant for any task",
+        "gap": "Too generic — users have to engineer prompts themselves for specialised workflows. No memory, no context, no domain-specific output format."
+      },
+      {
+        "name": "Jasper / Copy.ai",
+        "whatTheyDo": "AI writing tools for marketing and content teams",
+        "gap": "Locked into marketing use cases — teams in other domains (legal, finance, ops) have no equivalent specialised tool."
+      },
+      {
+        "name": "Zapier AI",
+        "whatTheyDo": "AI-powered workflow automation on top of existing app integrations",
+        "gap": "Automation-focused, not quality-focused — output needs heavy editing and lacks domain context."
+      }
+    ],
+    "validationScore": {
+      "searchDemand": 10,
+      "communityDensity": 10,
+      "competitionIntensity": 9,
+      "overall": 10
+    },
+    "keywordNote": "AI tool demand is at an all-time high and still accelerating. The opportunity is not in building another general-purpose AI tool — it's in radical specialisation for a specific workflow or user type. The founders winning in this space in 2025 are those who go a mile deep on one use case rather than an inch deep on many.",
+    "blogLinks": [
+      {
+        "label": "How to find exact Reddit discussions where your future users are venting",
+        "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where",
+        "context": "r/ChatGPT and r/artificial are full of people describing exactly what they wish AI could do — this guide shows you how to find those threads and turn them into product insights."
+      }
+    ]
+  },
+
+  "B": {
+    "archetype": "ai_wrapper",
+    "coreFeatures": [
+      {
+        "name": "Specialised input interface for the target workflow",
+        "why": "The difference between your tool and ChatGPT is that users don't have to think about prompting. A structured input form, guided fields, or domain-specific context capture is your entire moat."
+      },
+      {
+        "name": "Consistent, formatted output",
+        "why": "Generic AI output is a wall of text. Your value is delivering the output in the exact format the user needs — a structured document, a filled template, a ready-to-use asset."
+      },
+      {
+        "name": "Output history and regeneration",
+        "why": "Users need to revisit and iterate on outputs. Without history, every session starts from zero and the tool feels disposable rather than essential."
+      }
+    ],
+    "skipFeatures": [
+      {
+        "name": "Fine-tuned custom models",
+        "why": "GPT-4o and Claude with good system prompts will outperform a fine-tuned smaller model for almost every use case at V1 scale. Fine-tuning is expensive and slow."
+      },
+      {
+        "name": "Multi-model switching",
+        "why": "Pick the best model for your use case and commit to it. Model selection UI adds complexity and confuses non-technical users."
+      },
+      {
+        "name": "API access for developers",
+        "why": "Build for your primary user first. Developer API access is a V2 feature once you've validated the core product."
+      },
+      {
+        "name": "Team collaboration features",
+        "why": "Start with individual users. Collaboration adds auth complexity and sharing mechanics you don't need until you have single-user retention."
+      }
+    ],
+    "complexityLevel": "Low",
+    "complexityExplanation": "AI wrapper products are technically Low complexity — you're calling an existing API and formatting the output. The complexity is entirely in the prompt engineering and UX. A focused developer can get a working V1 live in 1–2 weeks. The real work is in making the output reliably good, which is a prompt and product problem, not an engineering problem.",
+    "techApproach": "Next.js with OpenAI or Anthropic API calls from server-side routes. No complex infrastructure needed. Use streaming responses for longer outputs so users see results appearing in real time rather than waiting. Store outputs in a simple database — Supabase or PlanetScale is more than enough.",
+    "commonMistakes": [
+      "Treating prompt engineering as an afterthought. Your prompt is your product. A bad prompt produces generic output that users won't pay for. Spend the first week on prompt quality, not UI.",
+      "Building a horizontal tool that does everything for everyone. AI wrappers that win are radically specific — 'AI for writing cold emails to enterprise procurement teams' beats 'AI for writing emails'.",
+      "Underestimating API costs at scale. Model your unit economics before launch — cost per generation, expected usage per user, and break-even price point. Many AI wrappers are unprofitable at consumer pricing."
+    ],
+    "aiTools": [
+      {
+        "tool": "Cursor",
+        "useCase": "Build the product itself using AI — deeply appropriate for an AI tool to be built with AI assistance",
+        "url": "https://cursor.com"
+      },
+      {
+        "tool": "Lovable",
+        "useCase": "Build the frontend interface fast — the UI for input and output display can be generated quickly",
+        "url": "https://lovable.dev"
+      },
+      {
+        "tool": "LangChain / Vercel AI SDK",
+        "useCase": "Handles streaming, conversation memory, and chaining — saves building the AI plumbing from scratch",
+        "url": "https://sdk.vercel.ai"
+      }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "Your waitlist page should show a before/after. Left side: the painful manual process. Right side: your tool's output. No explanation needed — the comparison sells itself. Capture email with 'Get early access' — not 'join waitlist'.",
+      "communities": [
+        "r/ChatGPT — 4M+ members constantly discussing what AI can't do yet — your opportunity is in those gaps",
+        "AI Twitter/X — post a before/after demo and tag relevant AI influencers",
+        "Product Hunt — AI tools get strong launch day traffic, register an upcoming page now",
+        "Relevant professional communities for your target user — lawyers, marketers, recruiters, etc.",
+        "IndieHackers — document your build in public, the community rewards transparency"
+      ],
+      "activeThreads": [
+        {
+          "community": "r/ChatGPT",
+          "topic": "Threads asking how to use AI for your specific use case",
+          "suggestedComment": "I've been building a tool specifically for this — it handles the prompting for you and formats the output as [specific format]. Currently in beta. DM if you'd like early access."
+        },
+        {
+          "community": "X / Twitter",
+          "topic": "Tweets from your target users about doing your use case manually",
+          "suggestedComment": "We built a tool for exactly this. 30-second demo in the thread below — would love your honest take on whether this solves the problem."
+        },
+        {
+          "community": "Product Hunt",
+          "topic": "Comments on competing AI tools",
+          "suggestedComment": "We took a different approach — we focused specifically on [your niche] rather than general use. Would love your feedback on whether that specialisation matters to you."
+        },
+        {
+          "community": "IndieHackers",
+          "topic": "Show IH posts for AI tools",
+          "suggestedComment": "Just launched our first AI tool for [use case]. Interesting finding: prompt engineering took 3x longer than the actual product build. Anyone else experience this?"
+        },
+        {
+          "community": "LinkedIn",
+          "topic": "Posts from professionals in your target industry about time-consuming tasks",
+          "suggestedComment": "We just built an AI tool that reduces this from [X hours] to [X minutes]. Would you be open to a 10-minute trial in exchange for honest feedback?"
+        }
+      ],
+      "weekOneChecklist": [
+        "Build a working demo of your core output using just a well-crafted ChatGPT prompt. Share it with 5 people in your target audience and ask if the output is useful.",
+        "Post a before/after demo on X/Twitter — the manual process vs your tool's output. No product link needed yet.",
+        "Set up a waitlist page with a screen recording of the tool in action.",
+        "Find the top 3 Reddit threads where people are doing your use case manually. Bookmark them for outreach when you launch.",
+        "Calculate your unit economics: API cost per generation × expected monthly usage per user = your minimum viable price point."
+      ]
+    },
+    "blogLinks": [
+      {
+        "label": "The perfect vibe coding stack for building your MVP in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "AI wrappers are among the fastest products to build with the right stack — this guide covers the exact tools to go from idea to deployed product in days."
+      }
+    ]
+  },
+
+  "C": {
+    "archetype": "ai_wrapper",
+    "specItems": [
+      {
+        "label": "The specific use case and user type",
+        "status": "needs_clarity",
+        "note": "Who specifically uses this, for what exact task? 'Marketers writing blog posts' is a user and task. 'People who write' is not. The more specific, the better your prompt and the stronger your positioning."
+      },
+      {
+        "label": "Input format — what does the user provide?",
+        "status": "missing",
+        "note": "Free text? Structured fields? File upload? Dropdown selections? This is the core UX decision and it determines your prompt architecture."
+      },
+      {
+        "label": "Output format — what exactly does the user receive?",
+        "status": "missing",
+        "note": "Define the exact output format before writing a prompt. A structured document? A filled template? Bullet points? The output format is your product's core value."
+      },
+      {
+        "label": "Model selection",
+        "status": "needs_clarity",
+        "note": "GPT-4o for quality-critical outputs. GPT-3.5 or Claude Haiku for speed and cost. Define this based on your output quality requirements and unit economics."
+      },
+      {
+        "label": "Output history storage",
+        "status": "missing",
+        "note": "Do you store outputs? For how long? Users expect to find their previous generations. Define the data retention model before building."
+      },
+      {
+        "label": "Monetisation — per generation or subscription",
+        "status": "missing",
+        "note": "Per-generation pricing is simpler to implement but psychologically creates friction at every use. Subscription aligns better with daily-use tools. Decide before launch."
+      }
+    ],
+    "teamFit": "AI wrapper products are the most solo-founder-friendly category — a single developer with strong prompt engineering skills can build and launch in 2 weeks. If you're non-technical, a frontend developer familiar with API integrations is all you need. No ML expertise required.",
+    "roadmap": [
+      {
+        "week": 1,
+        "title": "Prompt engineering and core output",
+        "deliverables": [
+          "System prompt producing consistently high-quality output for 20 test inputs",
+          "Basic input interface — even a simple form is enough",
+          "Output displayed clearly with copy/download option",
+          "10 real users have tested the output and given quality feedback"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Product polish and history",
+        "deliverables": [
+          "Output history — users can see and revisit previous generations",
+          "Regenerate button — users can get a different output for the same input",
+          "Auth — email sign-in minimum so outputs are tied to a user",
+          "Unit economics validated — cost per generation is sustainable at your target price"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Monetisation and launch",
+        "deliverables": [
+          "Paywall implemented — free tier with limit, paid tier for unlimited",
+          "Stripe billing live",
+          "Product Hunt launch page ready",
+          "First paying customer acquired — even one validates the model"
+        ]
+      }
+    ],
+    "questionsToAskAgency": [
+      "Have you built AI-powered products before — specifically ones that use LLM APIs with structured output? Can I see examples?",
+      "How do you handle prompt engineering — is that considered product work or engineering work, and who owns it in your process?",
+      "What's your approach to managing API costs during development and testing — how do you prevent runaway spend before launch?",
+      "How do you handle output quality testing — do you have a process for evaluating prompt quality across diverse inputs?",
+      "AI APIs change rapidly — how do you handle model updates or API changes after the engagement ends?"
+    ],
+    "blogLinks": [
+      {
+        "label": "The perfect vibe coding stack for building your MVP in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "AI wrappers are genuinely buildable by a solo founder with the right stack — this guide is directly applicable to your situation."
+      }
+    ]
+  }
+}

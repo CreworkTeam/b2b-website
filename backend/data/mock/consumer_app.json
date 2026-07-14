@@ -1,0 +1,296 @@
+{
+  "A": {
+    "archetype": "consumer_app",
+    "demandSignals": [
+      {
+        "theme": "apps to build better daily habits without breaking streaks",
+        "intent": "problem-aware, has tried and failed with existing apps",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "simple personal finance tracker that doesn't require a spreadsheet",
+        "intent": "pain-point driven, frustrated with complexity",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "social accountability apps for fitness and wellness goals",
+        "intent": "solution-seeking, motivated by social dynamics",
+        "estimatedVolume": "moderate"
+      },
+      {
+        "theme": "mindfulness apps that aren't Headspace or Calm alternatives",
+        "intent": "aware of existing solutions, wants something different",
+        "estimatedVolume": "moderate"
+      },
+      {
+        "theme": "apps that make boring tasks feel like a game",
+        "intent": "curiosity-driven, open to new approaches",
+        "estimatedVolume": "moderate"
+      }
+    ],
+    "communities": [
+      {
+        "platform": "Reddit",
+        "name": "r/selfimprovement",
+        "description": "2M+ members actively discussing habits, tools, and personal growth. Constantly sharing what apps work and what don't.",
+        "url": "https://reddit.com/r/selfimprovement"
+      },
+      {
+        "platform": "Reddit",
+        "name": "r/apps",
+        "description": "App recommendations and reviews from power users — great for understanding what consumers actually want from mobile experiences.",
+        "url": "https://reddit.com/r/apps"
+      },
+      {
+        "platform": "X",
+        "name": "Personal development Twitter/X",
+        "description": "Builders and early adopters who share and discuss productivity and wellness apps daily.",
+        "url": "https://x.com"
+      },
+      {
+        "platform": "Reddit",
+        "name": "r/nosurf / r/digitalminimalism",
+        "description": "Users actively seeking alternatives to addictive app patterns — open to well-designed consumer apps with intentional UX.",
+        "url": "https://reddit.com/r/nosurf"
+      },
+      {
+        "platform": "IndieHackers",
+        "name": "Indie Hackers — Consumer apps",
+        "description": "Founders sharing what works for consumer app growth, retention, and monetisation without VC backing.",
+        "url": "https://indiehackers.com"
+      },
+      {
+        "platform": "Discord",
+        "name": "Buildspace community",
+        "description": "Early adopters who love trying new consumer apps and giving candid feedback.",
+        "url": "https://buildspace.so"
+      }
+    ],
+    "competitors": [
+      {
+        "name": "Duolingo",
+        "whatTheyDo": "Gamified language learning with streaks and social features",
+        "gap": "Gamification works for language but feels forced in other domains — users want intrinsic motivation, not just streaks."
+      },
+      {
+        "name": "Habitica",
+        "whatTheyDo": "RPG-style habit tracker where your habits affect your game character",
+        "gap": "The gaming layer is too complex for casual users — the setup cost is too high for people who just want a simple daily check-in."
+      },
+      {
+        "name": "Notion / Apple Notes",
+        "whatTheyDo": "General-purpose tools people hack into habit or personal tracking systems",
+        "gap": "No motivation layer, no accountability, and too much setup friction for consumer use cases."
+      }
+    ],
+    "validationScore": {
+      "searchDemand": 9,
+      "communityDensity": 9,
+      "competitionIntensity": 8,
+      "overall": 9
+    },
+    "keywordNote": "Consumer app problem spaces — especially around habits, wellness, and personal productivity — attract enormous search volumes globally. The challenge is not demand; it's differentiation and retention. The most successful consumer apps in 2025 win on emotional resonance, not features.",
+    "blogLinks": [
+      {
+        "label": "How to find exact Reddit discussions where your future users are venting",
+        "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where",
+        "context": "r/selfimprovement and r/apps are goldmines — this guide shows you how to find the specific threads where your exact user type is discussing what they hate about current solutions."
+      }
+    ]
+  },
+
+  "B": {
+    "archetype": "consumer_app",
+    "coreFeatures": [
+      {
+        "name": "The core daily action",
+        "why": "Whatever your app is — the one thing the user does every day. It must be completable in under 60 seconds or retention collapses. This is your entire product in V1."
+      },
+      {
+        "name": "Progress visibility",
+        "why": "Users need to see that something is accumulating — a streak, a score, a visualisation. Without visible progress, there's no reason to return tomorrow."
+      },
+      {
+        "name": "Frictionless onboarding",
+        "why": "Consumer apps live and die on first-session experience. A user who doesn't complete their first action in the first 2 minutes will never come back. Onboarding is your most important engineering investment."
+      }
+    ],
+    "skipFeatures": [
+      {
+        "name": "Social features and friend graphs",
+        "why": "Social features need scale to be valuable. With under 1,000 users, a social feed is empty and demoralising. Add this in V2 when you have density."
+      },
+      {
+        "name": "Push notification system",
+        "why": "Notifications require careful tuning to not feel spammy. Build the core daily habit first — if users aren't coming back without notifications, notifications won't save you."
+      },
+      {
+        "name": "Subscription paywall",
+        "why": "Monetise after you have retention. Charging before you've proven the app creates daily value is the fastest way to kill growth."
+      },
+      {
+        "name": "Apple Watch or widget support",
+        "why": "Extensions are a retention feature, not an acquisition feature. Build the main app experience first."
+      }
+    ],
+    "complexityLevel": "Medium",
+    "complexityExplanation": "Consumer apps are technically Medium complexity but high design and UX complexity. The engineering is relatively simple — local storage, basic auth, a database. The hard part is the feel: animations, micro-interactions, and the emotional response of completing the core action. Budget more time for design and UX testing than you think you need.",
+    "techApproach": "Start mobile-first on web (PWA) rather than building a native app — you can test on real devices, share a URL for beta testing, and iterate without App Store review cycles. Convert to native only after you've validated retention on web. This saves 4–6 weeks of V1 build time.",
+    "commonMistakes": [
+      "Over-investing in features before validating that the core daily action feels good. If the main interaction isn't delightful, nothing else matters.",
+      "Building for power users first. Consumer apps succeed with the 80% who want the simple version, not the 20% who want configuration options.",
+      "Ignoring day-7 retention as the primary metric. Downloads are vanity. If 80% of users are gone by day 7, you don't have a product yet."
+    ],
+    "aiTools": [
+      {
+        "tool": "Lovable",
+        "useCase": "Build polished consumer app UI fast from a prompt — handles the visual design layer that consumer apps live and die on",
+        "url": "https://lovable.dev"
+      },
+      {
+        "tool": "Cursor",
+        "useCase": "AI-assisted coding for the logic layer — animations, state management, and the interaction details that make consumer apps feel alive",
+        "url": "https://cursor.com"
+      },
+      {
+        "tool": "Framer",
+        "useCase": "Prototype and test the core interaction before committing to code — crucial for consumer apps where feel matters as much as function",
+        "url": "https://framer.com"
+      }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "Your waitlist page needs to show the product feeling, not just describe it. Use a short screen recording or animated mockup of the core interaction. The headline should describe the transformation — what the user becomes after using your app — not what the app does.",
+      "communities": [
+        "r/selfimprovement — 2M+ members actively looking for tools that help them",
+        "r/apps — early adopters who love trying new consumer apps",
+        "ProductHunt — register an upcoming page early, the community is pre-disposed to trying new apps",
+        "Twitter/X under relevant hashtags — the consumer app early adopter audience lives here",
+        "TikTok / Instagram if your app is visual — short demos of the core interaction can go viral"
+      ],
+      "activeThreads": [
+        {
+          "community": "r/selfimprovement",
+          "topic": "Threads asking for app recommendations in your problem space",
+          "suggestedComment": "I've been building something that tackles exactly this — [one sentence on your approach]. It's in early access and I'd love 5 beta testers who are serious about this. DM me if interested."
+        },
+        {
+          "community": "r/apps",
+          "topic": "What's missing from current apps in your category",
+          "suggestedComment": "This is the exact gap we're trying to close. We're in closed beta — would genuinely value your feedback as someone who's thought about this carefully."
+        },
+        {
+          "community": "ProductHunt",
+          "topic": "Upcoming product discussions",
+          "suggestedComment": "Just added our upcoming page — would love early feedback on the core concept. Does the problem statement resonate with you?"
+        },
+        {
+          "community": "X / Twitter",
+          "topic": "Tweets from your target audience about the problem",
+          "suggestedComment": "Building something for exactly this. 14-day beta opens next week — reply or DM if you want in. Honest feedback only, no fluff."
+        },
+        {
+          "community": "IndieHackers",
+          "topic": "Show IH and milestone posts in your category",
+          "suggestedComment": "Working on something similar — your retention numbers are fascinating. How did you get past the day-3 cliff? That's the wall we're trying to solve for."
+        }
+      ],
+      "weekOneChecklist": [
+        "Record a 30-second screen capture of your core interaction prototype. Share it in 2 communities and ask: 'Would you use this daily?'",
+        "Set up a waitlist page with an animated demo or mockup — not just text.",
+        "Identify 20 people on Twitter/X who regularly tweet about your problem space. Follow and genuinely engage with their content.",
+        "Post your concept in r/selfimprovement or your relevant community asking for feedback on the problem, not the product.",
+        "Define your day-7 retention target before you write a line of code. This is your north star metric."
+      ]
+    },
+    "blogLinks": [
+      {
+        "label": "The perfect vibe coding stack for building your MVP in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "Consumer apps need polished UI fast — this stack lets you build something that looks and feels real without a design team."
+      }
+    ]
+  },
+
+  "C": {
+    "archetype": "consumer_app",
+    "specItems": [
+      {
+        "label": "The single core daily action",
+        "status": "needs_clarity",
+        "note": "Define the one thing a user does every day in your app. It should be completable in under 60 seconds. If you can't describe it in one sentence, it's not defined yet."
+      },
+      {
+        "label": "Day-7 retention target",
+        "status": "missing",
+        "note": "Consumer apps need a retention metric before launch. Industry average is 10–20% day-7 retention. Define what success looks like before you build."
+      },
+      {
+        "label": "Onboarding flow — first 2 minutes",
+        "status": "needs_clarity",
+        "note": "Map out exactly what a new user does in their first 120 seconds. Every extra step costs you users. This needs to be designed before it's built."
+      },
+      {
+        "label": "Progress mechanism",
+        "status": "defined",
+        "note": "Good. Make sure the progress visualisation updates in real time after the core action — instant feedback is what drives the dopamine loop."
+      },
+      {
+        "label": "Monetisation model",
+        "status": "missing",
+        "note": "Free forever, freemium, or subscription? Consumer app monetisation is hard — define your model even if you don't implement it in V1."
+      },
+      {
+        "label": "Platform — native app or PWA",
+        "status": "missing",
+        "note": "This is a 4–6 week decision. PWA first is strongly recommended for V1. Define this before development starts."
+      }
+    ],
+    "teamFit": "Consumer apps are design-first products. You need a developer who cares deeply about interaction quality and animation — a purely backend-focused engineer will produce something functional but lifeless. A developer with strong UI sensibility, or a developer plus a UI/UX designer working closely together, is the right team. Budget 4–6 weeks for V1.",
+    "roadmap": [
+      {
+        "week": 1,
+        "title": "Core interaction and onboarding",
+        "deliverables": [
+          "The core daily action works end to end — responsive, fast, with basic animation",
+          "Onboarding flow completable in under 2 minutes by a stranger",
+          "Basic auth (email or Google sign-in)",
+          "5 real users have completed the onboarding and done the core action at least once"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Retention mechanics",
+        "deliverables": [
+          "Progress visualisation live — streak, score, or accumulation view",
+          "Day-2 and day-3 return rate measured for the first cohort",
+          "Top 2 onboarding drop-off points identified and fixed",
+          "The core interaction feels delightful — animations, micro-interactions, sound if relevant"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Beta cohort and iteration",
+        "deliverables": [
+          "20 real users in the app, none of whom are friends or family",
+          "Day-7 retention measured for the first cohort",
+          "Feature freeze — no new features until retention target is hit",
+          "Decision: is day-7 retention above target? If yes, grow. If no, diagnose and fix."
+        ]
+      }
+    ],
+    "questionsToAskAgency": [
+      "Can you show me a consumer app you've built and tell me what the day-30 retention was? Not just the launch numbers — the retention curve.",
+      "How do you approach the design and interaction quality of a consumer app — do you have a designer on the team or is this outsourced?",
+      "What's your process for testing the onboarding flow with real users during the build, not just at the end?",
+      "If we hit week 2 and retention is poor, how do we handle that — do you have a process for diagnosing and iterating quickly?",
+      "What's the biggest mistake you see consumer app founders make in the first build that you'd want to flag before we start?"
+    ],
+    "blogLinks": [
+      {
+        "label": "The perfect vibe coding stack for building your MVP in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "The interaction quality of your consumer app is everything — this stack helps you get to a polished prototype fast so you can test retention before committing to full development."
+      }
+    ]
+  }
+}

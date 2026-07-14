@@ -1,0 +1,366 @@
+{
+  "A": {
+    "archetype": "saas_tool",
+    "demandSignals": [
+      {
+        "theme": "how to automate repetitive business workflows without hiring",
+        "intent": "problem-aware, actively looking for solutions",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "best tools for small team productivity and collaboration",
+        "intent": "solution-seeking, comparison stage",
+        "estimatedVolume": "high"
+      },
+      {
+        "theme": "reduce manual data entry in business operations",
+        "intent": "pain-point driven, high purchase intent",
+        "estimatedVolume": "moderate"
+      },
+      {
+        "theme": "software to manage client work without spreadsheets",
+        "intent": "problem-aware, frustrated with current tools",
+        "estimatedVolume": "moderate"
+      },
+      {
+        "theme": "affordable alternatives to expensive enterprise software",
+        "intent": "budget-conscious, actively evaluating",
+        "estimatedVolume": "high"
+      }
+    ],
+    "communities": [
+      {
+        "platform": "Reddit",
+        "name": "r/SaaS",
+        "description": "Founders and builders discussing SaaS growth, pricing, and product decisions. High-quality signal on what problems people are actually paying to solve.",
+        "url": "https://reddit.com/r/SaaS"
+      },
+      {
+        "platform": "Reddit",
+        "name": "r/smallbusiness",
+        "description": "Small business owners openly venting about operational pain points — a goldmine for validating workflow problems.",
+        "url": "https://reddit.com/r/smallbusiness"
+      },
+      {
+        "platform": "IndieHackers",
+        "name": "Indie Hackers",
+        "description": "Bootstrapped founders sharing revenue numbers and growth experiments. Great for seeing what B2B tools people are already building and monetising.",
+        "url": "https://indiehackers.com"
+      },
+      {
+        "platform": "LinkedIn",
+        "name": "Operations & Productivity professionals",
+        "description": "Decision-makers who buy SaaS tools for their teams post here regularly about inefficiencies they're trying to solve.",
+        "url": "https://linkedin.com"
+      },
+      {
+        "platform": "Slack",
+        "name": "Online Geniuses",
+        "description": "10,000+ marketers and operators discussing tools, workflows, and software recommendations in real time.",
+        "url": "https://onlinegeniuses.com"
+      },
+      {
+        "platform": "Discord",
+        "name": "Buildspace / Nights & Weekends",
+        "description": "Early-stage builders sharing what they're working on. Good for finding beta users who are open to trying new tools.",
+        "url": "https://buildspace.so"
+      }
+    ],
+    "competitors": [
+      {
+        "name": "Notion",
+        "whatTheyDo": "All-in-one workspace for notes, docs, and basic project management",
+        "gap": "Too flexible — teams spend weeks setting it up and still end up with inconsistent workflows. No opinionated structure for specific use cases."
+      },
+      {
+        "name": "Airtable",
+        "whatTheyDo": "Database-meets-spreadsheet for structured data and lightweight workflows",
+        "gap": "Steep learning curve for non-technical users. Automation features feel bolted on rather than core to the product."
+      },
+      {
+        "name": "Monday.com",
+        "whatTheyDo": "Visual project and workflow management for teams",
+        "gap": "Priced for mid-market teams. Small teams of 2–5 find it bloated and expensive relative to what they actually use."
+      }
+    ],
+    "validationScore": {
+      "searchDemand": 8,
+      "communityDensity": 9,
+      "competitionIntensity": 7,
+      "overall": 8
+    },
+    "keywordNote": "Based on the problem space you described, we estimate a moderate-to-high volume of people actively searching for this type of solution — likely in the range of several thousand searches per month globally. The demand pattern suggests people are past the 'is this a real problem' stage and actively comparing solutions, which means timing for a well-positioned tool is good.",
+    "blogLinks": [
+      {
+        "label": "How to find exact Reddit discussions where your future users are venting",
+        "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where",
+        "context": "The communities above are your starting point — this guide shows you how to find the specific threads within them where your exact problem is being discussed right now."
+      }
+    ]
+  },
+
+  "B": {
+    "archetype": "saas_tool",
+    "coreFeatures": [
+      {
+        "name": "Core workflow or action",
+        "why": "This is the single thing your user opens the app to do. If this isn't fast, delightful, and reliable, nothing else matters."
+      },
+      {
+        "name": "Progress or status visibility",
+        "why": "Users need to see where things stand at a glance. This is what brings them back daily and makes the tool feel indispensable."
+      },
+      {
+        "name": "Basic collaboration or sharing",
+        "why": "Even a simple share link or invite-by-email feature unlocks viral growth and makes the tool sticky across a team rather than one person."
+      }
+    ],
+    "skipFeatures": [
+      {
+        "name": "Advanced reporting and analytics dashboard",
+        "why": "You don't have enough usage data to know what metrics matter yet. Build this in V2 based on what users actually ask for."
+      },
+      {
+        "name": "Third-party integrations (Slack, Zapier, etc.)",
+        "why": "Integrations are a retention feature, not an acquisition feature. They're also expensive to maintain. Launch without them."
+      },
+      {
+        "name": "Custom roles and permissions",
+        "why": "Your first users will all be admins anyway. Add roles when teams larger than 5 start complaining — not before."
+      },
+      {
+        "name": "Mobile app",
+        "why": "A responsive web app is enough to validate. A native app is a separate product. Don't split your focus in V1."
+      }
+    ],
+    "complexityLevel": "Medium",
+    "complexityExplanation": "A focused SaaS tool with core CRUD functionality, user authentication, and basic sharing is a Medium complexity build. It's not a simple landing page, but it's also not a platform with real-time sync or complex data pipelines. A solid full-stack developer or a small dev+design pair can get a working V1 to testable state in 3–5 weeks depending on scope discipline.",
+    "techApproach": "You likely don't need a complex custom backend for V1. A modern full-stack framework (like Next.js) with a managed database can handle your needs cleanly. For user auth, use an off-the-shelf solution rather than building it yourself — it's not your product's value. Keep your data model simple: resist the urge to over-engineer the schema before you know how users actually use the product.",
+    "commonMistakes": [
+      "Building for the user they imagine rather than running the product in front of 5 real people first. The first version should be embarrassingly simple.",
+      "Spending the first 3 weeks on onboarding flows and empty states before the core feature even works. Build the thing first, make it pretty later.",
+      "Setting up a complex infrastructure (microservices, multiple databases, queues) before there's a single paying user. One database, one server, ship it."
+    ],
+    "aiTools": [
+      {
+        "tool": "Cursor",
+        "useCase": "AI-powered code editor that dramatically speeds up building the frontend and backend logic if you're coding yourself",
+        "url": "https://cursor.com"
+      },
+      {
+        "tool": "Lovable",
+        "useCase": "Build your frontend UI from a prompt — great for getting a working interface fast if you're non-technical or want to prototype quickly",
+        "url": "https://lovable.dev"
+      },
+      {
+        "tool": "Supabase",
+        "useCase": "Managed database + auth + storage in one — removes the need to build or configure backend infrastructure from scratch",
+        "url": "https://supabase.com"
+      }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "Set up a waitlist page before you write a single line of product code. You need 50 real email signups from strangers (not friends) before you commit to building. Use a tool like Carrd or a simple Next.js page. The copy should describe the pain, not the product.",
+      "communities": [
+        "r/SaaS — share your building journey, ask for feedback on your problem statement",
+        "r/entrepreneur — broader audience, good for early waitlist signups",
+        "Indie Hackers — post a 'What I'm building and why' story, the community rewards transparency",
+        "Product Hunt upcoming page — register early, build an audience before launch day",
+        "Relevant LinkedIn groups in your target user's industry — where the actual buyers are"
+      ],
+      "activeThreads": [
+        {
+          "community": "r/SaaS",
+          "topic": "Threads asking for tool recommendations in your problem space",
+          "suggestedComment": "We're actually building something that addresses exactly this — [one sentence on your approach]. Would love to get your thoughts on whether we're solving the right problem. Happy to share early access if you're interested in trying it."
+        },
+        {
+          "community": "r/smallbusiness",
+          "topic": "Complaints about existing tools being too complex or expensive",
+          "suggestedComment": "This is exactly the gap we're trying to close. Curious — what's the one thing the current tools get wrong that drives you most crazy? Genuinely trying to understand this before we build."
+        },
+        {
+          "community": "Indie Hackers",
+          "topic": "Show IH threads and monthly milestone posts",
+          "suggestedComment": "Love seeing the transparency here. We're in early validation for something similar — would you be open to a 15-minute chat? Your experience building in this space would be genuinely useful."
+        },
+        {
+          "community": "LinkedIn",
+          "topic": "Posts from operations managers about workflow inefficiencies",
+          "suggestedComment": "This resonates — we're building a tool specifically for this problem and trying to talk to as many people in this situation as possible before we lock in the design. Would you be open to a quick call? No sales pitch, just trying to build the right thing."
+        },
+        {
+          "community": "Product Hunt",
+          "topic": "Upcoming page comments and hunter discussions",
+          "suggestedComment": "Hey [name] — just joined as an upcoming product. Would love your feedback on the positioning if you have 2 minutes. Does the problem statement on the page resonate with what you've seen?"
+        }
+      ],
+      "weekOneChecklist": [
+        "Write a one-paragraph problem statement — describe the pain without mentioning your solution. Share it with 3 people in your target audience and ask if it resonates.",
+        "Set up a simple waitlist page with just a headline, 3 bullet points of the problem, and an email input. No product screenshots yet.",
+        "Post in r/SaaS: 'Validating a problem — does this resonate?' with your problem statement. No product pitch.",
+        "Identify 10 people on LinkedIn who match your target user profile. Send a genuine connection request with a personalised note.",
+        "Find 3 active Reddit threads where your problem is being discussed. Reply helpfully with no mention of your product."
+      ]
+    },
+    "blogLinks": [
+      {
+        "label": "The best AI tools for building your MVP faster in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "The AI tools above are a starting point — this guide goes deeper on how to combine them into a full vibe-coding stack that can get your V1 to demo-ready in days."
+      }
+    ]
+  },
+
+  "C": {
+    "archetype": "saas_tool",
+    "specItems": [
+      {
+        "label": "Core user and their primary job-to-be-done",
+        "status": "needs_clarity",
+        "note": "You have a user type defined, but the specific moment they reach for your tool needs to be sharper. What are they doing 5 minutes before they open your app?"
+      },
+      {
+        "label": "The single core action the MVP must do",
+        "status": "defined",
+        "note": "Clear enough to build. Make sure every feature decision in V1 is evaluated against whether it supports or distracts from this action."
+      },
+      {
+        "label": "Success state — how does the user know the tool worked?",
+        "status": "missing",
+        "note": "Critical gap. Define what 'done' looks like for the user before you design the UI. This becomes your product's north star metric too."
+      },
+      {
+        "label": "Data model — what are the core entities?",
+        "status": "needs_clarity",
+        "note": "Sketch the 3–4 main objects in your system (e.g. User, Project, Task, Comment) and their relationships before development starts. Changing this mid-build is expensive."
+      },
+      {
+        "label": "Authentication approach",
+        "status": "defined",
+        "note": "Use an off-the-shelf solution. Don't build auth from scratch."
+      },
+      {
+        "label": "Pricing model for V1",
+        "status": "missing",
+        "note": "Even if you launch free, decide whether it's free forever, a free trial, or freemium. This affects the features you build and when you build them."
+      }
+    ],
+    "teamFit": "Based on your idea's complexity, you need a full-stack developer who's comfortable with both frontend UI and backend data logic — not a specialist in either alone. If you're non-technical, a developer+designer pair for 4–6 weeks is the right engagement. If you already have technical co-founder capacity, a focused 3-week sprint with an experienced product person running QA is enough to get to testable V1.",
+    "roadmap": [
+      {
+        "week": 1,
+        "title": "Foundation and core action",
+        "deliverables": [
+          "Project setup, auth, and basic user flow wired up",
+          "Core feature — the single most important action — functional end to end",
+          "Basic data model in place with test data",
+          "Deployed to a staging URL you can share with testers"
+        ]
+      },
+      {
+        "week": 2,
+        "title": "Usability and feedback loop",
+        "deliverables": [
+          "UI polished enough that a stranger can use it without explanation",
+          "At least one real user (not a friend) has used it and given feedback",
+          "Top 2 pieces of feedback from week 1 addressed",
+          "Basic error handling so it doesn't break in embarrassing ways"
+        ]
+      },
+      {
+        "week": 3,
+        "title": "Sharing and first growth loop",
+        "deliverables": [
+          "Invite or share functionality working — one user can bring another in",
+          "Basic onboarding — new user knows what to do within 60 seconds",
+          "5 external users onboarded and actively using the core feature",
+          "Decision made: what gets built in month 2 based on actual usage"
+        ]
+      }
+    ],
+    "questionsToAskAgency": [
+      "Can you show me a project you've built that's similar in complexity to what I'm describing — and can I talk to that founder directly?",
+      "What happens if we finish week 3 and I want to change a core assumption about the product? How do you handle scope changes and what does it cost?",
+      "Who specifically will be writing my code day-to-day — a senior developer, a junior, or a mix? Will that person change mid-project?",
+      "What does handover look like at the end of the engagement? Will I own the code, the repo, and the infrastructure, or will I be dependent on you to make changes?",
+      "What's the one thing founders building this type of product usually get wrong that you'd want to flag before we start?"
+    ],
+    "whatToBuildPlan": {
+      "buildDecisions": [
+        {
+          "group": "build_first",
+          "title": "Core workflow action",
+          "body": "The single thing your user opens the app to do. Authentication, data model, and this action are your entire V1."
+        },
+        {
+          "group": "build_first",
+          "title": "Status or progress view",
+          "body": "Users need to see that something is happening. A simple list or dashboard view is what brings them back daily."
+        },
+        {
+          "group": "build_v2",
+          "title": "Team collaboration features",
+          "body": "Start with single-user. Add invite flows and shared workspaces once you have retention data."
+        },
+        {
+          "group": "build_v2",
+          "title": "Integrations and API",
+          "body": "Third-party integrations are a retention feature, not an acquisition feature. Ship without them."
+        },
+        {
+          "group": "skip_for_now",
+          "title": "Advanced analytics dashboard",
+          "body": "You do not have enough usage data to know what to measure. Add this in V2 based on what users ask for."
+        },
+        {
+          "group": "skip_for_now",
+          "title": "Mobile app",
+          "body": "Responsive web validates faster. Build native only after product-market fit is clear."
+        }
+      ],
+      "northStarMetric": {
+        "metric": "Core action completed per user per week",
+        "explanation": "If users are completing the core workflow action at least once per week, your SaaS tool is delivering value. Below that threshold, focus on onboarding and activation before adding features.",
+        "target": "Target: 3+ actions/user/week",
+        "trackingNote": "Track from day 1 in PostHog"
+      },
+      "unitEconomics": {
+        "title": "Revenue needed at different price points to reach $1k MRR",
+        "description": "Based on a $29/month starter plan. At $29, you need 35 paying users for $1k MRR.",
+        "points": [
+          {
+            "commissionLabel": "$9/month",
+            "bookingsToTarget": 112,
+            "artistsNeeded": 112
+          },
+          {
+            "commissionLabel": "$29/month",
+            "bookingsToTarget": 35,
+            "artistsNeeded": 35
+          },
+          {
+            "commissionLabel": "$49/month",
+            "bookingsToTarget": 21,
+            "artistsNeeded": 21
+          },
+          {
+            "commissionLabel": "$99/month",
+            "bookingsToTarget": 11,
+            "artistsNeeded": 11
+          }
+        ]
+      },
+      "riskCallout": {
+        "title": "Your biggest risk is not building the wrong thing.",
+        "body": "It is building the right thing for the wrong user. Run 10 user interviews before writing any code. The ones who describe the pain most viscerally are your design partners."
+      }
+    },
+    "blogLinks": [
+      {
+        "label": "The perfect vibe coding stack for building your MVP in 2026",
+        "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for",
+        "context": "Your roadmap above assumes a developer or dev+design pair — but if you want to move faster before committing budget, this guide shows how far you can get with AI-assisted tools alone."
+      }
+    ]
+  }
+}

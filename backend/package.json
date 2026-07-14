@@ -1,0 +1,27 @@
+{
+  "name": "founder-os-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "npx prisma generate && next build",
+    "start": "next start -p 3001",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.6.0",
+    "next": "^14.2.0",
+    "posthog-node": "^4.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "resend": "^3.2.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@prisma/adapter-pg": "^7.6.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.3.0",
+    "prisma": "^7.6.0",
+    "typescript": "^5.4.0"
+  }
+}

@@ -1,0 +1,78 @@
+---
+interface Props {
+  theme?: 'light' | 'dark';
+}
+const { theme = 'light' } = Astro.props;
+
+const bgClass = theme === 'dark' ? 'bg-black' : 'bg-white';
+const textMain = theme === 'dark' ? 'text-white' : 'text-[#111]';
+const textMuted = theme === 'dark' ? 'text-[#a1a1aa]' : 'text-[#888]';
+const borderClass = theme === 'dark' ? 'border-[#333]' : 'border-[#F1F1F1]';
+const hoverText = theme === 'dark' ? 'hover:text-white' : 'hover:text-black';
+const iconBorder = theme === 'dark' ? 'border-[#333]' : 'border-gray-200';
+---
+<footer class={`w-full pt-16 pb-4 px-4 md:px-8 ${bgClass} ${textMain} ${theme === 'dark' ? '' : 'border-t'} ${borderClass}`}>
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8">
+    
+    <!-- Column 1 -->
+    <div class="flex flex-col max-w-xs gap-4">
+      <div class="flex items-center gap-2 mb-2">
+        <a href="/">
+          {theme === 'dark' ? (
+            <img src="/logo.svg" alt="Crework Labs" class="h-6 invert brightness-0" />
+          ) : (
+            <img src="/logo.svg" alt="Crework Labs" class="h-6" />
+          )}
+        </a>
+      </div>
+      <p class={`${textMuted} text-sm leading-relaxed`}>
+        Custom software and AI systems that do the work, so you can do the growing
+      </p>
+      <div class="flex items-center gap-3 mt-4">
+        <a href="https://www.linkedin.com/school/creworklabss/" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
+          in
+        </a>
+        <a href="https://x.com/CreworkHQ" target="_blank" class={`w-10 h-10 rounded-full border ${iconBorder} flex items-center justify-center ${textMuted} text-sm ${hoverText} transition-colors`}>
+          x
+        </a>
+      </div>
+    </div>
+
+    <!-- Link columns: 2-col grid on mobile, inline on desktop -->
+    <div class="grid grid-cols-2 gap-8 sm:flex sm:gap-12 md:gap-16 md:ml-12">
+      <!-- Column 2 -->
+      <div class="flex flex-col gap-4">
+        <h3 class="font-bold text-[15px] mb-2">Agentic AI Systems</h3>
+        <a href="/agentic-ai-systems" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
+        <a href="/agentic-ai-systems#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case studies</a>
+        <a href="/agentic-ai-systems#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
+        <a href="/agentic-ai-systems#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
+        <a href="/agentic-ai-systems#faq" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>FAQs</a>
+        <a href="/agentic-ai-systems#contact-us" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="flex flex-col gap-4">
+        <h3 class="font-bold text-[15px] mb-2">Overnight CTO</h3>
+        <a href="/overnight-cto" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Overview</a>
+        <a href="/overnight-cto#case-studies" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Case Studies</a>
+        <a href="/overnight-cto#team" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Team</a>
+        <a href="/overnight-cto#how-we-work" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>How we work</a>
+        <a href="/overnight-cto#pricing" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Pricing</a>
+        <a href="/overnight-cto#contact-us" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Contact Us</a>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="flex flex-col gap-4">
+        <h3 class="font-bold text-[15px] mb-2">Company</h3>
+        <a href="/blog" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Blog</a>
+        <a href="/lead-magnet" class={`text-sm ${textMuted} ${hoverText} transition-colors`}>Validate your Idea</a>
+      </div>
+    </div>
+  </div>
+
+  <div class={`max-w-6xl mx-auto mt-16 pt-8 border-t ${borderClass} flex flex-col md:flex-row items-center justify-between gap-4`}>
+    <p class={`text-xs ${theme === 'dark' ? 'text-[#888]' : 'text-[#9A9EA6]'}`}>Copyright © 2026 Crework Labs LLP. All Rights Reserved.</p>
+    <a href="mailto:labs@crework.in" class={`text-xs font-semibold ${theme === 'dark' ? 'text-[#888]' : 'text-[#9A9EA6]'} ${hoverText} transition-colors`}>labs@crework.in</a>
+  </div>
+</footer>

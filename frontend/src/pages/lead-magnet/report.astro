@@ -1,0 +1,37 @@
+---
+import { ReportPage } from '../../components/founderos/report/ReportPage';
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Founder OS Report | Crework Labs</title>
+    <style is:global>
+      :root {
+        --font-geist-sans: 'Inter', sans-serif;
+        --font-geist-mono: 'DM Mono', monospace;
+        --font-instrument-serif: 'Instrument Serif', serif;
+        --font-manrope: 'Manrope', sans-serif;
+        --font-inter: 'Inter', sans-serif;
+      }
+      body {
+        background-color: #f7f6f3;
+        margin: 0;
+        font-family: var(--font-inter);
+      }
+      
+      /* Additional helper classes */
+      .truncate {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <ReportPage client:load />
+  </body>
+</html>

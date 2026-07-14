@@ -1,0 +1,99 @@
+{
+  "A": {
+    "archetype": "b2b_platform",
+    "demandSignals": [
+      { "theme": "enterprise software to streamline vendor onboarding and compliance", "intent": "high purchase intent, budget approved", "estimatedVolume": "moderate" },
+      { "theme": "B2B platforms to manage multi-stakeholder approval workflows", "intent": "problem-aware, evaluating solutions", "estimatedVolume": "moderate" },
+      { "theme": "alternatives to legacy enterprise software that's too expensive", "intent": "frustrated incumbent user, open to switching", "estimatedVolume": "high" },
+      { "theme": "SaaS tools for operations teams at growing companies", "intent": "solution-seeking, scaling pain point", "estimatedVolume": "high" },
+      { "theme": "how to manage cross-team processes without email chains", "intent": "pain-driven, looking for structure", "estimatedVolume": "moderate" }
+    ],
+    "communities": [
+      { "platform": "LinkedIn", "name": "Operations and process improvement professionals", "description": "Decision-makers who buy B2B tools actively posting about inefficiencies they're solving.", "url": "https://linkedin.com" },
+      { "platform": "Reddit", "name": "r/projectmanagement", "description": "Operations and PM professionals discussing tools, workflows, and what existing platforms get wrong.", "url": "https://reddit.com/r/projectmanagement" },
+      { "platform": "Slack", "name": "Revenue Collective / RevOps Co-op", "description": "Senior operators and RevOps professionals who influence B2B software buying decisions.", "url": "https://slack.com" },
+      { "platform": "IndieHackers", "name": "B2B SaaS founders community", "description": "Founders building and scaling B2B products sharing ICP discovery and enterprise sales tactics.", "url": "https://indiehackers.com" },
+      { "platform": "LinkedIn", "name": "Industry-specific executive groups", "description": "Where your actual economic buyers spend time — executives who sign procurement orders.", "url": "https://linkedin.com" },
+      { "platform": "Reddit", "name": "r/sysadmin / r/msp", "description": "Technical buyers and IT decision-makers who evaluate and implement enterprise tools.", "url": "https://reddit.com/r/sysadmin" }
+    ],
+    "competitors": [
+      { "name": "Salesforce", "whatTheyDo": "Enterprise CRM and workflow platform for large organisations", "gap": "Massively over-engineered for mid-market — implementation takes months and costs hundreds of thousands. Mid-market companies want 20% of the functionality at 10% of the price." },
+      { "name": "Monday.com / Asana", "whatTheyDo": "Visual work management for teams", "gap": "Too horizontal — serious enterprise workflows need domain-specific logic, compliance features, and integrations that generic PM tools can't provide." },
+      { "name": "Notion", "whatTheyDo": "Flexible workspace for docs, databases, and workflows", "gap": "Requires too much configuration for enterprise use cases — no enforced structure, no audit trails, no role-based permissions out of the box." }
+    ],
+    "validationScore": { "searchDemand": 7, "communityDensity": 7, "competitionIntensity": 8, "overall": 7 },
+    "keywordNote": "B2B platform demand is driven by company growth pain — companies don't look for tools until they're feeling the operational pain of not having them. This means your buyers are actively searching when they're ready, making search demand a strong signal. The challenge is sales cycle length, not demand.",
+    "blogLinks": [{ "label": "How to find exact Reddit discussions where your future users are venting", "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where", "context": "r/projectmanagement and LinkedIn are where your buyers discuss pain points — this guide helps you find the exact conversations happening right now." }]
+  },
+  "B": {
+    "archetype": "b2b_platform",
+    "coreFeatures": [
+      { "name": "Core workflow or process management", "why": "The specific business process you're solving — this is the entire product. Everything else is secondary until this works reliably at scale." },
+      { "name": "Role-based access and permissions", "why": "B2B tools are used by multiple stakeholders with different levels of access. Without permissions, enterprise buyers can't adopt the product — it's a hard blocker." },
+      { "name": "Audit trail and activity log", "why": "Enterprise and compliance-sensitive buyers require traceability. This is often a procurement requirement, not a feature request." }
+    ],
+    "skipFeatures": [
+      { "name": "SSO / SAML integration", "why": "Enterprise SSO is required for large companies but not for your first 10 customers. Add it when a customer makes it a deal-blocker." },
+      { "name": "Custom reporting and analytics", "why": "Build standard reports first. Custom reporting is a large engineering investment that's only valuable after you know what your users actually measure." },
+      { "name": "White-labelling", "why": "A V1 feature request that sounds important but rarely is. Ship a branded product first, add white-labelling when a partner makes it a contract requirement." },
+      { "name": "API and webhooks", "why": "Developer integrations are important but not for your first customers. Validate the core workflow first." }
+    ],
+    "complexityLevel": "High",
+    "complexityExplanation": "B2B platforms are High complexity because enterprise requirements — permissions, audit trails, multi-tenancy, and compliance — add significant engineering overhead before the product is even usable by buyers. Budget 8–12 weeks for a V1 that a real enterprise team can evaluate.",
+    "techApproach": "Multi-tenant architecture from day one — each customer's data must be completely isolated. This is a hard requirement you cannot retrofit later. Use a managed auth provider that handles enterprise SSO from the start even if you don't activate it yet. Your data model must support role-based access at the row level.",
+    "commonMistakes": [
+      "Selling to companies that are too large for your V1. Your first 5 customers should be 10–50 person companies where the decision-maker is also the user — not enterprises with 6-month procurement cycles.",
+      "Building without a design partner customer. B2B products built without a real customer in the room almost always solve the wrong version of the problem.",
+      "Underestimating the sales cycle. B2B platforms are sold, not bought. Budget time and money for sales, not just marketing."
+    ],
+    "aiTools": [
+      { "tool": "Cursor", "useCase": "AI coding assistant for the complex backend logic that B2B platforms require", "url": "https://cursor.com" },
+      { "tool": "Supabase", "useCase": "Managed Postgres with row-level security — handles multi-tenancy and permissions infrastructure out of the box", "url": "https://supabase.com" },
+      { "tool": "Retool", "useCase": "Build internal admin tools and dashboards fast — great for the ops-heavy interfaces B2B buyers expect", "url": "https://retool.com" }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "B2B waitlists don't work like consumer ones. Instead of a public waitlist page, do direct outbound — identify 20 companies that have the exact pain you're solving and get 3 of them to agree to be design partners before you build.",
+      "communities": ["LinkedIn — where your economic buyers are", "r/projectmanagement — operational buyers and influencers", "Revenue Collective Slack — senior ops and revenue leaders", "Industry-specific conferences and online events", "Cold outbound to targeted companies — the most effective B2B channel"],
+      "activeThreads": [
+        { "community": "LinkedIn", "topic": "Posts from ops leaders about workflow pain points", "suggestedComment": "We're building a tool specifically for this. Would you be open to a 20-minute call? We're looking for 3 design partner companies to shape what we build." },
+        { "community": "r/projectmanagement", "topic": "Threads about enterprise tool frustrations", "suggestedComment": "This is exactly the gap we're addressing. We're in early access with 2 design partner spots remaining — would you be interested in influencing the product direction?" },
+        { "community": "IndieHackers", "topic": "B2B founder discussion threads", "suggestedComment": "Building in a similar space — the design partner model has been the most valuable thing we've done. How did you find your first design partners?" },
+        { "community": "LinkedIn", "topic": "Industry-specific executive groups", "suggestedComment": "We're building something that solves [specific pain] for teams like yours. Not a pitch — genuinely trying to understand if we're solving the right problem. 15 minutes?" },
+        { "community": "Slack communities", "topic": "Ops and RevOps professional channels", "suggestedComment": "Building a tool for [specific workflow]. Looking for 2 more design partners who have this pain acutely. Anyone here dealing with this daily?" }
+      ],
+      "weekOneChecklist": [
+        "Identify 20 companies with the exact pain you're solving. Research each one — understand their current stack and the specific inefficiency.",
+        "Write a personalised cold outreach message for each. Not a mass email — a specific message referencing their situation.",
+        "Goal: 3 design partner calls booked by end of week. These companies will co-design the product with you.",
+        "Define your minimum viable customer: company size, industry, team structure. Be ruthlessly specific.",
+        "Have one design partner conversation before writing a line of code. If you can't get one company to talk to you about the problem, reconsider the approach."
+      ]
+    },
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "Even complex B2B platforms benefit from AI-assisted development — this stack shows which parts you can accelerate without compromising enterprise requirements." }]
+  },
+  "C": {
+    "archetype": "b2b_platform",
+    "specItems": [
+      { "label": "Design partner customer committed", "status": "missing", "note": "Critical. Build no B2B platform without at least one real company co-designing it with you. This is not optional." },
+      { "label": "Multi-tenancy architecture defined", "status": "missing", "note": "How is each customer's data isolated? Row-level security? Separate schemas? Separate databases? Decide before any development starts — this cannot be retrofitted." },
+      { "label": "Core workflow scoped", "status": "needs_clarity", "note": "The exact business process you're replacing or improving needs to be mapped end to end before building. User interviews first, then specification." },
+      { "label": "Role types and permissions model", "status": "missing", "note": "Define the 2–3 role types your first customer needs. Admin, Manager, Viewer is often enough. Build this into the schema from day one." },
+      { "label": "Pricing model", "status": "missing", "note": "Per seat, per company, or usage-based? B2B pricing is a strategic decision, not a product one. Define it before your first sales conversation." },
+      { "label": "Integration requirements for design partner", "status": "needs_clarity", "note": "What does your design partner already use? What does your product need to integrate with on day one to be adoptable?" }
+    ],
+    "teamFit": "B2B platforms require a senior full-stack developer with experience in multi-tenant SaaS architecture — this is not a junior developer project. A developer plus a product person with B2B experience is the minimum viable team. Budget 8–12 weeks and expect the first 2 weeks to be architecture and planning, not feature development.",
+    "roadmap": [
+      { "week": 1, "title": "Architecture and design partner alignment", "deliverables": ["Multi-tenant data architecture designed and reviewed", "Design partner has approved the V1 scope in writing", "Role and permissions model defined", "Development environment set up with correct isolation from day one"] },
+      { "week": 2, "title": "Core workflow functional", "deliverables": ["The core business process works end to end for one role type", "Design partner has accessed the staging environment", "First round of feedback from design partner incorporated", "Auth with basic role separation live"] },
+      { "week": 3, "title": "Design partner pilot", "deliverables": ["Design partner using the product for real work — not just testing", "Audit trail live — every action is logged", "Top 3 gaps identified from real usage addressed", "Pricing conversation started with design partner"] }
+    ],
+    "questionsToAskAgency": [
+      "Have you built multi-tenant B2B SaaS before? How did you handle the data isolation architecture and what would you do differently?",
+      "How do you approach building with a design partner customer — do you have a process for incorporating real customer feedback during the build?",
+      "What's your recommended approach to enterprise auth — when do you add SSO, and how do you architect for it from day one without building it yet?",
+      "Who owns the infrastructure after the engagement — and what does it cost to make changes independently, specifically around the multi-tenancy layer?",
+      "What's the hardest part of B2B platform builds you've seen founders underestimate?"
+    ],
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "See which parts of your B2B platform can be accelerated with AI tools without compromising the architecture quality enterprise buyers require." }]
+  }
+}

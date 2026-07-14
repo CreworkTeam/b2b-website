@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Lead {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  sessionId  String   @unique @map("session_id")
+  email      String
+  archetype  String?
+  q1         String?
+  q2         String?
+  q3         String?
+  q4         String?
+  leadTag    String?  @map("lead_tag")
+  capturedAt DateTime @default(now()) @map("captured_at") @db.Timestamptz(6)
+
+  @@map("leads")
+}

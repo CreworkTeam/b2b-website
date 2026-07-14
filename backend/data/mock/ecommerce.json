@@ -1,0 +1,99 @@
+{
+  "A": {
+    "archetype": "ecommerce",
+    "demandSignals": [
+      { "theme": "where to buy unique handmade or artisan products online", "intent": "buyer actively searching, high purchase intent", "estimatedVolume": "high" },
+      { "theme": "how to start selling online without inventory risk", "intent": "seller exploring options, evaluating models", "estimatedVolume": "high" },
+      { "theme": "niche ecommerce stores for specific communities or interests", "intent": "loyal buyer looking for specialist retailer", "estimatedVolume": "moderate" },
+      { "theme": "sustainable and ethical alternatives to Amazon for specific categories", "intent": "values-driven buyer, willing to pay premium", "estimatedVolume": "moderate" },
+      { "theme": "how to sell digital products or courses online", "intent": "creator looking to monetise, ready to act", "estimatedVolume": "high" }
+    ],
+    "communities": [
+      { "platform": "Reddit", "name": "r/Entrepreneur", "description": "Sellers and founders discussing ecommerce models, margin challenges, and growth strategies.", "url": "https://reddit.com/r/Entrepreneur" },
+      { "platform": "Reddit", "name": "r/ecommerce", "description": "Ecommerce operators sharing specific tactics on platforms, logistics, and customer acquisition.", "url": "https://reddit.com/r/ecommerce" },
+      { "platform": "Facebook", "name": "Ecommerce and dropshipping Facebook groups", "description": "Large communities of sellers at all stages sharing what's working in current market conditions.", "url": "https://facebook.com/groups" },
+      { "platform": "X", "name": "Ecommerce and DTC Twitter/X", "description": "DTC brand founders sharing real metrics, strategies, and tools for online selling.", "url": "https://x.com" },
+      { "platform": "IndieHackers", "name": "Indie Hackers — Ecommerce", "description": "Bootstrapped ecommerce founders sharing what works without VC funding.", "url": "https://indiehackers.com" },
+      { "platform": "Discord", "name": "DTC brand builder communities", "description": "Early-stage brand founders sharing supplier relationships, ad strategies, and margin learnings.", "url": "https://discord.com" }
+    ],
+    "competitors": [
+      { "name": "Amazon", "whatTheyDo": "Everything marketplace with Prime shipping and massive trust", "gap": "Commoditises everything — niche products with a story get lost. Customers who want to know where something is made and who made it can't find that on Amazon." },
+      { "name": "Etsy", "whatTheyDo": "Marketplace for handmade, vintage, and craft products", "gap": "Overcrowded with mass-produced items claiming to be handmade — buyers have lost trust in the 'handmade' label and quality is inconsistent." },
+      { "name": "Shopify stores", "whatTheyDo": "Individual brand stores on Shopify", "gap": "No discovery mechanism — buyers have to already know a brand exists to find it. No community or curation layer." }
+    ],
+    "validationScore": { "searchDemand": 9, "communityDensity": 8, "competitionIntensity": 9, "overall": 9 },
+    "keywordNote": "Ecommerce demand is enormous and driven by product-market fit more than platform novelty. The question is not whether people want to buy online — they do — but whether your product or niche has differentiated demand that justifies a standalone store or platform.",
+    "blogLinks": [{ "label": "How to find exact Reddit discussions where your future users are venting", "url": "https://shikshita.substack.com/p/find-exact-reddit-discussions-where", "context": "r/ecommerce and niche interest communities are where your buyers discuss what they wish existed — find those conversations before you build." }]
+  },
+  "B": {
+    "archetype": "ecommerce",
+    "coreFeatures": [
+      { "name": "Product catalogue and detail pages", "why": "The product page is where buying decisions are made. Photography, copy, and trust signals on a single product page are more important than any other feature." },
+      { "name": "Cart and checkout flow", "why": "Every step in checkout loses you customers. Start with the minimum: product → cart → payment → confirmation. No accounts required on first purchase." },
+      { "name": "Order management for you", "why": "You need to know what was ordered, by whom, and what to ship. A simple order dashboard is required from day one — even a spreadsheet works for the first 50 orders." }
+    ],
+    "skipFeatures": [
+      { "name": "Loyalty and rewards programme", "why": "Build repeat purchase habits through product quality and email, not points. Loyalty programmes need scale to feel meaningful." },
+      { "name": "Product reviews and UGC", "why": "You have no orders yet. A reviews section with zero reviews is worse than no reviews section. Add this after your first 50 orders." },
+      { "name": "Subscription / recurring orders", "why": "Validate one-time purchase demand first. Subscriptions are a retention feature that requires high product satisfaction to work." },
+      { "name": "Multi-currency and international shipping", "why": "Pick one market and dominate it. International expansion is a V2 problem." }
+    ],
+    "complexityLevel": "Low",
+    "complexityExplanation": "Ecommerce stores are Low technical complexity — Shopify, WooCommerce, or a custom Next.js + Stripe setup handles 95% of what you need. The complexity is in the business operations: supplier relationships, logistics, customer service, and product photography. Invest in operations, not custom engineering.",
+    "techApproach": "Use Shopify unless you have a specific reason not to. It handles payments, inventory, shipping integrations, and has a massive app ecosystem. The only reason to build custom is if your product experience requires it — subscription boxes with complex configuration, digital products with DRM, or marketplace dynamics that Shopify can't accommodate.",
+    "commonMistakes": [
+      "Over-investing in the website before validating that anyone wants the product. Sell your first 10 units manually — via DMs, friends, local markets — before building a store.",
+      "Underestimating customer acquisition cost. Organic traffic takes months. Paid ads are expensive. Define your unit economics before launch: product cost + shipping + acquisition cost vs. selling price.",
+      "Launching with too many SKUs. Start with 1–3 products and go deep. More products mean more inventory risk, more photography, and more copy."
+    ],
+    "aiTools": [
+      { "tool": "Shopify", "useCase": "Launch your store without custom development — handles everything from payments to shipping out of the box", "url": "https://shopify.com" },
+      { "tool": "Lovable", "useCase": "Build a custom storefront if Shopify themes don't fit your brand aesthetic", "url": "https://lovable.dev" },
+      { "tool": "Midjourney / DALL-E", "useCase": "Generate product mockups and lifestyle images before you have physical inventory for photography", "url": "https://midjourney.com" }
+    ],
+    "marketingPlan": {
+      "waitlistAdvice": "Pre-launch ecommerce waitlists work best with a concrete incentive: '10% off your first order for early access.' Show the product visually — a great product photo converts better than any copy.",
+      "communities": ["r/ecommerce — peer sellers who can share supplier and logistics advice", "Niche interest communities where your buyers gather — not ecommerce communities", "Instagram and TikTok — visual products need visual platforms", "Facebook groups in your product niche", "Pinterest — high purchase intent for product discovery"],
+      "activeThreads": [
+        { "community": "Niche interest Reddit communities", "topic": "Threads where your target buyers discuss the product category", "suggestedComment": "We're launching a store specifically focused on [your niche] — the quality and sourcing story that's missing from Amazon and Etsy. Would love feedback on whether this is something you'd actually buy." },
+        { "community": "r/ecommerce", "topic": "Founder journey threads", "suggestedComment": "Just launched our first ecommerce store for [niche]. First 10 sales came from Reddit DMs before the site was live — AMA for anyone starting out." },
+        { "community": "Facebook groups", "topic": "Groups in your product niche", "suggestedComment": "We're launching a new store for [product type] and looking for 20 people to give honest feedback on our first collection before we go public. Anyone interested?" },
+        { "community": "X / Twitter", "topic": "Tweets from potential buyers about the product category", "suggestedComment": "Building a store exactly for this. Pre-launch opens next week — DM for early access and 15% off." },
+        { "community": "IndieHackers", "topic": "Ecommerce founder stories", "suggestedComment": "Launching a niche ecommerce store. Interesting finding: the first 10 orders all came from personal outreach, not the website. Is this everyone's experience?" }
+      ],
+      "weekOneChecklist": [
+        "Sell 3 units before building a website. Message 20 people in your target audience directly with a photo and a price. This proves demand without any tech investment.",
+        "Get product photography done — phone photos in natural light with a clean background are enough for V1.",
+        "Set up a simple store (Shopify free trial) with your top 1–3 products.",
+        "Post in 2 communities where your buyers are — not to sell, but to get feedback on the product and positioning.",
+        "Calculate your unit economics: product cost + shipping + packaging + customer acquisition = your minimum break-even price."
+      ]
+    },
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "If you need a custom storefront beyond what Shopify offers, this stack gets you there fast." }]
+  },
+  "C": {
+    "archetype": "ecommerce",
+    "specItems": [
+      { "label": "Product sourcing or creation model defined", "status": "missing", "note": "Make yourself, buy wholesale, dropship, or print-on-demand? Each has different margin, risk, and lead time profiles. Define this before anything else." },
+      { "label": "Unit economics validated", "status": "missing", "note": "Product cost + fulfillment + acquisition cost vs selling price = margin. If this doesn't work on paper, it won't work in reality. Do this before building." },
+      { "label": "First 10 units available to sell", "status": "missing", "note": "Don't build a store until you have inventory or a supplier confirmed. Selling from a store you can't fulfill from destroys trust permanently." },
+      { "label": "Platform choice", "status": "needs_clarity", "note": "Shopify is the default unless you have a specific reason for custom. Define the reason before starting development." },
+      { "label": "Fulfilment model", "status": "missing", "note": "Self-fulfil, 3PL, or dropship? Each has different cost structures and customer experience implications." },
+      { "label": "Primary customer acquisition channel", "status": "missing", "note": "Paid ads, organic SEO, social media, or community? Define your primary channel and budget for it before launch." }
+    ],
+    "teamFit": "Ecommerce businesses need operations skills more than engineering skills. If you're using Shopify, you need zero developers. If you're building custom, one frontend developer familiar with Next.js and Stripe is enough. The critical hires are in operations, photography, and marketing — not engineering.",
+    "roadmap": [
+      { "week": 1, "title": "Inventory and store setup", "deliverables": ["First product batch sourced or production confirmed", "Product photography completed", "Store live on Shopify or custom — checkout functional", "First 3 orders fulfilled end to end to test the process"] },
+      { "week": 2, "title": "First customer acquisition", "deliverables": ["10 orders from people outside your personal network", "Customer acquisition cost measured per channel", "Post-purchase email sequence live — thank you + review request", "Top 3 customer service questions identified and answered in FAQ"] },
+      { "week": 3, "title": "Repeat purchase and economics", "deliverables": ["Unit economics confirmed with real order data", "At least 1 repeat purchase from week 1 customers", "Primary acquisition channel identified and investment increased", "Decision: scale this product or pivot to a different SKU"] }
+    ],
+    "questionsToAskAgency": [
+      "Have you built ecommerce stores before — what's your recommendation on Shopify vs custom and what would change that?",
+      "How do you handle the product photography and content layer — is that in scope or do we need to source that separately?",
+      "What's the checkout conversion rate you typically see on stores you've built, and what are the biggest drop-off points?",
+      "How do you handle ongoing changes to the store after launch — adding products, running sales, updating copy — is that something we own or do we need you for that?",
+      "What's the most common mistake ecommerce founders make in the first build that you'd want to flag now?"
+    ],
+    "blogLinks": [{ "label": "The perfect vibe coding stack for building your MVP in 2026", "url": "https://shikshita.substack.com/p/the-perfect-vibe-coding-stack-for", "context": "If your product experience needs a custom storefront, this stack helps you ship fast without over-engineering." }]
+  }
+}
