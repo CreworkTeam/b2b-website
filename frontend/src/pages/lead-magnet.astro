@@ -1,5 +1,7 @@
 ---
 import { LandingPage } from '../components/founderos/landing/LandingPage';
+import { ViewTransitions } from 'astro:transitions';
+import Cursor from '../components/cursor.astro';
 ---
 
 <!DOCTYPE html>
@@ -8,6 +10,7 @@ import { LandingPage } from '../components/founderos/landing/LandingPage';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Founder OS</title>
+    <ViewTransitions />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,5 +42,6 @@ import { LandingPage } from '../components/founderos/landing/LandingPage';
   </head>
   <body>
     <LandingPage client:load />
+    <Cursor />
   </body>
 </html>

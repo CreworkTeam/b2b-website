@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import type { ReportB } from '@/founderos/types'
 import { GateOverlay } from './shared'
 
@@ -28,96 +29,103 @@ export function ScopeSection({ reportB, gateUnlocked, onContinuePlan }: ScopeSec
   const complexityColor = reportB?.complexityLevel === 'Low'
     ? { border: 'border-[#b5d6bf]', bg: 'bg-[#eaf3ec]', text: 'text-[#1e5c38]', dot: 'bg-[#1e5c38]' }
     : reportB?.complexityLevel === 'Medium'
-    ? { border: 'border-[#fde68a]', bg: 'bg-[#fffbeb]', text: 'text-[#78350f]', dot: 'bg-[#78350f]' }
-    : { border: 'border-[#fecaca]', bg: 'bg-[#fff7f7]', text: 'text-[#7f1d1d]', dot: 'bg-[#7f1d1d]' }
+      ? { border: 'border-[#fde68a]', bg: 'bg-[#fffbeb]', text: 'text-[#78350f]', dot: 'bg-[#78350f]' }
+      : { border: 'border-[#fecaca]', bg: 'bg-[#fff7f7]', text: 'text-[#7f1d1d]', dot: 'bg-[#7f1d1d]' }
 
   // Parse communities from reportB or use fallback
   const userChannels: Array<{ platform: string; title: string; body: string; badge?: string; color: string }> =
     reportB?.marketingPlan?.communities?.length
       ? reportB.marketingPlan.communities.map((community, idx) => {
-          // Parse platform from community string
-          const communityLower = community.toLowerCase()
-          let platform = 'Community'
-          let color = '#6b6860'
-          
-          if (communityLower.includes('reddit') || communityLower.includes('r/')) {
-            platform = 'Reddit'
-            color = '#ff4500'
-          } else if (communityLower.includes('linkedin')) {
-            platform = 'LinkedIn'
-            color = '#0077b5'
-          } else if (communityLower.includes('instagram')) {
-            platform = 'Instagram'
-            color = '#d62976'
-          } else if (communityLower.includes('tiktok')) {
-            platform = 'TikTok'
-            color = '#111111'
-          } else if (communityLower.includes('product hunt') || communityLower.includes('indie')) {
-            platform = 'Indie Hackers'
-            color = '#0e7f6e'
-          }
-          
-          // Find matching activeThread for body text
-          const matchingThread = reportB.marketingPlan?.activeThreads?.find((thread) => {
-            const threadCommunity = thread.community.toLowerCase()
-            return communityLower.includes(threadCommunity) || threadCommunity.includes(communityLower)
-          })
+        // Parse platform from community string
+        const communityLower = community.toLowerCase()
+        let platform = 'Community'
+        let color = '#6b6860'
 
-          const fallbackThread = reportB.marketingPlan?.activeThreads?.find((thread) =>
-            communityLower.includes(thread.community.toLowerCase().split(' ')[0])
-          )
-          const threadBody = matchingThread?.suggestedComment ?? fallbackThread?.suggestedComment
-          
-          return {
-            platform,
-            title: community,
-            body: threadBody ?? 'Your target users discuss this problem here regularly.',
-            badge: idx === 0 ? 'Start here' : undefined,
-            color,
-          }
+        if (communityLower.includes('reddit') || communityLower.includes('r/')) {
+          platform = 'Reddit'
+          color = '#ff4500'
+        } else if (communityLower.includes('linkedin')) {
+          platform = 'LinkedIn'
+          color = '#0077b5'
+        } else if (communityLower.includes('instagram')) {
+          platform = 'Instagram'
+          color = '#d62976'
+        } else if (communityLower.includes('tiktok')) {
+          platform = 'TikTok'
+          color = '#111111'
+        } else if (communityLower.includes('product hunt') || communityLower.includes('indie')) {
+          platform = 'Indie Hackers'
+          color = '#0e7f6e'
+        }
+
+        // Find matching activeThread for body text
+        const matchingThread = reportB.marketingPlan?.activeThreads?.find((thread) => {
+          const threadCommunity = thread.community.toLowerCase()
+          return communityLower.includes(threadCommunity) || threadCommunity.includes(communityLower)
         })
+
+        const fallbackThread = reportB.marketingPlan?.activeThreads?.find((thread) =>
+          communityLower.includes(thread.community.toLowerCase().split(' ')[0])
+        )
+        const threadBody = matchingThread?.suggestedComment ?? fallbackThread?.suggestedComment
+
+        return {
+          platform,
+          title: community,
+          body: threadBody ?? 'Your target users discuss this problem here regularly.',
+          badge: idx === 0 ? 'Start here' : undefined,
+          color,
+        }
+      })
       : [
-          {
-            platform: 'Reddit',
-            title: 'r/SaaS · r/startups · r/entrepreneur',
-            body: 'Problem-aware founders ask for tools and workflows here daily. Lead with insight, not promotion.',
-            badge: 'Start here',
-            color: '#ff4500',
-          },
-          {
-            platform: 'LinkedIn',
-            title: 'LinkedIn groups in your target industry',
-            body: 'Decision-makers share operational pain points and tool recommendations in public posts and comments.',
-            color: '#0077b5',
-          },
-          {
-            platform: 'Product Hunt',
-            title: 'Product Hunt upcoming + discussions',
-            body: 'Great channel to test positioning and attract early adopters before launch day.',
-            color: '#0e7f6e',
-          },
-          {
-            platform: 'Indie Hackers',
-            title: 'Indie Hackers build logs and milestones',
-            body: 'Share your validation process and ask for feedback from builders who have launched in similar spaces.',
-            color: '#111111',
-          },
-          {
-            platform: 'Discord',
-            title: 'Niche operator and founder communities',
-            body: 'Smaller private communities often produce the highest quality user interviews and design partners.',
-            color: '#6b6860',
-          },
-        ]
+        {
+          platform: 'Reddit',
+          title: 'r/SaaS · r/startups · r/entrepreneur',
+          body: 'Problem-aware founders ask for tools and workflows here daily. Lead with insight, not promotion.',
+          badge: 'Start here',
+          color: '#ff4500',
+        },
+        {
+          platform: 'LinkedIn',
+          title: 'LinkedIn groups in your target industry',
+          body: 'Decision-makers share operational pain points and tool recommendations in public posts and comments.',
+          color: '#0077b5',
+        },
+        {
+          platform: 'Product Hunt',
+          title: 'Product Hunt upcoming + discussions',
+          body: 'Great channel to test positioning and attract early adopters before launch day.',
+          color: '#0e7f6e',
+        },
+        {
+          platform: 'Indie Hackers',
+          title: 'Indie Hackers build logs and milestones',
+          body: 'Share your validation process and ask for feedback from builders who have launched in similar spaces.',
+          color: '#111111',
+        },
+        {
+          platform: 'Discord',
+          title: 'Niche operator and founder communities',
+          body: 'Smaller private communities often produce the highest quality user interviews and design partners.',
+          color: '#6b6860',
+        },
+      ]
 
   const coreLoopHeadline = reportB?.techApproach
     ? (reportB.techApproach.length > 120 ? `${reportB.techApproach.slice(0, 120)}...` : reportB.techApproach)
     : 'User searches by location -> views nail artist portfolio -> sends a booking request.'
 
+  const fadeProps = (index: number) => ({
+    initial: { opacity: 0, y: 15 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay: index * 0.15 }
+  })
+
   return (
     <div className="relative">
       <div className={`${!gateUnlocked ? 'pointer-events-none select-none' : ''}`}>
-        <div className="mb-3 flex flex-wrap gap-2">
+        <motion.div {...fadeProps(0)}>
+          <div className="mb-3 flex flex-wrap gap-2">
           <span className="rounded-[5px] bg-[#f0ede6] px-2.5 py-1 text-[11px] text-[#5a574f]">{archetypeLabel}</span>
           {/* TODO: Add target user label dynamically when available in ReportB */}
           {(reportB?.archetype === 'marketplace' || reportB?.archetype === 'consumer_app') && (
@@ -150,8 +158,10 @@ export function ScopeSection({ reportB, gateUnlocked, onContinuePlan }: ScopeSec
         </div>
 
         <div className="mb-8 h-px bg-[#e4e0d8]" />
+        </motion.div>
 
-        <div className="mb-3">
+        <motion.div {...fadeProps(1)}>
+          <div className="mb-3">
           <p className="mb-1 text-[10px] uppercase tracking-widest text-[#9e9b93]">Feature priority matrix</p>
           <p className="text-[13px] text-[#5a574f]">Every feature plotted by user need vs build difficulty, plus where your idea sits in the market.</p>
         </div>
@@ -259,12 +269,14 @@ export function ScopeSection({ reportB, gateUnlocked, onContinuePlan }: ScopeSec
             </div>
           </div>
         </div>
+        </motion.div>
 
         <div className="mb-8 h-px bg-[#e4e0d8]" />
 
-        <div className="mb-3">
-          <p className="mb-1 text-[10px] uppercase tracking-widest text-[#9e9b93]">Get your first 100 users</p>
-          <p className="text-[13px] text-[#5a574f]">Your users are already talking about this problem in these exact places.</p>
+        <motion.div {...fadeProps(3)}>
+          <div className="mb-3">
+            <p className="mb-1 text-[10px] uppercase tracking-widest text-[#9e9b93]">Get your first 100 users</p>
+            <p className="text-[13px] text-[#5a574f]">Your users are already talking about this problem in these exact places.</p>
         </div>
 
         <div className="mb-5">
@@ -300,13 +312,14 @@ export function ScopeSection({ reportB, gateUnlocked, onContinuePlan }: ScopeSec
 
         <div className="mb-8 h-px bg-[#e4e0d8]" />
 
-        <button
-          type="button"
-          onClick={onContinuePlan}
-          className="w-full rounded-lg bg-[#1a1917] px-5 py-3 text-center text-[14px] font-semibold text-white transition hover:bg-[#333]"
-        >
-          How to start: your 30-day launch plan →
-        </button>
+          <button
+            type="button"
+            onClick={onContinuePlan}
+            className="w-full rounded-lg bg-[#1a1917] px-5 py-3 text-center text-[14px] font-semibold text-white transition hover:bg-[#333]"
+          >
+            How to start: your 30-day launch plan →
+          </button>
+        </motion.div>
       </div>
 
       {!gateUnlocked && <GateOverlay />}

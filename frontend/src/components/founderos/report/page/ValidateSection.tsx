@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 import type { ReportA } from '@/founderos/types'
 import { EmailGateCard, GateOverlay } from './shared'
 import { moodColor } from './types'
@@ -116,10 +117,16 @@ export function ValidateSection({
     },
   ]
 
+  const fadeProps = (index: number) => ({
+    initial: { opacity: 0, y: 15 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay: index * 0.15 }
+  })
+
   return (
     <div>
       {/* Score cards */}
-      <div className="mb-10 grid gap-3 md:grid-cols-4">
+      <motion.div className="mb-10 grid gap-3 md:grid-cols-4" {...fadeProps(0)}>
         {scoreCards.map((card) => (
           <div key={card.label} className="relative rounded-xl border border-[#e8e6e0] bg-white px-4 py-3.5">
             {/* Info icon with tooltip */}
@@ -142,10 +149,10 @@ export function ValidateSection({
             <p className="text-[11px] text-[#6b6860]">{card.meta}</p>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Search interest chart */}
-      <div className="mb-10">
+      <motion.div className="mb-10" {...fadeProps(1)}>
         <p className="mb-2 text-[10px] uppercase tracking-widest text-[#a8a59f]">Search interest over time</p>
         <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
           <h2 className="mb-1 text-[14px] font-semibold">How often people are searching for what you are building</h2>
@@ -162,10 +169,10 @@ export function ValidateSection({
             <canvas ref={keywordCanvasRef} />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Live conversations */}
-      <div className="mb-8">
+      <motion.div className="mb-8" {...fadeProps(2)}>
         <p className="mb-2 text-[10px] uppercase tracking-widest text-[#a8a59f]">Where people are talking about this</p>
         <div className="overflow-hidden rounded-xl border border-[#e8e6e0] bg-white">
           <div className="border-b border-[#e8e6e0] px-5 py-4">
@@ -230,10 +237,10 @@ export function ValidateSection({
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Discussion & sentiment charts */}
-      <div className="mb-10 grid gap-3 md:grid-cols-2">
+      <motion.div className="mb-10 grid gap-3 md:grid-cols-2" {...fadeProps(3)}>
         <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
           <h2 className="mb-1 text-[14px] font-semibold">Discussion volume by platform</h2>
           <p className="mb-4 text-[12px] text-[#6b6860]">How many posts mention this problem across communities.</p>
@@ -249,7 +256,7 @@ export function ValidateSection({
           </div>
           <div className="h-46.5"><canvas ref={sentimentCanvasRef} /></div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Email gate */}
       {!gateUnlocked && (
@@ -263,7 +270,7 @@ export function ValidateSection({
       )}
 
       {/* Gated content */}
-      <div className="relative mb-10">
+      <motion.div className="relative mb-10" {...fadeProps(4)}>
         <div className={`${!gateUnlocked ? 'pointer-events-none select-none' : ''}`}>
           {/* Demand signals */}
           <div className="mb-8 rounded-xl border border-[#e8e6e0] bg-white p-5">
@@ -312,10 +319,10 @@ export function ValidateSection({
           </div>
         </div>
         {!gateUnlocked && <GateOverlay />}
-      </div>
+      </motion.div>
 
       {/* CTAs */}
-      <div className="flex flex-col gap-3 sm:flex-row">
+      <motion.div className="flex flex-col gap-3 sm:flex-row" {...fadeProps(5)}>
         <button
           type="button"
           onClick={onContinueScope}
@@ -374,7 +381,7 @@ export function ValidateSection({
             </>
           )}
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

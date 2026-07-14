@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { roadmapSteps } from '../landing-data'
 import { HeroBlueprintCard } from './HeroBlueprintCard'
 
@@ -21,19 +22,36 @@ export function HeroSection({
 }: HeroSectionProps) {
   return (
     <section id="blueprint" className="mx-auto w-full max-w-300 px-5 pb-6 pt-5 sm:px-8 lg:pb-9 lg:pt-6">
-      <div className="grid items-start gap-7 lg:grid-cols-[minmax(0,520px)_minmax(0,390px)] lg:justify-between">
+      <div className="grid items-start gap-7 lg:grid-cols-[minmax(0,520px)_minmax(0,500px)] lg:justify-between">
         <div>
-          <h1 className="max-w-130 text-[32px] font-bold leading-[1.07] tracking-[-0.02em] text-[#020617] sm:text-[38px] lg:text-[42px]">
+          <motion.h1 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-130 text-[32px] font-bold leading-[1.07] tracking-[-0.02em] text-[#020617] sm:text-[38px] lg:text-[42px]"
+          >
             <span className={headingFontClass}>From idea to launched product - </span>
             <span className={`font-normal italic text-[#494740] ${serifFontClass}`}>without the guesswork.</span>
-          </h1>
+          </motion.h1>
 
-          <p className={`mt-3.5 max-w-99.5 text-[15px] leading-[1.55] text-[#494740] ${bodyFontClass}`}>
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className={`mt-3.5 max-w-99.5 text-[15px] leading-[1.55] text-[#494740] ${bodyFontClass}`}
+          >
             Our structured operating system bridges the gap between vision and execution for ambitious founders.
-          </p>
+          </motion.p>
 
           <div className="mt-6">
-            <p className={`text-[10px] uppercase tracking-[0.18em] text-[#7A776F] ${monoFontClass}`}>The Roadmap</p>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className={`text-[10px] uppercase tracking-[0.18em] text-[#7A776F] ${monoFontClass}`}
+            >
+              The Roadmap
+            </motion.p>
 
             <ol className="mt-3.5 space-y-0.5">
               {roadmapSteps.map((step, index) => {
@@ -41,7 +59,13 @@ export function HeroSection({
                 const isLast = index === roadmapSteps.length - 1
 
                 return (
-                  <li key={step.title} className="relative flex gap-4 pb-4.5 last:pb-0">
+                  <motion.li 
+                    key={step.title} 
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
+                    className="relative flex gap-4 pb-4.5 last:pb-0"
+                  >
                     {!isLast ? <span className="absolute left-2.75 top-8 h-[calc(100%-10px)] w-px bg-[#CBC6BD]/70" /> : null}
 
                     <span
@@ -57,13 +81,18 @@ export function HeroSection({
                         {step.description}
                       </span>
                     </span>
-                  </li>
+                  </motion.li>
                 )
               })}
             </ol>
           </div>
 
-          <div className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 + roadmapSteps.length * 0.15 }}
+            className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4"
+          >
             <a
               href="/lead-magnet/quiz"
               className={`inline-flex items-center justify-center gap-2 rounded-md bg-[#020617] px-6.5 py-3 text-[14px] font-bold text-white transition hover:translate-x-px hover:bg-[#111827] ${headingFontClass}`}
@@ -71,7 +100,7 @@ export function HeroSection({
               Start Your Blueprint
               <ArrowRight className="h-4 w-4" />
             </a>
-          </div>
+          </motion.div>
         </div>
 
         <HeroBlueprintCard
