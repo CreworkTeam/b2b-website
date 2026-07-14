@@ -9,7 +9,10 @@ import type {
   LeadTag,
 } from '@/founderos/types'
 
-const BASE = import.meta.env.PUBLIC_LEAD_MAGNET_BACKEND_URL ?? 'http://localhost:3001'
+let BASE = import.meta.env.PUBLIC_LEAD_MAGNET_BACKEND_URL ?? 'http://localhost:3001'
+if (BASE.endsWith('/')) {
+  BASE = BASE.slice(0, -1)
+}
 
 async function post<TBody, TResponse>(path: string, body: TBody): Promise<TResponse> {
   const res = await fetch(`${BASE}${path}`, {
