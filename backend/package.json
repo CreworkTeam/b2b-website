@@ -11,6 +11,7 @@
   "dependencies": {
     "@prisma/client": "^7.6.0",
     "next": "^14.2.0",
+    "nodemailer": "^6.9.14",
     "posthog-node": "^4.0.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@prisma/adapter-pg": "^7.6.0",
     "@types/node": "^20.0.0",
+    "@types/nodemailer": "^6.4.15",
     "@types/react": "^18.3.0",
     "prisma": "^7.6.0",
     "typescript": "^5.4.0"

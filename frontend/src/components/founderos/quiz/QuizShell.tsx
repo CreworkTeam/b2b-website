@@ -44,11 +44,15 @@ function useTypewriter(messages: string[], active: boolean) {
 
 export function QuizShell() {
   const startTimeRef = useRef<number>(Date.now())
-  const { sessionId, quiz, setQ1, setQ2, setQ3, setQ4, setArchetype, setActiveTab, persistToStorage } = useFounderStore()
+  const { sessionId, quiz, setQ1, setQ2, setQ3, setQ4, setArchetype, setActiveTab, persistToStorage, hydrateFromStorage } = useFounderStore()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [started, setStarted] = useState(false)
   const [q3OtherText, setQ3OtherText] = useState('')
+
+  useEffect(() => {
+    hydrateFromStorage()
+  }, [hydrateFromStorage])
 
   const { displayText, fading } = useTypewriter(LOADING_MESSAGES, loading)
 
@@ -104,7 +108,7 @@ export function QuizShell() {
         <button
           onClick={handleSubmit}
           disabled={!isComplete || loading}
-          className="h-13 w-full max-w-100 rounded-md bg-black px-8 text-center text-[13px] font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_16px_22px_-10px_rgba(0,0,0,0.18)] transition-opacity disabled:opacity-40 hover:opacity-90"
+          className="h-[52px] w-full max-w-[400px] rounded-md bg-black px-8 text-center text-[13px] font-extrabold uppercase tracking-[0.16em] text-white shadow-[0_16px_22px_-10px_rgba(0,0,0,0.18)] transition-opacity disabled:opacity-40 hover:opacity-90"
           style={{ fontFamily: 'var(--font-geist-sans)' }}
         >
           {loading ? (

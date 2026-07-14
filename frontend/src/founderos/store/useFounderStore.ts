@@ -121,13 +121,14 @@ export const useFounderStore = create<FounderState>((set, get) => ({
 
     hydrateFromStorage: () => {
         const saved = readStorage()
-        if (saved) {
+        if (saved && saved.sessionId) {
             set({ ...saved })
         } else {
-            // First visit — create a fresh session ID
+            // First visit or invalid session — create a fresh session ID
             const fresh: Partial<SessionData> = {
+                ...saved,
                 sessionId: uuidv4(),
-                createdAt: new Date().toISOString(),
+                createdAt: saved?.createdAt || new Date().toISOString(),
             }
             set(fresh)
             writeStorage({ ...defaultSession, ...fresh })

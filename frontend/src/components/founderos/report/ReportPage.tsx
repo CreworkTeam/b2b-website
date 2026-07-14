@@ -36,7 +36,12 @@ export function ReportPage() {
     setEmail,
     setLeadTag,
     persistToStorage,
+    hydrateFromStorage,
   } = useFounderStore()
+
+  useEffect(() => {
+    hydrateFromStorage()
+  }, [hydrateFromStorage])
 
   const keywordCanvasRef = useRef<HTMLCanvasElement | null>(null)
   const platformCanvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -401,8 +406,8 @@ export function ReportPage() {
           ideaText={quiz.q2 || 'Marketplace to discover nail artists nearby'}
         />
 
-        <section className="w-full px-4 py-6 sm:px-5 md:px-6 md:py-8 lg:ml-55 lg:px-8">
-          <div className="mx-50 max-w-190">
+        <section className="px-4 py-6 sm:px-5 md:px-6 md:py-8 lg:ml-[220px] lg:px-8">
+          <div className="mx-auto max-w-[47.5rem]">
             <ReportMobileNav section={section} setSection={setSection} />
             <ReportHeader section={section} />
 

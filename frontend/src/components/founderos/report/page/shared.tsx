@@ -36,7 +36,7 @@ export function ReportSidebar({ section, setSection, ideaText }: SidebarProps) {
   }
 
   return (
-    <aside className="fixed left-0 top-0 hidden h-screen w-55 border-r border-[#e8e6e0] bg-white px-4 py-6 lg:flex lg:flex-col">
+    <aside className="fixed left-0 top-0 hidden h-screen w-[220px] border-r border-[#e8e6e0] bg-white px-4 py-6 lg:flex lg:flex-col">
       <div className="mb-6 px-1 text-[13px] font-semibold">Founder OS <span className="font-normal text-[#6b6860]">by Crework</span></div>
       <p className="mb-2 px-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#a8a59f]">Your report</p>
       {sectionItems.map((item) => (
@@ -107,7 +107,7 @@ export function ReportHeader({ section }: HeaderProps) {
         )}
         {section === 'plan' && 'Build your V1.'}
       </h1>
-      <p className="max-w-160 text-[14px] leading-[1.7] text-[#5a574f]">
+      <p className="max-w-[40rem] text-[14px] leading-[1.7] text-[#5a574f]">
         {section === 'validate' && 'We scanned keyword trends and community conversations to find real evidence that people want what you are building.'}
         {section === 'scope' && 'This section maps your core loop, the features to prioritize, and what to defer so your first release is shippable.'}
         {section === 'plan' && 'Now that you know what to build, this section covers the tech stack to go with, the metrics to optimise from day 1, and a 28-day plan to go from idea to a real product.'}
@@ -141,7 +141,7 @@ export function EmailGateCard({
     <div className="mb-10 rounded-xl border border-[#d1cec7] bg-[#fffbeb] p-5">
       <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-[#92400e]">Unlock full report</p>
       <h3 className="mb-2 text-[18px] font-semibold">Get Scope + Plan access instantly</h3>
-      <p className="mb-4 max-w-160 text-[13px] leading-6 text-[#6b6860]">
+      <p className="mb-4 max-w-[40rem] text-[13px] leading-6 text-[#6b6860]">
         Enter your email to continue reading the full report with precise build scope and a practical launch plan.
       </p>
       <div className="flex flex-col gap-3 sm:flex-row">
