@@ -1,7 +1,6 @@
-'use client'
-
 import type { ReportB, ReportC } from '@/founderos/types'
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 import { GateOverlay } from './shared'
 import { AIToolLogo } from './tool-logos'
 
@@ -105,8 +104,8 @@ export function PlanSection({
   const complexityColor = reportB?.complexityLevel === 'Low'
     ? { border: 'border-[#b5d6bf]', bg: 'bg-[#eaf3ec]', text: 'text-[#1e5c38]', dot: 'bg-[#1e5c38]' }
     : reportB?.complexityLevel === 'Medium'
-    ? { border: 'border-[#fde68a]', bg: 'bg-[#fffbeb]', text: 'text-[#78350f]', dot: 'bg-[#78350f]' }
-    : { border: 'border-[#fecaca]', bg: 'bg-[#fff7f7]', text: 'text-[#7f1d1d]', dot: 'bg-[#7f1d1d]' }
+      ? { border: 'border-[#fde68a]', bg: 'bg-[#fffbeb]', text: 'text-[#78350f]', dot: 'bg-[#78350f]' }
+      : { border: 'border-[#fecaca]', bg: 'bg-[#fff7f7]', text: 'text-[#7f1d1d]', dot: 'bg-[#7f1d1d]' }
 
   const complexitySummary = reportB?.complexityExplanation ?? 'Your MVP has moderate implementation complexity. Keep scope tight and prioritize one core user outcome over breadth.'
 
@@ -189,12 +188,19 @@ export function PlanSection({
 
   const sectionClass = 'mb-9'
 
+  const fadeProps = (index: number) => ({
+    initial: { opacity: 0, y: 15 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay: index * 0.15 }
+  })
+
   return (
     <div className="relative">
       <div className={`${!gateUnlocked ? 'pointer-events-none select-none' : ''}`}>
 
         {/* Technical Complexity */}
-        <div className="mb-3">
+        <motion.div {...fadeProps(0)}>
+          <div className="mb-3">
           <p className="mb-1 text-[10px] uppercase tracking-widest text-[#9e9b93]">Technical complexity</p>
           <p className="text-[13px] text-[#5a574f]">An honest read of build difficulty, stack choice, and mistakes to avoid.</p>
         </div>
@@ -229,20 +235,21 @@ export function PlanSection({
             </div>
           </div>
         </div>
+        </motion.div>
 
         {/* AI Tools */}
-        <div className="mb-3">
+        <motion.div className="mb-3" {...fadeProps(1)}>
           <p className="mb-1 text-[10px] uppercase tracking-[0.08em] text-[#9e9b93]">AI tools to build faster</p>
           <p className="mb-4 text-[13px] text-[#5a574f]">Ship your MVP in weeks, not months, with these AI-native tools.</p>
           <div className="grid gap-3 sm:grid-cols-2">
             {(reportB?.aiTools && reportB.aiTools.length > 0
               ? reportB.aiTools
               : [
-                  { tool: 'Lovable', useCase: 'Frontend-first, great for UI-heavy apps', url: 'https://lovable.dev' },
-                  { tool: 'Cursor', useCase: 'AI code editor for full-stack builds', url: 'https://cursor.sh' },
-                  { tool: 'v0 by Vercel', useCase: 'Generate UI components instantly', url: 'https://v0.dev' },
-                  { tool: 'Bolt', useCase: 'Instant full-stack prototypes', url: 'https://bolt.new' },
-                ]
+                { tool: 'Lovable', useCase: 'Frontend-first, great for UI-heavy apps', url: 'https://lovable.dev' },
+                { tool: 'Cursor', useCase: 'AI code editor for full-stack builds', url: 'https://cursor.sh' },
+                { tool: 'v0 by Vercel', useCase: 'Generate UI components instantly', url: 'https://v0.dev' },
+                { tool: 'Bolt', useCase: 'Instant full-stack prototypes', url: 'https://bolt.new' },
+              ]
             ).map(({ tool, useCase, url }) => (
               <a
                 key={tool}
@@ -267,19 +274,19 @@ export function PlanSection({
               </a>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Common Mistakes */}
-        <div className={sectionClass}>
+        <motion.div className={sectionClass} {...fadeProps(2)}>
           <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-[#9e9b93]">Common mistakes to avoid</p>
           <div className="space-y-2">
             {(reportB?.commonMistakes && reportB.commonMistakes.length > 0
               ? reportB.commonMistakes
               : [
-                  'Building too many features before validating one clear core workflow with real users.',
-                  'Delaying feedback loops until after launch instead of testing with users every week.',
-                  'Over-engineering infrastructure before proving retention and willingness to pay.',
-                ]
+                'Building too many features before validating one clear core workflow with real users.',
+                'Delaying feedback loops until after launch instead of testing with users every week.',
+                'Over-engineering infrastructure before proving retention and willingness to pay.',
+              ]
             ).map((mistake) => (
               <div key={mistake} className="flex items-start gap-3 rounded-lg border border-[#fde68a] bg-[#fffbeb] px-4 py-3">
                 <span className="mt-px text-[13px]">⚠</span>
@@ -287,12 +294,12 @@ export function PlanSection({
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         <div className="mb-8 h-px bg-[#e4e0d8]" />
 
         {/* North Star Metric */}
-        <div className={sectionClass}>
+        <motion.div className={sectionClass} {...fadeProps(3)}>
           <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#a8a59f]">The one number that tells you it is working</p>
           <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#a8a59f]">Your north star metric</p>
@@ -303,10 +310,10 @@ export function PlanSection({
               <span className="rounded-md bg-[#f0ede8] px-3 py-2 text-[12px] font-medium text-[#6b6860]">{northStar.trackingNote}</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Unit Economics */}
-        <div className={sectionClass}>
+        <motion.div className={sectionClass} {...fadeProps(4)}>
           <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#a8a59f]">Your path to 1k MRR</p>
           <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
             <h3 className="mb-1 text-[14px] font-semibold text-[#1a1917]">{unitEconomics.title}</h3>
@@ -315,12 +322,12 @@ export function PlanSection({
               <canvas ref={economicsCanvasRef} />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         <div className="mb-8 h-px bg-[#e4e0d8]" />
 
         {/* 28-day Roadmap */}
-        <div className={sectionClass}>
+        <motion.div className={sectionClass} {...fadeProps(5)}>
           <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-[#a8a59f]">Your 28-day roadmap</p>
           <p className="mb-4 text-[13px] text-[#5a574f]">Four focused weeks from idea to a product real users can try.</p>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -343,10 +350,10 @@ export function PlanSection({
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* CTAs */}
-        <div className="space-y-3">
+        <motion.div className="space-y-3" {...fadeProps(6)}>
           {downloadSuccess ? (
             <div className="rounded-lg border border-[#b5d6bf] bg-[#eaf3ec] px-5 py-4 text-center">
               <p className="text-[14px] font-medium text-[#1e5c38]">Report sent! Check your inbox.</p>
@@ -394,7 +401,7 @@ export function PlanSection({
           >
             Need help with building your idea? Book a call with Crework
           </a>
-        </div>
+        </motion.div>
       </div>
       {!gateUnlocked && <GateOverlay />}
     </div>

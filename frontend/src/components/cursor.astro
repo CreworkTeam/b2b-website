@@ -106,17 +106,18 @@
 </style>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    // --- CUSTOM CURSOR ---
-    const cursor = document.getElementById('custom-cursor');
-    const trail = document.getElementById('cursor-trail');
+  (function() {
+    if (window._cursorBound) return;
+    window._cursorBound = true;
+
     const mouse = { x: 0, y: 0 };
     const trailPos = { x: 0, y: 0 };
 
-    const handleMouseMove = (e) => {
+    window.addEventListener('mousemove', (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
 
+      const cursor = document.getElementById('custom-cursor');
       if (cursor) {
         cursor.style.left = `${e.clientX}px`;
         cursor.style.top = `${e.clientY}px`;
@@ -124,6 +125,8 @@
 
       // Check if hovering over interactive elements
       const target = e.target;
+      if (!target || !target.closest) return;
+      
       const isBtn = target.closest('.header-cta, .card-btn, .footer-link, .footer-email, .nav-link, .btn, button, a, [role="button"]');
       const isText = target.closest('p, h1, h2, h3, span, .social-icon, .footer-tagline, .footer-brand-name');
       
@@ -144,7 +147,9 @@
           btnText.includes('view all case studies') ||
           btnText.includes('validate your idea for free') ||
           btnText.includes('more') ||
-          btnText.includes("let's chat");
+          btnText.includes("let's chat") ||
+          btnText.includes('start quiz') ||
+          btnText.includes('start your blueprint');
 
         const isThemeDarkCta = target.closest('.theme-dark .header-cta') || (target.closest('.header-cta') && target.closest('.theme-dark'));
         const isThemeDarkContainer = target.closest('.theme-dark');
@@ -162,10 +167,10 @@
       } else {
         cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
       }
-    };
+    });
 
-    let animFrameId;
     const updateTrail = () => {
+      const trail = document.getElementById('cursor-trail');
       const dx = mouse.x - trailPos.x;
       const dy = mouse.y - trailPos.y;
       trailPos.x += dx * 0.15;
@@ -175,10 +180,9 @@
         trail.style.left = `${trailPos.x}px`;
         trail.style.top = `${trailPos.y}px`;
       }
-      animFrameId = requestAnimationFrame(updateTrail);
+      requestAnimationFrame(updateTrail);
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    animFrameId = requestAnimationFrame(updateTrail);
-  });
+    requestAnimationFrame(updateTrail);
+  })();
 </script>

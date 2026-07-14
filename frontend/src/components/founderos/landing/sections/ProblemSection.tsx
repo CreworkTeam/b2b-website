@@ -1,4 +1,7 @@
+'use client'
+
 import { Blocks, SearchCheck, WalletCards } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { painCards } from '../landing-data'
 
 type ProblemSectionProps = {
@@ -10,7 +13,12 @@ const iconMap = [WalletCards, Blocks, SearchCheck]
 
 export function ProblemSection({ headingFontClass, bodyFontClass }: ProblemSectionProps) {
   return (
-    <section className="mx-auto mt-6 w-full max-w-300 rounded-3xl bg-black px-6 py-10 sm:px-9 lg:px-16 lg:py-14">
+    <motion.section 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 1.4 }}
+      className="mx-auto mt-6 w-full max-w-300 rounded-3xl bg-black px-6 py-10 sm:px-9 lg:px-16 lg:py-14"
+    >
       <div className="max-w-190">
         <h2 className={`text-[34px] font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-[44px] ${headingFontClass}`}>
           Stop Building in the Dark.
@@ -35,6 +43,6 @@ export function ProblemSection({ headingFontClass, bodyFontClass }: ProblemSecti
           )
         })}
       </div>
-    </section>
+    </motion.section>
   )
 }

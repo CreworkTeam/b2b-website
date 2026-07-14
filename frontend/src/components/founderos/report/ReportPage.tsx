@@ -6,6 +6,7 @@ import { api } from '@/founderos/lib/api'
 import { analytics } from '@/founderos/lib/analytics'
 import { PlanSection } from './page/PlanSection'
 import { ValidateSection } from './page/ValidateSection'
+import { LandingHeader } from '../landing/sections/LandingHeader'
 import { ReportHeader, ReportLoading, ReportMobileNav, ReportSidebar } from './page/shared'
 import { toFeedPost } from './page/types'
 import type { FeedPost, ReportSection } from './page/types'
@@ -398,7 +399,8 @@ export function ReportPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f6f3] text-[#1a1917]">
+    <main className="min-h-screen bg-[#f7f6f3] text-[#1a1917] animate-in fade-in duration-700">
+      <LandingHeader fontClass="font-space-grotesk" />
       <div className="min-h-screen w-full">
         <ReportSidebar
           section={section}

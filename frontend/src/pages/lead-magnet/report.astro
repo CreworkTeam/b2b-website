@@ -1,6 +1,8 @@
 ---
 import { ReportPage } from '../../components/founderos/report/ReportPage';
 import '../../styles/founderos.css';
+import { ViewTransitions } from 'astro:transitions';
+import Cursor from '../../components/cursor.astro';
 ---
 
 <!doctype html>
@@ -9,6 +11,7 @@ import '../../styles/founderos.css';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Founder OS Report | Crework Labs</title>
+    <ViewTransitions />
     <style is:global>
       :root {
         --font-geist-sans: 'Inter', sans-serif;
@@ -33,5 +36,6 @@ import '../../styles/founderos.css';
   </head>
   <body>
     <ReportPage client:load />
+    <Cursor />
   </body>
 </html>

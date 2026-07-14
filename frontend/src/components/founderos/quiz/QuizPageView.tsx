@@ -1,6 +1,6 @@
 import { QuizShell } from './QuizShell'
 import { QuizIntro } from './sections/QuizIntro'
-import { QuizNavbar } from './sections/QuizNavbar'
+import { LandingHeader } from '../landing/sections/LandingHeader'
 
 type QuizPageViewProps = {
   titleFontClass?: string
@@ -9,8 +9,8 @@ type QuizPageViewProps = {
 
 export function QuizPageView({ titleFontClass = '', bodyFontClass = '' }: QuizPageViewProps) {
   return (
-    <main className="relative min-h-screen bg-[#FEF9ED]">
-      <QuizNavbar titleFontClass={titleFontClass} />
+    <main className="relative min-h-screen bg-[#FEF9ED] animate-in fade-in duration-700">
+      <LandingHeader fontClass={titleFontClass} />
 
       <section className="mx-auto flex w-full max-w-7xl justify-center px-5 pb-16 pt-8 sm:px-8 lg:px-0">
         <div className="w-full max-w-5xl">

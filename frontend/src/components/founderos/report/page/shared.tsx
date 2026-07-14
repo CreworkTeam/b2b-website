@@ -36,7 +36,7 @@ export function ReportSidebar({ section, setSection, ideaText }: SidebarProps) {
   }
 
   return (
-    <aside className="fixed left-0 top-0 hidden h-screen w-[220px] border-r border-[#e8e6e0] bg-white px-4 py-6 lg:flex lg:flex-col">
+    <aside className="fixed left-0 top-[62px] hidden h-[calc(100vh-62px)] w-[220px] border-r border-[#e8e6e0] bg-white px-4 py-6 lg:flex lg:flex-col">
       <div className="mb-6 px-1 text-[13px] font-semibold">Founder OS <span className="font-normal text-[#6b6860]">by Crework</span></div>
       <p className="mb-2 px-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#a8a59f]">Your report</p>
       {sectionItems.map((item) => (
