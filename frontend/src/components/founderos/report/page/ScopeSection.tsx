@@ -5,13 +5,15 @@ import { GateOverlay } from './shared'
 type ScopeSectionProps = {
   reportB: ReportB | null
   gateUnlocked: boolean
+  socialPosts?: any[]
+  socialLoading?: boolean
   onContinuePlan: () => void
   onBackValidate: () => void
 }
 
 const CHIP_BASE = 'inline-flex items-center rounded-[6px] px-2.5 py-1 text-[11px] font-medium'
 
-export function ScopeSection({ reportB, gateUnlocked, onContinuePlan }: ScopeSectionProps) {
+export function ScopeSection({ reportB, gateUnlocked, socialPosts = [], socialLoading = false, onContinuePlan }: ScopeSectionProps) {
   // Map archetype to label
   const archetypeLabels: Record<string, string> = {
     marketplace: 'Marketplace',
@@ -32,84 +34,56 @@ export function ScopeSection({ reportB, gateUnlocked, onContinuePlan }: ScopeSec
       ? { border: 'border-[#fde68a]', bg: 'bg-[#fffbeb]', text: 'text-[#78350f]', dot: 'bg-[#78350f]' }
       : { border: 'border-[#fecaca]', bg: 'bg-[#fff7f7]', text: 'text-[#7f1d1d]', dot: 'bg-[#7f1d1d]' }
 
-  // Parse communities from reportB or use fallback
-  const userChannels: Array<{ platform: string; title: string; body: string; badge?: string; color: string }> =
-    reportB?.marketingPlan?.communities?.length
-      ? reportB.marketingPlan.communities.map((community, idx) => {
-        // Parse platform from community string
-        const communityLower = community.toLowerCase()
-        let platform = 'Community'
-        let color = '#6b6860'
+  // 1. Serper Data (Reddit & LinkedIn)
+  const serperChannels = socialPosts.map((post) => {
+    let color = '#6b6860'
+    if (post.platform === 'reddit') color = '#ff4500'
+    else if (post.platform === 'linkedin') color = '#0077b5'
+    else if (post.platform === 'twitter') color = '#1d9bf0'
+    
+    return {
+      platform: post.platform === 'reddit' ? 'Reddit' : post.platform === 'linkedin' ? 'LinkedIn' : post.platform,
+      title: post.source,
+      body: post.text,
+      color,
+    }
+  })
 
-        if (communityLower.includes('reddit') || communityLower.includes('r/')) {
-          platform = 'Reddit'
-          color = '#ff4500'
-        } else if (communityLower.includes('linkedin')) {
-          platform = 'LinkedIn'
-          color = '#0077b5'
-        } else if (communityLower.includes('instagram')) {
-          platform = 'Instagram'
-          color = '#d62976'
-        } else if (communityLower.includes('tiktok')) {
-          platform = 'TikTok'
-          color = '#111111'
-        } else if (communityLower.includes('product hunt') || communityLower.includes('indie')) {
-          platform = 'Indie Hackers'
-          color = '#0e7f6e'
-        }
+  // 2. Groq Data (Twitter)
+  const groqTwitterChannels = (reportB?.marketingPlan?.activeThreads || [])
+    .filter(thread => thread.community.toLowerCase().includes('twitter') || thread.community.toLowerCase().includes('x'))
+    .map(thread => ({
+      platform: 'Twitter',
+      title: thread.community,
+      body: thread.suggestedComment,
+      color: '#1d9bf0',
+    }))
 
-        // Find matching activeThread for body text
-        const matchingThread = reportB.marketingPlan?.activeThreads?.find((thread) => {
-          const threadCommunity = thread.community.toLowerCase()
-          return communityLower.includes(threadCommunity) || threadCommunity.includes(communityLower)
-        })
+  // 3. Combine them (take up to 5 total)
+  let combinedChannels = [...serperChannels, ...groqTwitterChannels].slice(0, 5)
 
-        const fallbackThread = reportB.marketingPlan?.activeThreads?.find((thread) =>
-          communityLower.includes(thread.community.toLowerCase().split(' ')[0])
-        )
-        const threadBody = matchingThread?.suggestedComment ?? fallbackThread?.suggestedComment
+  // Fallback if empty (e.g. API fails or no data yet)
+  if (combinedChannels.length === 0 && !socialLoading) {
+    combinedChannels = [
+      {
+        platform: 'Reddit',
+        title: 'r/SaaS · r/startups · r/entrepreneur',
+        body: 'Problem-aware founders ask for tools and workflows here daily. Lead with insight, not promotion.',
+        color: '#ff4500',
+      },
+      {
+        platform: 'LinkedIn',
+        title: 'LinkedIn groups in your target industry',
+        body: 'Decision-makers share operational pain points and tool recommendations in public posts and comments.',
+        color: '#0077b5',
+      },
+    ]
+  }
 
-        return {
-          platform,
-          title: community,
-          body: threadBody ?? 'Your target users discuss this problem here regularly.',
-          badge: idx === 0 ? 'Start here' : undefined,
-          color,
-        }
-      })
-      : [
-        {
-          platform: 'Reddit',
-          title: 'r/SaaS · r/startups · r/entrepreneur',
-          body: 'Problem-aware founders ask for tools and workflows here daily. Lead with insight, not promotion.',
-          badge: 'Start here',
-          color: '#ff4500',
-        },
-        {
-          platform: 'LinkedIn',
-          title: 'LinkedIn groups in your target industry',
-          body: 'Decision-makers share operational pain points and tool recommendations in public posts and comments.',
-          color: '#0077b5',
-        },
-        {
-          platform: 'Product Hunt',
-          title: 'Product Hunt upcoming + discussions',
-          body: 'Great channel to test positioning and attract early adopters before launch day.',
-          color: '#0e7f6e',
-        },
-        {
-          platform: 'Indie Hackers',
-          title: 'Indie Hackers build logs and milestones',
-          body: 'Share your validation process and ask for feedback from builders who have launched in similar spaces.',
-          color: '#111111',
-        },
-        {
-          platform: 'Discord',
-          title: 'Niche operator and founder communities',
-          body: 'Smaller private communities often produce the highest quality user interviews and design partners.',
-          color: '#6b6860',
-        },
-      ]
+  // Add "Start here" badge to the first item
+  if (combinedChannels.length > 0) {
+    combinedChannels[0].badge = 'Start here'
+  }
 
   const coreLoopHeadline = reportB?.techApproach
     ? (reportB.techApproach.length > 120 ? `${reportB.techApproach.slice(0, 120)}...` : reportB.techApproach)
@@ -282,15 +256,25 @@ export function ScopeSection({ reportB, gateUnlocked, onContinuePlan }: ScopeSec
         <div className="mb-5">
           <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-[#9e9b93]">Where your users already are</p>
           <div className="space-y-2.5 rounded-xl border border-[#e8e6e0] bg-white px-5 py-4">
-            {userChannels.map(({ platform, title, body, badge, color }) => (
-              <article key={title} className="border-b border-[#e8e6e0] pb-3 last:border-b-0 last:pb-0">
+            {socialLoading ? (
+              <div className="flex flex-col gap-2">
+                <p className="text-[12px] font-medium text-[#9e9b93] animate-pulse">
+                  Finding real communities... fast loading available in full unlock
+                </p>
+                <div className="h-4 w-3/4 rounded bg-[#f0ede8] animate-pulse" />
+                <div className="h-4 w-1/2 rounded bg-[#f0ede8] animate-pulse" />
+                <div className="mt-4 h-4 w-5/6 rounded bg-[#f0ede8] animate-pulse" />
+                <div className="h-4 w-2/3 rounded bg-[#f0ede8] animate-pulse" />
+              </div>
+            ) : combinedChannels.map((channel, idx) => (
+              <article key={`${channel.title}-${idx}`} className="border-b border-[#e8e6e0] pb-3 last:border-b-0 last:pb-0">
                 <div className="mb-1 flex items-center gap-2 text-[11px]">
-                  <span className="font-semibold" style={{ color }}>{platform}</span>
+                  <span className="font-semibold" style={{ color: channel.color }}>{channel.platform}</span>
                   <span className="text-[#a8a59f]">·</span>
-                  <span className="text-[#6b6860]">{title}</span>
+                  <span className="text-[#6b6860]">{channel.title}</span>
                 </div>
-                <p className="text-[13px] leading-6 text-[#1c1b18]">{body}</p>
-                {badge && <span className="mt-2 inline-flex rounded-[5px] border border-[#b5d6bf] bg-[#eaf3ec] px-2 py-0.5 text-[10px] font-semibold text-[#1e5c38]">{badge}</span>}
+                <p className="text-[13px] leading-6 text-[#1c1b18]">{channel.body}</p>
+                {channel.badge && <span className="mt-2 inline-flex rounded-[5px] border border-[#b5d6bf] bg-[#eaf3ec] px-2 py-0.5 text-[10px] font-semibold text-[#1e5c38]">{channel.badge}</span>}
               </article>
             ))}
           </div>

@@ -14,6 +14,7 @@ type PlanSectionProps = {
   downloadLoading: boolean
   downloadSuccess: boolean
   downloadError: string
+  disableDownload?: boolean
   onDownloadReport: () => void
 }
 
@@ -27,6 +28,7 @@ export function PlanSection({
   downloadLoading,
   downloadSuccess,
   downloadError,
+  disableDownload = false,
   onDownloadReport,
 }: PlanSectionProps) {
   const [showDownloadForm, setShowDownloadForm] = useState(false)
@@ -385,9 +387,17 @@ export function PlanSection({
           ) : (
             <button
               type="button"
-              onClick={capturedEmail ? onDownloadReport : () => setShowDownloadForm(true)}
-              disabled={downloadLoading}
-              className="w-full rounded-lg bg-[#1a1917] px-5 py-3 text-center text-[14px] font-semibold text-white transition hover:bg-[#333] disabled:opacity-50"
+              onClick={() => {
+                if (disableDownload) return
+                if (capturedEmail) onDownloadReport()
+                else setShowDownloadForm(true)
+              }}
+              disabled={downloadLoading || disableDownload}
+              className={`w-full rounded-lg px-5 py-3 text-center text-[14px] font-semibold transition ${
+                disableDownload
+                  ? 'bg-[#f5f3ef] text-[#c0bdaf] cursor-not-allowed opacity-70 border border-[#d1cec7]'
+                  : 'bg-[#1a1917] text-white hover:bg-[#333] disabled:opacity-50'
+              }`}
             >
               {downloadLoading ? 'Sending...' : 'Download report →'}
             </button>

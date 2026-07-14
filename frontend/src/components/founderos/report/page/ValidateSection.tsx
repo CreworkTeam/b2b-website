@@ -56,7 +56,11 @@ type ValidateSectionProps = {
   downloadLoading: boolean
   downloadSuccess: boolean
   downloadError: string
+  disableDownload?: boolean
   onDownloadReport: () => void
+  newsArticles?: { title: string, source: string, url: string }[]
+  newsLoading?: boolean
+  socialLoading?: boolean
 }
 
 export function ValidateSection({
@@ -81,7 +85,11 @@ export function ValidateSection({
   downloadLoading,
   downloadSuccess,
   downloadError,
+  disableDownload = false,
   onDownloadReport,
+  newsArticles = [],
+  newsLoading = false,
+  socialLoading = false,
 }: ValidateSectionProps) {
   const keywordNote = reportA?.keywordNote?.trim()
   const [showDownloadForm, setShowDownloadForm] = useState(false)
@@ -198,11 +206,21 @@ export function ValidateSection({
             ))}
           </div>
           <div className="space-y-3 px-5 py-4">
-            {filteredPosts.length > 0 ? (
+            {socialLoading ? (
+              <div className="flex flex-col gap-2">
+                <p className="text-[12px] font-medium text-[#9e9b93] animate-pulse">
+                  Loading live conversations... fast loading available in full unlock
+                </p>
+                <div className="h-4 w-3/4 rounded bg-[#f0ede8] animate-pulse" />
+                <div className="h-4 w-1/2 rounded bg-[#f0ede8] animate-pulse" />
+                <div className="mt-4 h-4 w-5/6 rounded bg-[#f0ede8] animate-pulse" />
+                <div className="h-4 w-2/3 rounded bg-[#f0ede8] animate-pulse" />
+              </div>
+            ) : filteredPosts.length > 0 ? (
               filteredPosts.map((post) => (
                 <a
                   key={`${post.platform}-${post.user}-${post.time}`}
-                  href={post.url}
+                  href={post.url || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block border-b border-[#e8e6e0] pb-3 transition-colors last:border-b-0 last:pb-0 hover:bg-[#faf9f7] -mx-5 px-5 rounded-sm"
@@ -310,6 +328,49 @@ export function ValidateSection({
             </div>
           </div>
 
+          {/* Relevant News */}
+          <div className="mb-8">
+            <p className="mb-2 text-[10px] uppercase tracking-widest text-[#a8a59f]">Real-world validation</p>
+            <div className="overflow-hidden rounded-xl border border-[#e8e6e0] bg-white">
+              <div className="border-b border-[#e8e6e0] px-5 py-4">
+                <h2 className="text-[14px] font-semibold">Relevant News Articles</h2>
+                <p className="text-[12px] text-[#6b6860]">Recent coverage identifying this problem or space.</p>
+              </div>
+              <div className="space-y-3 px-5 py-4">
+                {newsLoading ? (
+                  <div className="flex flex-col gap-2">
+                    <p className="text-[12px] font-medium text-[#9e9b93] animate-pulse">
+                      Loading... fast loading available in full unlock
+                    </p>
+                    <div className="h-4 w-3/4 rounded bg-[#f0ede8] animate-pulse" />
+                    <div className="h-4 w-1/2 rounded bg-[#f0ede8] animate-pulse" />
+                  </div>
+                ) : newsArticles.length > 0 ? (
+                  newsArticles.map((article, idx) => (
+                    <a
+                      key={idx}
+                      href={article.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block border-b border-[#e8e6e0] pb-3 transition-colors last:border-b-0 last:pb-0 hover:bg-[#faf9f7] -mx-5 px-5 rounded-sm"
+                    >
+                      <div className="mb-1 flex items-center gap-2 text-[11px] text-[#a8a59f]">
+                        <span className="font-semibold text-[#1a1917]">{article.source}</span>
+                      </div>
+                      <p className="text-[13px] leading-6 font-medium text-[#1d4ed8] hover:underline">
+                        {article.title}
+                      </p>
+                    </a>
+                  ))
+                ) : (
+                  <div className="rounded-lg border border-[#e8e6e0] bg-[#faf9f7] px-4 py-3 text-[12px] text-[#6b6860]">
+                    No relevant news found.
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+
           {/* Opportunity callout */}
           <div className="mb-8 rounded-xl bg-[#1a1917] p-6 text-white">
             <p className="text-[14px] leading-7">
@@ -340,15 +401,20 @@ export function ValidateSection({
             <>
               <button
                 type="button"
-                disabled={downloadLoading}
                 onClick={() => {
+                  if (disableDownload) return
                   if (capturedEmail) {
                     onDownloadReport()
                   } else {
                     setShowDownloadForm((prev) => !prev)
                   }
                 }}
-                className="w-full rounded-lg border border-[#d1cec7] bg-transparent px-5 py-3 text-center text-[14px] text-[#1a1917] transition hover:bg-[#f0ede8] disabled:opacity-50"
+                disabled={downloadLoading || disableDownload}
+                className={`w-full rounded-lg border border-[#d1cec7] px-5 py-3 text-center text-[14px] transition ${
+                  disableDownload
+                    ? 'cursor-not-allowed bg-[#f5f3ef] text-[#c0bdaf] opacity-70'
+                    : 'bg-transparent text-[#1a1917] hover:bg-[#f0ede8]'
+                }`}
               >
                 {downloadLoading ? 'Sending...' : 'Download report →'}
               </button>
