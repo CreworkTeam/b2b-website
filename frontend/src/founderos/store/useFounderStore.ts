@@ -13,6 +13,7 @@ import type {
     ReportA,
     ReportB,
     ReportC,
+    DeliveryMode,
 } from '../types'
 
 const STORAGE_KEY = 'founderOS_session'
@@ -22,6 +23,7 @@ const defaultQuiz: QuizAnswers = {
     q2: '',
     q3: null,
     q4: null,
+    q5: undefined,
 }
 
 const defaultSession: SessionData = {
@@ -36,6 +38,7 @@ const defaultSession: SessionData = {
     leadTag: null,
     routesGenerated: [],
     reports: { A: null, B: null, C: null },
+    deliveryMode: undefined,
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -74,6 +77,7 @@ function toSessionData(state: FounderState): SessionData {
         leadTag: state.leadTag,
         routesGenerated: state.routesGenerated,
         reports: state.reports,
+        deliveryMode: state.deliveryMode,
     }
 }
 
@@ -100,8 +104,13 @@ export const useFounderStore = create<FounderState>((set, get) => ({
     setQ4: (val: Q4Answer) =>
         set((s) => ({ quiz: { ...s.quiz, q4: val } })),
 
+    setQ5: (val: DeliveryMode) =>
+        set((s) => ({ quiz: { ...s.quiz, q5: val } })),
+
     // ── Session actions ────────────────────────────────────────────────────────
     setArchetype: (val: Archetype) => set({ archetype: val }),
+
+    setDeliveryMode: (val: DeliveryMode) => set({ deliveryMode: val }),
 
     setEmail: (val: string) =>
         set({ email: val, emailCapturedAt: new Date().toISOString() }),
@@ -127,6 +136,10 @@ export const useFounderStore = create<FounderState>((set, get) => ({
     hydrateFromStorage: () => {
         const saved = readStorage()
         if (saved && saved.sessionId) {
+            // BACKWARD COMPATIBILITY: default deliveryMode to 'hybrid' for old sessions
+            if (saved.deliveryMode === undefined) {
+                saved.deliveryMode = 'hybrid'
+            }
             set({ ...saved })
         } else {
             // First visit or invalid session — create a fresh session ID

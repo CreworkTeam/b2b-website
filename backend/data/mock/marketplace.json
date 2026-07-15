@@ -328,10 +328,10 @@
         "title": "How many bookings you need at different commission rates",
         "description": "Based on average appointment value of 50. At 10% commission, 200 bookings = 1k MRR.",
         "points": [
-          { "commissionLabel": "5% commission", "bookingsToTarget": 400, "artistsNeeded": 40 },
-          { "commissionLabel": "10% commission", "bookingsToTarget": 200, "artistsNeeded": 20 },
-          { "commissionLabel": "15% commission", "bookingsToTarget": 133, "artistsNeeded": 14 },
-          { "commissionLabel": "20% commission", "bookingsToTarget": 100, "artistsNeeded": 10 }
+          { "unitLabel": "5% commission", "unitsToTarget": 400, "payingCustomersNeeded": 40 },
+          { "unitLabel": "10% commission", "unitsToTarget": 200, "payingCustomersNeeded": 20 },
+          { "unitLabel": "15% commission", "unitsToTarget": 133, "payingCustomersNeeded": 14 },
+          { "unitLabel": "20% commission", "unitsToTarget": 100, "payingCustomersNeeded": 10 }
         ]
       },
       "riskCallout": {

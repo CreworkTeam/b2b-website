@@ -8,6 +8,7 @@ import { PlanSection } from './page/PlanSection'
 import { ValidateSection } from './page/ValidateSection'
 import { LandingHeader } from '../landing/sections/LandingHeader'
 import { ReportHeader, ReportLoading, ReportMobileNav, ReportSidebar } from './page/shared'
+import { PrintLayout } from './PrintLayout'
 import { toFeedPost } from './page/types'
 import type { FeedPost, ReportSection } from './page/types'
 import { ScopeSection } from './page/ScopeSection'
@@ -22,15 +23,17 @@ export function ReportPage() {
   const [loadingRouteA, setLoadingRouteA] = useState(false)
   const [loadingRouteB, setLoadingRouteB] = useState(false)
   const [loadingRouteC, setLoadingRouteC] = useState(false)
+  const [downloadError, setDownloadError] = useState('')
+  const [downloadSuccess, setDownloadSuccess] = useState(false)
   const [downloadEmail, setDownloadEmail] = useState('')
   const [downloadLoading, setDownloadLoading] = useState(false)
-  const [downloadSuccess, setDownloadSuccess] = useState(false)
-  const [downloadError, setDownloadError] = useState('')
+  const [emailLoading, setEmailLoading] = useState(false)
+  const [emailSuccess, setEmailSuccess] = useState(false)
+  const [emailError, setEmailError] = useState('')
   const [newsArticles, setNewsArticles] = useState<{ title: string, source: string, url: string }[]>([])
   const [newsLoading, setNewsLoading] = useState(false)
   const [socialPosts, setSocialPosts] = useState<any[]>([])
   const [socialLoading, setSocialLoading] = useState(false)
-
   const {
     sessionId,
     quiz,
@@ -48,9 +51,35 @@ export function ReportPage() {
     hydrateFromStorage()
   }, [hydrateFromStorage])
 
-  const keywordCanvasRef = useRef<HTMLCanvasElement | null>(null)
-  const platformCanvasRef = useRef<HTMLCanvasElement | null>(null)
-  const sentimentCanvasRef = useRef<HTMLCanvasElement | null>(null)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash
+      if (hash === '#what-to-build') setSection('scope')
+      else if (hash === '#how-to-start') setSection('plan')
+      else if (hash === '#is-there-demand') setSection('validate')
+    }
+
+    if (!window.location.hash || !['#is-there-demand', '#what-to-build', '#how-to-start'].includes(window.location.hash)) {
+      window.history.replaceState(null, '', '#is-there-demand')
+      setSection('validate')
+    } else {
+      handleHashChange()
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  const handleSectionChange = (newSection: ReportSection) => {
+    const hash = newSection === 'validate' ? '#is-there-demand' 
+      : newSection === 'scope' ? '#what-to-build' 
+      : '#how-to-start'
+    window.location.hash = hash
+  }
+
+  const keywordCanvasRef = useRef<HTMLCanvasElement>(null)
+  const platformCanvasRef = useRef<HTMLCanvasElement>(null)
+  const sentimentCanvasRef = useRef<HTMLCanvasElement>(null)
   const routeAKeyRef = useRef<string | null>(null)
   const routeBKeyRef = useRef<string | null>(null)
   const routeCKeyRef = useRef<string | null>(null)
@@ -214,30 +243,75 @@ export function ReportPage() {
     }
   }, [activeArchetype, gateUnlocked, section, reportC, quiz, requestKey, setReport])
 
-  const handleDownloadReport = async () => {
-    const emailToUse = (email || downloadEmail).trim().toLowerCase()
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToUse)) {
-      setDownloadError('Please enter a valid email address.')
+  const handleEmailReport = async () => {
+    const normalized = downloadEmail.trim().toLowerCase()
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized)
+
+    if (!validEmail) {
+      setEmailError('Please enter a valid email address.')
       return
     }
+
+    setEmailError('')
+    setEmailLoading(true)
+    try {
+      let currentReportB = reports.B
+      let currentReportC = reports.C
+
+      if (!currentReportB && activeArchetype) {
+        currentReportB = await api.reportB({ quiz, archetype: activeArchetype })
+        setReport('B', currentReportB)
+        routeBKeyRef.current = requestKey
+      }
+      if (!currentReportC && activeArchetype) {
+        currentReportC = await api.reportC({ quiz, archetype: activeArchetype })
+        setReport('C', currentReportC)
+        routeCKeyRef.current = requestKey
+      }
+
+      await api.sendReport({
+        email: normalized,
+        sessionId,
+        reports: {
+          A: reportA,
+          B: currentReportB,
+          C: currentReportC,
+        },
+      })
+      setEmailSuccess(true)
+    } catch (err) {
+      console.error(err)
+      setEmailError('Failed to send report. Please try again.')
+    } finally {
+      setEmailLoading(false)
+    }
+  }
+
+  const handleDownloadReport = async () => {
     setDownloadError('')
     setDownloadLoading(true)
     try {
-      if (!email) {
-        const { leadTag } = await api.captureEmail({ email: emailToUse, sessionId, quiz, archetype, q4: quiz.q4 })
-        setEmail(emailToUse)
-        setLeadTag(leadTag)
-        persistToStorage()
+      let currentReportB = reports.B
+      let currentReportC = reports.C
+
+      if (!currentReportB && activeArchetype) {
+        currentReportB = await api.reportB({ quiz, archetype: activeArchetype })
+        setReport('B', currentReportB)
+        routeBKeyRef.current = requestKey
       }
-      await api.sendReport({
-        email: emailToUse,
-        sessionId,
-        reports: { A: reportA, B: reportB, C: reportC }
-      })
+      if (!currentReportC && activeArchetype) {
+        currentReportC = await api.reportC({ quiz, archetype: activeArchetype })
+        setReport('C', currentReportC)
+        routeCKeyRef.current = requestKey
+      }
+
+      // Trigger native print directly without timeouts or canvases
+      window.print()
       setDownloadSuccess(true)
+
     } catch (err) {
       console.error(err)
-      setDownloadError('Something went wrong. Please try again.')
+      setDownloadError('Failed to generate PDF. Please try again.')
     } finally {
       setDownloadLoading(false)
     }
@@ -337,6 +411,7 @@ export function ReportPage() {
               datasets: keywordDatasets,
             },
             options: {
+              animation: false,
               responsive: true,
               maintainAspectRatio: false,
               plugins: {
@@ -383,6 +458,7 @@ export function ReportPage() {
               ],
             },
             options: {
+              animation: false,
               indexAxis: 'y',
               responsive: true,
               maintainAspectRatio: false,
@@ -452,114 +528,179 @@ export function ReportPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f6f3] text-[#1a1917] animate-in fade-in duration-700">
+    <main className="min-h-screen bg-white text-[#1a1917] animate-in fade-in duration-700">
       <LandingHeader fontClass="font-space-grotesk" />
       <div className="min-h-screen w-full">
         <ReportSidebar
           section={section}
-          setSection={setSection}
+          setSection={handleSectionChange}
           ideaText={quiz.q2 || 'Marketplace to discover nail artists nearby'}
         />
 
-        <section className="px-4 py-6 sm:px-5 md:px-6 md:py-8 lg:ml-[220px] lg:px-8">
-          <div className="mx-auto max-w-[47.5rem]">
-            <ReportMobileNav section={section} setSection={setSection} />
+        <section id="report-content" className={`px-4 py-6 sm:px-5 md:px-6 md:py-8 lg:px-8 lg:ml-[220px]`}>
+          <style>{`
+            @media print {
+              /* Force background colors and images to print */
+              * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+              
+              /* Hide all standard web UI elements */
+              .hide-in-pdf { display: none !important; }
+              #pdf-content-wrapper { display: none !important; }
+              header, aside, nav, footer { display: none !important; }
+              
+              /* Make PrintLayout visible and take over the page */
+              #print-only-layout { 
+                display: block !important;
+                position: absolute; 
+                left: 0; 
+                top: 0; 
+                width: 100%; 
+                background: white;
+              }
+              
+              @page { margin: 0; }
+              
+              /* Guaranteed page breaks */
+              .print-avoid-break, .avoid-break {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+              }
+            }
+          `}</style>
+          
+          <PrintLayout 
+            quiz={quiz} 
+            reportA={reportA} 
+            reportB={reportB} 
+            reportC={reportC} 
+            filteredPosts={filteredPosts}
+          />
+
+          <div id="pdf-content-wrapper" className="mx-auto max-w-[47.5rem]">
+            <div className="hide-in-pdf">
+              <ReportMobileNav section={section} setSection={handleSectionChange} />
+            </div>
             <ReportHeader section={section} />
 
-            {loadingReports && !reportA && <ReportLoading />}
+            {loadingReports && !reportA && <div className="hide-in-pdf"><ReportLoading /></div>}
 
             {loadingRouteA && (
-              <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
+              <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
                 <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
                 Generating Report A...
               </div>
             )}
 
             {!activeArchetype && (
-              <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
+              <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
                 <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
                 Waiting for archetype classification...
               </div>
             )}
 
-            {section === 'validate' && (
-              <ValidateSection
-                reportA={reportA}
-                validationMetrics={validationMetrics}
-                filteredPosts={filteredPosts}
-                platform={platform}
-                setPlatform={setPlatform}
-                gateUnlocked={gateUnlocked}
-                gateEmail={gateEmail}
-                setGateEmail={(value) => {
-                  setGateEmail(value)
-                  if (gateError) setGateError('')
-                }}
-                gateError={gateError}
-                gateLoading={gateLoading}
-                submitEmailGate={submitEmailGate}
-                onContinueScope={() => setSection('scope')}
-                keywordCanvasRef={(node) => { keywordCanvasRef.current = node }}
-                platformCanvasRef={(node) => { platformCanvasRef.current = node }}
-                sentimentCanvasRef={(node) => { sentimentCanvasRef.current = node }}
-                capturedEmail={email}
-                downloadEmail={downloadEmail}
-                setDownloadEmail={(value) => { setDownloadEmail(value); if (downloadError) setDownloadError('') }}
-                downloadLoading={downloadLoading}
-                downloadSuccess={downloadSuccess}
-                downloadError={downloadError}
-                onDownloadReport={handleDownloadReport}
-                newsArticles={newsArticles}
-                newsLoading={newsLoading}
-                socialLoading={socialLoading}
-                disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
-              />
-            )}
+            <div className={section === 'validate' ? 'block' : 'hidden'}>
+              {reportA && (
+                <ValidateSection
+                  reportA={reportA}
+                  validationMetrics={validationMetrics}
+                  filteredPosts={filteredPosts}
+                  platform={platform}
+                  setPlatform={setPlatform}
+                  gateUnlocked={gateUnlocked}
+                  gateEmail={gateEmail}
+                  setGateEmail={(value) => {
+                    setGateEmail(value)
+                    if (gateError) setGateError('')
+                  }}
+                  gateError={gateError}
+                  gateLoading={gateLoading}
+                  submitEmailGate={submitEmailGate}
+                  onContinueScope={() => handleSectionChange('scope')}
+                  keywordCanvasRef={(node) => { keywordCanvasRef.current = node }}
+                  platformCanvasRef={(node) => { platformCanvasRef.current = node }}
+                  sentimentCanvasRef={(node) => { sentimentCanvasRef.current = node }}
+                  capturedEmail={email}
+                  downloadEmail={downloadEmail}
+                  setDownloadEmail={(value) => { setDownloadEmail(value); if (emailError) setEmailError('') }}
+                  downloadLoading={emailLoading}
+                  downloadSuccess={emailSuccess}
+                  downloadError={emailError}
+                  onDownloadReport={handleEmailReport}
+                  newsArticles={newsArticles}
+                  newsLoading={newsLoading}
+                  socialLoading={socialLoading}
+                  disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
+                />
+              )}
+            </div>
 
-            {section === 'scope' && (
+            <div className={section === 'scope' ? 'block' : 'hidden'}>
               <>
                 {loadingRouteB && !reportB && (
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
+                  <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
                     <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
                     Generating Report B...
                   </div>
                 )}
 
-                <ScopeSection
-                  reportB={reportB}
-                  gateUnlocked={gateUnlocked}
-                  socialPosts={socialPosts}
-                  socialLoading={socialLoading}
-                  onContinuePlan={() => setSection('plan')}
-                  onBackValidate={() => setSection('validate')}
-                />
+                {reportB && (
+                  <ScopeSection
+                    reportB={reportB}
+                    gateUnlocked={gateUnlocked}
+                    gateEmail={gateEmail}
+                    setGateEmail={(value) => {
+                      setGateEmail(value)
+                      if (gateError) setGateError('')
+                    }}
+                    gateError={gateError}
+                    gateLoading={gateLoading}
+                    submitEmailGate={submitEmailGate}
+                    socialPosts={socialPosts}
+                    socialLoading={socialLoading}
+                    onContinuePlan={() => handleSectionChange('plan')}
+                    onBackValidate={() => handleSectionChange('validate')}
+                  />
+                )}
               </>
-            )}
+            </div>
 
-            {section === 'plan' && (
+            <div className={section === 'plan' ? 'block' : 'hidden'}>
               <>
                 {loadingRouteC && !reportC && (
-                  <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
+                  <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
                     <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
                     Generating Report C...
                   </div>
                 )}
 
-                <PlanSection
-                  reportB={reportB}
-                  reportC={reportC}
-                  gateUnlocked={gateUnlocked}
-                  capturedEmail={email}
-                  downloadEmail={downloadEmail}
-                  setDownloadEmail={(value) => { setDownloadEmail(value); if (downloadError) setDownloadError('') }}
-                  downloadLoading={downloadLoading}
-                  downloadSuccess={downloadSuccess}
-                  downloadError={downloadError}
-                  onDownloadReport={handleDownloadReport}
-                  disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
-                />
+                {reportB && reportC && (
+                  <PlanSection
+                    reportB={reportB}
+                    reportC={reportC}
+                    gateUnlocked={gateUnlocked}
+                    gateEmail={gateEmail}
+                    setGateEmail={(value) => {
+                      setGateEmail(value)
+                      if (gateError) setGateError('')
+                    }}
+                    gateError={gateError}
+                    gateLoading={gateLoading}
+                    submitEmailGate={submitEmailGate}
+                    capturedEmail={email}
+                    downloadEmail={downloadEmail}
+                    setDownloadEmail={(value) => { setDownloadEmail(value); if (downloadError) setDownloadError('') }}
+                    downloadLoading={downloadLoading}
+                    downloadSuccess={false}
+                    downloadError={downloadError}
+                    onDownloadReport={handleDownloadReport}
+                    disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
+                  />
+                )}
               </>
-            )}
+            </div>
           </div>
         </section>
       </div>

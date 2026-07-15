@@ -19,6 +19,7 @@ export async function POST(req: NextRequest) {
   try {
     const body: ClassifyRequest = await req.json()
     const idea = body.idea?.trim() ?? ''
+    const userDeliveryMode = body.deliveryMode
 
     if (!idea || idea.length < 10) {
       return NextResponse.json({ error: 'Idea must be at least 10 characters' }, { status: 400 })
@@ -33,6 +34,7 @@ export async function POST(req: NextRequest) {
 
     const jsResult = classifyIdeaWithSignals(idea)
     let archetype = jsResult.archetype
+    let deliveryMode = userDeliveryMode || jsResult.deliveryMode
     let source: 'js' | 'llm_fallback' | 'js_fallback_after_llm_error' = 'js'
     let usedLLMFallback = false
     let fallbackReason: string | null = null
@@ -44,11 +46,11 @@ export async function POST(req: NextRequest) {
         const payload = await groqChatJson({
           model: GROQ_MODELS.classifier,
           systemPrompt:
-            'Classify startup ideas into one archetype. Allowed values: marketplace, saas_tool, consumer_app, ai_wrapper, b2b_platform, community, ecommerce, developer_tool.',
+            'Classify startup ideas into one archetype and one deliveryMode. Allowed archetypes: marketplace, saas_tool, consumer_app, ai_wrapper, b2b_platform, community, ecommerce, developer_tool. Allowed deliveryModes: digital_product, physical_or_local, hybrid.',
           userPrompt: [
-            'Classify this MVP idea into one archetype.',
+            'Classify this MVP idea.',
             `Idea: ${idea}`,
-            'Return JSON object: {"archetype":"..."}',
+            'Return JSON object: {"archetype":"...", "deliveryMode":"..."}',
           ].join('\n'),
           temperature: 0,
           maxTokens: 120,
@@ -56,6 +58,9 @@ export async function POST(req: NextRequest) {
 
         if (isValidClassifierPayload(payload)) {
           archetype = payload.archetype
+          if (!userDeliveryMode && payload.deliveryMode) {
+            deliveryMode = payload.deliveryMode
+          }
           source = 'llm_fallback'
           usedLLMFallback = true
           console.info('[classify] source=llm_fallback', { confidence: jsResult.confidence, maxScore: jsResult.maxScore })
@@ -72,6 +77,7 @@ export async function POST(req: NextRequest) {
 
     const response = {
       archetype,
+      deliveryMode,
       source,
       confidence: jsResult.confidence,
       usedLLMFallback,

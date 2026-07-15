@@ -38,8 +38,8 @@ export const api = {
     return post<EvaluateIdeaRequest, EvaluateIdeaResponse>('/api/evaluate-idea', { idea })
   },
 
-  classify(idea: string) {
-    return post<ClassifyRequest, ClassifyResponse>('/api/classify', { idea })
+  classify(idea: string, deliveryMode?: string) {
+    return post<ClassifyRequest, ClassifyResponse>('/api/classify', { idea, deliveryMode: deliveryMode as any })
   },
 
   reportA(body: ReportRequest) {

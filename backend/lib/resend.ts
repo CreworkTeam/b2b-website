@@ -269,7 +269,7 @@ export async function sendFullReportEmail({
                         <tr>
                           <td style="padding:12px 0;border-bottom:1px solid #1a1a1a;">
                             <p style="margin:0 0 4px;font-size:12px;color:#aaaaaa;font-weight:600;">Week ${w.week}: ${w.title}</p>
-                            <p style="margin:0;font-size:13px;color:#dddddd;">${w.objective}</p>
+                            <p style="margin:0;font-size:13px;color:#dddddd;">${w.objective || (w.deliverables ? w.deliverables.join(', ') : '')}</p>
                           </td>
                         </tr>
                         `).join('')}

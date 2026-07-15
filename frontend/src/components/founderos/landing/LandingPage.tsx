@@ -14,7 +14,7 @@ export function LandingPage() {
 
   return (
     <main
-      className={`bg-[#FEF9ED] text-[#1D1C15] font-inter`}
+      className={`bg-white text-[#1D1C15] font-inter`}
     >
       <LandingHeader fontClass={headingFontClass} />
 

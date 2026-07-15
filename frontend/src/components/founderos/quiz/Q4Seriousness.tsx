@@ -13,7 +13,7 @@ export function Q4Seriousness({ value, onChange }: { value: Q4Answer | null; onC
     <section className="space-y-5">
       <div className="flex items-center gap-3">
         <span className="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-black text-[11px] font-bold text-white">04</span>
-        <h3 className="text-[24px] font-semibold leading-7 tracking-[-0.02em] text-[#000000] sm:text-[26px]">
+        <h3 className="font-space-grotesk text-[24px] font-semibold leading-7 tracking-[-0.02em] text-[#000000] sm:text-[26px]">
           What is your current validation status?
         </h3>
       </div>
@@ -28,8 +28,8 @@ export function Q4Seriousness({ value, onChange }: { value: Q4Answer | null; onC
               className={cn(
                 'flex w-full items-center rounded-[4px] border px-4 py-4 text-left transition-all duration-150 active:scale-[0.99]',
                 selected
-                  ? 'border-[#171717] bg-[#FCF8EE]'
-                  : 'border-[#EAE4D8] bg-[#F8F3E8] hover:border-[#D8D1C2]'
+                  ? 'border-[#171717] bg-white'
+                  : 'border-[#eaeaea] bg-[#f9f9f9] hover:border-[#cccccc]'
               )}
             >
               <p className="text-[14px] font-semibold leading-6 text-black">{opt.label}</p>

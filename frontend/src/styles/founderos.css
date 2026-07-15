@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Instrument+Serif:ital@0;1&family=Inter:wght@100..900&family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -97,3 +97,9 @@
 }
 .arrow-flow { animation: arrowFlowDown 0.55s linear infinite; }
 .arrow-bob  { animation: arrowBob 1.4s ease-in-out infinite; }
+
+/* Global font overrides to use Chakra Petch for all components */
+.font-space-grotesk { font-family: 'Chakra Petch', sans-serif !important; }
+.font-manrope { font-family: 'Chakra Petch', sans-serif !important; }
+.font-inter { font-family: 'Chakra Petch', sans-serif !important; }
+.font-geist-sans { font-family: 'Chakra Petch', sans-serif !important; }

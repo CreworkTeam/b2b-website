@@ -29,7 +29,7 @@ export function Q3UserType({ value, onChange, otherText, onOtherTextChange }: Pr
     <section className="space-y-5">
       <div className="flex items-center gap-3">
         <span className="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-black text-[11px] font-bold text-white">03</span>
-        <h3 className="text-[24px] font-semibold leading-7 tracking-[-0.02em] text-[#000000] sm:text-[26px]">
+        <h3 className="font-space-grotesk text-[24px] font-semibold leading-7 tracking-[-0.02em] text-[#000000] sm:text-[26px]">
           Who is your primary target audience?
         </h3>
       </div>
@@ -45,8 +45,8 @@ export function Q3UserType({ value, onChange, otherText, onOtherTextChange }: Pr
               className={cn(
                 'rounded-[4px] border px-4 py-3.5 text-center transition-all duration-150 active:scale-[0.99]',
                 selected
-                  ? 'border-[#171717] bg-[#FCF8EE]'
-                  : 'border-[#EAE4D8] bg-[#F8F3E8] hover:border-[#D8D1C2]'
+                  ? 'border-[#171717] bg-white'
+                  : 'border-[#eaeaea] bg-[#f9f9f9] hover:border-[#cccccc]'
               )}
             >
               <Icon className="mx-auto h-4.5 w-4.5 text-[#191C1D]" strokeWidth={2} />
@@ -64,7 +64,7 @@ export function Q3UserType({ value, onChange, otherText, onOtherTextChange }: Pr
             onChange={(e) => onOtherTextChange(e.target.value)}
             placeholder="Describe your target group e.g. Healthcare professionals, Gen Z creators..."
             maxLength={120}
-            className="w-full rounded-md border border-[#E7E2D7] bg-[#FCF8EE] px-4 py-3 text-[14px] leading-6 text-[#0a0a0a] outline-none transition-colors duration-150 placeholder:text-[#a1a1aa] focus:border-[#171717]"
+            className="w-full rounded-md border border-[#eaeaea] bg-white px-4 py-3 text-[14px] leading-6 text-[#0a0a0a] outline-none transition-colors duration-150 placeholder:text-[#a1a1aa] focus:border-[#171717]"
             style={{ fontFamily: 'var(--font-geist-sans)' }}
           />
         </div>

@@ -1,13 +1,19 @@
 import type { ReportB, ReportC } from '@/founderos/types'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { GateOverlay } from './shared'
+import { EmailGateCard, GateOverlay } from './shared'
 import { AIToolLogo } from './tool-logos'
+import { useFounderStore } from '@/founderos/store/useFounderStore'
 
 type PlanSectionProps = {
   reportB: ReportB | null
   reportC: ReportC | null
   gateUnlocked: boolean
+  gateEmail: string
+  setGateEmail: (value: string) => void
+  gateError: string
+  gateLoading: boolean
+  submitEmailGate: () => void
   capturedEmail: string | null
   downloadEmail: string
   setDownloadEmail: (value: string) => void
@@ -22,6 +28,11 @@ export function PlanSection({
   reportB,
   reportC,
   gateUnlocked,
+  gateEmail,
+  setGateEmail,
+  gateError,
+  gateLoading,
+  submitEmailGate,
   capturedEmail,
   downloadEmail,
   setDownloadEmail,
@@ -33,6 +44,9 @@ export function PlanSection({
 }: PlanSectionProps) {
   const [showDownloadForm, setShowDownloadForm] = useState(false)
   const economicsCanvasRef = useRef<HTMLCanvasElement | null>(null)
+
+  const { quiz } = useFounderStore()
+  const isPhysicalOrLocal = quiz.q5 === 'physical_or_local'
 
   const plan = reportC?.whatToBuildPlan
 
@@ -63,6 +77,12 @@ export function PlanSection({
         deliverables: week.deliverables,
       }))
     }
+    // If roadmap is explicitly undefined in a C report, it means the LLM omitted it
+    // because it's non-software (physical_or_local). Return null so we don't render it.
+    if (reportC && reportC.roadmap === undefined && reportB?.buildContext?.needsSoftwareMvp === false) {
+      return null
+    }
+
     return [
       {
         week: 1,
@@ -111,9 +131,17 @@ export function PlanSection({
 
   const complexitySummary = reportB?.complexityExplanation ?? 'Your MVP has moderate implementation complexity. Keep scope tight and prioritize one core user outcome over breadth.'
 
+  const monetizationModel = reportC?.whatToBuildPlan?.unitEconomics?.monetizationModel || 'recurring'
+  const isRecurring = monetizationModel === 'recurring' || monetizationModel === 'hybrid'
   const isMarketplaceOrEcommerce = reportC?.archetype === 'marketplace' || reportC?.archetype === 'ecommerce'
-  const primaryDatasetLabel = isMarketplaceOrEcommerce ? 'Bookings to reach $1k MRR' : 'Users needed for $1k MRR'
-  const secondaryDatasetLabel = isMarketplaceOrEcommerce ? 'Suppliers needed' : 'Paying users needed'
+
+  const primaryDatasetLabel = isRecurring
+    ? (isMarketplaceOrEcommerce ? 'Bookings to reach $1k MRR' : 'Users needed for $1k MRR')
+    : (isMarketplaceOrEcommerce ? 'Sales to reach $1k Revenue' : 'Users needed for $1k Revenue')
+
+  const secondaryDatasetLabel = isRecurring
+    ? (isMarketplaceOrEcommerce ? 'Suppliers needed' : 'Paying users needed')
+    : (isMarketplaceOrEcommerce ? 'Suppliers needed' : 'Paying customers needed')
 
   useEffect(() => {
     if (!economicsCanvasRef.current) return
@@ -130,18 +158,18 @@ export function PlanSection({
       chart = new Chart(economicsCanvasRef.current, {
         type: 'bar',
         data: {
-          labels: unitEconomics.points.map((point) => point.commissionLabel),
+          labels: (unitEconomics.points || []).map((point) => point.unitLabel || (point as any).commissionLabel),
           datasets: [
             {
               label: primaryDatasetLabel,
-              data: unitEconomics.points.map((point) => point.bookingsToTarget),
+              data: (unitEconomics.points || []).map((point) => point.unitsToTarget ?? (point as any).bookingsToTarget),
               backgroundColor: '#1a1917',
               borderRadius: 6,
               borderSkipped: false,
             },
             {
               label: secondaryDatasetLabel,
-              data: unitEconomics.points.map((point) => point.artistsNeeded),
+              data: (unitEconomics.points || []).map((point) => point.payingCustomersNeeded ?? (point as any).artistsNeeded),
               backgroundColor: '#d1cec7',
               borderRadius: 6,
               borderSkipped: false,
@@ -198,90 +226,151 @@ export function PlanSection({
 
   return (
     <div className="relative">
+      {/* Email gate */}
+      {!gateUnlocked && (
+        <EmailGateCard
+          gateEmail={gateEmail}
+          setGateEmail={setGateEmail}
+          gateError={gateError}
+          gateLoading={gateLoading}
+          submitEmailGate={submitEmailGate}
+        />
+      )}
+
       <div className={`${!gateUnlocked ? 'pointer-events-none select-none' : ''}`}>
 
-        {/* Technical Complexity */}
-        <motion.div {...fadeProps(0)}>
-          <div className="mb-3">
-          <p className="mb-1 text-[10px] uppercase tracking-widest text-[#9e9b93]">Technical complexity</p>
-          <p className="text-[13px] text-[#5a574f]">An honest read of build difficulty, stack choice, and mistakes to avoid.</p>
-        </div>
-
-        <div className="mb-3 overflow-hidden rounded-xl border border-[#e4e0d8] bg-white">
-          <div className="border-b border-[#e4e0d8] px-5 py-4">
-            <div className="flex flex-wrap items-start gap-4">
-              <div>
-                <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-[#9e9b93]">Complexity level</p>
-                {reportB?.complexityLevel && (
-                  <span className={`inline-flex items-center gap-2 rounded-[7px] ${complexityColor.border} ${complexityColor.bg} px-3 py-1.5 text-[14px] font-semibold ${complexityColor.text}`}>
-                    <span className={`h-2 w-2 rounded-full ${complexityColor.dot}`} />
-                    {reportB.complexityLevel}
-                  </span>
-                )}
+        {/* Technical Complexity & AI Tools (or Software Build reason if non-software) */}
+        {(reportB?.buildContext?.needsSoftwareMvp ?? true) ? (
+          <>
+            <motion.div {...fadeProps(0)}>
+              <div className="mb-3">
+                <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Technical complexity</p>
+                <p className="text-[13px] text-[#5a574f]">An honest read of build difficulty, stack choice, and mistakes to avoid.</p>
               </div>
-              <p className="flex-1 text-[13px] leading-7 text-[#5a574f]">{complexitySummary}</p>
-            </div>
-          </div>
 
-          <div className="bg-[#1c1b18] px-5 py-4">
-            <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-white/40">Suggested approach</p>
-            <p className="mb-3 text-[12px] leading-6 text-white/80" style={{ fontFamily: 'var(--font-geist-mono)' }}>
-              Next.js for frontend + Supabase for database, auth, and storage. Google Maps API for location. Cal.com embedded for booking. Vercel for hosting.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['Next.js', 'Supabase', 'Google Maps API', 'Vercel', 'Tailwind CSS', 'Stripe'].map((tool) => (
-                <span key={tool} className="rounded-[5px] border border-white/25 bg-white/10 px-2.5 py-1 text-[11px] text-white/85" style={{ fontFamily: 'var(--font-geist-mono)' }}>
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-        </motion.div>
-
-        {/* AI Tools */}
-        <motion.div className="mb-3" {...fadeProps(1)}>
-          <p className="mb-1 text-[10px] uppercase tracking-[0.08em] text-[#9e9b93]">AI tools to build faster</p>
-          <p className="mb-4 text-[13px] text-[#5a574f]">Ship your MVP in weeks, not months, with these AI-native tools.</p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {(reportB?.aiTools && reportB.aiTools.length > 0
-              ? reportB.aiTools
-              : [
-                { tool: 'Lovable', useCase: 'Frontend-first, great for UI-heavy apps', url: 'https://lovable.dev' },
-                { tool: 'Cursor', useCase: 'AI code editor for full-stack builds', url: 'https://cursor.sh' },
-                { tool: 'v0 by Vercel', useCase: 'Generate UI components instantly', url: 'https://v0.dev' },
-                { tool: 'Bolt', useCase: 'Instant full-stack prototypes', url: 'https://bolt.new' },
-              ]
-            ).map(({ tool, useCase, url }) => (
-              <a
-                key={tool}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-4 rounded-xl border border-[#e4e0d8] bg-white p-4 no-underline transition-all hover:border-[#c8c4bc] hover:shadow-[0_2px_12px_rgba(0,0,0,0.07)]"
-              >
-                <AIToolLogo tool={tool} url={url} size="lg" />
-                <div className="min-w-0 flex-1">
-                  <p className="mb-0.5 truncate text-[13px] font-semibold text-[#1a1917]">{tool}</p>
-                  <p className="text-[12px] leading-[1.5] text-[#6b6860]">{useCase}</p>
+              <div className={`print-avoid-break mb-3 overflow-hidden rounded-xl border border-[#e4e0d8] bg-white ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
+                <div className="border-b border-[#e4e0d8] px-5 py-4">
+                  <div className="flex flex-wrap items-start gap-4">
+                    <div>
+                      <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-[#9e9b93]">Complexity level</p>
+                      {reportB?.complexityLevel && (
+                        <span className={`inline-flex items-center gap-2 rounded-[7px] ${complexityColor.border} ${complexityColor.bg} px-3 py-1.5 text-[14px] font-semibold ${complexityColor.text}`}>
+                          <span className={`h-2 w-2 rounded-full ${complexityColor.dot}`} />
+                          {reportB.complexityLevel}
+                        </span>
+                      )}
+                    </div>
+                    <p className="flex-1 text-[13px] leading-7 text-[#5a574f]">{complexitySummary}</p>
+                  </div>
                 </div>
-                <svg
-                  className="h-3.5 w-3.5 shrink-0 text-[#d1cec7] transition-colors group-hover:text-[#1a1917]"
-                  viewBox="0 0 14 14"
-                  fill="none"
-                  aria-hidden="true"
-                >
-                  <path d="M2.5 11.5L11.5 2.5M11.5 2.5H6M11.5 2.5V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-            ))}
-          </div>
-        </motion.div>
+
+                <div className="bg-[#1c1b18] px-5 py-4">
+                  <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-white/40">Suggested approach</p>
+                  <p className="mb-3 text-[12px] leading-6 text-white/80" style={{ fontFamily: 'var(--font-geist-mono)' }}>
+                    Next.js for frontend + Supabase for database, auth, and storage. Google Maps API for location. Cal.com embedded for booking. Vercel for hosting.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Next.js', 'Supabase', 'Google Maps API', 'Vercel', 'Tailwind CSS', 'Stripe'].map((tool) => (
+                      <span key={tool} className="rounded-[5px] border border-white/25 bg-white/10 px-2.5 py-1 text-[11px] text-white/85" style={{ fontFamily: 'var(--font-geist-mono)' }}>
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div className="mb-3" {...fadeProps(1)}>
+              <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">AI tools to build faster</p>
+              <p className="mb-4 text-[13px] text-[#5a574f]">Ship your MVP in weeks, not months, with these AI-native tools.</p>
+              <div className={`grid gap-3 sm:grid-cols-2 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
+                {(reportB?.aiTools && reportB.aiTools.length > 0
+                  ? reportB.aiTools
+                  : [
+                    { tool: 'Lovable', useCase: 'Frontend-first, great for UI-heavy apps', url: 'https://lovable.dev' },
+                    { tool: 'Cursor', useCase: 'AI code editor for full-stack builds', url: 'https://cursor.sh' },
+                    { tool: 'v0 by Vercel', useCase: 'Generate UI components instantly', url: 'https://v0.dev' },
+                    { tool: 'Bolt', useCase: 'Instant full-stack prototypes', url: 'https://bolt.new' },
+                  ]
+                ).map(({ tool, useCase, url }) => (
+                  <a
+                    key={tool}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="print-avoid-break flex items-start gap-4 rounded-xl border border-[#e4e0d8] bg-white p-4 transition-colors hover:bg-[#faf9f7]"
+                  >
+                    <AIToolLogo tool={tool} url={url} />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-[14px] font-semibold text-[#1a1917]">{tool}</span>
+                        <span className="text-[10px] text-[#a8a59f]">↗</span>
+                      </div>
+                      <p className="mt-0.5 text-[12px] leading-5 text-[#6b6860]">{useCase}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        ) : (
+          <motion.div {...fadeProps(0)}>
+            <div className="mb-3">
+              <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Software Build</p>
+              <p className="text-[13px] text-[#5a574f]">Why a software MVP isn't needed right now.</p>
+            </div>
+            <div className={`print-avoid-break mb-3 overflow-hidden rounded-xl border border-[#e4e0d8] bg-white ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
+              <div className="px-5 py-4">
+                <p className="text-[13px] leading-7 text-[#5a574f]">{reportB?.buildContext?.reason}</p>
+              </div>
+            </div>
+
+            {reportB?.realWorldPlan && (
+              <>
+                <div className="mb-3 mt-6">
+                  <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Real-World Execution</p>
+                  <p className="text-[13px] text-[#5a574f]">Key steps and resources to launch your physical/local MVP.</p>
+                </div>
+                <div className={`print-avoid-break mb-3 overflow-hidden rounded-xl border border-[#e4e0d8] bg-white ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
+                  <div className="border-b border-[#e4e0d8] px-5 py-4">
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#a8a59f]">Key Steps</p>
+                    <ul className="list-inside list-disc space-y-1.5 text-[13px] text-[#5a574f]">
+                      {(reportB.realWorldPlan.keySteps || []).map((step, idx) => (
+                        <li key={idx} className="pl-1">{step}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="border-b border-[#e4e0d8] px-5 py-4 bg-[#faf9f7]">
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.08em] text-[#a8a59f]">Resources Needed</p>
+                    <div className="flex flex-wrap gap-2">
+                      {(reportB.realWorldPlan.resourcesNeeded || []).map((res, idx) => (
+                        <span key={idx} className="rounded-md border border-[#e4e0d8] bg-white px-2.5 py-1 text-[12px] text-[#1a1917]">
+                          {res}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="px-5 py-4 bg-[#1c1b18] text-white/90">
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.08em] text-white/50">Launch Checklist</p>
+                    <ul className="space-y-2 text-[12px] font-medium" style={{ fontFamily: 'var(--font-geist-mono)' }}>
+                      {(reportB.realWorldPlan.launchChecklist || []).map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="text-[#a8a59f] mt-0.5">☐</span>
+                          <span className="leading-5">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </>
+            )}
+          </motion.div>
+        )}
 
         {/* Common Mistakes */}
         <motion.div className={sectionClass} {...fadeProps(2)}>
-          <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-[#9e9b93]">Common mistakes to avoid</p>
-          <div className="space-y-2">
+          <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Common mistakes to avoid</p>
+          <div className={`space-y-2 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
             {(reportB?.commonMistakes && reportB.commonMistakes.length > 0
               ? reportB.commonMistakes
               : [
@@ -290,7 +379,7 @@ export function PlanSection({
                 'Over-engineering infrastructure before proving retention and willingness to pay.',
               ]
             ).map((mistake) => (
-              <div key={mistake} className="flex items-start gap-3 rounded-lg border border-[#fde68a] bg-[#fffbeb] px-4 py-3">
+              <div key={mistake} className="print-avoid-break flex items-start gap-3 rounded-lg border border-[#fde68a] bg-[#fffbeb] px-4 py-3">
                 <span className="mt-px text-[13px]">⚠</span>
                 <p className="text-[13px] leading-6 text-[#78350f]">{mistake}</p>
               </div>
@@ -302,8 +391,8 @@ export function PlanSection({
 
         {/* North Star Metric */}
         <motion.div className={sectionClass} {...fadeProps(3)}>
-          <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#a8a59f]">The one number that tells you it is working</p>
-          <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
+          <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">The one number that tells you it is working</p>
+          <div className={`print-avoid-break rounded-xl border border-[#e8e6e0] bg-white p-5 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
             <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-[#a8a59f]">Your north star metric</p>
             <h3 className="mb-1 text-[20px] font-semibold text-[#1a1917]">{northStar.metric}</h3>
             <p className="text-[13px] leading-6 text-[#6b6860]">{northStar.explanation}</p>
@@ -315,47 +404,52 @@ export function PlanSection({
         </motion.div>
 
         {/* Unit Economics */}
-        <motion.div className={sectionClass} {...fadeProps(4)}>
-          <p className="mb-3 text-[10px] font-semibold uppercase tracking-widest text-[#a8a59f]">Your path to 1k MRR</p>
-          <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
-            <h3 className="mb-1 text-[14px] font-semibold text-[#1a1917]">{unitEconomics.title}</h3>
-            <p className="mb-4 text-[12px] text-[#6b6860]">{unitEconomics.description}</p>
-            <div className="h-70">
-              <canvas ref={economicsCanvasRef} />
+        {!isPhysicalOrLocal && (
+          <motion.div className={sectionClass} {...fadeProps(4)}>
+            <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Your path to 1k MRR</p>
+            <div className={`print-avoid-break rounded-xl border border-[#e8e6e0] bg-white p-5 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
+              <h3 className="mb-1 text-[14px] font-semibold text-[#1a1917]">{unitEconomics.title}</h3>
+              <p className="mb-4 text-[12px] text-[#6b6860]">{unitEconomics.description}</p>
+              <div className="h-70">
+                <canvas ref={economicsCanvasRef} id="economics-chart" />
+              </div>
             </div>
-          </div>
-        </motion.div>
-
-        <div className="mb-8 h-px bg-[#e4e0d8]" />
+          </motion.div>
+        )}
 
         {/* 28-day Roadmap */}
-        <motion.div className={sectionClass} {...fadeProps(5)}>
-          <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-[#a8a59f]">Your 28-day roadmap</p>
-          <p className="mb-4 text-[13px] text-[#5a574f]">Four focused weeks from idea to a product real users can try.</p>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {roadmapWeeks.map((week) => (
-              <div key={week.week} className="rounded-xl border border-[#e8e6e0] bg-white p-5">
-                <div className="mb-3 flex items-center gap-3">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1a1917] text-[11px] font-semibold text-white">
-                    W{week.week}
-                  </span>
-                  <h3 className="text-[14px] font-semibold text-[#1a1917]">{week.title}</h3>
-                </div>
-                <ul className="space-y-1.5">
-                  {week.deliverables.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-[12px] leading-[1.6] text-[#5a574f]">
-                      <span className="mt-[4px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#d1cec7]" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+        {roadmapWeeks && (
+          <>
+            <motion.div className={sectionClass} {...fadeProps(5)}>
+              <p className="mb-1.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Your 28-day roadmap</p>
+              <p className="mb-4 text-[13px] text-[#5a574f]">Four focused weeks from idea to a product real users can try.</p>
+              <div className={`grid gap-3 sm:grid-cols-2 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
+                {roadmapWeeks.map((week) => (
+                  <div key={week.week} className="print-avoid-break rounded-xl border border-[#e8e6e0] bg-white p-5">
+                    <div className="mb-3 flex items-center gap-3">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1a1917] text-[11px] font-semibold text-white">
+                        W{week.week}
+                      </span>
+                      <h3 className="text-[14px] font-semibold text-[#1a1917]">{week.title}</h3>
+                    </div>
+                    <ul className="space-y-1.5">
+                      {(week.deliverables || []).map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-[12px] leading-[1.6] text-[#5a574f]">
+                          <span className="mt-[4px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#d1cec7]" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </motion.div>
+            </motion.div>
+            <div className="mb-8 h-px bg-[#e4e0d8]" />
+          </>
+        )}
 
         {/* CTAs */}
-        <motion.div className="space-y-3" {...fadeProps(6)}>
+        <motion.div className="hide-in-pdf space-y-3" {...fadeProps(6)}>
           {downloadSuccess ? (
             <div className="rounded-lg border border-[#b5d6bf] bg-[#eaf3ec] px-5 py-4 text-center">
               <p className="text-[14px] font-medium text-[#1e5c38]">Report sent! Check your inbox.</p>
@@ -375,11 +469,11 @@ export function PlanSection({
                 />
                 <button
                   type="button"
-                  disabled={downloadLoading}
+                  disabled={downloadLoading || !downloadEmail.trim() || !downloadEmail.includes('@')}
                   onClick={onDownloadReport}
-                  className="shrink-0 rounded-lg bg-[#1a1917] px-5 py-3 text-[14px] font-semibold text-white transition hover:bg-[#333] disabled:opacity-50"
+                  className="shrink-0 rounded-lg bg-[#1a1917] px-5 py-3 text-[14px] font-semibold text-white transition hover:bg-[#333] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {downloadLoading ? 'Sending...' : 'Send report'}
+                  {downloadLoading ? 'Downloading...' : 'Download'}
                 </button>
               </div>
               {downloadError && <p className="mt-2 text-[12px] text-[#991b1b]">{downloadError}</p>}
@@ -393,18 +487,17 @@ export function PlanSection({
                 else setShowDownloadForm(true)
               }}
               disabled={downloadLoading || disableDownload}
-              className={`w-full rounded-lg px-5 py-3 text-center text-[14px] font-semibold transition ${
-                disableDownload
-                  ? 'bg-[#f5f3ef] text-[#c0bdaf] cursor-not-allowed opacity-70 border border-[#d1cec7]'
-                  : 'bg-[#1a1917] text-white hover:bg-[#333] disabled:opacity-50'
-              }`}
+              className={`w-full rounded-lg px-5 py-3 text-center text-[14px] font-semibold transition ${disableDownload
+                ? 'bg-[#f5f3ef] text-[#c0bdaf] cursor-not-allowed opacity-70 border border-[#d1cec7]'
+                : 'bg-[#1a1917] text-white hover:bg-[#333] disabled:opacity-50'
+                }`}
             >
-              {downloadLoading ? 'Sending...' : 'Download report →'}
+              {downloadLoading ? 'Downloading...' : 'Download report →'}
             </button>
           )}
 
           <a
-            href="https://cal.com/creworklabs"
+            href="https://calendly.com/creworklabs/30mins"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full rounded-lg border border-[#d1cec7] bg-transparent px-5 py-3 text-center text-[14px] text-[#1a1917] transition hover:bg-[#f0ede8]"
@@ -413,7 +506,6 @@ export function PlanSection({
           </a>
         </motion.div>
       </div>
-      {!gateUnlocked && <GateOverlay />}
     </div>
   )
 }
