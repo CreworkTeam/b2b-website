@@ -35,7 +35,7 @@ export function ScopeSection({
 }: ScopeSectionProps) {
   const [guideEmail, setGuideEmail] = useState('')
   const [guideStatus, setGuideStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const { sessionId, quiz, archetype, setEmail } = useFounderStore()
+  const { sessionId, quiz, archetype, q4, setEmail } = useFounderStore()
 
   const handleSendGuide = async () => {
     if (!guideEmail || !guideEmail.includes('@')) return
@@ -46,7 +46,7 @@ export function ScopeSection({
         sessionId,
         quiz,
         archetype,
-        q4: quiz.q4
+        q4
       })
       setEmail(guideEmail)
       setGuideStatus('success')
@@ -368,9 +368,9 @@ export function ScopeSection({
                 {guideStatus === 'error' && <p className="mb-1 text-[11px] text-red-500">Failed to send. Please try again.</p>}
                 <p className="text-[11px] text-[#9e9b93]">One email per week · No spam · Unsubscribe any time</p>
               </div>
-              <a 
-                href="https://shikshita.substack.com/p/find-exact-reddit-discussions-where" 
-                target="_blank" 
+              <a
+                href="https://shikshita.substack.com/p/find-exact-reddit-discussions-where"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex shrink-0 items-center gap-1 text-[11px] font-medium text-[#1a1917] hover:underline"
               >
