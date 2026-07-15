@@ -35,7 +35,7 @@ export function ScopeSection({
 }: ScopeSectionProps) {
   const [guideEmail, setGuideEmail] = useState('')
   const [guideStatus, setGuideStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const { sessionId, quiz, archetype, q4, setEmail } = useFounderStore()
+  const { sessionId, quiz, archetype, setEmail } = useFounderStore()
 
   const handleSendGuide = async () => {
     if (!guideEmail || !guideEmail.includes('@')) return
@@ -46,7 +46,7 @@ export function ScopeSection({
         sessionId,
         quiz,
         archetype,
-        q4
+        q4: quiz.q4
       })
       setEmail(guideEmail)
       setGuideStatus('success')

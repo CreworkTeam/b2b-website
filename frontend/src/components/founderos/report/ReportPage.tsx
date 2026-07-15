@@ -561,12 +561,24 @@ export function ReportPage() {
                 background: white;
               }
               
-              @page { margin: 0; }
+              @page { 
+                size: letter portrait;
+                margin: 0 !important; 
+              }
               
               /* Guaranteed page breaks */
               .print-avoid-break, .avoid-break {
                 page-break-inside: avoid !important;
                 break-inside: avoid !important;
+              }
+
+              .print-full-page {
+                height: 11in !important;
+                max-height: 11in !important;
+                width: 100%;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                overflow: hidden !important;
               }
             }
           `}</style>

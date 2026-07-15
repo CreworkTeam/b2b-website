@@ -93,9 +93,7 @@ export function ReportHeader({ section }: HeaderProps) {
     <header className="mb-10 border-b border-[#e8e6e0] pb-7">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-sm bg-[#1a1917] text-white">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
-          </div>
+          <img src="/favicon.svg" alt="Crework Labs" className="h-6 w-6" />
           <span className="font-space-grotesk text-[15px] font-bold tracking-tight text-[#1a1917]">Crework Labs</span>
         </div>
         <span className="rounded-full border border-[#e8e6e0] bg-[#f7f6f3] px-3 py-1 text-[10px] font-semibold text-[#6b6860] uppercase tracking-wider">

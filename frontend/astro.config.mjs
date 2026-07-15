@@ -17,7 +17,8 @@ export default defineConfig({
   vite: {
     server: {
       allowedHosts: [
-        'monkhood-petticoat-ramble.ngrok-free.dev'
+        'monkhood-petticoat-ramble.ngrok-free.dev',
+        'moonrise-constant-washtub.ngrok-free.dev'
       ]
     },
     resolve: {

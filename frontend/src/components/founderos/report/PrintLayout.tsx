@@ -1,10 +1,10 @@
 import React from 'react'
-import type { ReportA, ReportB, ReportC, FounderQuizState } from '../../../founderos/types'
+import type { ReportA, ReportB, ReportC, QuizAnswers } from '../../../founderos/types'
 
 import type { FeedPost } from './page/types'
 
 interface PrintLayoutProps {
-  quiz: FounderQuizState
+  quiz: QuizAnswers
   reportA: ReportA | null
   reportB: ReportB | null
   reportC: ReportC | null
@@ -64,7 +64,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts }: 
     <div id="print-only-layout" className="w-full mx-auto bg-white text-[#1a1917] hidden">
       {/* COVER PAGE (First Page) */}
       <div
-        className="relative flex flex-col bg-[#0a0a0a] text-white p-16 overflow-hidden"
+        className="relative flex flex-col bg-[#0a0a0a] text-white p-16 overflow-hidden print-full-page"
         style={{
           height: '100vh',
           width: '100%',
@@ -128,11 +128,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts }: 
         {/* HEADER */}
         <div className="flex items-center gap-4 border-b border-[#e8e6e0] pb-6 mb-8">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded bg-[#1a1917]">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 12h4l3-9 5 18 3-9h3" />
-              </svg>
-            </div>
+            <img src="/favicon.svg" alt="Crework Labs" className="h-8 w-8" />
             <span className="font-space-grotesk text-[18px] font-bold tracking-tight text-[#1a1917]">Crework Labs</span>
           </div>
           <div className="flex items-center gap-3">
@@ -225,7 +221,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts }: 
                 {(reportA.demandSignals || []).map((signal, idx) => (
                   <div key={idx} className="border-b border-[#e8e6e0] pb-3 last:border-0 last:pb-0">
                     <p className="text-[13px] font-bold text-[#1a1917]">{signal.theme}</p>
-                    <p className="text-[12px] text-[#6b6860] mt-1">{signal.insight}</p>
+                    <p className="text-[12px] text-[#6b6860] mt-1">{signal.intent}</p>
                   </div>
                 ))}
               </div>
@@ -443,7 +439,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts }: 
 
       {/* FINAL CTA PAGE */}
       <div
-        className="flex flex-col items-center justify-center bg-[#0a0a0a] text-center text-white p-12"
+        className="flex flex-col items-center justify-center bg-[#0a0a0a] text-center text-white p-12 print-full-page"
         style={{
           height: '100vh',
           width: '100%',
