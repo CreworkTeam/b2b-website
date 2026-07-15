@@ -29,6 +29,7 @@ const circuitState: {
 export const GROQ_MODELS = {
   report: 'llama-3.3-70b-versatile',
   classifier: 'llama-3.1-8b-instant',
+  evaluator: 'llama-3.1-8b-instant',
 } as const
 
 function isCircuitOpen(): boolean {

@@ -1,7 +1,5 @@
 import type { Archetype, QuizAnswers, ReportA, ReportB, ReportC, RouteKey } from '@/types'
 import { GROQ_MODELS, groqChatJson } from '@/lib/groq'
-import { parseReportA, parseReportB, parseReportC } from '@/lib/llmValidation'
-import { z } from 'zod'
 
 export type LLMReportResult<T> = {
   report: T
@@ -35,6 +33,8 @@ function reportSystemPrompt(route: RouteKey): string {
       '- validationScore: {searchDemand:number(1-10), communityDensity:number(1-10), competitionIntensity:number(1-10), overall:number(1-10)}',
       '- blogLinks: array of 2-4 objects {label, url, context}',
       '- keywordNote: string',
+      'If Delivery Mode is physical_or_local, competitors = other local/offline alternatives (other exchange boxes, library programs, similar community projects nearby), demandSignals = local/community interest signals (not search-volume/SEO framing).',
+      'For physical_or_local ideas, do not suggest turning this into an app or platform unless the user\'s quiz answers explicitly indicate they want a digital product.',
       'Do not include any extra keys.',
     ].join(' ')
   }
@@ -42,8 +42,9 @@ function reportSystemPrompt(route: RouteKey): string {
     return [
       'You generate Route B report JSON for MVP scoping.',
       'Return exactly one object with ONLY these top-level keys:',
-      'archetype, coreFeatures, skipFeatures, complexityLevel, complexityExplanation, techApproach, commonMistakes, aiTools, marketingPlan, blogLinks',
+      'archetype, coreFeatures, skipFeatures, complexityLevel, complexityExplanation, techApproach, commonMistakes, aiTools, marketingPlan, blogLinks, buildContext',
       'Field requirements:',
+      '- buildContext: { needsSoftwareMvp: boolean, reason: string }',
       '- coreFeatures: 2-3 objects {name, why}',
       '- skipFeatures: 3-4 objects {name, why}',
       '- complexityLevel: Low|Medium|High',
@@ -53,6 +54,8 @@ function reportSystemPrompt(route: RouteKey): string {
       '- aiTools: 2-4 objects {tool, useCase, url}',
       '- marketingPlan: {waitlistAdvice:string, communities:string[5], activeThreads:[{community,topic,suggestedComment}] (5 items), weekOneChecklist:string[4-7]}',
       '- blogLinks: array of 2-4 objects {label, url, context}',
+      '- realWorldPlan: {keySteps:string[3-5], resourcesNeeded:string[], launchChecklist:string[4-6]}',
+      'If buildContext.needsSoftwareMvp is false, you MUST OMIT coreFeatures, skipFeatures, complexityLevel, complexityExplanation, techApproach, and aiTools entirely, and INSTEAD INCLUDE realWorldPlan.',
       'Do not include any extra keys.',
     ].join(' ')
   }
@@ -68,17 +71,19 @@ function reportSystemPrompt(route: RouteKey): string {
     '- whatToBuildPlan: object with keys buildDecisions, northStarMetric, unitEconomics, riskCallout',
     '- buildDecisions: exactly 6 objects with group build_first|build_v2|skip_for_now, plus title/body',
     '- northStarMetric: {metric, explanation, target, trackingNote}',
-    '- unitEconomics: {title, description, points:[{commissionLabel, bookingsToTarget:number, artistsNeeded:number}]}',
+    '- unitEconomics: {title, description, monetizationModel(recurring|one_time_purchase|hybrid), points:[{unitLabel, unitsToTarget:number, payingCustomersNeeded:number}]}',
     '- riskCallout: {title, body}',
     '- blogLinks: array of 2-4 objects {label, url, context}',
+    'If Delivery Mode is physical_or_local and software is not being built, you MUST completely omit roadmap and questionsToAskAgency.',
     'Do not include any extra keys.',
   ].join(' ')
 }
 
-function reportUserPrompt(route: RouteKey, archetype: Archetype, quiz: QuizAnswers): string {
+function reportUserPrompt(route: RouteKey, archetype: Archetype, deliveryMode: string, quiz: QuizAnswers): string {
   return [
     `Route: ${route}`,
     `Archetype: ${archetype}`,
+    `Delivery Mode: ${deliveryMode}`,
     'Quiz answers JSON:',
     quizContext(quiz),
     'Constraints:',
@@ -90,71 +95,50 @@ function reportUserPrompt(route: RouteKey, archetype: Archetype, quiz: QuizAnswe
   ].join('\n')
 }
 
-export async function generateReportAWithLLM(archetype: Archetype, quiz: QuizAnswers): Promise<LLMReportResult<ReportA>> {
+export async function generateReportAWithLLM(archetype: Archetype, deliveryMode: string, quiz: QuizAnswers): Promise<LLMReportResult<ReportA>> {
   const payload = await groqChatJson({
     model: GROQ_MODELS.report,
     systemPrompt: reportSystemPrompt('A'),
-    userPrompt: reportUserPrompt('A', archetype, quiz),
+    userPrompt: reportUserPrompt('A', archetype, deliveryMode, quiz),
     temperature: 0.1,
     maxTokens: 2200,
   })
 
-  try {
-    const parsed = parseReportA(payload)
-    return {
-      report: { ...parsed, archetype },
-      modelArchetype: parsed.archetype,
-    }
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      throw new Error(`Invalid LLM payload for Report A: ${error.issues.map((i) => i.path.join('.')).join(', ')}`)
-    }
-    throw error
+  const parsed = payload as unknown as ReportA
+  return {
+    report: { ...parsed, archetype },
+    modelArchetype: parsed.archetype || archetype,
   }
 }
 
-export async function generateReportBWithLLM(archetype: Archetype, quiz: QuizAnswers): Promise<LLMReportResult<ReportB>> {
+export async function generateReportBWithLLM(archetype: Archetype, deliveryMode: string, quiz: QuizAnswers): Promise<LLMReportResult<ReportB>> {
   const payload = await groqChatJson({
     model: GROQ_MODELS.report,
     systemPrompt: reportSystemPrompt('B'),
-    userPrompt: reportUserPrompt('B', archetype, quiz),
+    userPrompt: reportUserPrompt('B', archetype, deliveryMode, quiz),
     temperature: 0.1,
     maxTokens: 2400,
   })
 
-  try {
-    const parsed = parseReportB(payload)
-    return {
-      report: { ...parsed, archetype },
-      modelArchetype: parsed.archetype,
-    }
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      throw new Error(`Invalid LLM payload for Report B: ${error.issues.map((i) => i.path.join('.')).join(', ')}`)
-    }
-    throw error
+  const parsed = payload as unknown as ReportB
+  return {
+    report: { ...parsed, archetype },
+    modelArchetype: parsed.archetype || archetype,
   }
 }
 
-export async function generateReportCWithLLM(archetype: Archetype, quiz: QuizAnswers): Promise<LLMReportResult<ReportC>> {
+export async function generateReportCWithLLM(archetype: Archetype, deliveryMode: string, quiz: QuizAnswers): Promise<LLMReportResult<ReportC>> {
   const payload = await groqChatJson({
     model: GROQ_MODELS.report,
     systemPrompt: reportSystemPrompt('C'),
-    userPrompt: reportUserPrompt('C', archetype, quiz),
+    userPrompt: reportUserPrompt('C', archetype, deliveryMode, quiz),
     temperature: 0.1,
     maxTokens: 2600,
   })
 
-  try {
-    const parsed = parseReportC(payload)
-    return {
-      report: { ...parsed, archetype },
-      modelArchetype: parsed.archetype,
-    }
-  } catch (error) {
-    if (error instanceof z.ZodError) {
-      throw new Error(`Invalid LLM payload for Report C: ${error.issues.map((i) => i.path.join('.')).join(', ')}`)
-    }
-    throw error
+  const parsed = payload as unknown as ReportC
+  return {
+    report: { ...parsed, archetype },
+    modelArchetype: parsed.archetype || archetype,
   }
 }

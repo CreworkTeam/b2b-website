@@ -43,7 +43,8 @@ export async function POST(req: NextRequest) {
     }
 
     try {
-      const { report, modelArchetype } = await generateReportAWithLLM(body.archetype, body.quiz)
+      const deliveryMode = body.deliveryMode || 'hybrid'
+      const { report, modelArchetype } = await generateReportAWithLLM(body.archetype, deliveryMode, body.quiz)
 
       if (modelArchetype && modelArchetype !== body.archetype) {
         console.warn('[report/A] archetype_mismatch', {

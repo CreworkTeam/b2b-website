@@ -7,6 +7,7 @@ import { Q1Stage } from './Q1Stage'
 import { Q2Idea } from './Q2Idea'
 import { Q3UserType } from './Q3UserType'
 import { Q4Seriousness } from './Q4Seriousness'
+import { Q5DeliveryMode } from './Q5DeliveryMode'
 import type { RouteKey } from '@/founderos/types'
 
 const ROUTE_MAP: Record<string, RouteKey> = { idea: 'A', validation: 'B', build: 'C' }
@@ -44,7 +45,7 @@ function useTypewriter(messages: string[], active: boolean) {
 
 export function QuizShell() {
   const startTimeRef = useRef<number>(Date.now())
-  const { sessionId, quiz, setQ1, setQ2, setQ3, setQ4, setArchetype, setActiveTab, persistToStorage, hydrateFromStorage } = useFounderStore()
+  const { sessionId, quiz, ideaEvaluation, setQ1, setQ2, setQ3, setQ4, setQ5, setArchetype, setDeliveryMode, setActiveTab, persistToStorage, hydrateFromStorage } = useFounderStore()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [started, setStarted] = useState(false)
@@ -65,15 +66,16 @@ export function QuizShell() {
 
   useEffect(() => { analytics.pageViewed(sessionId) }, [sessionId])
 
-  const isComplete = quiz.q1 !== null && quiz.q2.trim().length >= 20 && quiz.q3 !== null && quiz.q4 !== null
+  const isComplete = quiz.q1 !== null && quiz.q2.trim().length >= 20 && quiz.q3 !== null && quiz.q4 !== null && quiz.q5 !== undefined && (!ideaEvaluation || (!ideaEvaluation.safety?.harmful && !ideaEvaluation.safety?.adult))
 
   async function handleSubmit() {
     if (!isComplete) return
     setLoading(true)
     setError(null)
     try {
-      const { archetype } = await api.classify(quiz.q2)
+      const { archetype, deliveryMode } = await api.classify(quiz.q2, quiz.q5)
       setArchetype(archetype)
+      if (deliveryMode) setDeliveryMode(deliveryMode)
       const assignedRoute = ROUTE_MAP[quiz.q1!] ?? 'A'
       setActiveTab(assignedRoute)
       persistToStorage()
@@ -92,7 +94,7 @@ export function QuizShell() {
   return (
     <div className="mt-6 space-y-12">
       <Q1Stage value={quiz.q1} onChange={(val) => { setQ1(val); analytics.quizQ1Answered(sessionId, val) }} />
-      <Q2Idea value={quiz.q2} onChange={setQ2} />
+      <Q5DeliveryMode value={quiz.q5} onChange={setQ5} />
       <Q3UserType
         value={quiz.q3}
         onChange={(val) => { setQ3(val); analytics.quizQ3Answered(sessionId, val) }}
@@ -100,8 +102,9 @@ export function QuizShell() {
         onOtherTextChange={setQ3OtherText}
       />
       <Q4Seriousness value={quiz.q4} onChange={(val) => { setQ4(val); analytics.quizQ4Answered(sessionId, val) }} />
+      <Q2Idea value={quiz.q2} onChange={setQ2} />
 
-      <div className="space-y-4 border-t border-[#DCD5C8]/80 pt-8">
+      <div className="space-y-4 border-t border-[#eaeaea] pt-8">
         {error && (
           <p className="text-[12px] text-[#525252]" style={{ fontFamily: 'var(--font-geist-mono)' }}>{error}</p>
         )}

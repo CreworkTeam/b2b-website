@@ -1,4 +1,4 @@
-import type { Archetype } from '@/types'
+import type { Archetype, DeliveryMode } from '@/types'
 
 // ─── Keyword map ──────────────────────────────────────────────────────────────
 // Each archetype has a set of trigger keywords.
@@ -57,6 +57,17 @@ const ARCHETYPE_KEYWORDS: Record<Archetype, string[]> = {
   ],
 }
 
+const DELIVERY_KEYWORDS: Record<'digital_product' | 'physical_or_local', string[]> = {
+  digital_product: [
+    'app', 'software', 'saas', 'website', 'platform', 'api', 'online', 'digital', 'portal', 'dashboard',
+    'chrome extension', 'plugin', 'mobile app', 'web app'
+  ],
+  physical_or_local: [
+    'physical', 'store', 'shop', 'local', 'neighborhood', 'city', 'delivery', 'box', 'exchange',
+    'bakery', 'restaurant', 'cafe', 'treats', 'food', 'hardware', 'clothing', 'apparel', 'merchandise'
+  ],
+}
+
 // ─── Priority order ───────────────────────────────────────────────────────────
 // If two archetypes score equally, the one earlier in this list wins.
 // ai_wrapper and developer_tool are more specific so they rank higher.
@@ -80,6 +91,7 @@ export function classifyIdea(idea: string): Archetype {
 
 export function classifyIdeaWithSignals(idea: string): {
   archetype: Archetype
+  deliveryMode: DeliveryMode
   confidence: number
   maxScore: number
 } {
@@ -104,6 +116,26 @@ export function classifyIdeaWithSignals(idea: string): {
     }
   }
 
+  const deliveryScores = {
+    digital_product: 0,
+    physical_or_local: 0,
+  }
+
+  for (const [mode, keywords] of Object.entries(DELIVERY_KEYWORDS)) {
+    for (const keyword of keywords) {
+      if (normalised.includes(keyword)) {
+        deliveryScores[mode as keyof typeof deliveryScores] += 1
+      }
+    }
+  }
+
+  let deliveryMode: DeliveryMode = 'hybrid'
+  if (deliveryScores.digital_product > deliveryScores.physical_or_local) {
+    deliveryMode = 'digital_product'
+  } else if (deliveryScores.physical_or_local > deliveryScores.digital_product) {
+    deliveryMode = 'physical_or_local'
+  }
+
   // Find the highest score
   const maxScore = Math.max(...Object.values(scores))
 
@@ -111,6 +143,7 @@ export function classifyIdeaWithSignals(idea: string): {
   if (maxScore === 0) {
     return {
       archetype: 'saas_tool',
+      deliveryMode,
       confidence: 0,
       maxScore,
     }
@@ -123,6 +156,7 @@ export function classifyIdeaWithSignals(idea: string): {
       const confidence = totalHits > 0 ? maxScore / totalHits : 0
       return {
         archetype,
+        deliveryMode,
         confidence,
         maxScore,
       }
@@ -131,6 +165,7 @@ export function classifyIdeaWithSignals(idea: string): {
 
   return {
     archetype: 'saas_tool',
+    deliveryMode,
     confidence: 0,
     maxScore,
   }

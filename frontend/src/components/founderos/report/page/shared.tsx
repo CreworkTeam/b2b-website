@@ -91,12 +91,22 @@ export function ReportHeader({ section }: HeaderProps) {
 
   return (
     <header className="mb-10 border-b border-[#e8e6e0] pb-7">
-      <p className="mb-3 text-[11px] text-[#9e9b93]">
-        Founder OS -&gt; {section === 'validate' ? 'Is there demand?' : section === 'scope' ? 'What to build?' : 'How to start?'}
+      <div className="mb-6 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="flex h-6 w-6 items-center justify-center rounded-sm bg-[#1a1917] text-white">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
+          </div>
+          <span className="font-space-grotesk text-[15px] font-bold tracking-tight text-[#1a1917]">Crework Labs</span>
+        </div>
+        <span className="rounded-full border border-[#e8e6e0] bg-[#f7f6f3] px-3 py-1 text-[10px] font-semibold text-[#6b6860] uppercase tracking-wider">
+          Intelligence Report
+        </span>
+      </div>
+      <p className="mb-3 text-[11px] font-medium text-[#9e9b93] uppercase tracking-wider">
+        Founder OS <span className="mx-1 opacity-50">•</span> {section === 'validate' ? 'Is there demand?' : section === 'scope' ? 'What to build?' : 'How to start?'}
       </p>
       <h1
-        className="mb-2 text-[31px] leading-[1.22] tracking-[-0.01em]"
-        style={section === 'scope' ? undefined : { fontFamily: 'Georgia, serif' }}
+        className="font-space-grotesk mb-2 text-[31px] leading-[1.22] tracking-[-0.01em]"
       >
         {section === 'validate' && 'Strong demand signals for your startup idea'}
         {section === 'scope' && (

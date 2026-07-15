@@ -4,7 +4,7 @@ type QuizNavbarProps = {
 
 export function QuizNavbar({ titleFontClass = '' }: QuizNavbarProps) {
   return (
-    <header className="sticky top-0 z-20 border-b border-[#E7E2D7] bg-[#FEF9ED]/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-20 border-b border-[#E7E2D7] bg-white/95 backdrop-blur-sm">
       <nav className="mx-auto flex h-14 w-full max-w-240 items-center px-5 sm:px-8">
         <a href="/lead-magnet" className="inline-flex items-center gap-3">
           <img src="/logo.svg" alt="Crework Labs" className="h-4.5 w-auto" />

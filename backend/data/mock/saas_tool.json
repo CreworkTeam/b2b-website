@@ -329,24 +329,24 @@
         "description": "Based on a $29/month starter plan. At $29, you need 35 paying users for $1k MRR.",
         "points": [
           {
-            "commissionLabel": "$9/month",
-            "bookingsToTarget": 112,
-            "artistsNeeded": 112
+            "unitLabel": "$9/month",
+            "unitsToTarget": 112,
+            "payingCustomersNeeded": 112
           },
           {
-            "commissionLabel": "$29/month",
-            "bookingsToTarget": 35,
-            "artistsNeeded": 35
+            "unitLabel": "$29/month",
+            "unitsToTarget": 35,
+            "payingCustomersNeeded": 35
           },
           {
-            "commissionLabel": "$49/month",
-            "bookingsToTarget": 21,
-            "artistsNeeded": 21
+            "unitLabel": "$49/month",
+            "unitsToTarget": 21,
+            "payingCustomersNeeded": 21
           },
           {
-            "commissionLabel": "$99/month",
-            "bookingsToTarget": 11,
-            "artistsNeeded": 11
+            "unitLabel": "$99/month",
+            "unitsToTarget": 11,
+            "payingCustomersNeeded": 11
           }
         ]
       },

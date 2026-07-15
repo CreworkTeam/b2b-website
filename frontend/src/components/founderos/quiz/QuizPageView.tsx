@@ -9,7 +9,7 @@ type QuizPageViewProps = {
 
 export function QuizPageView({ titleFontClass = '', bodyFontClass = '' }: QuizPageViewProps) {
   return (
-    <main className="relative min-h-screen bg-[#FEF9ED] animate-in fade-in duration-700">
+    <main className="relative min-h-screen bg-white animate-in fade-in duration-700">
       <LandingHeader fontClass={titleFontClass} />
 
       <section className="mx-auto flex w-full max-w-7xl justify-center px-5 pb-16 pt-8 sm:px-8 lg:px-0">

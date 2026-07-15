@@ -7,12 +7,12 @@ const sizeConfig: Record<LogoSize, { frame: string; img: string; text: string; r
   lg: { frame: 'h-12 w-12', img: 'h-8 w-8', text: 'text-[14px]', radius: 'rounded-xl' },
 }
 
-function InitialsLogo({ label, size = 'sm' }: { label: string; size?: LogoSize }) {
+function InitialsLogo({ label = '', size = 'sm' }: { label?: string; size?: LogoSize }) {
   const { frame, text, radius } = sizeConfig[size]
-  const words = label.trim().split(/\s+/)
-  const initials = words.length >= 2
+  const words = (label || '').trim().split(/\s+/)
+  const initials = words.length >= 2 && words[0] && words[1]
     ? (words[0][0] + words[1][0]).toUpperCase()
-    : label.trim().slice(0, 2).toUpperCase() || 'AI'
+    : (label || '').trim().slice(0, 2).toUpperCase() || 'AI'
   return (
     <span
       className={`inline-flex shrink-0 items-center justify-center ${frame} ${radius} border border-[#e4e0d8] bg-[#f8f6f1]`}
@@ -23,12 +23,12 @@ function InitialsLogo({ label, size = 'sm' }: { label: string; size?: LogoSize }
   )
 }
 
-function FaviconLogo({ domain, alt, fallbackLabel, size = 'sm' }: { domain: string; alt: string; fallbackLabel: string; size?: LogoSize }) {
+function FaviconLogo({ domain, alt, fallbackLabel = '', size = 'sm' }: { domain: string; alt: string; fallbackLabel?: string; size?: LogoSize }) {
   const { frame, img, radius } = sizeConfig[size]
-  const words = fallbackLabel.trim().split(/\s+/)
-  const initials = words.length >= 2
+  const words = (fallbackLabel || '').trim().split(/\s+/)
+  const initials = words.length >= 2 && words[0] && words[1]
     ? (words[0][0] + words[1][0]).toUpperCase()
-    : fallbackLabel.trim().slice(0, 2).toUpperCase() || 'AI'
+    : (fallbackLabel || '').trim().slice(0, 2).toUpperCase() || 'AI'
 
   return (
     <span

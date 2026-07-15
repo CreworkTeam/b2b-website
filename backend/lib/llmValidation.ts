@@ -1,4 +1,4 @@
-import type { Archetype, ReportA, ReportB, ReportC } from '@/types'
+import type { Archetype, DeliveryMode, ReportA, ReportB, ReportC } from '@/types'
 import { z } from 'zod'
 
 const archetypeSchema = z.enum([
@@ -108,8 +108,8 @@ const reportCSchema = z.object({
       title: z.string(),
       deliverables: z.array(z.string()),
     })
-  ).min(1),
-  questionsToAskAgency: z.array(z.string()).min(1),
+  ).min(1).optional(),
+  questionsToAskAgency: z.array(z.string()).min(1).optional(),
   whatToBuildPlan: z.object({
     buildDecisions: z.array(
       z.object({
@@ -127,11 +127,12 @@ const reportCSchema = z.object({
     unitEconomics: z.object({
       title: z.string(),
       description: z.string(),
+      monetizationModel: z.enum(['recurring', 'one_time_purchase', 'hybrid']).optional(),
       points: z.array(
         z.object({
-          commissionLabel: z.string(),
-          bookingsToTarget: z.number(),
-          artistsNeeded: z.number(),
+          unitLabel: z.string(),
+          unitsToTarget: z.number(),
+          payingCustomersNeeded: z.number(),
         })
       ),
     }),
@@ -143,8 +144,16 @@ const reportCSchema = z.object({
   blogLinks: z.array(blogLinkSchema),
 })
 
+const deliveryModeSchema = z.enum([
+  'digital_product',
+  'physical_or_local',
+  'hybrid',
+  'unknown',
+])
+
 const classifierPayloadSchema = z.object({
   archetype: archetypeSchema,
+  deliveryMode: deliveryModeSchema.optional(),
 })
 
 export function isArchetype(value: unknown): value is Archetype {
@@ -163,7 +172,7 @@ export function isValidReportC(value: unknown): value is ReportC {
   return reportCSchema.safeParse(value).success
 }
 
-export function isValidClassifierPayload(value: unknown): value is { archetype: Archetype } {
+export function isValidClassifierPayload(value: unknown): value is { archetype: Archetype; deliveryMode?: DeliveryMode } {
   return classifierPayloadSchema.safeParse(value).success
 }
 

@@ -20,7 +20,7 @@ export function Q1Stage({ value, onChange }: { value: Q1Answer | null; onChange:
     <section className="space-y-5">
       <div className="flex items-center gap-3">
         <span className="inline-flex h-7 w-7 items-center justify-center rounded-xl bg-black text-[11px] font-bold text-white">01</span>
-        <h3 className="text-[24px] font-semibold leading-7 tracking-[-0.02em] text-[#000000] sm:text-[26px]">
+        <h3 className="font-space-grotesk text-[24px] font-semibold leading-7 tracking-[-0.02em] text-[#000000] sm:text-[26px]">
           Where are you currently in the journey?
         </h3>
       </div>
@@ -34,10 +34,10 @@ export function Q1Stage({ value, onChange }: { value: Q1Answer | null; onChange:
               key={opt.value}
               onClick={() => onChange(opt.value)}
               className={cn(
-                'rounded-md border p-4 text-left transition-all duration-150 active:scale-[0.99]',
+                'font-space-grotesk rounded-md border p-4 text-left transition-all duration-150 active:scale-[0.99]',
                 selected
-                  ? 'border-[#D8D1C2] border-b-2 border-b-black bg-[#FCF8EE] shadow-[0_1px_0_rgba(0,0,0,0.04)]'
-                  : 'border-[#EAE4D8] bg-[#F8F3E8] hover:border-[#D8D1C2]'
+                  ? 'border-[#e5e5e5] border-b-2 border-b-black bg-white shadow-[0_1px_0_rgba(0,0,0,0.04)]'
+                  : 'border-[#eaeaea] bg-[#f9f9f9] hover:border-[#cccccc]'
               )}
             >
               <Icon className="h-4.5 w-4.5 text-black" strokeWidth={1.9} />

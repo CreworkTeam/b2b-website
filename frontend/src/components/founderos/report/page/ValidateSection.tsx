@@ -136,9 +136,9 @@ export function ValidateSection({
       {/* Score cards */}
       <motion.div className="mb-10 grid gap-3 md:grid-cols-4" {...fadeProps(0)}>
         {scoreCards.map((card) => (
-          <div key={card.label} className="relative rounded-xl border border-[#e8e6e0] bg-white px-4 py-3.5">
+          <div key={card.label} className="print-avoid-break relative rounded-xl border border-[#e8e6e0] bg-white px-4 py-3.5">
             {/* Info icon with tooltip */}
-            <div className="group/info absolute right-3 top-3">
+            <div className="hide-in-pdf group/info absolute right-3 top-3">
               <button
                 type="button"
                 className="flex h-4 w-4 items-center justify-center rounded-full border border-[#d1cec7] text-[9px] font-bold italic text-[#a8a59f] transition hover:border-[#9e9b93] hover:text-[#6b6860]"
@@ -161,7 +161,7 @@ export function ValidateSection({
 
       {/* Search interest chart */}
       <motion.div className="mb-10" {...fadeProps(1)}>
-        <p className="mb-2 text-[10px] uppercase tracking-widest text-[#a8a59f]">Search interest over time</p>
+        <p className="mb-2.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Search interest over time</p>
         <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
           <h2 className="mb-1 text-[14px] font-semibold">How often people are searching for what you are building</h2>
           <p className="mb-5 text-[12px] text-[#6b6860]">Monthly search volume across related keywords.</p>
@@ -181,7 +181,7 @@ export function ValidateSection({
 
       {/* Live conversations */}
       <motion.div className="mb-8" {...fadeProps(2)}>
-        <p className="mb-2 text-[10px] uppercase tracking-widest text-[#a8a59f]">Where people are talking about this</p>
+        <p className="mb-2.5 text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-[#4a4740]">Where people are talking about this</p>
         <div className="overflow-hidden rounded-xl border border-[#e8e6e0] bg-white">
           <div className="border-b border-[#e8e6e0] px-5 py-4">
             <h2 className="text-[14px] font-semibold">Live conversations happening right now</h2>
@@ -195,21 +195,25 @@ export function ValidateSection({
               ['ih', 'Indie Hackers'],
               ['linkedin', 'LinkedIn'],
             ].map(([id, label]) => (
-              <button
+              <span
                 key={id}
-                type="button"
-                onClick={() => setPlatform(id as PlatformFilter)}
-                className={`rounded-md px-3 py-1.5 text-[12px] ${platform === id ? 'border border-[#e8e6e0] bg-[#f0ede8] text-[#1a1917]' : 'text-[#6b6860] hover:bg-[#f7f6f3]'}`}
+                role="button"
+                className={`cursor-pointer rounded-md px-3 py-1.5 text-[12px] transition ${
+                  platform === id
+                    ? 'border border-[#e8e6e0] bg-[#f0ede8] text-[#1a1917]'
+                    : 'text-[#6b6860] hover:bg-[#f7f6f3]'
+                }`}
+                onClick={() => setPlatform(id as any)}
               >
                 {label}
-              </button>
+              </span>
             ))}
           </div>
           <div className="space-y-3 px-5 py-4">
             {socialLoading ? (
               <div className="flex flex-col gap-2">
                 <p className="text-[12px] font-medium text-[#9e9b93] animate-pulse">
-                  Loading live conversations... fast loading available in full unlock
+                  Loading live conversations... {!gateUnlocked && 'fast loading available in full unlock'}
                 </p>
                 <div className="h-4 w-3/4 rounded bg-[#f0ede8] animate-pulse" />
                 <div className="h-4 w-1/2 rounded bg-[#f0ede8] animate-pulse" />
@@ -223,7 +227,7 @@ export function ValidateSection({
                   href={post.url || '#'}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block border-b border-[#e8e6e0] pb-3 transition-colors last:border-b-0 last:pb-0 hover:bg-[#faf9f7] -mx-5 px-5 rounded-sm"
+                  className="print-avoid-break block border-b border-[#e8e6e0] pb-3 transition-colors last:border-b-0 last:pb-0 hover:bg-[#faf9f7] -mx-5 px-5 rounded-sm"
                 >
                   <div className="mb-1 flex items-center gap-2 text-[11px] text-[#a8a59f]">
                     <span className={`font-semibold ${post.platform === 'reddit' ? 'text-[#ff4500]' : post.platform === 'twitter' ? 'text-[#1d9bf0]' : post.platform === 'ih' ? 'text-[#0e7f6e]' : 'text-[#0077b5]'}`}>
@@ -259,12 +263,12 @@ export function ValidateSection({
 
       {/* Discussion & sentiment charts */}
       <motion.div className="mb-10 grid gap-3 md:grid-cols-2" {...fadeProps(3)}>
-        <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
+        <div className="print-avoid-break rounded-xl border border-[#e8e6e0] bg-white p-5">
           <h2 className="mb-1 text-[14px] font-semibold">Discussion volume by platform</h2>
           <p className="mb-4 text-[12px] text-[#6b6860]">How many posts mention this problem across communities.</p>
-          <div className="h-50"><canvas ref={platformCanvasRef} /></div>
+          <div className="h-[200px] relative"><canvas ref={platformCanvasRef} /></div>
         </div>
-        <div className="rounded-xl border border-[#e8e6e0] bg-white p-5">
+        <div className="print-avoid-break rounded-xl border border-[#e8e6e0] bg-white p-5">
           <h2 className="mb-1 text-[14px] font-semibold">Sentiment breakdown</h2>
           <p className="mb-3 text-[12px] text-[#6b6860]">What emotion drives most of the conversation.</p>
           <div className="mb-2 flex flex-wrap gap-3 text-[11px] text-[#6b6860]">
@@ -272,7 +276,7 @@ export function ValidateSection({
             <span className="inline-flex items-center gap-1"><span className="size-2 rounded-full bg-[#34d399]" />Wants a solution</span>
             <span className="inline-flex items-center gap-1"><span className="size-2 rounded-full bg-[#60a5fa]" />Building one</span>
           </div>
-          <div className="h-46.5"><canvas ref={sentimentCanvasRef} /></div>
+          <div className="h-[186px] relative"><canvas ref={sentimentCanvasRef} /></div>
         </div>
       </motion.div>
 
@@ -291,9 +295,9 @@ export function ValidateSection({
       <motion.div className="relative mb-10" {...fadeProps(4)}>
         <div className={`${!gateUnlocked ? 'pointer-events-none select-none' : ''}`}>
           {/* Demand signals */}
-          <div className="mb-8 rounded-xl border border-[#e8e6e0] bg-white p-5">
+          <div className="print-avoid-break mb-8 rounded-xl border border-[#e8e6e0] bg-white p-5">
             <p className="mb-2 text-[10px] uppercase tracking-[0.08em] text-[#a8a59f]">What people are searching and paying for right now</p>
-            <div className="space-y-3">
+            <div className={`space-y-3 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
               {(reportA?.demandSignals ?? []).map((signal, idx) => (
                 <div key={idx} className="flex items-center justify-between rounded-lg border border-[#f0ede8] px-3 py-2.5">
                   <div className="min-w-0">
@@ -312,7 +316,7 @@ export function ValidateSection({
           {/* Competitors */}
           <div className="mb-8">
             <p className="mb-2 text-[10px] uppercase tracking-widest text-[#a8a59f]">Who's already in this space</p>
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className={`grid gap-3 md:grid-cols-3 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
               {(reportA?.competitors ?? []).slice(0, 3).map((competitor, idx) => (
                 <article key={idx} className="overflow-hidden rounded-xl border border-[#e8e6e0] bg-white">
                   <div className="border-b border-[#e8e6e0] px-4 py-3">
@@ -336,11 +340,11 @@ export function ValidateSection({
                 <h2 className="text-[14px] font-semibold">Relevant News Articles</h2>
                 <p className="text-[12px] text-[#6b6860]">Recent coverage identifying this problem or space.</p>
               </div>
-              <div className="space-y-3 px-5 py-4">
+              <div className={`space-y-3 px-5 py-4 ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
                 {newsLoading ? (
                   <div className="flex flex-col gap-2">
                     <p className="text-[12px] font-medium text-[#9e9b93] animate-pulse">
-                      Loading... fast loading available in full unlock
+                      Loading... {!gateUnlocked && 'fast loading available in full unlock'}
                     </p>
                     <div className="h-4 w-3/4 rounded bg-[#f0ede8] animate-pulse" />
                     <div className="h-4 w-1/2 rounded bg-[#f0ede8] animate-pulse" />
@@ -372,18 +376,17 @@ export function ValidateSection({
           </div>
 
           {/* Opportunity callout */}
-          <div className="mb-8 rounded-xl bg-[#1a1917] p-6 text-white">
+          <div className={`mb-8 rounded-xl bg-[#1a1917] p-6 text-white ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
             <p className="text-[14px] leading-7">
               <strong>The real opportunity:</strong>{' '}
               {keywordNote || 'Users are already searching for this solution. Your timing is good — the market is past early adopter stage and entering mainstream awareness.'}
             </p>
           </div>
         </div>
-        {!gateUnlocked && <GateOverlay />}
       </motion.div>
 
       {/* CTAs */}
-      <motion.div className="flex flex-col gap-3 sm:flex-row" {...fadeProps(5)}>
+      <motion.div className="hide-in-pdf flex flex-col gap-3 sm:flex-row" {...fadeProps(5)}>
         <button
           type="button"
           onClick={onContinueScope}
@@ -416,7 +419,7 @@ export function ValidateSection({
                     : 'bg-transparent text-[#1a1917] hover:bg-[#f0ede8]'
                 }`}
               >
-                {downloadLoading ? 'Sending...' : 'Download report →'}
+                {downloadLoading ? 'Sending...' : 'Send report to email →'}
               </button>
 
               {showDownloadForm && !capturedEmail && (
@@ -432,9 +435,9 @@ export function ValidateSection({
                     />
                     <button
                       type="button"
-                      disabled={downloadLoading}
+                      disabled={downloadLoading || !downloadEmail.trim() || !downloadEmail.includes('@')}
                       onClick={onDownloadReport}
-                      className="rounded-lg bg-[#1a1917] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#333] disabled:opacity-50"
+                      className="rounded-lg bg-[#1a1917] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#333] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {downloadLoading ? '...' : 'Send'}
                     </button>

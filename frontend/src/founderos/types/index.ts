@@ -17,12 +17,36 @@ export type Q3Answer = 'consumer' | 'smb' | 'enterprise' | 'other'
 export type Q4Answer = 'exploring' | 'few_convos' | 'waitlist'
 export type RouteKey = 'A' | 'B' | 'C'
 export type LeadTag = 'HOT' | 'WARM' | 'NURTURE'
+export type DeliveryMode = 'digital_product' | 'physical_or_local' | 'hybrid' | 'unknown'
 
 export type QuizAnswers = {
   q1: Q1Answer | null
   q2: string
   q3: Q3Answer | null
   q4: Q4Answer | null
+  q5?: DeliveryMode
+}
+
+export type IdeaCategory = {
+  name: string
+  subcategory: string
+  confidence: number
+}
+
+export type IdeaSafety = {
+  harmful: boolean
+  adult: boolean
+  political: boolean
+  risk_level: 'none' | 'low' | 'medium' | 'high'
+  reason: string | null
+}
+
+export type IdeaEvaluation = {
+  categories: IdeaCategory[]
+  primary_category: string
+  tags: string[]
+  delivery_mode?: DeliveryMode
+  safety: IdeaSafety
 }
 
 // ─── Report A — Idea Validator ────────────────────────────────────────────────
@@ -102,13 +126,13 @@ export type CommunityThread = {
 
 export type ReportB = {
   archetype: Archetype
-  coreFeatures: CoreFeature[]        // exactly 2–3
-  skipFeatures: SkipFeature[]        // 3–4
-  complexityLevel: ComplexityLevel
-  complexityExplanation: string      // plain English paragraph
-  techApproach: string               // founder-friendly, no jargon
+  coreFeatures?: CoreFeature[]        // exactly 2–3
+  skipFeatures?: SkipFeature[]        // 3–4
+  complexityLevel?: ComplexityLevel
+  complexityExplanation?: string      // plain English paragraph
+  techApproach?: string               // founder-friendly, no jargon
   commonMistakes: string[]           // 2–3 strings
-  aiTools: AIToolRecommendation[]    // 2–3 relevant tools
+  aiTools?: AIToolRecommendation[]    // 2–3 relevant tools
   marketingPlan: {
     waitlistAdvice: string
     communities: string[]            // 5 communities to join
@@ -116,6 +140,15 @@ export type ReportB = {
     weekOneChecklist: string[]       // concrete sequential steps
   }
   blogLinks: BlogLink[]
+  buildContext?: {
+    needsSoftwareMvp: boolean
+    reason: string
+  }
+  realWorldPlan?: {
+    keySteps: string[]
+    resourcesNeeded: string[]
+    launchChecklist: string[]
+  }
 }
 
 // ─── Report C — Build Readiness Audit ────────────────────────────────────────
@@ -141,9 +174,9 @@ export type BuildDecisionItem = {
 }
 
 export type UnitEconomicsPoint = {
-  commissionLabel: string
-  bookingsToTarget: number
-  artistsNeeded: number
+  unitLabel: string
+  unitsToTarget: number
+  payingCustomersNeeded: number
 }
 
 export type WhatToBuildPlan = {
@@ -157,6 +190,7 @@ export type WhatToBuildPlan = {
   unitEconomics: {
     title: string
     description: string
+    monetizationModel?: 'recurring' | 'one_time_purchase' | 'hybrid'
     points: UnitEconomicsPoint[]
   }
   riskCallout: {
@@ -169,8 +203,8 @@ export type ReportC = {
   archetype: Archetype
   specItems: SpecItem[]              // completeness check
   teamFit: string                    // plain English team recommendation
-  roadmap: RoadmapWeek[]            // 3 weeks
-  questionsToAskAgency: string[]     // exactly 5
+  roadmap?: RoadmapWeek[]            // 3 weeks
+  questionsToAskAgency?: string[]     // exactly 5
   whatToBuildPlan?: WhatToBuildPlan
   blogLinks: BlogLink[]
 }
@@ -187,6 +221,7 @@ export type SessionData = {
   sessionId: string
   createdAt: string
   quiz: QuizAnswers
+  ideaEvaluation: IdeaEvaluation | null
   archetype: Archetype | null
   email: string | null
   emailCapturedAt: string | null
@@ -194,6 +229,7 @@ export type SessionData = {
   leadTag: LeadTag | null
   routesGenerated: RouteKey[]
   reports: Reports
+  deliveryMode?: DeliveryMode
 }
 
 export type FounderState = SessionData & {
@@ -201,9 +237,12 @@ export type FounderState = SessionData & {
   // Actions
   setQ1: (val: Q1Answer) => void
   setQ2: (val: string) => void
+  setIdeaEvaluation: (val: IdeaEvaluation | null) => void
   setQ3: (val: Q3Answer) => void
   setQ4: (val: Q4Answer) => void
+  setQ5: (val: DeliveryMode) => void
   setArchetype: (val: Archetype) => void
+  setDeliveryMode: (val: DeliveryMode) => void
   setEmail: (val: string) => void
   setBudget: (val: string) => void
   setLeadTag: (val: LeadTag) => void
@@ -219,15 +258,24 @@ export type FounderState = SessionData & {
 
 export type ClassifyRequest = {
   idea: string
+  deliveryMode?: DeliveryMode
 }
 
 export type ClassifyResponse = {
   archetype: Archetype
+  deliveryMode?: DeliveryMode
 }
+
+export type EvaluateIdeaRequest = {
+  idea: string
+}
+
+export type EvaluateIdeaResponse = IdeaEvaluation
 
 export type ReportRequest = {
   quiz: QuizAnswers
   archetype: Archetype
+  deliveryMode?: DeliveryMode
 }
 
 export type CaptureEmailRequest = {
