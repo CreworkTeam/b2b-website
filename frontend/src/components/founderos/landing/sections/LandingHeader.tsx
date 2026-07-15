@@ -11,10 +11,16 @@ export function LandingHeader({ fontClass }: LandingHeaderProps) {
   return (
     <header className="sticky top-0 z-30 border-b border-[#E7E2D7] bg-white/95 backdrop-blur-sm">
       <nav className="mx-auto flex h-auto min-h-[62px] w-full max-w-300 flex-wrap items-start md:items-center justify-between px-5 py-3 sm:px-8 landing-header-container">
-        <a href="/" className="flex items-center mt-1 md:mt-0">
-          <span className={`text-[20px] md:text-[26px] font-extrabold tracking-[-0.03em] text-[#020617] ${fontClass}`}>
-            Founder OS
-          </span>
+        <a href="/lead-magnet" className="flex items-center mt-1 md:mt-0 gap-2.5">
+          <img src="/favicon.svg" alt="Crework Labs" className="h-[34px] w-[34px]" />
+          <div className="flex flex-col">
+            <span className={`text-[20px] md:text-[24px] font-extrabold tracking-[-0.03em] leading-none text-[#020617] ${fontClass}`}>
+              Founder OS
+            </span>
+            <span className="text-[9px] md:text-[10px] font-semibold tracking-[0.08em] text-[#919191] uppercase mt-1">
+              A Product of Crework Labs
+            </span>
+          </div>
         </a>
 
         {/* Desktop Nav */}
@@ -39,7 +45,7 @@ export function LandingHeader({ fontClass }: LandingHeaderProps) {
         </div>
 
         {/* Hamburger Button */}
-        <button 
+        <button
           className="landing-hamburger-btn md:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
