@@ -1,32 +1,37 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import { Sparkles } from 'lucide-react'
-import { classifyIdea } from '@/founderos/lib/classifierClient'
-
+import { api } from '@/founderos/lib/api'
+import { useFounderStore } from '@/founderos/store/useFounderStore'
 const MIN = 20
 const MAX = 400
 
 export function Q2Idea({ value, onChange }: { value: string; onChange: (val: string) => void }) {
-  const [detected, setDetected] = useState<string | null>(null)
+  const { ideaEvaluation, setIdeaEvaluation } = useFounderStore()
   const [detecting, setDetecting] = useState(false)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
     if (value.trim().length < 15) {
-      setDetected(null)
+      setIdeaEvaluation(null)
       setDetecting(false)
       return
     }
     setDetecting(true)
-    setDetected(null)
-    debounceRef.current = setTimeout(() => {
-      const result = classifyIdea(value)
-      setDetected(result.label)
-      setDetecting(false)
+    setIdeaEvaluation(null)
+    debounceRef.current = setTimeout(async () => {
+      try {
+        const result = await api.evaluateIdea(value)
+        setIdeaEvaluation(result)
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setDetecting(false)
+      }
     }, 800)
     return () => { if (debounceRef.current) clearTimeout(debounceRef.current) }
-  }, [value])
+  }, [value, setIdeaEvaluation])
 
   return (
     <section className="rounded-xl bg-[#F3EDE2] px-5 py-6 sm:px-7">
@@ -62,13 +67,19 @@ export function Q2Idea({ value, onChange }: { value: string; onChange: (val: str
                 DETECTING...
               </span>
             )}
-            {!detecting && detected && (
+            {!detecting && ideaEvaluation && !ideaEvaluation.isIllegal && (
               <span className="rounded-[4px] border border-[#dfe3e5] px-2 py-1 text-[10px] text-[#525252]"
                     style={{ fontFamily: 'var(--font-geist-mono)' }}>
-                ▸ DETECTED: {detected}
+                ▸ DETECTED: {ideaEvaluation.problemStatement || ideaEvaluation.archetype}
               </span>
             )}
-            {!detecting && !detected && value.length > 0 && value.trim().length < MIN && (
+            {!detecting && ideaEvaluation && ideaEvaluation.isIllegal && (
+              <span className="rounded-[4px] border border-[#fecaca] bg-[#fef2f2] px-2 py-1 text-[10px] text-[#ef4444]"
+                    style={{ fontFamily: 'var(--font-geist-mono)' }}>
+                ▸ ERROR: {ideaEvaluation.comment}
+              </span>
+            )}
+            {!detecting && !ideaEvaluation && value.length > 0 && value.trim().length < MIN && (
               <span className="text-[10px] text-[#a3a3a3]" style={{ fontFamily: 'var(--font-geist-mono)' }}>
                 {MIN - value.trim().length} more chars needed
               </span>

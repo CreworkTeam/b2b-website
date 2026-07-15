@@ -25,6 +25,13 @@ export type QuizAnswers = {
   q4: Q4Answer | null
 }
 
+export type IdeaEvaluation = {
+  isIllegal: boolean
+  problemStatement: string | null
+  archetype: Archetype | null
+  comment: string | null
+}
+
 // ─── Report A — Idea Validator ────────────────────────────────────────────────
 
 export type DemandSignal = {
@@ -187,6 +194,7 @@ export type SessionData = {
   sessionId: string
   createdAt: string
   quiz: QuizAnswers
+  ideaEvaluation: IdeaEvaluation | null
   archetype: Archetype | null
   email: string | null
   emailCapturedAt: string | null
@@ -201,6 +209,7 @@ export type FounderState = SessionData & {
   // Actions
   setQ1: (val: Q1Answer) => void
   setQ2: (val: string) => void
+  setIdeaEvaluation: (val: IdeaEvaluation | null) => void
   setQ3: (val: Q3Answer) => void
   setQ4: (val: Q4Answer) => void
   setArchetype: (val: Archetype) => void
@@ -224,6 +233,12 @@ export type ClassifyRequest = {
 export type ClassifyResponse = {
   archetype: Archetype
 }
+
+export type EvaluateIdeaRequest = {
+  idea: string
+}
+
+export type EvaluateIdeaResponse = IdeaEvaluation
 
 export type ReportRequest = {
   quiz: QuizAnswers

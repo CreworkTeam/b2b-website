@@ -28,6 +28,7 @@ const defaultSession: SessionData = {
     sessionId: '',
     createdAt: '',
     quiz: defaultQuiz,
+    ideaEvaluation: null,
     archetype: null,
     email: null,
     emailCapturedAt: null,
@@ -65,6 +66,7 @@ function toSessionData(state: FounderState): SessionData {
         sessionId: state.sessionId,
         createdAt: state.createdAt,
         quiz: state.quiz,
+        ideaEvaluation: state.ideaEvaluation,
         archetype: state.archetype,
         email: state.email,
         emailCapturedAt: state.emailCapturedAt,
@@ -88,6 +90,9 @@ export const useFounderStore = create<FounderState>((set, get) => ({
 
     setQ2: (val: string) =>
         set((s) => ({ quiz: { ...s.quiz, q2: val } })),
+
+    setIdeaEvaluation: (val) =>
+        set({ ideaEvaluation: val }),
 
     setQ3: (val: Q3Answer) =>
         set((s) => ({ quiz: { ...s.quiz, q3: val } })),

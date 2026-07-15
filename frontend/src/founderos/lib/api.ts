@@ -1,6 +1,8 @@
 import type {
   ClassifyRequest,
   ClassifyResponse,
+  EvaluateIdeaRequest,
+  EvaluateIdeaResponse,
   ReportRequest,
   ReportA,
   ReportB,
@@ -32,6 +34,10 @@ async function post<TBody, TResponse>(path: string, body: TBody): Promise<TRespo
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 export const api = {
+  evaluateIdea(idea: string) {
+    return post<EvaluateIdeaRequest, EvaluateIdeaResponse>('/api/evaluate-idea', { idea })
+  },
+
   classify(idea: string) {
     return post<ClassifyRequest, ClassifyResponse>('/api/classify', { idea })
   },

@@ -44,7 +44,7 @@ function useTypewriter(messages: string[], active: boolean) {
 
 export function QuizShell() {
   const startTimeRef = useRef<number>(Date.now())
-  const { sessionId, quiz, setQ1, setQ2, setQ3, setQ4, setArchetype, setActiveTab, persistToStorage, hydrateFromStorage } = useFounderStore()
+  const { sessionId, quiz, ideaEvaluation, setQ1, setQ2, setQ3, setQ4, setArchetype, setActiveTab, persistToStorage, hydrateFromStorage } = useFounderStore()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [started, setStarted] = useState(false)
@@ -65,7 +65,7 @@ export function QuizShell() {
 
   useEffect(() => { analytics.pageViewed(sessionId) }, [sessionId])
 
-  const isComplete = quiz.q1 !== null && quiz.q2.trim().length >= 20 && quiz.q3 !== null && quiz.q4 !== null
+  const isComplete = quiz.q1 !== null && quiz.q2.trim().length >= 20 && quiz.q3 !== null && quiz.q4 !== null && (!ideaEvaluation || !ideaEvaluation.isIllegal)
 
   async function handleSubmit() {
     if (!isComplete) return
