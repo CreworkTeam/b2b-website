@@ -243,12 +243,20 @@ export function setupFunnelAutoTracking({ pageName = 'homepage' } = {}) {
       const section = sectionElement?.getAttribute('data-section') ||
                       (target.closest('nav') ? 'nav' : target.closest('footer') ? 'footer' : 'hero');
 
-      const path = target.getAttribute('data-path');
-      if (path) {
+      const href = target.getAttribute('href') || '';
+
+      const path = target.getAttribute('data-path') || 
+                   (href.includes('agentic-ai-systems') ? 'agentic-ai-systems' : 
+                    href.includes('overnight-cto') ? 'overnight-cto' : null);
+
+      if (path && pageName === 'homepage') {
         trackPathSelected({ path, sourcePage: pageName });
       }
 
-      const href = target.getAttribute('href') || '';
+      if (href.includes('calendly')) {
+        trackCalendlyOpened({ pageName, section });
+      }
+
       if (target.hasAttribute('data-lead-magnet') || href.includes('lead-magnet') || href.includes('founder-os')) {
         trackLeadMagnetClicked({ sourcePage: pageName, sourceSection: section });
       }
@@ -261,4 +269,5 @@ export function setupFunnelAutoTracking({ pageName = 'homepage' } = {}) {
     true
   );
 }
+
 
