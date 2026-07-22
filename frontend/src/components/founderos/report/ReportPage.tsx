@@ -34,6 +34,7 @@ export function ReportPage() {
   const [newsLoading, setNewsLoading] = useState(false)
   const [socialPosts, setSocialPosts] = useState<any[]>([])
   const [socialLoading, setSocialLoading] = useState(false)
+  const [printSummary, setPrintSummary] = useState('')
   const {
     sessionId,
     quiz,
@@ -305,14 +306,27 @@ export function ReportPage() {
         routeCKeyRef.current = requestKey
       }
 
-      // Trigger native print directly without timeouts or canvases
-      window.print()
-      setDownloadSuccess(true)
+      if (!printSummary && quiz.q2) {
+        try {
+          const res = await api.getSummary(quiz.q2, activeArchetype || undefined)
+          if (res.summary) {
+            setPrintSummary(res.summary)
+          }
+        } catch (err) {
+          console.error('Failed to get summary:', err)
+        }
+      }
+
+      // Trigger native print with a small timeout to allow React state to flush and re-render PrintLayout
+      setTimeout(() => {
+        window.print()
+        setDownloadSuccess(true)
+        setDownloadLoading(false)
+      }, 500)
 
     } catch (err) {
       console.error(err)
       setDownloadError('Failed to generate PDF. Please try again.')
-    } finally {
       setDownloadLoading(false)
     }
   }
@@ -586,9 +600,10 @@ export function ReportPage() {
           <PrintLayout 
             quiz={quiz} 
             reportA={reportA} 
-            reportB={reportB} 
-            reportC={reportC} 
+            reportB={reportB || null} 
+            reportC={reportC || null} 
             filteredPosts={filteredPosts}
+            printSummary={printSummary || undefined}
           />
 
           <div id="pdf-content-wrapper" className="mx-auto max-w-[47.5rem]">

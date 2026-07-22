@@ -145,5 +145,11 @@ import '../styles/dashboard/main-dashboard.css';
         }, 0);
       });
     </script>
+    <script>
+      import { setupFunnelAutoTracking } from '../utils/mixpanel';
+      setupFunnelAutoTracking({
+        pageName: 'homepage',
+      });
+    </script>
   </body>
 </html>

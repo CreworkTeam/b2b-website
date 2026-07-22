@@ -44,5 +44,10 @@ import Cursor from '../components/cursor.astro';
   <body>
     <LandingPage client:load />
     <Cursor />
+    <script>
+      import { trackFounderOSLandingViewed } from '../utils/mixpanel';
+      trackFounderOSLandingViewed();
+    </script>
   </body>
 </html>
+

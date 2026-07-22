@@ -216,5 +216,12 @@ import '../styles/dashboard/ai-operations.css';
         window.addEventListener('mousemove', handleGlow);
       });
     </script>
+    <script>
+      import { setupFunnelAutoTracking } from '../utils/mixpanel';
+      setupFunnelAutoTracking({
+        pageName: 'agentic-ai-systems',
+      });
+    </script>
   </body>
 </html>
+

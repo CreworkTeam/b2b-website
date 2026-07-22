@@ -171,10 +171,14 @@ const faqSchema = {
   </style>
 
   <script>
-    import { setupButtonTracking } from '../utils/mixpanel';
+    import { setupButtonTracking, setupFunnelAutoTracking } from '../utils/mixpanel';
 
     setupButtonTracking({
       pageName: 'LandingPage',
+    });
+
+    setupFunnelAutoTracking({
+      pageName: 'overnight-cto',
     });
 
     document.addEventListener("DOMContentLoaded", () => {
