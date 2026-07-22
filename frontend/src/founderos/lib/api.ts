@@ -75,4 +75,8 @@ export const api = {
   getSocialPosts(idea: string, keywords?: string[]) {
     return post<{ idea: string; keywords?: string[] }, { posts: any[] }>('/api/social', { idea, keywords })
   },
+
+  getSummary(idea: string, archetype?: string) {
+    return post<{ idea: string; archetype?: string }, { summary: string }>('/api/summary', { idea, archetype })
+  },
 }
