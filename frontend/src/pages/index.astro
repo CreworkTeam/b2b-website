@@ -21,6 +21,37 @@ import '../styles/dashboard/main-dashboard.css';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <title>Crework Dashboard</title>
+
+    <!-- JSON-LD Structured Data for SEO & AEO -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://creworklabs.com/#organization",
+          "name": "Crework Labs",
+          "url": "https://creworklabs.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://creworklabs.com/logo.svg"
+          },
+          "sameAs": [
+            "https://x.com/CreworkHQ",
+            "https://www.linkedin.com/school/creworklabss/"
+          ],
+          "description": "Leading agency building custom software, agentic AI systems, and MVPs for startups and high-growth companies."
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://creworklabs.com/#website",
+          "url": "https://creworklabs.com",
+          "name": "Crework Labs",
+          "publisher": {
+            "@id": "https://creworklabs.com/#organization"
+          }
+        }
+      ]
+    })} />
   </head>
   <body>
     <div class="landing-page">

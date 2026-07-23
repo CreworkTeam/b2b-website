@@ -273,7 +273,7 @@
 /* ============ hero ============ */
 .ai-ops-page .hero {
   position: relative;
-  padding: 160px 0 100px;
+  padding: 60px 0 100px;
   text-align: center;
   overflow: hidden;
   z-index: 2;
@@ -1622,7 +1622,7 @@
   }
 
   .ai-ops-page .hero {
-    padding: 110px 0 84px;
+    padding: 40px 0 84px;
   }
 
   .ai-ops-page .orbit:nth-child(4),

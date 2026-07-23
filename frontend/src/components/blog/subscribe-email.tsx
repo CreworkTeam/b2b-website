@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { cn } from '@/lib/utils';
 import { LOOMS_ENDPOINT } from '@/constants.ts';
 import { CheckCircle, LoaderCircle } from 'lucide-react';
+import { trackNewsletterSignup } from '@/utils/mixpanel';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -22,6 +23,8 @@ const SubscribeEmail = () => {
 
   const onSubmit = async ({ email }: z.infer<typeof formSchema>) => {
     const formBody = `email=${encodeURIComponent(email)}`;
+
+    trackNewsletterSignup();
 
     const res = await fetch(LOOMS_ENDPOINT, {
       method: 'POST',

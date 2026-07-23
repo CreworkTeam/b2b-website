@@ -7,14 +7,15 @@ import { navLinks } from '@/constants.ts';
     class="relative mx-auto flex max-w-7xl flex-row-reverse sm:flex-row items-center justify-between gap-4 bg-black px-4 py-4 sm:gap-6 sm:px-6 sm:bg-white md:px-16 xl:px-32"
   >
     <a href="/" class="relative z-[70] flex items-center">
-      <img src="/logo.svg" alt="Crework Labs" class="hidden h-[28.5px] sm:block sm:h-[28.5px]" />
+      <img src="/logo.svg" alt="Crework Labs" class="hidden h-[28.5px] sm:block sm:h-[28.5px]" loading="eager" fetchpriority="high" />
       <svg
           width="186"
           height="28"
           viewBox="0 0 186 28"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="block h-[28.5px] w-auto sm:hidden"
+          class="block h-[20px] w-auto sm:hidden"
+          style="animation: none !important; transition: none !important; opacity: 1 !important;"
       >
           <path d="M49.9706 20.1742V23.408H37.3372L33.5741 19.9046V8.04683L37.3372 4.54346H49.9706V7.77728H39.0844L37.3372 9.39438V18.5571L39.0844 20.1742H49.9706Z" fill="white"></path>
           <path d="M62.9925 17.2176H57.2138V23.4081H53.4506V4.54346H67.0243L70.519 7.79709V13.9877L67.2933 17.083L71.8627 23.4081H67.4279L62.9925 17.2176ZM66.7557 9.14287L65.2774 7.79709H57.2138V13.9877H65.2774L66.7557 12.6419V9.14287Z" fill="white"></path>

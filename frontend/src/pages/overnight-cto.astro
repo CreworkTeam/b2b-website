@@ -173,15 +173,21 @@ const faqSchema = {
   <script>
     import { setupButtonTracking, setupFunnelAutoTracking } from '../utils/mixpanel';
 
-    setupButtonTracking({
-      pageName: 'LandingPage',
-    });
+    try {
+      setupButtonTracking({
+        pageName: 'LandingPage',
+      });
 
-    setupFunnelAutoTracking({
-      pageName: 'overnight-cto',
-    });
+      setupFunnelAutoTracking({
+        pageName: 'overnight-cto',
+      });
+    } catch (e) {
+      console.error('Tracking initialization failed', e);
+    }
+  </script>
 
-    document.addEventListener("DOMContentLoaded", () => {
+  <script>
+    function initCTOAnimations() {
       // Scroll animation
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -191,7 +197,7 @@ const faqSchema = {
           }
         });
       }, {
-        threshold: 0.1,
+        threshold: 0.05,
         rootMargin: "0px 0px -50px 0px"
       });
 
@@ -205,8 +211,13 @@ const faqSchema = {
           observer.observe(section);
         }
       });
+    }
 
-      });
-    
+    document.addEventListener('astro:page-load', initCTOAnimations);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCTOAnimations);
+    } else {
+      initCTOAnimations();
+    }
   </script>
 </MainLayout>
