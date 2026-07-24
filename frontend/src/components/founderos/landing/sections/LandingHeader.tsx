@@ -35,7 +35,7 @@ export function LandingHeader({ fontClass }: LandingHeaderProps) {
             Blog
           </a>
           <a
-            href="https://calendly.com/creworklabs/30mins"
+            href="/book-a-call"
             target="_blank"
             rel="noopener noreferrer"
             className={`rounded-md bg-[#020617] px-3.5 py-1.75 text-[13px] font-bold text-white transition hover:bg-[#111827]`}
@@ -66,7 +66,7 @@ export function LandingHeader({ fontClass }: LandingHeaderProps) {
             Blog
           </a>
           <a
-            href="https://calendly.com/creworklabs/30mins"
+            href="/book-a-call"
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-block text-center mt-2 rounded-md bg-[#020617] px-3.5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#111827]`}

@@ -238,4 +238,4 @@ MVP pricing becomes simple when you understand your user journey, your assumptio
 
 If you want clarity on where your idea fits in our pricing model, we can map it in a quick 20-minute call.
 
-**Book your MVP clarity call [here](https://calendly.com/creworklabs/30mins)**
+**Book your MVP clarity call [here](/book-a-call)**

@@ -174,4 +174,4 @@ For a period, yes. A fractional CTO provides similar strategic value, vetting ca
 When your product is generating enough revenue or has enough funding to justify a full-time CTO salary, and when the strategic decisions and team size are complex enough to warrant dedicated leadership full-time.
 
 **How does Crework work with non-technical founders?**
-Crework functions as a fractional technical co-founder for early-stage founders. We scope your product, own the architecture decisions, and build your MVP. We are not advisory only. We design, build, and ship your product while you retain full ownership of the code and the product direction. [Book a call with us here](https://calendly.com/creworklabs/30mins).
+Crework functions as a fractional technical co-founder for early-stage founders. We scope your product, own the architecture decisions, and build your MVP. We are not advisory only. We design, build, and ship your product while you retain full ownership of the code and the product direction. [Book a call with us here](/book-a-call).

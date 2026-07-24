@@ -497,7 +497,7 @@ export function PlanSection({
           )}
 
           <a
-            href="https://calendly.com/creworklabs/30mins"
+            href="/book-a-call"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full rounded-lg border border-[#d1cec7] bg-transparent px-5 py-3 text-center text-[14px] text-[#1a1917] transition hover:bg-[#f0ede8]"

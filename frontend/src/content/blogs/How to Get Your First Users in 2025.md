@@ -227,7 +227,7 @@ The conversations you have while finding users tell you exactly [what your MVP s
 
 Once you have confirmed demand through real conversations and are ready to build something those users can actually test, [Crework](https://www.creworklabs.com/) is built for exactly that stage. We work with non-technical founders who know who they are building for and need a team to build it properly and fast.
 
-[Book a call here](https://calendly.com/creworklabs/30mins) to talk through what your first version should look like.
+[Book a call here](/book-a-call) to talk through what your first version should look like.
 
 ---
 

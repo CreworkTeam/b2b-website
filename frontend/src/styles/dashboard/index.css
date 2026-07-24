@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@100..900&family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+
 
 :root {
   /* Fonts */
@@ -8,11 +8,11 @@
   /* Theme Colors */
   --bg-primary: #fbfbfb;
   --bg-secondary: #ffffff;
-  
+
   --text-primary: #111111;
   --text-secondary: #666666;
   --text-muted: #999999;
-  
+
   --border-color: #eaeaea;
 }
 
@@ -36,7 +36,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-outfit);
   font-weight: 600;
   letter-spacing: -0.02em;

@@ -164,7 +164,7 @@ const getSocialShareLinks = ({ url, title }: { url: string; title: string }) => 
   };
 };
 
-const BOOK_CALL = 'https://calendly.com/creworklabs/30mins';
+const BOOK_CALL = '/book-a-call';
 const LOOMS_ENDPOINT = 'https://app.loops.so/api/newsletter-form/clwv3dv6s014l11kiyput7szt';
 const BLOG_RESULTS_LIMIT = 4;
 

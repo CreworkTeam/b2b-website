@@ -135,6 +135,14 @@ export function trackCalendlyOpened({ pageName, section }) {
   });
 }
 
+export function trackOnCallSchedulePage({ pageName, section }) {
+  if (typeof window === 'undefined') return;
+  safeMixpanelTrack('on_call_schedule_page', {
+    page_name: pageName,
+    section: section,
+  });
+}
+
 export function trackDiscoveryCallBooked({ pageName, ctaSection }) {
   if (typeof window === 'undefined') return;
   safeMixpanelTrack('discovery_call_booked', {

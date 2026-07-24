@@ -14,9 +14,10 @@ const iconMap = [WalletCards, Blocks, SearchCheck]
 export function ProblemSection({ headingFontClass, bodyFontClass }: ProblemSectionProps) {
   return (
     <motion.section 
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 1.4 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.1 }}
       className="mx-auto mt-6 w-full max-w-300 rounded-3xl bg-black px-6 py-10 sm:px-9 lg:px-16 lg:py-14"
     >
       <div className="max-w-190">

@@ -2,6 +2,9 @@
 import { LandingPage } from '../components/founderos/landing/LandingPage';
 import { ViewTransitions } from 'astro:transitions';
 import Cursor from '../components/cursor.astro';
+import '../styles/founderos.css';
+import { ensureLocalAssets } from '../utils/init-local-assets';
+await ensureLocalAssets();
 ---
 
 <!DOCTYPE html>
@@ -10,6 +13,7 @@ import Cursor from '../components/cursor.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Founder OS</title>
+    <link rel="preload" href="/fonts/chakra-petch/chakra-petch-v1-700.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- JSON-LD Structured Data for SoftwareApplication & Service -->
     <script type="application/ld+json" set:html={JSON.stringify({
