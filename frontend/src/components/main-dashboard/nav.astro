@@ -4,11 +4,11 @@ export interface Props {
 }
 const { theme = 'light' } = Astro.props;
 ---
-<header class={`header ${theme === 'dark' ? 'theme-dark' : ''}`}>
-  <div class="header-container">
-    <div class="header-logo">
-      <a href="/" style="display:flex;align-items:center;" class="nav-link">
-        <img src="/logo.svg" alt="Company Logo" class="header-logo-image" />
+<header class={`header ${theme === 'dark' ? 'theme-dark' : ''}`} style="animation: none !important; transition: none !important; opacity: 1 !important;">
+  <div class="header-container" style="animation: none !important; transition: none !important; opacity: 1 !important;">
+    <div class="header-logo" style="animation: none !important; transition: none !important; opacity: 1 !important;">
+      <a href="/" style="display:flex;align-items:center; animation: none !important; transition: none !important; opacity: 1 !important;" class="nav-link">
+        <img src="/logo.svg" alt="Company Logo" class="header-logo-image" width="160" height="28.5" loading="eager" fetchpriority="high" style="animation: none !important; transition: none !important; opacity: 1 !important;" />
       </a>
     </div>
 
@@ -77,6 +77,9 @@ const { theme = 'light' } = Astro.props;
     height: 28.5px;
     width: auto;
     object-fit: contain;
+    opacity: 1 !important;
+    animation: none !important;
+    transition: none !important;
   }
 
   .header-right {
@@ -170,13 +173,18 @@ const { theme = 'light' } = Astro.props;
       display: none;
     }
 
-    /* Logo takes 50% of header width */
     .header-logo {
-      width: 50%;
+      width: auto;
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
     }
     .header-logo-image {
-      width: 100%;
-      height: auto;
+      height: 20px;
+      width: auto;
+      animation: none !important;
+      transition: none !important;
+      opacity: 1 !important;
     }
 
     /* Show hamburger */

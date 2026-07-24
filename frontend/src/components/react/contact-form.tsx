@@ -51,10 +51,12 @@ export default function ContactForm() {
         className={`absolute left-0 right-0 top-0 z-10 flex flex-col justify-start ${submitted ? 'bottom-[calc(43%)] sm:bottom-[calc(46%)]' : ''}`}
       >
         <div
-          className={`flex w-full flex-col justify-end bg-white transition-all duration-[5000ms] ${submitted ? 'h-full' : 'h-0'}`}
+          style={{ transitionDuration: '5000ms' }}
+          className={`flex w-full flex-col justify-end bg-white transition-all ${submitted ? 'h-full' : 'h-0'}`}
         >
           <p
-            className={`-translate-y-2 text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${submitted ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transitionDelay: '3000ms' }}
+            className={`-translate-y-2 text-3xl transition-all duration-1000 md:text-4xl lg:text-5xl ${submitted ? 'opacity-100' : 'opacity-0'}`}
           >
             Message received!
           </p>
@@ -70,20 +72,23 @@ export default function ContactForm() {
           <ContactGate position="bottom" />
         </div>
         <div
-          className={`w-full bg-white transition-all duration-[5000ms] ${submitted ? 'h-full' : 'h-0'}`}
+          style={{ transitionDuration: '5000ms' }}
+          className={`w-full bg-white transition-all ${submitted ? 'h-full' : 'h-0'}`}
         >
           <p
-            className={`text-3xl transition-all delay-[3000ms] duration-1000 md:text-4xl lg:text-5xl ${submitted ? 'opacity-100' : 'opacity-0'}`}
+            style={{ transitionDelay: '3000ms' }}
+            className={`text-3xl transition-all duration-1000 md:text-4xl lg:text-5xl ${submitted ? 'opacity-100' : 'opacity-0'}`}
           >
             Our team will reach out shortly
           </p>
         </div>
       </div>
       <form
+        suppressHydrationWarning
         onSubmit={handleSubmit(onSubmit)}
         className="m-auto flex w-full flex-col justify-between gap-2 px-4 text-sm sm:text-base md:max-w-sm md:gap-4"
       >
-        <div className="flex flex-col justify-between gap-2 md:gap-4">
+        <div suppressHydrationWarning className="flex flex-col justify-between gap-2 md:gap-4">
           <input
             {...register('name', {
               required: 'Name is required',

@@ -1,0 +1,24 @@
+# Crework Labs
+> MVP development studio for startup founders. Bengaluru, India. AI-powered builds, market research upfront.
+
+## Core services
+- MVP Development: We build launch-ready MVPs in 4-8 weeks.
+- Landing Page Design: Conversion-focused landing pages for startups.
+- Business Automation: AI workflows that save founders time.
+
+## Highest-value blog posts
+- MVP Cost in 2026: https://www.creworklabs.com/blog/mvp-cost-2026
+- Rebuild or Iterate Your MVP: https://www.creworklabs.com/blog/rebuild-or-iterate-mvp
+- AI Automations Every Founder Should Use in 2026: https://www.creworklabs.com/blog/ai-automations-founders-2026
+- Subreddits to launch your product: https://www.creworklabs.com/blog/subreddits-to-launch-product
+- MVP Feature List: https://www.creworklabs.com/blog/mvp-feature-list
+
+## Case studies
+- Custom Learning Management System: https://www.creworklabs.com/case-studies/learning-operations
+- AI Proposal Automation System: https://www.creworklabs.com/case-studies/proposal-automation
+- AI Lead Intelligence Platform: https://www.creworklabs.com/case-studies/lead-intelligence
+- Instant Business Valuation Web Application: https://www.creworklabs.com/case-studies/instant-business-valuation-web-application
+- Automated SEO Audit Tool: https://www.creworklabs.com/case-studies/seo-audit-tool
+- QuickFunds Financial Platform: https://www.creworklabs.com/case-studies/quickfunds
+- Nail Found Platform: https://www.creworklabs.com/case-studies/nail-found
+- Ice Tribe Web Application: https://www.creworklabs.com/case-studies/ice-tribe

@@ -26,6 +26,71 @@ import '../styles/dashboard/ai-operations.css';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <title>AI Operations Dashboard | Crework Labs</title>
+
+    <!-- JSON-LD Structured Data for ProfessionalService & FAQPage -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://creworklabs.com/agentic-ai-systems#service",
+          "name": "Crework Labs - Agentic AI Systems",
+          "url": "https://creworklabs.com/agentic-ai-systems",
+          "description": "We build agentic AI systems that take over entire workflows across sales, service delivery, billing and back office.",
+          "provider": {
+            "@type": "Organization",
+            "name": "Crework Labs",
+            "url": "https://creworklabs.com"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://creworklabs.com/agentic-ai-systems#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Will this break the systems we already use?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Agents are deployed on top of your existing tools, your CRM, your billing system, your spreadsheets. Nothing gets migrated, nothing gets replaced."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why not just use no code automation tools?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Generic automations piped into generic workflows make your business interchangeable with everyone running the same templates. What we build is trained on your workflows, your data and your expertise. It compounds. Every week it runs, it knows your business better and gets harder to copy."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long until agents are actually doing work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most systems go from audit to a working deployment in 3 to 6 weeks depending on the workflow. You'll see it working on real tasks before full handover."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do we need technical people on our side?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. We need your team's knowledge of how the work happens today, a few hours in total. We handle everything technical."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens to our data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Your data stays in your systems and your accounts. Agents work through controlled access you can see and revoke, and every action is logged."
+              }
+            }
+          ]
+        }
+      ]
+    })} />
   </head>
   <body>
     <div class="ai-ops-page">

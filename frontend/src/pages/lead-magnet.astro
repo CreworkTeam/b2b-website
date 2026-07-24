@@ -10,6 +10,32 @@ import Cursor from '../components/cursor.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Founder OS</title>
+
+    <!-- JSON-LD Structured Data for SoftwareApplication & Service -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://creworklabs.com/lead-magnet#app",
+          "name": "Crework Founder OS - Idea Evaluator",
+          "url": "https://creworklabs.com/lead-magnet",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "All",
+          "description": "Evaluate and validate your startup idea, MVP scope, and product-market fit.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "Crework Labs",
+            "url": "https://creworklabs.com"
+          }
+        }
+      ]
+    })} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <ViewTransitions />
     <link rel="preconnect" href="https://fonts.googleapis.com">
