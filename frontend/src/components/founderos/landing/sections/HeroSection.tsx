@@ -37,7 +37,7 @@ export function HeroSection({
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className={`mt-3.5 max-w-99.5 text-[15px] leading-[1.55] text-[#494740] ${bodyFontClass}`}
           >
             Our structured operating system bridges the gap between vision and execution for ambitious founders.
@@ -47,7 +47,7 @@ export function HeroSection({
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.18 }}
               className={`text-[10px] uppercase tracking-[0.18em] text-[#7A776F] ${monoFontClass}`}
             >
               The Roadmap
@@ -63,7 +63,7 @@ export function HeroSection({
                     key={step.title} 
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
+                    transition={{ duration: 0.4, delay: 0.22 + index * 0.06 }}
                     className="relative flex gap-4 pb-4.5 last:pb-0"
                   >
                     {!isLast ? <span className="absolute left-2.75 top-8 h-[calc(100%-10px)] w-px bg-[#CBC6BD]/70" /> : null}
@@ -90,7 +90,7 @@ export function HeroSection({
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 + roadmapSteps.length * 0.15 }}
+            transition={{ duration: 0.4, delay: 0.35 }}
             className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4"
           >
             <a
@@ -103,11 +103,17 @@ export function HeroSection({
           </motion.div>
         </div>
 
-        <HeroBlueprintCard
-          headingFontClass={headingFontClass}
-          bodyFontClass={bodyFontClass}
-          monoFontClass={monoFontClass}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+        >
+          <HeroBlueprintCard
+            headingFontClass={headingFontClass}
+            bodyFontClass={bodyFontClass}
+            monoFontClass={monoFontClass}
+          />
+        </motion.div>
       </div>
     </section>
   )

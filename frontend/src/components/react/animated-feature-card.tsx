@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 export const AnimatedFeatureCard = ({ 
   isDark, 
@@ -9,7 +8,7 @@ export const AnimatedFeatureCard = ({
   buttonText, 
   link,
   traceDelay = 0,
-  scanDelay = 1.35 
+  scanDelay = 1.1 
 }) => {
   const cardClass = isDark ? "feature-card--dark" : "feature-card--light";
   const btnClass = isDark ? "card-btn--light" : "card-btn--dark";
@@ -21,15 +20,13 @@ export const AnimatedFeatureCard = ({
   };
 
   return (
-    <motion.div
+    <div
       className={`feature-card ${cardClass}`}
-      style={{ width: '100%', height: '100%', boxSizing: 'border-box' }}
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 2.0,
-        delay: scanDelay,
-        ease: [0.16, 1, 0.3, 1] // Out-cubic easing
+      style={{
+        width: '100%',
+        height: '100%',
+        boxSizing: 'border-box',
+        animationDelay: `${scanDelay}s`
       }}
     >
       <span className="card-label">{label}</span>
@@ -38,6 +35,6 @@ export const AnimatedFeatureCard = ({
       <button className={`card-btn ${btnClass}`} onClick={handleNavigation}>
         {buttonText} &rarr;
       </button>
-    </motion.div>
+    </div>
   );
 };
