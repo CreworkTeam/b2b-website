@@ -1,24 +1,48 @@
 # Crework Labs
-> MVP development studio for startup founders. Bengaluru, India. AI-powered builds, market research upfront.
 
-## Core services
-- MVP Development: We build launch-ready MVPs in 4-8 weeks.
-- Landing Page Design: Conversion-focused landing pages for startups.
-- Business Automation: AI workflows that save founders time.
+> Custom software and AI systems that do the work, so you can do the growing. Crework Labs builds agentic AI systems that automate entire business workflows for operators, and ships launch-ready products in weeks for early-stage founders. Team from Stanford, UPenn, Meta, Amazon, Adobe, UC Berkeley, and Walmart.
 
-## Highest-value blog posts
-- MVP Cost in 2026: https://www.creworklabs.com/blog/mvp-cost-2026
-- Rebuild or Iterate Your MVP: https://www.creworklabs.com/blog/rebuild-or-iterate-mvp
-- AI Automations Every Founder Should Use in 2026: https://www.creworklabs.com/blog/ai-automations-founders-2026
-- Subreddits to launch your product: https://www.creworklabs.com/blog/subreddits-to-launch-product
-- MVP Feature List: https://www.creworklabs.com/blog/mvp-feature-list
+Crework Labs collapses the distance between intent and outcome. Two service lines, one philosophy: intelligent systems and in-house product teams that do the work end to end while you steer.
 
-## Case studies
-- Custom Learning Management System: https://www.creworklabs.com/case-studies/learning-operations
-- AI Proposal Automation System: https://www.creworklabs.com/case-studies/proposal-automation
-- AI Lead Intelligence Platform: https://www.creworklabs.com/case-studies/lead-intelligence
-- Instant Business Valuation Web Application: https://www.creworklabs.com/case-studies/instant-business-valuation-web-application
-- Automated SEO Audit Tool: https://www.creworklabs.com/case-studies/seo-audit-tool
-- QuickFunds Financial Platform: https://www.creworklabs.com/case-studies/quickfunds
-- Nail Found Platform: https://www.creworklabs.com/case-studies/nail-found
-- Ice Tribe Web Application: https://www.creworklabs.com/case-studies/ice-tribe
+## Services
+
+- Agentic AI Systems: Your AI operations team. Agentic systems that take over entire workflows across sales, service delivery, billing, and back office - trained on how your business actually runs, executing end to end while your team steers. Deployed on top of your existing tools (CRM, billing, spreadsheets) with no migration. From audit to working agents in 3 to 6 weeks. For operators and business owners.
+- Overnight CTO: A product lead, a designer, and an engineer behind your idea, working as your in-house product team toward one shared goal - your first 100 paying users. Fixed pricing starting at $3,000. Launch in 3 to 4 weeks. Founders own all code, IP, and infrastructure from day one. Less like a vendor, more like the technical cofounder you haven't hired. For early-stage founders.
+
+## Free tool for founders
+
+- Founder OS: A 2-minute Founder Readiness Quiz that produces a personalized, launch-ready blueprint - market validation, technical scope, 12-week execution plan, resource allocation, and go-to-market protocol. Free, no signup required. Answers "what should I build first, how much will it cost, and what do I do next?"
+
+## Case studies - Agentic AI Systems
+
+- Same-Day Proposals for a Roofing Contractor: Agentic proposal engine reads job details from the CRM and drafts complete proposals automatically. Two-week turnaround compressed to same-day. Faster responses converted directly into more closed jobs.
+- Learning Operations on Autopilot: Learner health, mentor matching, and cohort intelligence agents took over an edtech platform's operations end to end. Next cohort grew 40% with zero new hires. 50% ops capacity recovered.
+- Lead Intelligence at 5x Volume: Research and qualification system that finds, researches, and qualifies prospects around the clock. Manual research cut from 15 hours a week to 2. 5x outreach capacity.
+- View all Agentic AI case studies
+
+## Case studies - Overnight CTO (product builds)
+
+- Nail Found - Artist Visibility Platform: Visual, filter-first platform helping people in Tampa Bay, Florida instantly discover nail artists by style and budget. 120% increase in signups.
+- PlanO - Activity Discovery & Booking Marketplace: Personalized, map-first marketplace helping parents discover and book activities for their kids. End-to-end MVP and web app.
+- QuickFunds - Fintech SaaS for Startup Fundraising: Automated outreach, data sourcing, and campaign management. 60% faster fundraising.
+- View all product case studies
+
+## How we work
+
+- Agentic AI Systems: AI audit -> Process redesign -> Agent deployment -> Compounding (agents keep learning your business every week).
+- Overnight CTO: Brainstorm and scope -> Design for conversion -> Launch in 3 to 4 weeks -> Iterate toward paying users.
+
+## Blog and newsletter
+
+- Blog - Idea to Impact: AI shortcuts, growth tactics, and business breakdowns that make founders build smarter in 5 minutes.
+
+## Team
+
+Led by Shikshita Juyal (Founder & CEO, UPenn), with partners from Stanford (Herumb Shandilya, Data Science), Amazon (Tharun Chowary, Tech), Adobe (Ishan Dutta, ML), Meta and UC Berkeley (Dinkar Juyal, Data Science), and Walmart (Mitali Laroia, Tech). Trusted by brands including North Star Digital, Feel Good Club, Butterflies, FundsFinder, Travay Group, IceTribe, and OncoNexus.
+
+## Contact
+
+- Book a free discovery call: https://calendly.com/creworklabs/30mins
+- Email: labs@crework.in
+- LinkedIn: https://www.linkedin.com/school/creworklabss/
+- X: https://x.com/CreworkHQ

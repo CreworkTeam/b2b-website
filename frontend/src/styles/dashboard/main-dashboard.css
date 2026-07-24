@@ -613,7 +613,7 @@ body {
 
   .fade-in-cta {
     opacity: 0;
-    animation: fade-in-simple 0.5s ease-out 2.8s forwards !important;
+    animation: fade-in-simple 0.5s ease-out 2s forwards !important;
   }
 }
 
@@ -789,7 +789,7 @@ button,
 
 .fade-in-cta {
   opacity: 0;
-  animation: fade-in-simple 0.5s ease-out 2.8s forwards;
+  animation: fade-in-simple 0.5s ease-out 2s forwards;
 }
 
 @keyframes fade-in-simple {

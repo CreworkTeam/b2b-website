@@ -223,7 +223,7 @@ The founders who get the most from their MVPs are the ones who treat the timelin
 
 Ship when a user can complete the core action. Not when it is perfect.
 
-If you want a realistic estimate for your specific product, [book a scoping call with Crework](https://calendly.com/creworklabs/30mins). Bring your idea and your feature list. We will give you an honest timeline and tell you what is driving it.
+If you want a realistic estimate for your specific product, [book a scoping call with Crework](/book-a-call). Bring your idea and your feature list. We will give you an honest timeline and tell you what is driving it.
 
 ---
 

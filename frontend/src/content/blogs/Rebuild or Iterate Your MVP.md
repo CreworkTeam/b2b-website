@@ -165,4 +165,4 @@ If you are stuck deciding whether to rebuild or iterate
 
 We help founders evaluate their MVP honestly and choose the fastest path forward
 
-Book a call with us here → https://calendly.com/creworklabs/30mins
+Book a call with us here → https://www.creworklabs.com/book-a-call

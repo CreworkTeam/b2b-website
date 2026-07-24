@@ -528,7 +528,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts, pr
         <div className="bg-white/10 rounded-xl p-8 max-w-[600px] w-full border border-white/20">
           <p className="text-[16px] font-semibold text-white mb-6">Ready to bring your idea to life?</p>
           <a
-            href="https://calendly.com/creworklabs/30mins"
+            href="/book-a-call"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block w-full rounded-lg bg-white px-8 py-4 text-[15px] font-bold text-[#0a0a0a] transition-transform hover:scale-[1.02] no-underline"

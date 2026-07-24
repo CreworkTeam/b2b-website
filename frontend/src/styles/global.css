@@ -281,6 +281,14 @@
 }
 
 @layer utilities {
+  body.native-cursor,
+  body.native-cursor * {
+    cursor: auto !important;
+  }
+  body.native-cursor a,
+  body.native-cursor button {
+    cursor: pointer !important;
+  }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
