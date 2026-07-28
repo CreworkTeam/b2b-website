@@ -296,7 +296,7 @@ export function setupFunnelAutoTracking({ pageName = 'homepage' } = {}) {
         trackPathSelected({ path, sourcePage: pageName });
       }
 
-      if (href.includes('calendly')) {
+      if (href.includes('calendly') || href.includes('book-a-call')) {
         trackCalendlyOpened({ pageName, section });
       }
 
