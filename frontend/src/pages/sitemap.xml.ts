@@ -24,13 +24,13 @@ export const GET: APIRoute = async () => {
 
   const staticPaths = [
     '/',
-    '/blog/',
-    '/case-studies/',
-    ...BLOG_CATEGORIES_MAP.map((cat) => `/category/${cat.tag}/`),
+    '/blog',
+    '/case-studies',
+    ...BLOG_CATEGORIES_MAP.map((cat) => `/category/${cat.tag}`),
   ];
 
-  const blogPaths = blogs.map((entry) => `/blog/${entry.slug}/`);
-  const caseStudyPaths = caseStudies.map((entry) => `/case-studies/${entry.slug}/`);
+  const blogPaths = blogs.map((entry) => `/blog/${entry.slug}`);
+  const caseStudyPaths = caseStudies.map((entry) => `/case-studies/${entry.slug}`);
 
   const urls = Array.from(new Set([...staticPaths, ...blogPaths, ...caseStudyPaths]))
     .map(toAbsoluteUrl)

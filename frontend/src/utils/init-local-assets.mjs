@@ -49,7 +49,7 @@ export async function ensureLocalAssets() {
 
           if (!fs.existsSync(filePath)) {
             const { buffer } = await fetchUrl(fontUrl);
-            fs.writeFileSync(filePath, buffer);
+            fs.writeFileSync(filePath, new Uint8Array(buffer));
             console.log(`[Assets Init] Saved ${fileName}`);
           }
         }

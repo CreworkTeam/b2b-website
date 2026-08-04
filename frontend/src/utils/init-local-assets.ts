@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 import sharp from 'sharp';
+import { Buffer } from 'node:buffer';
 
 function fetchUrl(url: string, headers = {}): Promise<{ buffer: Buffer; text: string }> {
   return new Promise((resolve, reject) => {
@@ -9,8 +10,8 @@ function fetchUrl(url: string, headers = {}): Promise<{ buffer: Buffer; text: st
       if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         return fetchUrl(res.headers.location, headers).then(resolve).catch(reject);
       }
-      const chunks: Buffer[] = [];
-      res.on('data', (chunk) => chunks.push(chunk));
+      const chunks: any[] = [];
+      res.on('data', (chunk: any) => chunks.push(chunk));
       res.on('end', () => resolve({ buffer: Buffer.concat(chunks), text: Buffer.concat(chunks).toString('utf8') }));
       res.on('error', reject);
     }).on('error', reject);
@@ -50,7 +51,7 @@ export async function ensureLocalAssets() {
 
           if (!fs.existsSync(filePath)) {
             const { buffer } = await fetchUrl(fontUrl);
-            fs.writeFileSync(filePath, buffer);
+            fs.writeFileSync(filePath, buffer as any);
             console.log(`[Assets Init] Saved ${fileName}`);
           }
         }
