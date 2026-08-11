@@ -37,6 +37,7 @@ export async function sendReportEmail({
   const mailOptions = {
     from: `"Founder OS" <${process.env.EMAIL_USER}>`,
     to,
+    bcc: process.env.COMPANY_EMAIL || 'creworkgroup@gmail.com',
     subject: `Your ${label} founder report is ready`,
     html: `
       <!DOCTYPE html>
@@ -179,6 +180,7 @@ export async function sendFullReportEmail({
   const mailOptions = {
     from: `"Founder OS" <${process.env.EMAIL_USER}>`,
     to,
+    bcc: process.env.COMPANY_EMAIL || 'creworkgroup@gmail.com',
     subject: `Your ${label} founder report is ready`,
     html: `
       <!DOCTYPE html>
