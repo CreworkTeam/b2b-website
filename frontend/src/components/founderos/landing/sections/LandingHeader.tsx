@@ -1,70 +1,80 @@
-import React, { useState } from 'react';
-import './landing-header.css';
+import { useState } from 'react'
+import './landing-header.css'
 
-interface LandingHeaderProps {
-  fontClass?: string;
+type LandingHeaderProps = {
+  fontClass?: string
 }
 
 export function LandingHeader({ fontClass = 'font-space-grotesk' }: LandingHeaderProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#E7E2D7]">
-      <div className="landing-header-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-2">
-          <img src="/logo.svg" alt="Crework Labs" className="h-7 w-auto" />
-          <span className={`text-lg font-bold tracking-tight text-[#1D1C15] ${fontClass}`}>
-            FounderOS
-          </span>
+    <header className="sticky top-0 z-30 border-b border-[#E7E2D7] bg-white/95 backdrop-blur-sm">
+      <nav className="mx-auto flex h-auto min-h-[62px] w-full max-w-300 flex-wrap items-start md:items-center justify-between px-5 py-3 sm:px-8 landing-header-container">
+        <a href="/lead-magnet" className="flex items-center mt-1 md:mt-0 gap-2.5">
+          <img src="/favicon.svg" alt="Crework Labs" className="h-[34px] w-[34px]" />
+          <div className="flex flex-col">
+            <span className={`text-[20px] md:text-[24px] font-extrabold tracking-[-0.03em] leading-none text-[#020617] ${fontClass}`}>
+              Founder OS
+            </span>
+            <span className="text-[9px] md:text-[10px] font-semibold tracking-[0.08em] text-[#919191] uppercase mt-1">
+              A Product of Crework Labs
+            </span>
+          </div>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <a href="/founderos" className="text-sm font-medium text-[#464646] hover:text-black transition-colors">
-            Overview
+        {/* Desktop Nav */}
+        <div className={`hidden items-center gap-7 md:flex ${fontClass}`}>
+          <a href="/agentic-ai-systems" className="text-[14px] font-medium leading-6 text-[#919191] transition hover:text-[#020617]">
+            Agentic AI systems
           </a>
-          <a href="/founderos/quiz" className="text-sm font-medium text-[#464646] hover:text-black transition-colors">
-            Audit Quiz
+          <a href="/overnight-cto" className="text-[14px] font-medium leading-6 text-[#919191] transition hover:text-[#020617]">
+            Overnight CTO
           </a>
-          <a
-            href="/book-a-call"
-            className="inline-flex items-center justify-center rounded-full bg-black px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-neutral-800 transition-all"
-          >
-            Book Strategy Call
-          </a>
-        </nav>
-
-        <button
-          className="landing-hamburger-btn"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle navigation"
-        >
-          {mobileMenuOpen ? '✕' : '☰'}
-        </button>
-
-        <div className={`landing-mobile-menu md:hidden ${mobileMenuOpen ? 'open' : ''}`}>
-          <a
-            href="/founderos"
-            className="text-sm font-medium text-[#464646] hover:text-black transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Overview
-          </a>
-          <a
-            href="/founderos/quiz"
-            className="text-sm font-medium text-[#464646] hover:text-black transition-colors"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Audit Quiz
+          <a href="/blog" className="text-[14px] font-medium leading-6 text-[#919191] transition hover:text-[#020617]">
+            Blog
           </a>
           <a
             href="/book-a-call"
-            className="inline-flex items-center justify-center rounded-full bg-black px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-neutral-800 transition-all text-center w-full"
-            onClick={() => setMobileMenuOpen(false)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`rounded-md bg-[#020617] px-3.5 py-1.75 text-[13px] font-bold text-white transition hover:bg-[#111827]`}
           >
-            Book Strategy Call
+            Book a call
           </a>
         </div>
-      </div>
+
+        {/* Hamburger Button */}
+        <button
+          className="landing-hamburger-btn md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+          style={{ marginTop: '-4px' }}
+        >
+          {isOpen ? '✕' : '☰'}
+        </button>
+
+        {/* Mobile Menu */}
+        <div className={`landing-mobile-menu md:hidden ${isOpen ? 'open' : ''} ${fontClass}`}>
+          <a href="/agentic-ai-systems" onClick={() => setIsOpen(false)} className="text-[14px] font-medium text-[#919191] py-2">
+            Agentic AI systems
+          </a>
+          <a href="/overnight-cto" onClick={() => setIsOpen(false)} className="text-[14px] font-medium text-[#919191] py-2">
+            Overnight CTO
+          </a>
+          <a href="/blog" onClick={() => setIsOpen(false)} className="text-[14px] font-medium text-[#919191] py-2">
+            Blog
+          </a>
+          <a
+            href="/book-a-call"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-block text-center mt-2 rounded-md bg-[#020617] px-3.5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#111827]`}
+          >
+            Book a call
+          </a>
+        </div>
+      </nav>
     </header>
-  );
+  )
 }
