@@ -31,8 +31,6 @@ export const GET: APIRoute = async ({ request }) => {
       return matchesSearch && matchesCategory;
     })
     .sort((a, b) => {
-      if (a.data.featured && !b.data.featured) return 1;
-      if (!a.data.featured && b.data.featured) return -1;
       return new Date(b.data.blogDate).getTime() - new Date(a.data.blogDate).getTime();
     });
 

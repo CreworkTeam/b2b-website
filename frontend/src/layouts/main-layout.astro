@@ -74,7 +74,7 @@ const breadcrumbSchema = !isHomePage ? {
   <body class={`overflow-x-hidden ${hideCustomCursor ? 'native-cursor' : ''}`}>
     {!hideCustomCursor && <Cursor />}
     {!hideHeaderFooter && (useDashboardNav ? <DashboardNav /> : <Header />)}
-    <main class="relative">
+    <main class="relative pt-4 sm:pt-6">
       <slot />
     </main>
     {!hideHeaderFooter && <Footer />}
