@@ -303,3 +303,109 @@ export async function sendFullReportEmail({
   const info = await transporter.sendMail(mailOptions)
   return info
 }
+
+type SendCompanyLeadParams = {
+  userEmail: string
+  leadTag: string
+  ideaSummary: string
+  archetype?: string
+  quiz: {
+    q1?: string | null
+    q2?: string | null
+    q3?: string | null
+    q4?: string | null
+  }
+  locationInfo?: {
+    ip?: string
+    country?: string
+    city?: string
+  }
+}
+
+export async function sendCompanyLeadNotification({
+  userEmail,
+  leadTag,
+  ideaSummary,
+  archetype,
+  quiz,
+  locationInfo,
+}: SendCompanyLeadParams) {
+  const companyMail = process.env.COMPANY_EMAIL || 'creworkgroup@gmail.com'
+  const tagColor = leadTag === 'HOT' ? '#ef4444' : leadTag === 'WARM' ? '#f59e0b' : '#3b82f6'
+
+  const mailOptions = {
+    from: `"Founder OS Leads" <${process.env.EMAIL_USER}>`,
+    to: companyMail,
+    subject: `[NEW LEAD - ${leadTag}] ${userEmail} generated a report`,
+    html: `
+      <!DOCTYPE html>
+      <html>
+        <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f172a;color:#f8fafc;padding:24px;margin:0;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background:#0f172a;padding:20px 0;">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background:#1e293b;border-radius:10px;padding:32px;border:1px solid #334155;">
+                  <tr>
+                    <td style="border-bottom:1px solid #334155;padding-bottom:20px;margin-bottom:20px;">
+                      <table width="100%">
+                        <tr>
+                          <td><h2 style="margin:0;font-size:20px;color:#ffffff;font-weight:700;">🎯 New Founder OS Lead Captured</h2></td>
+                          <td text-align="right" align="right">
+                            <span style="background:${tagColor};color:#ffffff;font-weight:bold;padding:6px 14px;border-radius:20px;font-size:12px;display:inline-block;">${leadTag} LEAD</span>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td style="padding:20px 0 10px;">
+                      <p style="margin:0 0 4px;font-size:12px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em;font-weight:bold;">User Email Address</p>
+                      <p style="margin:0 0 20px;font-size:18px;font-weight:bold;color:#38bdf8;">${userEmail}</p>
+
+                      <div style="background:#0f172a;border:1px solid #334155;border-radius:8px;padding:16px 20px;margin-0 0 20px;">
+                        <p style="margin:0 0 6px;font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;font-weight:bold;">Core Startup Idea (Q2)</p>
+                        <p style="margin:0;font-size:15px;color:#f1f5f9;line-height:1.5;">"${ideaSummary}"</p>
+                      </div>
+
+                      <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
+                        <tr>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid #283548;">Archetype:</td>
+                          <td style="padding:8px 0;color:#ffffff;font-size:13px;font-weight:bold;text-align:right;border-bottom:1px solid #283548;">${archetype || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid #283548;">Stage (Q1):</td>
+                          <td style="padding:8px 0;color:#ffffff;font-size:13px;text-align:right;border-bottom:1px solid #283548;">${quiz.q1 || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid #283548;">Target Audience (Q3):</td>
+                          <td style="padding:8px 0;color:#ffffff;font-size:13px;text-align:right;border-bottom:1px solid #283548;">${quiz.q3 || 'N/A'}</td>
+                        </tr>
+                        <tr>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid #283548;">Goal / Seriousness (Q4):</td>
+                          <td style="padding:8px 0;color:#ffffff;font-size:13px;text-align:right;border-bottom:1px solid #283548;">${quiz.q4 || 'N/A'}</td>
+                        </tr>
+                        ${
+                          locationInfo?.country || locationInfo?.ip
+                            ? `
+                        <tr>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;">Location / IP:</td>
+                          <td style="padding:8px 0;color:#38bdf8;font-size:13px;text-align:right;">${locationInfo.city ? locationInfo.city + ', ' : ''}${locationInfo.country || ''} (IP: ${locationInfo.ip || 'N/A'})</td>
+                        </tr>
+                        `
+                            : ''
+                        }
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+      </html>
+    `,
+  }
+
+  return transporter.sendMail(mailOptions)
+}

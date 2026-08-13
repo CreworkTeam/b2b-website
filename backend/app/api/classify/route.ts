@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
     const shouldUseFallback = jsResult.confidence < 0.45 && idea.length > 70
     if (shouldUseFallback && process.env.GROQ_API_KEY) {
       try {
-        const payload = await groqChatJson({
+        const { data: payload, usage } = await groqChatJson({
           model: GROQ_MODELS.classifier,
           systemPrompt:
             'Classify startup ideas into one archetype and one deliveryMode. Allowed archetypes: marketplace, saas_tool, consumer_app, ai_wrapper, b2b_platform, community, ecommerce, developer_tool. Allowed deliveryModes: digital_product, physical_or_local, hybrid.',
@@ -63,6 +63,7 @@ export async function POST(req: NextRequest) {
           }
           source = 'llm_fallback'
           usedLLMFallback = true
+          console.log(`[FounderOS] Classifier LLM Fallback - ${usage.totalTokens} tokens (Prompt: ${usage.promptTokens}, Completion: ${usage.completionTokens})`)
           console.info('[classify] source=llm_fallback', { confidence: jsResult.confidence, maxScore: jsResult.maxScore })
         }
       } catch (error) {

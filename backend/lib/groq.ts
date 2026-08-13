@@ -3,12 +3,28 @@ type GroqMessage = {
   content: string
 }
 
+export type GroqTokenUsage = {
+  promptTokens: number
+  completionTokens: number
+  totalTokens: number
+}
+
+export type GroqChatResult<T = unknown> = {
+  data: T
+  usage: GroqTokenUsage
+}
+
 type GroqChatResponse = {
   choices?: Array<{
     message?: {
       content?: string
     }
   }>
+  usage?: {
+    prompt_tokens?: number
+    completion_tokens?: number
+    total_tokens?: number
+  }
 }
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions'
@@ -71,6 +87,7 @@ function logGroqResponse(event: {
   latencyMs: number
   rawText?: string
   error?: string
+  usage?: GroqTokenUsage
 }): void {
   const payload = {
     provider: 'groq',
@@ -81,6 +98,7 @@ function logGroqResponse(event: {
     latencyMs: event.latencyMs,
     rawPreview: event.rawText ? safePreview(event.rawText) : undefined,
     error: event.error,
+    usage: event.usage,
     circuitOpen: isCircuitOpen(),
     consecutiveFailures: circuitState.consecutiveFailures,
   }
@@ -122,13 +140,13 @@ export function parseJsonObject(text: string): unknown {
   }
 }
 
-export async function groqChatJson(params: {
+export async function groqChatJson<T = unknown>(params: {
   model: string
   systemPrompt: string
   userPrompt: string
   temperature?: number
   maxTokens?: number
-}): Promise<unknown> {
+}): Promise<GroqChatResult<T>> {
   if (isCircuitOpen()) {
     throw new Error('LLM circuit breaker is open')
   }
@@ -201,7 +219,13 @@ export async function groqChatJson(params: {
         throw new Error('Groq returned empty content')
       }
 
-      const parsed = parseJsonObject(raw)
+      const parsed = parseJsonObject(raw) as T
+      const usage: GroqTokenUsage = {
+        promptTokens: json.usage?.prompt_tokens ?? 0,
+        completionTokens: json.usage?.completion_tokens ?? 0,
+        totalTokens: json.usage?.total_tokens ?? 0,
+      }
+
       markSuccess()
       logGroqResponse({
         model: params.model,
@@ -210,10 +234,11 @@ export async function groqChatJson(params: {
         status: res.status,
         latencyMs: Date.now() - started,
         rawText: raw,
+        usage,
       })
 
       clearTimeout(timeout)
-      return parsed
+      return { data: parsed, usage }
     } catch (error) {
       clearTimeout(timeout)
       lastError = error
