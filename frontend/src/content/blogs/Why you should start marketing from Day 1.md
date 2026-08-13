@@ -1,8 +1,8 @@
 ---
 blogTitle: Why you should start marketing from Day 1?
 blogDate: September 22, 2024
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/blog-6.png', alt: 'A picture of a coder' }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
+blogImage: { src: '/blogs/blog-6.webp', alt: 'A picture of a coder' }
 blogDescription: Learn effective strategies to build brand awareness, attract customers, and grow your business from the very beginning.
 draft: false
 featured: false

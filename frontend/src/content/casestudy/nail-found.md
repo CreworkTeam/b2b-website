@@ -1,15 +1,15 @@
 ---
 cstitle: 'Nail Found: Artist Visibility Platform'
 order: 1
-csimage: { src: '/Nail-Found-Main-Logo.png', alt: 'Nail Found Cover' }
+csimage: { src: '/Nail-Found-Main-Logo.webp', alt: 'Nail Found Cover' }
 csmptag: '50+ signups within 1 week'
 csdescription: 'A visual, filter-first platform that helps people in Tampa Bay, Florida instantly discover and connect with the right nail artist for their style and budget.'
 csspan: '120% increase in signups'
 cstags: ['Visual First Design', 'One Tap Visibility', 'Local First Platform']
 csimages:
   [
-    { src: '/Nail-Found-Main-Logo.png', alt: 'Nail Found Logo' },
-    { src: '/Nail-Found-VDG.png', alt: 'Visual Discovery Grid' },
+    { src: '/Nail-Found-Main-Logo.webp', alt: 'Nail Found Logo' },
+    { src: '/Nail-Found-VDG.webp', alt: 'Visual Discovery Grid' },
   ]
 cstag: 'mvp'
 cslivelink: 'https://www.nailfound.com/ '
@@ -34,31 +34,31 @@ People looking for a nail artist can browse a visual grid of profiles, filter by
 
 ### Visual Discovery Grid
 
-![Visual Discovery Grid](/Nail-Found-VDG.png)
+![Visual Discovery Grid](/Nail-Found-VDG.webp)
 
 The core of the platform is a clean, scrollable grid of artist profiles. People can filter by neighborhood, service type, price range and whether the artist is currently taking new appointments. Every profile card shows what matters most upfront so people can find the right fit without clicking through endless pages.
 
 ### Artist Profiles
 
-![Artist Profiles](/Nail-Found-Artist-Profiles.png)
+![Artist Profiles](/Nail-Found-Artist-Profiles.webp)
 
 Each artist gets a dedicated profile page with a portfolio of images, a list of services and starting prices, a short bio and buttons to reach out via their preferred contact method including Instagram, SMS or email. Artists can also toggle whether they are currently accepting new appointments so people always know before they reach out.
 
 ### Simple Artist Onboarding
 
-![Main Onboarding](/Nail-Found-Onboarding.png)
+![Main Onboarding](/Nail-Found-Onboarding.webp)
 
 Artists join the platform by completing a four-step setup: basic info, professional background, services and pricing and portfolio upload. The whole process takes under ten minutes and artists go live automatically once they submit.
 
 ### Save and Revisit
 
-![Save and Revisit](/Nail-Found-Save-Revisit.png)
+![Save and Revisit](/Nail-Found-Save-Revisit.webp)
 
 People can create a free account to save artists they like and come back to them later. Saved artists are accessible from a personal dashboard, making it easy to compare a shortlist before deciding.
 
 ### Admin Controls
 
-![Admin Controls](/Nail-Found-Admin.png)
+![Admin Controls](/Nail-Found-Admin.webp)
 
 The Nail Found team has a backend dashboard to manage artist listings, monitor platform activity and track key behaviors like profile views, saves and booking link clicks. This gives them the data they need to understand how people use the platform and what to build next.
 
@@ -72,4 +72,4 @@ The artist side follows the same logic. Onboarding is step-by-step and straightf
 
 We shipped a production-ready platform in 3 weeks. Within 1 week of launch, Nail Found had 50+ nail artists signed up and live across Florida.
 
-![Product Outcomes](/Nail-Found-Project-Outcomes.png)
+![Product Outcomes](/Nail-Found-Project-Outcomes.webp)

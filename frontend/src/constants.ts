@@ -5,7 +5,7 @@ const CASE_STUDIES = [
   {
     title: 'Instant Business Valuation Web Application',
     description: 'How we built a quick, data-driven business valuations tool for FundsFinders.',
-    src: '/portfolio/fundsfinder.png',
+    src: '/portfolio/fundsfinder.webp',
     alt: 'FundsFinder',
     link: '/case-studies/quickfunds',
   },
@@ -13,7 +13,7 @@ const CASE_STUDIES = [
     title: 'Custom Learning Management System',
     description:
       'How we empowered Crework to increase engagement by deliver tailored learning experiences to aspiring Product Managers',
-    src: '/portfolio/dashboard-2.png',
+    src: '/portfolio/dashboard-2.webp',
     alt: 'Custom Learning Management System',
     link: '/case-studies/learning-operations',
   },
@@ -21,7 +21,7 @@ const CASE_STUDIES = [
     title: 'Global Service Provider Website Redesign',
     description:
       'How we helped Travay Group with a complete redesign of their website to improve user experience and navigation.',
-    src: '/portfolio/travaygroup.png',
+    src: '/portfolio/travaygroup.webp',
     alt: 'Travay Group',
     link: '/case-studies/global-service-provider-website-redesign',
   },
@@ -44,7 +44,7 @@ const TESTIMONIALS = [
     testimonialText:
       'I found their services to be extremely efficient and responsive. They consistently delivered prompt solutions that exceeded my expectations.',
     personName: 'Omar Alkhairy',
-    photo: '/testimonials/omar-travay.png',
+    photo: '/testimonials/omar-travay.webp',
     country: 'Palestine',
   },
   {
@@ -53,7 +53,7 @@ const TESTIMONIALS = [
     testimonialText:
       'Crework Labs was the best experience we ever had with an agency. They were fast with replies and deliveries, always ensuring that the final result was as expected. I will work with them in the future and totally recommend them.',
     personName: 'Om Rafols Cots',
-    photo: '/testimonials/om.jpg',
+    photo: '/testimonials/om.webp',
     country: 'Spain',
   },
   {
@@ -82,11 +82,11 @@ const portfolio = [
     name: 'Feel Good Club',
   },
   {
-    image: '/portfolio/planO-carousel.png',
+    image: '/portfolio/planO-carousel.webp',
     name: 'PlanO'
   },
   {
-    image: '/portfolio/carret.png',
+    image: '/portfolio/carret.webp',
     name: 'Carret'
   },
   {
@@ -208,7 +208,7 @@ const AI_CASE_STUDY_CARDS = [
     description: 'An agentic proposal engine reads job details from the CRM and drafts complete proposals automatically. Faster responses converted directly into more closed jobs.',
     span: '2 weeks to same day turnaround',
     tags: ['Agentic Proposal Engine', 'CRM Integration', 'Revenue Automation'],
-    images: [{ src: '/how-we-work/launch-in-weeks.png', alt: 'Proposal' }, { src: '/how-we-work/design-for-conversion.png', alt: 'Proposal' }],
+    images: [{ src: '/how-we-work/launch-in-weeks.webp', alt: 'Proposal' }, { src: '/how-we-work/design-for-conversion.webp', alt: 'Proposal' }],
     rtl: true,
     link: '/case-studies/ai-proposal-automation',
     livelink: ''
@@ -218,7 +218,7 @@ const AI_CASE_STUDY_CARDS = [
     description: 'Learner health, mentor matching and cohort intelligence agents took over an edtech platform\'s operations end to end. The next cohort grew 40% with zero new hires.',
     span: '50% Ops Capacity Recovered',
     tags: ['Multi Agent System', 'Learner Intelligence', 'Cohort Analytics'],
-    images: [{ src: '/how-we-work/iterate-toward-paying-users.png', alt: 'Learning' }, { src: '/how-we-work/brainstorm-and-scope.png', alt: 'Learning' }],
+    images: [{ src: '/how-we-work/iterate-toward-paying-users.webp', alt: 'Learning' }, { src: '/how-we-work/brainstorm-and-scope.webp', alt: 'Learning' }],
     rtl: false,
     link: '/case-studies/ai-learning-operations',
     livelink: ''
@@ -228,7 +228,7 @@ const AI_CASE_STUDY_CARDS = [
     description: 'A research and qualification system that finds, researches and qualifies prospects around the clock, cutting manual research from 15 hours a week to 2.',
     span: '5x Outreach Capacity',
     tags: ['Research Automation', 'Lead Qualification', 'Personalized Outreach'],
-    images: [{ src: '/how-we-work/brainstorm-and-scope.png', alt: 'Lead intelligence' }, { src: '/how-we-work/launch-in-weeks.png', alt: 'Lead intelligence' }],
+    images: [{ src: '/how-we-work/brainstorm-and-scope.webp', alt: 'Lead intelligence' }, { src: '/how-we-work/launch-in-weeks.webp', alt: 'Lead intelligence' }],
     rtl: true,
     link: '/case-studies/ai-lead-intelligence',
     livelink: ''

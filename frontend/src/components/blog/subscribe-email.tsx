@@ -36,28 +36,41 @@ const SubscribeEmail = () => {
   };
 
   return (
-    <>
-      <p className="text-lg font-medium">
-        {form.formState.isSubmitSuccessful
-          ? 'Thank you for subscribing!'
-          : ''}
-      </p>
+    <div className="w-full max-w-sm">
+      {form.formState.isSubmitSuccessful && (
+        <p className="text-xs font-medium text-emerald-600 mb-1.5 text-right">
+          Thank you for subscribing!
+        </p>
+      )}
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className={cn('relative flex flex-1 rounded-md border bg-[#F4F4F4]', {
-            'border-red-500': form.formState.errors.email,
-          })}
+          className={cn(
+            'relative flex w-full items-center rounded-full border border-[#DADCE0] bg-white p-1 pl-4 shadow-sm transition-all hover:shadow-md hover:border-gray-300 focus-within:border-black focus-within:ring-2 focus-within:ring-black/10',
+            {
+              'border-red-500': form.formState.errors.email,
+            }
+          )}
         >
+          <svg
+            className="w-4 h-4 text-gray-400 shrink-0 mr-2"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex-1 m-0 space-y-0">
                 <FormControl>
                   <Input
-                    placeholder="Enter your email"
-                    className={'flex-1 border-0 shadow-none focus-visible:ring-0'}
+                    placeholder="Enter your email..."
+                    className="w-full border-0 bg-transparent shadow-none focus-visible:ring-0 text-sm text-gray-900 placeholder:text-gray-400 h-9 p-0"
                     {...field}
                   />
                 </FormControl>
@@ -65,27 +78,29 @@ const SubscribeEmail = () => {
             )}
           />
           <Button
-            variant="ghost"
             disabled={
               form.formState.isSubmitting ||
               !form.formState.isValid ||
               form.formState.isSubmitSuccessful
             }
-            className={cn('text-sm font-medium', {
-              'text-[#219653] !opacity-100': form.formState.isSubmitSuccessful,
-            })}
+            className={cn(
+              'bg-black text-white hover:bg-neutral-800 text-xs sm:text-sm px-5 py-2 h-9 rounded-full font-medium shrink-0 transition-all shadow-sm ml-1',
+              {
+                'bg-emerald-600 hover:bg-emerald-600 text-white !opacity-100': form.formState.isSubmitSuccessful,
+              }
+            )}
             data-btntype="email"
             type="submit"
           >
             {form.formState.isSubmitting ? (
               <>
-                <span>Subscribe</span>
-                <LoaderCircle className="w-4 h-4 ml-1 animate-spin" />
+                <span>Subscribing</span>
+                <LoaderCircle className="w-4 h-4 ml-1.5 animate-spin" />
               </>
             ) : form.formState.isSubmitSuccessful ? (
               <>
                 <span>Subscribed</span>
-                <CheckCircle className="w-4 h-4 ml-1" />
+                <CheckCircle className="w-4 h-4 ml-1.5" />
               </>
             ) : (
               'Subscribe'
@@ -93,7 +108,7 @@ const SubscribeEmail = () => {
           </Button>
         </form>
       </Form>
-    </>
+    </div>
   );
 };
 

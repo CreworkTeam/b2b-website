@@ -1,7 +1,7 @@
 ---
 blogTitle: "What Features Should Your MVP Include? The Complete 2026 Checklist"
 blogDate: December 10, 2025
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
 blogImage: { src: '/blogs/article-3.webp', alt: 'MVP feature list guide' }
 blogDescription: Most founders overbuild their MVP. Here is the exact feature prioritisation framework to scope your MVP correctly and launch in weeks not months.
 blogModified: 2026-05-25

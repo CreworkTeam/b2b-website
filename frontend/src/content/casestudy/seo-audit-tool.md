@@ -1,14 +1,14 @@
 ---
 cstitle: 'RankBoost: AI-Powered SEO Audit Tool'
 order: 3
-csimage: { src: '/portfolio/seo-audit-tool.png', alt: 'RankBoost Cover' }
+csimage: { src: '/portfolio/seo-audit-tool.webp', alt: 'RankBoost Cover' }
 csmptag: 'RankBoost'
 csdescription: 'How we built RankBoost, an AI-powered SEO analyzer that delivers actionable performance, technical SEO, and accessibility audits in seconds.'
 csspan: 'MVP Development'
 cstags: ['AI Tool Development', 'Product Design', 'MVP Development']
 csimages:
   [
-    { src: '/portfolio/seo-audit-tool.png', alt: 'Image' },
+    { src: '/portfolio/seo-audit-tool.webp', alt: 'Image' },
   ]
 cstag: 'mvp'
 cslivelink: 'https://seo-audit-chi-ashy.vercel.app/'

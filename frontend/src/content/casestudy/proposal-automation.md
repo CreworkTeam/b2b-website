@@ -3,7 +3,7 @@ cstitle: 'AI Pitch Deck Reviewer'
 order: 7
 csimage:
   {
-    src: '/portfolio/ai-pitch-deck.png',
+    src: '/portfolio/ai-pitch-deck.webp',
     alt: 'Cover',
   }
 csmptag: 'AIPDR'
@@ -12,11 +12,11 @@ cstags: ['Pitch Deck Enhancement', 'AI Driven Feedback', 'Custom AI tool develop
 csimages:
   [
     {
-      src: '/portfolio/ai-pitch-deck.png',
+      src: '/portfolio/ai-pitch-deck.webp',
       alt: 'Image',
     },
     {
-      src: '/portfolio/ai-pitch-deck-result-2.png',
+      src: '/portfolio/ai-pitch-deck-result-2.webp',
       alt: 'Image',
     },
   ]
@@ -32,13 +32,13 @@ Early-stage founders frequently struggle with refining their pitch decks, often 
 
 We developed an AI-powered pitch deck review tool, an intuitive, data-driven platform that analyzes pitch decks against top-performing presentations. The tool offers structured feedback, a scoring system, and actionable insights to help founders craft investor-ready decks. The AI evaluates decks based on industry best practices and investor expectations, offering a clear pathway to improvement.
 
-![AI Pitch Deck Result](/portfolio/ai-pitch-deck-result-3.png) 
+![AI Pitch Deck Result](/portfolio/ai-pitch-deck-result-3.webp) 
 
 ## Key Features
 
 1. **Slide-by-Slide Analysis:** Each slide is assessed for clarity, structure, and impact, ensuring the key components: problem, solution, market size, business model, traction, and team, are effectively communicated.
 
-![AI Pitch Deck Result](/portfolio/ai-pitch-deck-result-4.png) 
+![AI Pitch Deck Result](/portfolio/ai-pitch-deck-result-4.webp) 
 
 2. **Scoring System:** The tool assigns a score based on crucial parameters such as storytelling, financial projections, and design, helping founders track their improvement.
 3. **Actionable Insights:** Provides targeted recommendations to enhance weak areas, ensuring a compelling and investor-friendly presentation.

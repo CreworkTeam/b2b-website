@@ -1,10 +1,10 @@
 ---
 blogTitle: "7 Things That Can Go Wrong When You Vibe Code Your MVP (and How to Avoid Them)"
 blogDate: "August 18, 2026"
-blogAuthor: { author: "Shikshita Juyal", image: "/blogs/authors/shikshitha.png" }
+blogAuthor: { author: "Shikshita Juyal", image: "/blogs/authors/shikshitha.webp" }
 blogImage:
   {
-    src: "/blogs/Monochrome UI Control Dashboard.png",
+    src: "/blogs/Monochrome UI Control Dashboard.webp",
     alt: "7 Things That Can Go Wrong When You Vibe Code Your MVP",
   }
 blogDescription: "Vibe coding your MVP? Here are the 7 most common technical risks non-technical founders miss and the exact steps to fix each one before you launch."

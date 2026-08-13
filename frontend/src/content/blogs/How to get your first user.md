@@ -1,8 +1,8 @@
 ---
 blogTitle: How to get your first user?
 blogDate: September 13, 2024
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/how-to-get-your-first-user.png', alt: 'A picture of a coder' }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
+blogImage: { src: '/blogs/how-to-get-your-first-user.webp', alt: 'A picture of a coder' }
 blogDescription: Unlock proven strategies for acquiring early adopters for your new product or service. Learn how to identify, reach, and engage your initial user base to kickstart growth.
 draft: true
 featured: false
@@ -24,7 +24,7 @@ Hate to break it to you: **there's no such thing as a product that sells itself.
 
 The reality of building something of your own is that **you also have to actively recruit your first few customers.**
 
-![People](/blogs/people.png)
+![People](/blogs/people.webp)
 
 This is tough but crucial work.
 
@@ -65,7 +65,7 @@ The best advice for acquiring users for your product is simple:
 
 **Go after your Target Audience!**
 
-![Dialogue](/blogs/dialogue.png)
+![Dialogue](/blogs/dialogue.webp)
 
 _Find your target users wherever they may be, whether online, offline, or even in the depths of the Amazon forest._
 

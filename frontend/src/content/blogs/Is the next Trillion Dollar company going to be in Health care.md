@@ -1,7 +1,7 @@
 ---
 blogTitle: Is The Next Trillion Dollar Company Going To Be In Health Care?
 blogDate: October 4, 2024
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
 blogImage:
   {
     src: 'https://res.cloudinary.com/crework-cloud/image/upload/v1728286710/blogs/frame_1_lijg9f.png',

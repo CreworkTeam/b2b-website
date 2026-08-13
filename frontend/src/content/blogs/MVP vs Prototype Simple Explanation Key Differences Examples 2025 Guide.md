@@ -1,7 +1,7 @@
 ---
 blogTitle: "MVP vs Prototype: Simple Explanation, Key Differences & Examples (2026 Guide)"
 blogDate: October 5, 2025
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
 blogImage: { src: '/blogs/article-1.webp', alt: 'MVP vs Prototype guide' }
 blogDescription: Learn the clear difference between an MVP and a prototype. Simple explanation with examples, use cases, mistakes to avoid, and a decision framework for founders building products.
 draft: false

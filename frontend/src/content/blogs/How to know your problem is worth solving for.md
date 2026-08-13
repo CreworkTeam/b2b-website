@@ -1,9 +1,9 @@
 ---
 blogTitle: How to know your problem is worth solving for?
 blogDate: September 7, 2024
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
 blogImage:
-  { src: '/blogs/how-to-know-your-problem-is-worth-solving-for.png', alt: 'A picture of a coder' }
+  { src: '/blogs/how-to-know-your-problem-is-worth-solving-for.webp', alt: 'A picture of a coder' }
 blogDescription: Master the art of problem idea validation. Learn key strategies to assess if your business idea addresses a real, marketable need before investing time and resources.
 draft: false
 featured: false
@@ -13,7 +13,7 @@ blogCategories: ['Idea Validation']
 
 **8 out of 10 startup ideas fail.**
 
-![Untitled](/blogs/this-is-fine.png)
+![Untitled](/blogs/this-is-fine.webp)
 
 But does that mean these startups weren't tackling real problems?
 
@@ -51,7 +51,7 @@ In today's world, amidst various needs, problems generally boil down to a handfu
 - Status → Achieving recognition or prestige.
 - Achievement → Accomplishing goals or milestones.
 
-![emotional needs.jpg](/blogs/emotional_needs.jpg)
+![emotional needs.jpg](/blogs/emotional_needs.webp)
 
 _Every product solution comes down to one of these needs._
 
@@ -73,7 +73,7 @@ Out of these core human needs, all problems will have a **frequency** and **urge
 
 The game is to carefully target the _sweet spot_, which lies **in the quadrant consisting of problems that are most urgent and most frequent.**
 
-![Untitled](/blogs/sweet-spot.png)
+![Untitled](/blogs/sweet-spot.webp)
 
 Here are the **five essential traits** of such problems.
 

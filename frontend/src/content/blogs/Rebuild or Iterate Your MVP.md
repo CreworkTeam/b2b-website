@@ -1,8 +1,8 @@
 ---
 blogTitle: "Rebuild or Iterate Your MVP: How Founders Should Decide in 2026"
 blogDate: January 08, 2026
-blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.png }
-blogImage: { src: '/blogs/rebuild-or-iterate-mvp.png', alt: 'Rebuild or Iterate MVP' }
+blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.webp }
+blogImage: { src: '/blogs/rebuild-or-iterate-mvp.webp', alt: 'Rebuild or Iterate MVP' }
 blogDescription: A clear framework founders use to decide whether to rebuild or iterate their MVP in 2026
 draft: false
 featured: false

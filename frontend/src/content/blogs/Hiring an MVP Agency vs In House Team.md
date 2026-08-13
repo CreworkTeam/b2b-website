@@ -1,8 +1,8 @@
 ---
 blogTitle: "MVP Agency vs In-House Team: Real Cost, Speed and Tradeoffs in 2026"
 blogDate: January 08, 2026
-blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.png }
-blogImage: { src: '/blogs/mvp-agency-vs-in-house.png', alt: 'MVP Agency vs In House Team' }
+blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.webp }
+blogImage: { src: '/blogs/mvp-agency-vs-in-house.webp', alt: 'MVP Agency vs In House Team' }
 blogDescription: Should you hire an MVP agency or build in-house? Here is the honest cost and speed comparison with real numbers so you can make the right call for your stage.
 draft: false
 featured: false

@@ -1,8 +1,8 @@
 ---
 blogTitle: "Fractional CTO for Non-Technical Founders: Do You Need One and What Does It Actually Cost?"
 blogDate: May 01, 2026
-blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.png }
-blogImage: { src: '/blogs/Article imag 2.png', alt: 'Fractional CTO for Non-Technical Founders' }
+blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.webp }
+blogImage: { src: '/blogs/Article imag 2.webp', alt: 'Fractional CTO for Non-Technical Founders' }
 blogDescription: Non-technical founder and not sure who should own your tech? Learn what a fractional CTO does, what it costs in 2026, and when to hire one vs work with a product studio.
 blogModified: 2026-05-01
 draft: false

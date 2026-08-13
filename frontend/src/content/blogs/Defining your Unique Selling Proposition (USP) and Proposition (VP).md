@@ -1,8 +1,8 @@
 ---
 blogTitle: Defining your Unique Selling Proposition (USP) and Value Proposition (VP)
 blogDate: September 21, 2024
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/blog-5.png', alt: 'A picture of a coder' }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
+blogImage: { src: '/blogs/blog-5.webp', alt: 'A picture of a coder' }
 blogDescription: Learn to craft powerful Unique Selling Propositions (USP) and Value Propositions (VP). Highlight your product's benefits and stand out from competitors.
 draft: false
 featured: false
@@ -41,4 +41,4 @@ A value proposition takes it a step further. It’s a short statement that expla
 
 In simple terms, a USP is **product-focused**, while a VP is **customer-focused**.
 
-![image.png](/blogs/cvp.png)
+![image.png](/blogs/cvp.webp)

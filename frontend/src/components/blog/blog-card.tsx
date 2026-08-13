@@ -14,7 +14,7 @@ const BlogCard = (props) => {
       data-btnname={blogTitle}
     >
       <img
-        src={blogImage?.src || '/opengraph.png'}
+        src={blogImage?.src || '/opengraph.webp'}
         alt={blogTitle}
         className="aspect-video w-full rounded-t-md object-cover"
       />

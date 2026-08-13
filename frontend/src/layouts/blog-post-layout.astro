@@ -42,7 +42,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": blogTitle,
-  "image": blogImage?.src ? new URL(blogImage.src, Astro.site).href : new URL('/opengraph.png', Astro.site).href,
+  "image": blogImage?.src ? new URL(blogImage.src, Astro.site).href : new URL('/opengraph.webp', Astro.site).href,
   "datePublished": blogData.data.blogDate,
   "dateModified": blogData.data.blogModified ?? blogData.data.blogDate,
   "author": {
@@ -90,7 +90,7 @@ const breadcrumbSchema = {
   title={blogTitle}
   description={blogDescription}
   canonical={`https://www.creworklabs.com/blog/${slug}`}
-  og_image={blogImage?.src || '/opengraph.png'}
+  og_image={blogImage?.src || '/opengraph.webp'}
   useDashboardNav={true}
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} slot="head"></script>
