@@ -10,7 +10,8 @@
     "astro": "astro",
     "format": "prettier --write .",
     "download-fonts": "node download_fonts.mjs",
-    "convert-webp": "node convert_webp.mjs"
+    "convert-webp": "node convert_webp.mjs",
+    "generate-og": "node generate_og.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",
