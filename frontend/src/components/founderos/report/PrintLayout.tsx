@@ -538,5 +538,5 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts, pr
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

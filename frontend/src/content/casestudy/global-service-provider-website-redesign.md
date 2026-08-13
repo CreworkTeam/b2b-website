@@ -116,4 +116,4 @@ While specific metrics are not available, the redesigned website is poised to:
 
 ## Client Testimonials
 
-![Travay Group Testimonial](/portfolio/travaygroup-testimonial.png)
+![Travay Group Testimonial](/portfolio/travaygroup-testimonial.webp)

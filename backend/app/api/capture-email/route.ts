@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { sendReportEmail } from '@/lib/resend'
+import { sendReportEmail, sendCompanyLeadNotification } from '@/lib/resend'
 import { prisma } from '@/lib/prisma'
 import type { CaptureEmailRequest, LeadTag, Q4Answer } from '@/types'
 
@@ -34,6 +34,11 @@ export async function POST(req: NextRequest) {
     // Derive lead tag from Q4 seriousness answer
     const leadTag = deriveLeadTag(body.q4)
 
+    // Extract location & IP headers from Vercel / proxy
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0] || req.headers.get('x-real-ip') || undefined
+    const country = req.headers.get('x-vercel-ip-country') || undefined
+    const city = req.headers.get('x-vercel-ip-city') || undefined
+
     // Upsert lead via Prisma. Do not fail the request if DB write fails.
     try {
       await prisma.lead.upsert({
@@ -62,13 +67,12 @@ export async function POST(req: NextRequest) {
       })
     } catch (dbError) {
       console.error('[capture-email] Prisma error:', dbError)
-      // Don't fail the request — email was still sent
     }
 
-    // Build the report URL — frontend handles showing the full report
+    // Build the report URL
     const reportUrl = `${process.env.FRONTEND_URL ?? 'http://localhost:3000'}/report`
 
-    // Send email via Resend (non-blocking — don't fail the request if email fails)
+    // Send user report email
     try {
       await sendReportEmail({
         to: body.email,
@@ -77,8 +81,21 @@ export async function POST(req: NextRequest) {
         reportUrl,
       })
     } catch (emailError) {
-      // Log but don't block — user still gets their report
-      console.error('[capture-email] Resend failed:', emailError)
+      console.error('[capture-email] sendReportEmail failed:', emailError)
+    }
+
+    // Send enriched lead notification to Company Email
+    try {
+      await sendCompanyLeadNotification({
+        userEmail: body.email,
+        leadTag,
+        ideaSummary: body.quiz.q2 || 'No idea description provided',
+        archetype: body.archetype ?? undefined,
+        quiz: body.quiz,
+        locationInfo: { ip, country, city },
+      })
+    } catch (companyEmailErr) {
+      console.error('[capture-email] sendCompanyLeadNotification failed:', companyEmailErr)
     }
 
     return NextResponse.json({

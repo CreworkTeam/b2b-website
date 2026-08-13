@@ -18,7 +18,7 @@ const {
   headings,
 } = caseStudy;
 const canonical = `https://www.creworklabs.com/case-studies/${slug}`;
-const og_image = csimage.src || '/opengraph.png';
+const og_image = csimage.src || '/opengraph.webp';
 
 const casestudies = await getCollection('casestudy');
 const rds = casestudies.filter(({ data, slug: caseStudySlug }) => {

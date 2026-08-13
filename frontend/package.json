@@ -2,6 +2,9 @@
   "name": "crework-labs",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,7 +14,8 @@
     "format": "prettier --write .",
     "download-fonts": "node download_fonts.mjs",
     "convert-webp": "node convert_webp.mjs",
-    "generate-og": "node generate_og.mjs"
+    "generate-og": "node generate_og.mjs",
+    "remove-blogs": "node remove_blogs.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.2",

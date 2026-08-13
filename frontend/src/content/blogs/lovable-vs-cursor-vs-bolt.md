@@ -1,10 +1,10 @@
 ---
 blogTitle: "Lovable vs Cursor vs Bolt vs Replit: Which AI Builder to Use for What"
 blogDate: "August 17, 2026"
-blogAuthor: { author: "Shikshita Juyal", image: "/blogs/authors/shikshitha.png" }
+blogAuthor: { author: "Shikshita Juyal", image: "/blogs/authors/shikshitha.webp" }
 blogImage:
   {
-    src: "/blogs/Isometric Forked Arrows and Floating Orb.png",
+    src: "/blogs/Isometric Forked Arrows and Floating Orb.webp",
     alt: "Lovable vs Cursor vs Bolt vs Replit: Which AI Builder to Use for What",
   }
 blogDescription: "An honest comparison of Lovable, Cursor, Bolt and Replit for non-technical founders building MVPs. Which tool fits your product, skills and budget."

@@ -1,8 +1,8 @@
 ---
 blogTitle: "MVP Timeline in 2026: How Long It Really Takes to Build and Launch (Week by Week)"
 blogDate: January 08, 2026
-blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.png }
-blogImage: { src: '/blogs/mvp-timeline-2026.png', alt: 'MVP Timeline 2026' }
+blogAuthor: { author: Crework Labs, image: /blogs/authors/crework.webp }
+blogImage: { src: '/blogs/mvp-timeline-2026.webp', alt: 'MVP Timeline 2026' }
 blogDescription: Most MVPs take 3 to 8 weeks, not months. Here is the real week-by-week breakdown of what founders get wrong and how to cut your timeline in half.
 blogModified: 2026-05-25
 draft: false

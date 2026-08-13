@@ -1,7 +1,7 @@
 ---
 blogTitle: AI Automations Every Founder Should Use in 2026 Real Use Cases
 blogDate: February 20, 2026
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
 blogImage:
   {
     src: '/blogs/blog-10.webp',

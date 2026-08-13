@@ -61,16 +61,16 @@ export async function ensureLocalAssets() {
     // WebP image conversion for target large public images
     const publicDir = path.resolve(cwd, 'public');
     const imagesToOptimize = [
-      'Nail-Found-Admin.png',
-      'Nail-Found-Artist-Profiles.png',
-      'Nail-Found-Main-Logo.png',
-      'Nail-Found-Onboarding.png',
-      'Nail-Found-Project-Outcomes.png',
-      'Nail-Found-Save-Revisit.png',
-      'Nail-Found-VDG.png',
+      'Nail-Found-Admin.webp',
+      'Nail-Found-Artist-Profiles.webp',
+      'Nail-Found-Main-Logo.webp',
+      'Nail-Found-Onboarding.webp',
+      'Nail-Found-Project-Outcomes.webp',
+      'Nail-Found-Save-Revisit.webp',
+      'Nail-Found-VDG.webp',
       'Walmart.png',
-      'hero.jpg',
-      'opengraph.png'
+      'hero.webp',
+      'opengraph.webp'
     ];
 
     for (const file of imagesToOptimize) {

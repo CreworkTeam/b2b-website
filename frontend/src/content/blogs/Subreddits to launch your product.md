@@ -1,8 +1,8 @@
 ---
 blogTitle: "Best Subreddits to Launch Your Product in 2026: The Founder's Complete List"
 blogDate: September 25, 2024
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/blog-9.png', alt: 'A picture of a coder' }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
+blogImage: { src: '/blogs/blog-9.webp', alt: 'A picture of a coder' }
 blogDescription: The exact subreddits where founders launch products and get their first real users. Includes posting strategy, what works, and what gets you banned.
 draft: false
 featured: false

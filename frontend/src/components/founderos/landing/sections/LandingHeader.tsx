@@ -2,10 +2,10 @@ import { useState } from 'react'
 import './landing-header.css'
 
 type LandingHeaderProps = {
-  fontClass: string
+  fontClass?: string
 }
 
-export function LandingHeader({ fontClass }: LandingHeaderProps) {
+export function LandingHeader({ fontClass = 'font-space-grotesk' }: LandingHeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (

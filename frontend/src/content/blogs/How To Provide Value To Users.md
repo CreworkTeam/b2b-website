@@ -1,8 +1,8 @@
 ---
 blogTitle: How To Provide Value To Users?
 blogDate: September 19, 2024
-blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.png }
-blogImage: { src: '/blogs/how-to-provide-value-to-users.png', alt: 'A picture of a coder' }
+blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
+blogImage: { src: '/blogs/how-to-provide-value-to-users.webp', alt: 'A picture of a coder' }
 blogDescription: Explore effective methods for creating and delivering real user value in your products. Learn how to develop features that solve genuine problems and keep users coming back.
 draft: false
 featured: false
@@ -54,7 +54,7 @@ Think about where your target customers hang out and go to those places. You can
 
 ## **2. What is a Value Proposition?**
 
-![value-proposition](/blogs/value-proposition.png)
+![value-proposition](/blogs/value-proposition.webp)
 
 Market research is the cornerstone for creating what will define your success: your **Value Proposition.**
 
