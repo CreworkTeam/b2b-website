@@ -24,7 +24,7 @@ export default defineConfig({
   site: 'https://www.creworklabs.com',
   integrations: [tailwind(), react(), sitemap()],
   adapter: vercel({
-    runtime: 'nodejs22.x'
+    runtime: 'nodejs20.x'
   }),
   vite: {
     plugins: [localAssetsPlugin()],
