@@ -70,6 +70,19 @@ export async function ensureLocalAssets() {
       if (!fs.existsSync(favicon16)) fs.copyFileSync(sourceWebp, favicon16);
       if (!fs.existsSync(appleIcon)) fs.copyFileSync(sourceWebp, appleIcon);
     }
+
+    // Ensure og-image.png and opengraph.png exist for social crawlers requiring PNG format
+    const ogPng = path.join(publicDir, 'og-image.png');
+    const ogWebp = path.join(publicDir, 'og-image.webp');
+    const openGraphPng = path.join(publicDir, 'opengraph.png');
+    const openGraphWebp = path.join(publicDir, 'opengraph.webp');
+
+    if (fs.existsSync(ogWebp) && !fs.existsSync(ogPng)) {
+      fs.copyFileSync(ogWebp, ogPng);
+    }
+    if (fs.existsSync(openGraphWebp) && !fs.existsSync(openGraphPng)) {
+      fs.copyFileSync(openGraphWebp, openGraphPng);
+    }
   } catch (err) {
     console.error('[Assets Init Error]', err);
   }

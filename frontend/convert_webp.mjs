@@ -12,6 +12,10 @@ if (fs.existsSync('./public/favicon.webp')) {
   if (!fs.existsSync('./public/apple-touch-icon.png')) fs.copyFileSync('./public/favicon.webp', './public/apple-touch-icon.png');
 }
 
+if (fs.existsSync('./public/og-image.webp') && !fs.existsSync('./public/og-image.png')) {
+  fs.copyFileSync('./public/og-image.webp', './public/og-image.png');
+}
+
 function getAllFiles(dirPath, arrayOfFiles = []) {
   const files = fs.readdirSync(dirPath);
 
