@@ -16,9 +16,6 @@ const innerContent = whiteLogoSvg
   .replace(/<\/svg>/, '');
 
 // Create full 1200x630 SVG with dark background (#09090B) and centered logo
-// Scale = 2.2 -> width = 585.2px, height = 61.6px
-// translate X = (1200 - 585.2) / 2 = 307.4
-// translate Y = (630 - 61.6) / 2 = 284.2
 const ogSvg = `
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -40,17 +37,12 @@ const ogSvg = `
 </svg>
 `;
 
-const outputPathOg = path.resolve('./public/og-image.png');
-const outputPathOpenGraph = path.resolve('./public/opengraph.png');
+const buffer = Buffer.from(ogSvg);
 
-await sharp(Buffer.from(ogSvg))
-  .png()
-  .toFile(outputPathOg);
+// Generate Primary PNG OG Image (1200x630)
+await sharp(buffer).png().toFile(path.resolve('./public/og-image.png'));
 
-console.log('Saved og-image.png successfully');
+// Generate Optional WebP OG Image
+await sharp(buffer).webp().toFile(path.resolve('./public/og-image.webp'));
 
-await sharp(Buffer.from(ogSvg))
-  .png()
-  .toFile(outputPathOpenGraph);
-
-console.log('Saved opengraph.png successfully');
+console.log('Saved og-image.png (primary) & og-image.webp (optional) successfully');
