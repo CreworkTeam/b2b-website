@@ -55,6 +55,21 @@ export async function ensureLocalAssets() {
         }
       }
     }
+
+    // Ensure favicon.ico and PNG favicons exist for Google Docs, Notion, & legacy crawlers
+    const publicDir = path.resolve(cwd, 'public');
+    const faviconIco = path.join(publicDir, 'favicon.ico');
+    const favicon32 = path.join(publicDir, 'favicon-32x32.png');
+    const favicon16 = path.join(publicDir, 'favicon-16x16.png');
+    const appleIcon = path.join(publicDir, 'apple-touch-icon.png');
+    const sourceWebp = path.join(publicDir, 'favicon.webp');
+
+    if (fs.existsSync(sourceWebp)) {
+      if (!fs.existsSync(faviconIco)) fs.copyFileSync(sourceWebp, faviconIco);
+      if (!fs.existsSync(favicon32)) fs.copyFileSync(sourceWebp, favicon32);
+      if (!fs.existsSync(favicon16)) fs.copyFileSync(sourceWebp, favicon16);
+      if (!fs.existsSync(appleIcon)) fs.copyFileSync(sourceWebp, appleIcon);
+    }
   } catch (err) {
     console.error('[Assets Init Error]', err);
   }

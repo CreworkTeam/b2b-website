@@ -3,7 +3,18 @@ import { sendReportEmail, sendCompanyLeadNotification } from '@/lib/resend'
 import { prisma } from '@/lib/prisma'
 import type { CaptureEmailRequest, LeadTag, Q4Answer } from '@/types'
 
-// ─── Lead tag logic ───────────────────────────────────────────────────────────
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: corsHeaders,
+  })
+}
 
 function deriveLeadTag(q4: Q4Answer | null): LeadTag {
   switch (q4) {
@@ -20,24 +31,30 @@ export async function POST(req: NextRequest) {
     if (!body.email || !body.email.includes('@')) {
       return NextResponse.json(
         { error: 'Valid email is required' },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       )
     }
 
     if (!body.sessionId) {
       return NextResponse.json(
         { error: 'sessionId is required' },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       )
     }
 
     // Derive lead tag from Q4 seriousness answer
     const leadTag = deriveLeadTag(body.q4)
 
-    // Extract location & IP headers from Vercel / proxy
+    // Extract location, IP, and User-Agent headers from Vercel / proxy
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0] || req.headers.get('x-real-ip') || undefined
     const country = req.headers.get('x-vercel-ip-country') || undefined
     const city = req.headers.get('x-vercel-ip-city') || undefined
+    const userAgent = req.headers.get('user-agent') || undefined
+    const timestamp = new Date().toLocaleString('en-US', {
+      timeZone: 'UTC',
+      dateStyle: 'medium',
+      timeStyle: 'short',
+    }) + ' UTC'
 
     // Upsert lead via Prisma. Do not fail the request if DB write fails.
     try {
@@ -92,20 +109,24 @@ export async function POST(req: NextRequest) {
         ideaSummary: body.quiz.q2 || 'No idea description provided',
         archetype: body.archetype ?? undefined,
         quiz: body.quiz,
-        locationInfo: { ip, country, city },
+        locationInfo: { ip, country, city, userAgent },
+        timestamp,
       })
     } catch (companyEmailErr) {
       console.error('[capture-email] sendCompanyLeadNotification failed:', companyEmailErr)
     }
 
-    return NextResponse.json({
-      success: true,
-      leadTag,
-    })
+    return NextResponse.json(
+      {
+        success: true,
+        leadTag,
+      },
+      { headers: corsHeaders }
+    )
   } catch {
     return NextResponse.json(
       { error: 'Failed to capture email' },
-      { status: 500 }
+      { status: 500, headers: corsHeaders }
     )
   }
 }

@@ -5,6 +5,13 @@ import sharp from 'sharp';
 const PUBLIC_DIR = './public';
 const ALLOWED_EXTS = ['.png', '.jpg', '.jpeg', '.svg'];
 
+if (fs.existsSync('./public/favicon.webp')) {
+  if (!fs.existsSync('./public/favicon.ico')) fs.copyFileSync('./public/favicon.webp', './public/favicon.ico');
+  if (!fs.existsSync('./public/favicon-32x32.png')) fs.copyFileSync('./public/favicon.webp', './public/favicon-32x32.png');
+  if (!fs.existsSync('./public/favicon-16x16.png')) fs.copyFileSync('./public/favicon.webp', './public/favicon-16x16.png');
+  if (!fs.existsSync('./public/apple-touch-icon.png')) fs.copyFileSync('./public/favicon.webp', './public/apple-touch-icon.png');
+}
+
 function getAllFiles(dirPath, arrayOfFiles = []) {
   const files = fs.readdirSync(dirPath);
 

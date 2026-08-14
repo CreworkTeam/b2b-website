@@ -1,6 +1,7 @@
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
+import './generate_favicons.mjs';
 
 const logoSvg = fs.readFileSync('./public/logo.svg', 'utf-8');
 
