@@ -319,7 +319,9 @@ type SendCompanyLeadParams = {
     ip?: string
     country?: string
     city?: string
+    userAgent?: string
   }
+  timestamp?: string
 }
 
 export async function sendCompanyLeadNotification({
@@ -329,6 +331,7 @@ export async function sendCompanyLeadNotification({
   archetype,
   quiz,
   locationInfo,
+  timestamp = new Date().toUTCString(),
 }: SendCompanyLeadParams) {
   const companyMail = process.env.COMPANY_EMAIL || 'creworkgroup@gmail.com'
   const tagColor = leadTag === 'HOT' ? '#ef4444' : leadTag === 'WARM' ? '#f59e0b' : '#3b82f6'
@@ -370,6 +373,10 @@ export async function sendCompanyLeadNotification({
 
                       <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;">
                         <tr>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid #283548;">Submission Time:</td>
+                          <td style="padding:8px 0;color:#ffffff;font-size:13px;font-weight:bold;text-align:right;border-bottom:1px solid #283548;">${timestamp}</td>
+                        </tr>
+                        <tr>
                           <td style="padding:8px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid #283548;">Archetype:</td>
                           <td style="padding:8px 0;color:#ffffff;font-size:13px;font-weight:bold;text-align:right;border-bottom:1px solid #283548;">${archetype || 'N/A'}</td>
                         </tr>
@@ -386,11 +393,21 @@ export async function sendCompanyLeadNotification({
                           <td style="padding:8px 0;color:#ffffff;font-size:13px;text-align:right;border-bottom:1px solid #283548;">${quiz.q4 || 'N/A'}</td>
                         </tr>
                         ${
-                          locationInfo?.country || locationInfo?.ip
+                          locationInfo?.country || locationInfo?.ip || locationInfo?.city
                             ? `
                         <tr>
-                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;">Location / IP:</td>
-                          <td style="padding:8px 0;color:#38bdf8;font-size:13px;text-align:right;">${locationInfo.city ? locationInfo.city + ', ' : ''}${locationInfo.country || ''} (IP: ${locationInfo.ip || 'N/A'})</td>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;border-bottom:1px solid #283548;">Location / IP:</td>
+                          <td style="padding:8px 0;color:#38bdf8;font-size:13px;text-align:right;border-bottom:1px solid #283548;">${locationInfo.city ? locationInfo.city + ', ' : ''}${locationInfo.country || ''} (IP: ${locationInfo.ip || 'Local/Proxy'})</td>
+                        </tr>
+                        `
+                            : ''
+                        }
+                        ${
+                          locationInfo?.userAgent
+                            ? `
+                        <tr>
+                          <td style="padding:8px 0;color:#94a3b8;font-size:13px;">Device / Browser:</td>
+                          <td style="padding:8px 0;color:#cbd5e1;font-size:11px;text-align:right;word-break:break-all;">${locationInfo.userAgent}</td>
                         </tr>
                         `
                             : ''
@@ -408,4 +425,5 @@ export async function sendCompanyLeadNotification({
   }
 
   return transporter.sendMail(mailOptions)
-}
+}
+
