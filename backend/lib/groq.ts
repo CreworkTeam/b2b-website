@@ -43,10 +43,10 @@ const circuitState: {
 }
 
 export const GROQ_MODELS = {
-  report: 'llama-3.3-70b-versatile',
+  report: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'] as const,
   classifier: 'llama-3.1-8b-instant',
   evaluator: 'llama-3.1-8b-instant',
-} as const
+}
 
 function isCircuitOpen(): boolean {
   if (circuitState.openedAt === null) return false
@@ -141,11 +141,12 @@ export function parseJsonObject(text: string): unknown {
 }
 
 export async function groqChatJson<T = unknown>(params: {
-  model: string
+  model: string | readonly string[]
   systemPrompt: string
   userPrompt: string
   temperature?: number
   maxTokens?: number
+  fallbackModel?: string
 }): Promise<GroqChatResult<T>> {
   if (isCircuitOpen()) {
     throw new Error('LLM circuit breaker is open')
@@ -154,6 +155,20 @@ export async function groqChatJson<T = unknown>(params: {
   const apiKey = process.env.GROQ_API_KEY
   if (!apiKey) {
     throw new Error('GROQ_API_KEY is not configured')
+  }
+
+  const primaryModels = Array.isArray(params.model)
+    ? (params.model as string[])
+    : [params.model as string]
+
+  const modelsToTry = [...primaryModels]
+  if (params.fallbackModel && !modelsToTry.includes(params.fallbackModel)) {
+    modelsToTry.push(params.fallbackModel)
+  }
+
+  // Automatic fallback guarantee: if oss-120b is tried and oss-20b is not listed, add oss-20b
+  if (modelsToTry.includes('openai/gpt-oss-120b') && !modelsToTry.includes('openai/gpt-oss-20b')) {
+    modelsToTry.push('openai/gpt-oss-20b')
   }
 
   const messages: GroqMessage[] = [
@@ -170,90 +185,105 @@ export async function groqChatJson<T = unknown>(params: {
 
   let lastError: unknown
 
-  for (let attempt = 1; attempt <= RETRY_ATTEMPTS; attempt += 1) {
-    const started = Date.now()
-    const controller = new AbortController()
-    const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+  for (let mIdx = 0; mIdx < modelsToTry.length; mIdx += 1) {
+    const currentModel = modelsToTry[mIdx]
 
-    try {
-      const res = await fetch(GROQ_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          model: params.model,
-          messages,
-          temperature: params.temperature ?? 0.2,
-          max_tokens: params.maxTokens ?? 1800,
-        }),
-        signal: controller.signal,
-      })
+    for (let attempt = 1; attempt <= RETRY_ATTEMPTS; attempt += 1) {
+      const started = Date.now()
+      const controller = new AbortController()
+      const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
 
-      if (!res.ok) {
-        const text = await res.text()
+      try {
+        const res = await fetch(GROQ_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify({
+            model: currentModel,
+            messages,
+            temperature: params.temperature ?? 0.2,
+            max_tokens: params.maxTokens ?? 1800,
+          }),
+          signal: controller.signal,
+        })
+
+        if (!res.ok) {
+          const text = await res.text()
+          logGroqResponse({
+            model: currentModel,
+            attempt,
+            success: false,
+            status: res.status,
+            latencyMs: Date.now() - started,
+            rawText: text,
+            error: `HTTP_${res.status}`,
+          })
+          throw new Error(`Groq request failed: ${res.status} ${text}`)
+        }
+
+        const json = (await res.json()) as GroqChatResponse
+        const raw = json.choices?.[0]?.message?.content?.trim()
+        if (!raw) {
+          logGroqResponse({
+            model: currentModel,
+            attempt,
+            success: false,
+            status: res.status,
+            latencyMs: Date.now() - started,
+            error: 'EMPTY_CONTENT',
+          })
+          throw new Error('Groq returned empty content')
+        }
+
+        const parsed = parseJsonObject(raw) as T
+        const usage: GroqTokenUsage = {
+          promptTokens: json.usage?.prompt_tokens ?? 0,
+          completionTokens: json.usage?.completion_tokens ?? 0,
+          totalTokens: json.usage?.total_tokens ?? 0,
+        }
+
+        markSuccess()
         logGroqResponse({
-          model: params.model,
+          model: currentModel,
           attempt,
-          success: false,
+          success: true,
           status: res.status,
           latencyMs: Date.now() - started,
-          rawText: text,
-          error: `HTTP_${res.status}`,
+          rawText: raw,
+          usage,
         })
-        throw new Error(`Groq request failed: ${res.status} ${text}`)
-      }
 
-      const json = (await res.json()) as GroqChatResponse
-      const raw = json.choices?.[0]?.message?.content?.trim()
-      if (!raw) {
+        clearTimeout(timeout)
+        return { data: parsed, usage }
+      } catch (error) {
+        clearTimeout(timeout)
+        lastError = error
+
         logGroqResponse({
-          model: params.model,
+          model: currentModel,
           attempt,
           success: false,
-          status: res.status,
           latencyMs: Date.now() - started,
-          error: 'EMPTY_CONTENT',
+          error: error instanceof Error ? error.message : 'Unknown error',
         })
-        throw new Error('Groq returned empty content')
+
+        // If rate limited (429) and we have a fallback model remaining, skip further retries on this model and fallback immediately
+        const isRateLimit = error instanceof Error && error.message.includes('429')
+        if (isRateLimit && mIdx < modelsToTry.length - 1) {
+          console.warn(`[llm/groq] Rate limit (429) on ${currentModel}. Falling back to ${modelsToTry[mIdx + 1]} immediately.`)
+          break
+        }
+
+        if (attempt < RETRY_ATTEMPTS) {
+          await sleep(RETRY_BACKOFF_MS * attempt)
+        }
       }
+    }
 
-      const parsed = parseJsonObject(raw) as T
-      const usage: GroqTokenUsage = {
-        promptTokens: json.usage?.prompt_tokens ?? 0,
-        completionTokens: json.usage?.completion_tokens ?? 0,
-        totalTokens: json.usage?.total_tokens ?? 0,
-      }
-
-      markSuccess()
-      logGroqResponse({
-        model: params.model,
-        attempt,
-        success: true,
-        status: res.status,
-        latencyMs: Date.now() - started,
-        rawText: raw,
-        usage,
-      })
-
-      clearTimeout(timeout)
-      return { data: parsed, usage }
-    } catch (error) {
-      clearTimeout(timeout)
-      lastError = error
-
-      logGroqResponse({
-        model: params.model,
-        attempt,
-        success: false,
-        latencyMs: Date.now() - started,
-        error: error instanceof Error ? error.message : 'Unknown error',
-      })
-
-      if (attempt < RETRY_ATTEMPTS) {
-        await sleep(RETRY_BACKOFF_MS * attempt)
-      }
+    if (mIdx < modelsToTry.length - 1) {
+      console.warn(`[llm/groq] Model ${currentModel} failed. Falling back to ${modelsToTry[mIdx + 1]}...`)
     }
   }
 
