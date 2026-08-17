@@ -1,7 +1,7 @@
 ---
 import HalfLogo from '@/components/half-logo.astro';
 import ContactForm from '@/components/react/contact-form';
-import ContactGate from '@/components/react/contact-gate';
+import ContactGate from '@/components/contact-gate.astro';
 ---
 
 <section id="contact-us" data-section="Contact Us" class="section-container px-0">
@@ -30,7 +30,7 @@ import ContactGate from '@/components/react/contact-gate';
     <h2 class="text-center text-3xl font-semibold">Contact Us</h2>
     <p class="text-center text-[#919191]">We usually respond before 24 hours.</p>
   </div>
-  <ContactForm client:load />
+  <ContactForm client:visible />
   <div class="invisible">
     <ContactGate position="bottom" />
   </div>

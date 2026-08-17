@@ -52,6 +52,13 @@
     border-color: rgba(255, 255, 255, 0.4);
   }
 
+  .custom-cursor.is-magnifying .cursor-dot {
+    transform: scale(4.5);
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(4px);
+  }
+
   .custom-cursor.is-btn-hovering {
     mix-blend-mode: normal;
   }
@@ -89,7 +96,8 @@
   }
 
   .custom-cursor.is-hovering+.cursor-trail,
-  .custom-cursor.is-btn-hovering+.cursor-trail {
+  .custom-cursor.is-btn-hovering+.cursor-trail,
+  .custom-cursor.is-magnifying+.cursor-trail {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
   }
@@ -107,20 +115,56 @@
 
 <script is:inline>
   (function() {
-    if (window._cursorBound) return;
-    window._cursorBound = true;
+    const mouse = { x: -999, y: -999 };
+    const trailPos = { x: -999, y: -999 };
+    let isTrailAnimating = false;
 
-    const mouse = { x: 0, y: 0 };
-    const trailPos = { x: 0, y: 0 };
+    function getCursorElements() {
+      return {
+        cursor: document.getElementById('custom-cursor'),
+        trail: document.getElementById('cursor-trail')
+      };
+    }
 
-    window.addEventListener('mousemove', (e) => {
+    const updateTrail = () => {
+      const { trail } = getCursorElements();
+      const dx = mouse.x - trailPos.x;
+      const dy = mouse.y - trailPos.y;
+      
+      trailPos.x += dx * 0.15;
+      trailPos.y += dy * 0.15;
+
+      if (trail) {
+        trail.style.left = `${trailPos.x}px`;
+        trail.style.top = `${trailPos.y}px`;
+      }
+
+      if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+        requestAnimationFrame(updateTrail);
+      } else {
+        isTrailAnimating = false;
+      }
+    };
+
+    const handleMouseMove = (e) => {
+      if (window.matchMedia('(max-width: 1024px)').matches) return;
+
+      if (mouse.x === -999) {
+        trailPos.x = e.clientX;
+        trailPos.y = e.clientY;
+      }
       mouse.x = e.clientX;
       mouse.y = e.clientY;
 
-      const cursor = document.getElementById('custom-cursor');
+      const { cursor } = getCursorElements();
       if (cursor) {
         cursor.style.left = `${e.clientX}px`;
         cursor.style.top = `${e.clientY}px`;
+      }
+
+      if (!isTrailAnimating) {
+        isTrailAnimating = true;
+        requestAnimationFrame(updateTrail);
       }
 
       // Check if hovering over interactive elements
@@ -170,22 +214,11 @@
       } else {
         cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
       }
-    });
-
-    const updateTrail = () => {
-      const trail = document.getElementById('cursor-trail');
-      const dx = mouse.x - trailPos.x;
-      const dy = mouse.y - trailPos.y;
-      trailPos.x += dx * 0.15;
-      trailPos.y += dy * 0.15;
-
-      if (trail) {
-        trail.style.left = `${trailPos.x}px`;
-        trail.style.top = `${trailPos.y}px`;
-      }
-      requestAnimationFrame(updateTrail);
     };
 
-    requestAnimationFrame(updateTrail);
+    if (!window._cursorListenerAttached) {
+      window._cursorListenerAttached = true;
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    }
   })();
 </script>

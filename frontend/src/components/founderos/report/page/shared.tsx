@@ -124,10 +124,17 @@ export function ReportHeader({ section }: HeaderProps) {
   )
 }
 
-export function ReportLoading() {
+export function ReportLoading({ title = 'Building your report...' }: { title?: string }) {
   return (
-    <div className="mb-8 rounded-xl border border-[#e8e6e0] bg-white px-5 py-4 text-[13px] text-[#6b6860]">
-      Building your report sections...
+    <div className="my-8 flex flex-col items-center justify-center rounded-2xl border border-[#e8e6e0] bg-white p-12 text-center shadow-sm">
+      <div className="relative mb-4 flex h-12 w-12 items-center justify-center">
+        <span className="absolute h-full w-full animate-ping rounded-full bg-[#1a1917]/10 opacity-75" />
+        <span className="relative inline-flex h-8 w-8 animate-spin rounded-full border-2 border-[#1a1917] border-t-transparent" />
+      </div>
+      <h3 className="font-space-grotesk text-[18px] font-semibold text-[#1a1917]">{title}</h3>
+      <p className="mt-2 max-w-sm text-[13px] text-[#6b6860]">
+        Our AI engine is generating your customized breakdown. This will only take a few seconds...
+      </p>
     </div>
   )
 }

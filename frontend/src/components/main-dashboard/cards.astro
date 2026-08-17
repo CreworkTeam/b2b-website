@@ -1,10 +1,9 @@
 ---
-import { AnimatedFeatureCard } from '../react/animated-feature-card';
+import AnimatedFeatureCard from './animated-feature-card.astro';
 ---
 <section class="cards-section">
   <div class="cards-container">
     <AnimatedFeatureCard
-      client:load
       isDark={true}
       label="For operators and business owners"
       title="Your AI operations team"
@@ -16,7 +15,6 @@ import { AnimatedFeatureCard } from '../react/animated-feature-card';
     />
 
     <AnimatedFeatureCard
-      client:load
       isDark={false}
       label="For early-stage founders"
       title="The overnight CTO"

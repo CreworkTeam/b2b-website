@@ -3,7 +3,6 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 import { TabsContent } from '@radix-ui/react-tabs';
 import { MVP_WEBSITE_CASE_STUDY_CARDS, WEBSITE_CASE_STUDY_CARDS } from '@/constants.ts';
-import { ArrowRight, Search } from 'lucide-react';
 
 interface ImageProps {
   src: string;
@@ -199,10 +198,10 @@ const CaseStudiesSwitch = ({ sticky, limit, showSearch, isAi }: { sticky: boolea
       }
     };
 
-    window.addEventListener('scroll', handleScroll, false);
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll, false);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -380,7 +379,10 @@ const CaseStudyCard = ({
               data-btntype="live website CTA"
               onClick={(e) => e.stopPropagation()}
             >
-              <span>View Live Link</span> <ArrowRight />
+              <span>View Live Link</span>
+              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
             </a>
           )}
         </div>
