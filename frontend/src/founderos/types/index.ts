@@ -247,6 +247,7 @@ export type FounderState = SessionData & {
   setBudget: (val: string) => void
   setLeadTag: (val: LeadTag) => void
   setReport: (route: RouteKey, data: ReportA | ReportB | ReportC) => void
+  clearReports: () => void
   setActiveTab: (tab: RouteKey) => void
   markRouteGenerated: (route: RouteKey) => void
   hydrateFromStorage: () => void

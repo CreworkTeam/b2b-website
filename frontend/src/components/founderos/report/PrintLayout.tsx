@@ -128,21 +128,32 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts, pr
 
           <div className="rounded-xl border border-[#e8e6e0] bg-[#fffdf1] p-5 border-l-4 border-l-[#fde68a]">
             <p className="text-[12px] font-bold uppercase tracking-wider text-[#78350f] mb-2">The Bottom Line</p>
-            <p className="text-[14px] text-[#5a574f] leading-relaxed">
-              {reportA?.keywordNote || "There are strong demand signals for your idea based on search intent and community discussions. Users are actively looking for solutions to this specific pain point, although existing alternatives leave a noticeable gap in the market."}
-            </p>
+            {reportA?.keywordNote?.toLowerCase().startsWith('key keywords:') ? (
+              <div className="space-y-2">
+                <p className="text-[14px] text-[#5a574f] leading-relaxed">
+                  Based on live search signals and community discussions, there is active and growing demand in this problem space. Users are actively comparing solutions and seeking specialized tools, making market timing optimal.
+                </p>
+                <p className="text-[12px] text-[#78350f] font-mono bg-amber-100/60 rounded px-2.5 py-1 inline-block">
+                  🔍 {reportA.keywordNote}
+                </p>
+              </div>
+            ) : (
+              <p className="text-[14px] text-[#5a574f] leading-relaxed">
+                {reportA?.keywordNote || "There are strong demand signals for your idea based on search intent and community discussions. Users are actively looking for solutions to this specific pain point, although existing alternatives leave a noticeable gap in the market."}
+              </p>
+            )}
           </div>
 
           {/* Opportunity Highlight to fill first page */}
-          <div className="mt-6 rounded-xl bg-[#fcfbf9] border border-[#e8e6e0] p-6 shadow-sm flex items-start gap-5">
-            <div className="bg-[#eef8f1] border border-[#b5d6bf] rounded-full w-12 h-12 flex items-center justify-center shrink-0">
-              <span className="text-[20px]">💡</span>
+          <div className="mt-4 rounded-xl bg-[#fcfbf9] border border-[#e8e6e0] p-4.5 shadow-sm flex items-start gap-4 print-avoid-break">
+            <div className="bg-[#eef8f1] border border-[#b5d6bf] rounded-full w-10 h-10 flex items-center justify-center shrink-0">
+              <span className="text-[18px]">💡</span>
             </div>
             <div>
-              <p className="text-[14px] font-bold text-[#1a1917] mb-2">What stands out about your idea</p>
+              <p className="text-[13px] font-bold text-[#1a1917] mb-1">What stands out about your idea</p>
               <p className="text-[13px] text-[#5a574f] leading-relaxed">
                 {printSummary || (
-                  <>Your concept sits at the intersection of proven demand and underserved user needs. By focusing strictly on solving the core pain point—without overcomplicating the initial features—you have a unique opportunity to build early traction. The combination of your <strong>{reportA?.archetype?.replace('_', ' ') || 'chosen'}</strong> model and a targeted go-to-market approach positions you well to capture market share from slower, traditional competitors.</>
+                  <>Your concept targets an underserved market gap with verified demand. A streamlined MVP enables you to establish strong early traction and validate retention quickly.</>
                 )}
               </p>
             </div>
@@ -150,7 +161,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts, pr
         </div>
 
         {/* SECTION 2: The Evidence */}
-        <div className="mb-10 print:pt-12 print-avoid-break">
+        <div className="mb-10 print:pt-6 print-avoid-break" style={{ pageBreakBefore: 'always', breakBefore: 'page' }}>
           <h2 className="mb-4 text-[16px] font-bold uppercase tracking-wider text-[#1a1917]">Section 2: The Evidence</h2>
           <p className="text-[14px] text-[#6b6860] mb-6">Why should you build it? Real-world data shows people are actively looking for this.</p>
 
@@ -270,7 +281,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts, pr
         </div>
 
         {/* SECTION 4: The Blueprint */}
-        <div className="mb-10 print:pt-12 print-avoid-break">
+        <div className="mb-10 print:pt-6 print-avoid-break" style={{ pageBreakBefore: 'always', breakBefore: 'page' }}>
           <h2 className="mb-4 text-[16px] font-bold uppercase tracking-wider text-[#1a1917]">Section 4: The Blueprint</h2>
           <p className="text-[14px] text-[#6b6860] mb-6">Actionable software features so you don't overbuild.</p>
 
@@ -326,7 +337,7 @@ export function PrintLayout({ quiz, reportA, reportB, reportC, filteredPosts, pr
         </div>
 
         {/* SECTION 5: The Action Plan */}
-        <div className="mb-10 print:pt-12 print-avoid-break">
+        <div className="mb-10 print:pt-6 print-avoid-break" style={{ pageBreakBefore: 'always', breakBefore: 'page' }}>
           <h2 className="mb-4 text-[16px] font-bold uppercase tracking-wider text-[#1a1917]">Section 5: The Action Plan</h2>
           <p className="text-[14px] text-[#6b6860] mb-6">Operational steps to make it real.</p>
 

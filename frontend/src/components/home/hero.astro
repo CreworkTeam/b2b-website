@@ -161,6 +161,10 @@ import { BOOK_CALL } from '@/constants.ts';
     let cols = 0, rows = 0;
     let mouse = { x: -9999, y: -9999 };  // mouse position relative to canvas
     let cells: { alpha: number; target: number; hoverLock: number }[] = [];
+    let isVisible = false;
+    let animFrameId: number | null = null;
+    let glowTimeoutId: ReturnType<typeof setTimeout> | null = null;
+    let hoverIntervalId: ReturnType<typeof setInterval> | null = null;
 
     function resize() {
       const rect = container!.getBoundingClientRect();
@@ -182,8 +186,9 @@ import { BOOK_CALL } from '@/constants.ts';
       }
     }
 
-    // Random glow scheduler — faster batches
+    // Random glow scheduler — only schedules when visible
     function scheduleGlow() {
+      if (!isVisible) return;
       const total = cells.length;
       if (total === 0) return;
 
@@ -195,7 +200,7 @@ import { BOOK_CALL } from '@/constants.ts';
         if (cells[idx].hoverLock > Date.now()) continue;
         cells[idx].target = GREY_PEAK;
 
-        // Fade back after 800–1800ms (faster)
+        // Fade back after 800–1800ms
         const fadeDelay = 800 + Math.random() * 1000;
         setTimeout(() => {
           if (cells[idx] && cells[idx].hoverLock < Date.now()) {
@@ -204,13 +209,14 @@ import { BOOK_CALL } from '@/constants.ts';
         }, fadeDelay);
       }
 
-      // Next batch in 150–500ms (much faster)
+      // Next batch in 150–500ms
       const nextDelay = 150 + Math.random() * 350;
-      setTimeout(scheduleGlow, nextDelay);
+      glowTimeoutId = setTimeout(scheduleGlow, nextDelay);
     }
 
     // Mouse hover handling — map section coords to canvas coords
     section.addEventListener('mousemove', (e: MouseEvent) => {
+      if (!isVisible) return;
       const containerRect = container!.getBoundingClientRect();
       mouse.x = e.clientX - containerRect.left;
       mouse.y = e.clientY - containerRect.top;
@@ -235,26 +241,35 @@ import { BOOK_CALL } from '@/constants.ts';
           }
         }
       }
-    });
+    }, { passive: true });
 
     section.addEventListener('mouseleave', () => {
       mouse.x = -9999;
       mouse.y = -9999;
     });
 
-    // Fade back hover-locked cells after their lock expires
-    setInterval(() => {
-      const now = Date.now();
-      for (const cell of cells) {
-        if (cell.hoverLock > 0 && cell.hoverLock < now) {
-          cell.target = 0;
-          cell.hoverLock = 0;
+    function startHoverInterval() {
+      if (hoverIntervalId) return;
+      hoverIntervalId = setInterval(() => {
+        const now = Date.now();
+        for (const cell of cells) {
+          if (cell.hoverLock > 0 && cell.hoverLock < now) {
+            cell.target = 0;
+            cell.hoverLock = 0;
+          }
         }
+      }, 100);
+    }
+
+    function stopHoverInterval() {
+      if (hoverIntervalId) {
+        clearInterval(hoverIntervalId);
+        hoverIntervalId = null;
       }
-    }, 100);
+    }
 
     function draw() {
-      if (!ctx) return;
+      if (!ctx || !isVisible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = '#FFFFFF';
@@ -292,12 +307,39 @@ import { BOOK_CALL } from '@/constants.ts';
         ctx.stroke();
       }
 
-      requestAnimationFrame(draw);
+      animFrameId = requestAnimationFrame(draw);
     }
 
     resize();
-    window.addEventListener('resize', resize);
-    scheduleGlow();
-    requestAnimationFrame(draw);
+    window.addEventListener('resize', resize, { passive: true });
+
+    // IntersectionObserver to pause when off-screen
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!isVisible) {
+            isVisible = true;
+            startHoverInterval();
+            scheduleGlow();
+            if (!animFrameId) {
+              animFrameId = requestAnimationFrame(draw);
+            }
+          }
+        } else {
+          isVisible = false;
+          if (animFrameId) {
+            cancelAnimationFrame(animFrameId);
+            animFrameId = null;
+          }
+          if (glowTimeoutId) {
+            clearTimeout(glowTimeoutId);
+            glowTimeoutId = null;
+          }
+          stopHoverInterval();
+        }
+      });
+    }, { threshold: 0.05 });
+
+    heroObserver.observe(section);
   });
 </script>

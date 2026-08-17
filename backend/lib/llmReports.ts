@@ -21,7 +21,7 @@ communities:{platform:Reddit|LinkedIn|Discord|Facebook|X|IndieHackers|Slack,name
 competitors:{name,whatTheyDo,gap}[2-3],
 validationScore:{searchDemand,communityDensity,competitionIntensity,overall}(1-10 each),
 blogLinks:{label,url,context}[2-4],
-keywordNote:string}
+keywordNote:string (2-3 sentence executive bottom-line narrative analyzing search demand, customer intent, and market timing; do NOT list raw keywords)}
 physical_or_local: competitors=local/offline alternatives; demandSignals=community interest (not SEO); don't pitch an app/platform unless quiz explicitly wants one.`
   }
   if (route === 'B') {
