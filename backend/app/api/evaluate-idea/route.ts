@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { GROQ_MODELS, groqChatJson } from '@/lib/groq'
+import { mistralChatJson, groqChatJson, GROQ_MODELS } from '@/lib/groq'
 
 export async function OPTIONS() {
   return new NextResponse(null, {
@@ -21,13 +21,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Idea must be at least 15 characters' }, { status: 400 })
     }
 
-    if (!process.env.GROQ_API_KEY) {
-      return NextResponse.json({ error: 'GROQ_API_KEY not configured' }, { status: 500 })
+    if (!process.env.MISTRAL_API_KEY && !process.env.GROQ_API_KEY) {
+      return NextResponse.json({ error: 'LLM API keys not configured' }, { status: 500 })
     }
 
     try {
-      const { data: payload, usage } = await groqChatJson({
-        model: GROQ_MODELS.evaluator,
+      const runner = process.env.MISTRAL_API_KEY
+        ? (p: any) => mistralChatJson(p)
+        : (p: any) => groqChatJson({ ...p, model: GROQ_MODELS.evaluator })
+
+      const { data: payload, usage } = await runner({
         systemPrompt: `You are an Idea Classification Engine. Given a short product, project, or business idea, classify it using the taxonomy below. Do NOT evaluate quality, market fit, feasibility, or give advice. Output ONLY valid JSON matching the schema.
 
 TAXONOMY — choose 1–3 materially relevant categories, ranked by relevance:
@@ -80,16 +83,15 @@ SAFETY — evaluate independently of taxonomy:
 Safety flags never replace taxonomy categories.
 
 AMBIGUOUS INPUT:
-If the input is gibberish, a single word, or too vague to identify an idea:
-categories=[], primary_category="Unclear", tags=[], delivery_mode="physical_or_local", and use confidence below 0.3. Do not guess.
+ONLY mark primary_category="Unclear" (and categories=[]) if the input is literal keyboard smashing, random character spam (e.g. "asdfghjk", "1234567"), or completely meaningless words.
+For any creative, visionary, conversational, or early-stage idea (such as "Jarvis AI bot", "space robotics", "drone helper", "smart platform"), ALWAYS classify it into the closest taxonomy categories (e.g., AI/ML, Robotics, Hardware, Productivity, SaaS) with appropriate subcategories.
 
 RULES:
 1. Multi-label by default, but include only materially relevant categories; maximum 3.
 2. Rank categories by relevance.
-3. Calibrate confidence; do not assign 0.9+ automatically.
-4. Do not force physical/local ideas into digital categories.
-5. Subcategories should be specific and closely describe the idea.
-6. Output ONLY the JSON object. No explanation, markdown, or extra text.
+3. The first item in categories must match primary_category.
+4. Subcategories should be specific and closely describe the idea.
+5. Output ONLY the JSON object. No explanation, markdown, or extra text.
 
 OUTPUT SCHEMA:
 {
@@ -109,8 +111,15 @@ OUTPUT SCHEMA:
 }`,
         userPrompt: `Evaluate this idea:\n\n${idea}`,
         temperature: 0.1,
-        maxTokens: 250,
+        maxTokens: 800,
       })
+
+      if (payload && typeof payload === 'object') {
+        const p = payload as any
+        if (Array.isArray(p.categories) && p.categories.length > 0 && (!p.primary_category || p.primary_category === 'Unclear')) {
+          p.primary_category = p.categories[0].name
+        }
+      }
 
       console.log(`[FounderOS] Idea Evaluation - ${usage.totalTokens} tokens (Prompt: ${usage.promptTokens}, Completion: ${usage.completionTokens})`)
       return NextResponse.json(payload)

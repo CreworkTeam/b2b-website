@@ -43,9 +43,9 @@ const circuitState: {
 }
 
 export const GROQ_MODELS = {
-  report: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b'] as const,
-  classifier: 'llama-3.1-8b-instant',
-  evaluator: 'llama-3.1-8b-instant',
+  report: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen-2.5-32b'] as const,
+  classifier: ['gemma2-9b-it', 'qwen-2.5-32b', 'openai/gpt-oss-20b'] as const,
+  evaluator: ['gemma2-9b-it', 'qwen-2.5-32b', 'openai/gpt-oss-20b'] as const,
 }
 
 function isCircuitOpen(): boolean {
@@ -140,6 +140,66 @@ export function parseJsonObject(text: string): unknown {
   }
 }
 
+export async function mistralChatJson<T = unknown>(params: {
+  systemPrompt: string
+  userPrompt: string
+  temperature?: number
+  maxTokens?: number
+}): Promise<GroqChatResult<T>> {
+  const apiKey = process.env.MISTRAL_API_KEY
+  if (!apiKey) throw new Error('MISTRAL_API_KEY is not configured')
+
+  const started = Date.now()
+  const res = await fetch('https://api.mistral.ai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'mistral-small-latest',
+      messages: [
+        {
+          role: 'system',
+          content: `${params.systemPrompt}\n\nReturn only valid JSON. No markdown. No explanation.`,
+        },
+        {
+          role: 'user',
+          content: params.userPrompt,
+        },
+      ],
+      temperature: params.temperature ?? 0.2,
+      max_tokens: params.maxTokens ?? 1800,
+      response_format: { type: 'json_object' },
+    }),
+  })
+
+  if (!res.ok) {
+    const text = await res.text()
+    throw new Error(`Mistral fallback request failed: ${res.status} ${text}`)
+  }
+
+  const json = (await res.json()) as GroqChatResponse
+  const raw = json.choices?.[0]?.message?.content?.trim()
+  if (!raw) throw new Error('Mistral returned empty content')
+
+  const parsed = parseJsonObject(raw) as T
+  const usage: GroqTokenUsage = {
+    promptTokens: json.usage?.prompt_tokens ?? 0,
+    completionTokens: json.usage?.completion_tokens ?? 0,
+    totalTokens: json.usage?.total_tokens ?? 0,
+  }
+
+  console.info('[llm/mistral] response success', {
+    provider: 'mistral',
+    model: 'mistral-small-latest',
+    latencyMs: Date.now() - started,
+    usage,
+  })
+
+  return { data: parsed, usage }
+}
+
 export async function groqChatJson<T = unknown>(params: {
   model: string | readonly string[]
   systemPrompt: string
@@ -149,11 +209,18 @@ export async function groqChatJson<T = unknown>(params: {
   fallbackModel?: string
 }): Promise<GroqChatResult<T>> {
   if (isCircuitOpen()) {
+    if (process.env.MISTRAL_API_KEY) {
+      console.warn('[llm] Groq circuit open, routing directly to Mistral...')
+      return mistralChatJson<T>(params)
+    }
     throw new Error('LLM circuit breaker is open')
   }
 
   const apiKey = process.env.GROQ_API_KEY
   if (!apiKey) {
+    if (process.env.MISTRAL_API_KEY) {
+      return mistralChatJson<T>(params)
+    }
     throw new Error('GROQ_API_KEY is not configured')
   }
 
@@ -161,13 +228,25 @@ export async function groqChatJson<T = unknown>(params: {
     ? (params.model as string[])
     : [params.model as string]
 
-  const modelsToTry = [...primaryModels]
+  // Map any decommissioned models to current stable models
+  const sanitizedModels = primaryModels.map((m) =>
+    m === 'llama-3.1-8b-instant' || m === 'llama-3.3-70b-versatile'
+      ? 'openai/gpt-oss-20b'
+      : m
+  )
+
+  const modelsToTry = [...sanitizedModels]
   if (params.fallbackModel && !modelsToTry.includes(params.fallbackModel)) {
     modelsToTry.push(params.fallbackModel)
   }
 
   // Automatic fallback guarantee: if oss-120b is tried and oss-20b is not listed, add oss-20b
   if (modelsToTry.includes('openai/gpt-oss-120b') && !modelsToTry.includes('openai/gpt-oss-20b')) {
+    modelsToTry.push('openai/gpt-oss-20b')
+  }
+
+  // Ensure gpt-oss-20b is always present as a dependable low-latency Groq fallback
+  if (!modelsToTry.includes('openai/gpt-oss-20b')) {
     modelsToTry.push('openai/gpt-oss-20b')
   }
 
@@ -269,10 +348,12 @@ export async function groqChatJson<T = unknown>(params: {
           error: error instanceof Error ? error.message : 'Unknown error',
         })
 
-        // If rate limited (429) and we have a fallback model remaining, skip further retries on this model and fallback immediately
-        const isRateLimit = error instanceof Error && error.message.includes('429')
-        if (isRateLimit && mIdx < modelsToTry.length - 1) {
-          console.warn(`[llm/groq] Rate limit (429) on ${currentModel}. Falling back to ${modelsToTry[mIdx + 1]} immediately.`)
+        // If rate limited (429) or model not found (404), skip retries and try next model immediately
+        const isSkippable =
+          error instanceof Error &&
+          (error.message.includes('429') || error.message.includes('404') || error.message.includes('model_not_found'))
+        if (isSkippable && mIdx < modelsToTry.length - 1) {
+          console.warn(`[llm/groq] ${error instanceof Error ? error.message : 'Error'} on ${currentModel}. Falling back to ${modelsToTry[mIdx + 1]} immediately.`)
           break
         }
 
@@ -284,6 +365,17 @@ export async function groqChatJson<T = unknown>(params: {
 
     if (mIdx < modelsToTry.length - 1) {
       console.warn(`[llm/groq] Model ${currentModel} failed. Falling back to ${modelsToTry[mIdx + 1]}...`)
+    }
+  }
+
+  // If all Groq models failed, try Mistral AI fallback if configured
+  if (process.env.MISTRAL_API_KEY) {
+    try {
+      console.warn('[llm] All Groq models failed, switching to Mistral fallback...')
+      const mistralResult = await mistralChatJson<T>(params)
+      return mistralResult
+    } catch (mistralErr) {
+      console.error('[llm] Mistral fallback failed as well:', mistralErr)
     }
   }
 

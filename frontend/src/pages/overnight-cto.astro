@@ -155,7 +155,7 @@ const faqSchema = {
   </div>
 
   <style is:global>
-    .cto-page > * {
+    .cto-page > *:not(:first-child) {
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -198,7 +198,7 @@ const faqSchema = {
         rootMargin: "0px 0px -50px 0px"
       });
 
-      const sections = document.querySelectorAll('.cto-page > *');
+      const sections = document.querySelectorAll('.cto-page > *:not(:first-child)');
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
         // Check if the section is already in the viewport on load

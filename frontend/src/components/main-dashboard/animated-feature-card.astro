@@ -1,0 +1,42 @@
+---
+interface Props {
+  isDark: boolean;
+  label: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  link: string;
+  traceDelay?: number;
+  scanDelay?: number;
+}
+
+const {
+  isDark,
+  label,
+  title,
+  description,
+  buttonText,
+  link,
+  scanDelay = 1.1,
+} = Astro.props;
+
+const cardClass = isDark ? 'feature-card--dark' : 'feature-card--light';
+const btnClass = isDark ? 'card-btn--light' : 'card-btn--dark';
+---
+
+<div
+  class={`feature-card ${cardClass}`}
+  style={{
+    width: '100%',
+    height: '100%',
+    boxSizing: 'border-box',
+    animationDelay: `${scanDelay}s`,
+  }}
+>
+  <span class="card-label">{label}</span>
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a href={link} class={`card-btn ${btnClass}`}>
+    {buttonText} &rarr;
+  </a>
+</div>

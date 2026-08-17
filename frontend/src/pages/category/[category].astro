@@ -53,7 +53,7 @@ const description =
         </p>
       </div>
       <div class="flex flex-[2] flex-col items-center justify-end gap-1 md:items-end">
-        <SubscribeEmail client:load />
+        <SubscribeEmail client:visible />
       </div>
     </div>
   </Section>
@@ -61,7 +61,7 @@ const description =
     {featuredBlogs.length > 0 && (
       <div class="space-y-3">
         <div data-featured-blog="true">
-          <FeaturedCarousel blogs={featuredBlogs} client:load />
+          <FeaturedCarousel blogs={featuredBlogs} client:visible />
         </div>
       </div>
     )}

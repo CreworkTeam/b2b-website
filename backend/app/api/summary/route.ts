@@ -10,7 +10,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Valid idea string is required' }, { status: 400 })
     }
 
-    const fallbackSummary = 'Your concept sits at the intersection of proven demand and underserved user needs. By focusing strictly on solving the core pain point—without overcomplicating the initial features—you have a unique opportunity to build early traction. The combination of your chosen model and a targeted go-to-market approach positions you well to capture market share from slower, traditional competitors.'
+    const fallbackSummary = 'Your concept targets an underserved market gap with verified demand. A streamlined MVP enables you to establish strong early traction and validate retention quickly.'
 
     if (!MISTRAL_API_KEY) {
       console.warn('MISTRAL_API_KEY not configured, returning mock summary')
@@ -20,10 +20,10 @@ export async function POST(request: Request) {
     const mistralPrompt = `
       You are an expert startup analyst. An entrepreneur has the following startup idea: "${idea}". 
       The idea is classified as a ${archetype || 'startup'}.
-      Write a concise, 2-3 sentence paragraph (max 60 words) explaining "what stands out about this idea" and why it is a strong opportunity. 
-      Focus on the intersection of demand, underserved needs, and market gap. Keep it encouraging and professional. Do not use placeholders.
+      Write a strictly 1-2 sentence concise takeaway (max 25-30 words, strictly 1-2 lines) explaining "what stands out about this idea" and why it is a viable opportunity. 
+      Focus tightly on demand and the core user need. Keep it sharp, professional, and impactful. Do not use placeholders.
       
-      Return ONLY a JSON object with a single key "summary" containing the paragraph string. No markdown fences.
+      Return ONLY a JSON object with a single key "summary" containing the 1-2 sentence string. No markdown fences.
     `
 
     const mistralRes = await fetch('https://api.mistral.ai/v1/chat/completions', {

@@ -122,6 +122,9 @@ export const useFounderStore = create<FounderState>((set, get) => ({
     setReport: (route: RouteKey, data: ReportA | ReportB | ReportC) =>
         set((s) => ({ reports: { ...s.reports, [route]: data } })),
 
+    clearReports: () =>
+        set({ reports: { A: null, B: null, C: null }, routesGenerated: [] }),
+
     setActiveTab: (tab: RouteKey) => set({ activeTab: tab }),
 
     markRouteGenerated: (route: RouteKey) =>

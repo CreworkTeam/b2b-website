@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { classifyIdeaWithSignals, isLikelyGibberishIdea } from '@/lib/classifier'
-import { GROQ_MODELS, groqChatJson } from '@/lib/groq'
+import { GROQ_MODELS, groqChatJson, mistralChatJson } from '@/lib/groq'
 import { isValidClassifierPayload } from '@/lib/llmValidation'
 import type { ClassifyRequest } from '@/types'
 
@@ -41,10 +41,13 @@ export async function POST(req: NextRequest) {
 
     // Rare fallback: use LLM classifier only when JS confidence is low and idea is long/ambiguous.
     const shouldUseFallback = jsResult.confidence < 0.45 && idea.length > 70
-    if (shouldUseFallback && process.env.GROQ_API_KEY) {
+    if (shouldUseFallback && (process.env.MISTRAL_API_KEY || process.env.GROQ_API_KEY)) {
       try {
-        const { data: payload, usage } = await groqChatJson({
-          model: GROQ_MODELS.classifier,
+        const runner = process.env.MISTRAL_API_KEY
+          ? (p: any) => mistralChatJson(p)
+          : (p: any) => groqChatJson({ ...p, model: GROQ_MODELS.classifier })
+
+        const { data: payload, usage } = await runner({
           systemPrompt:
             'Classify startup ideas into one archetype and one deliveryMode. Allowed archetypes: marketplace, saas_tool, consumer_app, ai_wrapper, b2b_platform, community, ecommerce, developer_tool. Allowed deliveryModes: digital_product, physical_or_local, hybrid.',
           userPrompt: [
