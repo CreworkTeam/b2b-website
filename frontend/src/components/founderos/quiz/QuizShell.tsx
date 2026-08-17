@@ -45,7 +45,7 @@ function useTypewriter(messages: string[], active: boolean) {
 
 export function QuizShell() {
   const startTimeRef = useRef<number>(Date.now())
-  const { sessionId, quiz, ideaEvaluation, setQ1, setQ2, setQ3, setQ4, setQ5, setArchetype, setDeliveryMode, setActiveTab, persistToStorage, hydrateFromStorage } = useFounderStore()
+  const { sessionId, quiz, ideaEvaluation, setQ1, setQ2, setQ3, setQ4, setQ5, setArchetype, setDeliveryMode, setActiveTab, clearReports, persistToStorage, hydrateFromStorage } = useFounderStore()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [started, setStarted] = useState(false)
@@ -78,6 +78,7 @@ export function QuizShell() {
       if (deliveryMode) setDeliveryMode(deliveryMode)
       const assignedRoute = ROUTE_MAP[quiz.q1!] ?? 'A'
       setActiveTab(assignedRoute)
+      clearReports()
       persistToStorage()
       const elapsed = Math.round((Date.now() - startTimeRef.current) / 1000)
       analytics.quizQ2Submitted(sessionId, quiz.q2.length, archetype)

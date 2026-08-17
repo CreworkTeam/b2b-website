@@ -612,15 +612,6 @@ export function ReportPage() {
             </div>
             <ReportHeader section={section} />
 
-            {loadingReports && !reportA && <div className="hide-in-pdf"><ReportLoading /></div>}
-
-            {loadingRouteA && (
-              <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
-                <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
-                Generating Report A...
-              </div>
-            )}
-
             {!activeArchetype && (
               <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
                 <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
@@ -629,7 +620,11 @@ export function ReportPage() {
             )}
 
             <div className={section === 'validate' ? 'block' : 'hidden'}>
-              {reportA && (
+              {loadingRouteA || (loadingReports && !reportA) ? (
+                <div className="hide-in-pdf">
+                  <ReportLoading title="Generating Report A: Market Demand Signals..." />
+                </div>
+              ) : reportA ? (
                 <ValidateSection
                   reportA={reportA}
                   validationMetrics={validationMetrics}
@@ -661,72 +656,113 @@ export function ReportPage() {
                   socialLoading={socialLoading}
                   disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
                 />
+              ) : (
+                <div className="hide-in-pdf">
+                  <ReportLoading title="Preparing Market Demand Report..." />
+                </div>
               )}
             </div>
 
             <div className={section === 'scope' ? 'block' : 'hidden'}>
-              <>
-                {loadingRouteB && !reportB && (
-                  <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
-                    <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
-                    Generating Report B...
-                  </div>
-                )}
-
-                {reportB && (
-                  <ScopeSection
-                    reportB={reportB}
-                    gateUnlocked={gateUnlocked}
-                    gateEmail={gateEmail}
-                    setGateEmail={(value) => {
-                      setGateEmail(value)
-                      if (gateError) setGateError('')
-                    }}
-                    gateError={gateError}
-                    gateLoading={gateLoading}
-                    submitEmailGate={submitEmailGate}
-                    socialPosts={socialPosts}
-                    socialLoading={socialLoading}
-                    onContinuePlan={() => handleSectionChange('plan')}
-                    onBackValidate={() => handleSectionChange('validate')}
-                  />
-                )}
-              </>
+              {!gateUnlocked ? (
+                <ScopeSection
+                  reportB={reportB}
+                  gateUnlocked={gateUnlocked}
+                  gateEmail={gateEmail}
+                  setGateEmail={(value) => {
+                    setGateEmail(value)
+                    if (gateError) setGateError('')
+                  }}
+                  gateError={gateError}
+                  gateLoading={gateLoading}
+                  submitEmailGate={submitEmailGate}
+                  socialPosts={socialPosts}
+                  socialLoading={socialLoading}
+                  onContinuePlan={() => handleSectionChange('plan')}
+                  onBackValidate={() => handleSectionChange('validate')}
+                />
+              ) : loadingRouteB ? (
+                <div className="hide-in-pdf">
+                  <ReportLoading title="Generating Report B: MVP Scope & Feature Matrix..." />
+                </div>
+              ) : reportB ? (
+                <ScopeSection
+                  reportB={reportB}
+                  gateUnlocked={gateUnlocked}
+                  gateEmail={gateEmail}
+                  setGateEmail={(value) => {
+                    setGateEmail(value)
+                    if (gateError) setGateError('')
+                  }}
+                  gateError={gateError}
+                  gateLoading={gateLoading}
+                  submitEmailGate={submitEmailGate}
+                  socialPosts={socialPosts}
+                  socialLoading={socialLoading}
+                  onContinuePlan={() => handleSectionChange('plan')}
+                  onBackValidate={() => handleSectionChange('validate')}
+                />
+              ) : (
+                <div className="hide-in-pdf">
+                  <ReportLoading title="Preparing your Scope Report..." />
+                </div>
+              )}
             </div>
 
             <div className={section === 'plan' ? 'block' : 'hidden'}>
-              <>
-                {loadingRouteC && !reportC && (
-                  <div className="hide-in-pdf mb-4 inline-flex items-center gap-2 rounded-lg border border-[#e4e0d8] bg-white px-3 py-2 text-[12px] text-[#6b6860]">
-                    <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-[#1a1917]" />
-                    Generating Report C...
-                  </div>
-                )}
-
-                {reportB && reportC && (
-                  <PlanSection
-                    reportB={reportB}
-                    reportC={reportC}
-                    gateUnlocked={gateUnlocked}
-                    gateEmail={gateEmail}
-                    setGateEmail={(value) => {
-                      setGateEmail(value)
-                      if (gateError) setGateError('')
-                    }}
-                    gateError={gateError}
-                    gateLoading={gateLoading}
-                    submitEmailGate={submitEmailGate}
-                    capturedEmail={email}
-                    downloadEmail={downloadEmail}
-                    setDownloadEmail={(value) => { setDownloadEmail(value); if (downloadError) setDownloadError('') }}
-                    downloadLoading={downloadLoading}
-                    downloadSuccess={false}
-                    downloadError={downloadError}
-                    onDownloadReport={handleDownloadReport}
-                    disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
-                  />
-                )}
-              </>
+              {!gateUnlocked ? (
+                <PlanSection
+                  reportB={reportB}
+                  reportC={reportC}
+                  gateUnlocked={gateUnlocked}
+                  gateEmail={gateEmail}
+                  setGateEmail={(value) => {
+                    setGateEmail(value)
+                    if (gateError) setGateError('')
+                  }}
+                  gateError={gateError}
+                  gateLoading={gateLoading}
+                  submitEmailGate={submitEmailGate}
+                  capturedEmail={email}
+                  downloadEmail={downloadEmail}
+                  setDownloadEmail={(value) => { setDownloadEmail(value); if (downloadError) setDownloadError('') }}
+                  downloadLoading={downloadLoading}
+                  downloadSuccess={false}
+                  downloadError={downloadError}
+                  onDownloadReport={handleDownloadReport}
+                  disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
+                />
+              ) : loadingRouteC ? (
+                <div className="hide-in-pdf">
+                  <ReportLoading title="Generating Report C: Technical Architecture & 28-Day Plan..." />
+                </div>
+              ) : reportB && reportC ? (
+                <PlanSection
+                  reportB={reportB}
+                  reportC={reportC}
+                  gateUnlocked={gateUnlocked}
+                  gateEmail={gateEmail}
+                  setGateEmail={(value) => {
+                    setGateEmail(value)
+                    if (gateError) setGateError('')
+                  }}
+                  gateError={gateError}
+                  gateLoading={gateLoading}
+                  submitEmailGate={submitEmailGate}
+                  capturedEmail={email}
+                  downloadEmail={downloadEmail}
+                  setDownloadEmail={(value) => { setDownloadEmail(value); if (downloadError) setDownloadError('') }}
+                  downloadLoading={downloadLoading}
+                  downloadSuccess={false}
+                  downloadError={downloadError}
+                  onDownloadReport={handleDownloadReport}
+                  disableDownload={loadingRouteA || loadingRouteB || loadingRouteC || newsLoading || socialLoading}
+                />
+              ) : (
+                <div className="hide-in-pdf">
+                  <ReportLoading title="Preparing your Build Plan..." />
+                </div>
+              )}
             </div>
           </div>
         </section>

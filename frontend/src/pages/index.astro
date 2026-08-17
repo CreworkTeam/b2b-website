@@ -98,61 +98,73 @@ import '../styles/dashboard/main-dashboard.css';
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         // --- CUSTOM CURSOR ---
-        const cursor = document.getElementById('custom-cursor');
-        const trail = document.getElementById('cursor-trail');
-        const mouse = { x: 0, y: 0 };
-        const trailPos = { x: 0, y: 0 };
+        if (!window.matchMedia('(max-width: 1024px)').matches) {
+          const cursor = document.getElementById('custom-cursor');
+          const trail = document.getElementById('cursor-trail');
+          const mouse = { x: 0, y: 0 };
+          const trailPos = { x: 0, y: 0 };
+          let isTrailAnimating = false;
 
-        const handleMouseMove = (e) => {
-          mouse.x = e.clientX;
-          mouse.y = e.clientY;
+          const updateTrail = () => {
+            const dx = mouse.x - trailPos.x;
+            const dy = mouse.y - trailPos.y;
+            trailPos.x += dx * 0.15;
+            trailPos.y += dy * 0.15;
 
-          if (cursor) {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-          }
-
-          // Check if hovering over interactive elements
-          const target = e.target as HTMLElement;
-          const isBtn = target.closest('.header-cta, .card-btn, .footer-link, .footer-email, .nav-link, button, a, [role="button"]');
-          const isText = target.closest('p, h1, h2, h3, span, .social-icon, .footer-tagline, .footer-brand-name');
-          
-          if (isText && !isBtn) {
-            cursor?.classList.add('is-hovering');
-          } else {
-            cursor?.classList.remove('is-hovering');
-          }
-
-          if (isBtn) {
-            cursor?.classList.add('is-btn-hovering');
-            if (target.closest('.card-btn--dark') || target.closest('.header-cta')) {
-              cursor?.classList.add('btn-dark');
-              cursor?.classList.remove('btn-light');
-            } else {
-              cursor?.classList.add('btn-light');
-              cursor?.classList.remove('btn-dark');
+            if (trail) {
+              trail.style.left = `${trailPos.x}px`;
+              trail.style.top = `${trailPos.y}px`;
             }
-          } else {
-            cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
-          }
-        };
 
-        let animFrameId;
-        const updateTrail = () => {
-          const dx = mouse.x - trailPos.x;
-          const dy = mouse.y - trailPos.y;
-          trailPos.x += dx * 0.15;
-          trailPos.y += dy * 0.15;
+            if (Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1) {
+              requestAnimationFrame(updateTrail);
+            } else {
+              isTrailAnimating = false;
+            }
+          };
 
-          if (trail) {
-            trail.style.left = `${trailPos.x}px`;
-            trail.style.top = `${trailPos.y}px`;
-          }
-          animFrameId = requestAnimationFrame(updateTrail);
-        };
+          const handleMouseMove = (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
 
-        window.addEventListener('mousemove', handleMouseMove);
-        animFrameId = requestAnimationFrame(updateTrail);
+            if (cursor) {
+              cursor.style.left = `${e.clientX}px`;
+              cursor.style.top = `${e.clientY}px`;
+            }
+
+            if (!isTrailAnimating) {
+              isTrailAnimating = true;
+              requestAnimationFrame(updateTrail);
+            }
+
+            // Check if hovering over interactive elements
+            const target = e.target as HTMLElement;
+            const isBtn = target.closest('.header-cta, .card-btn, .footer-link, .footer-email, .nav-link, button, a, [role="button"]');
+            const isText = target.closest('p, h1, h2, h3, span, .social-icon, .footer-tagline, .footer-brand-name');
+            
+            if (isText && !isBtn) {
+              cursor?.classList.add('is-hovering');
+            } else {
+              cursor?.classList.remove('is-hovering');
+            }
+
+            if (isBtn) {
+              cursor?.classList.add('is-btn-hovering');
+              if (target.closest('.card-btn--dark') || target.closest('.header-cta')) {
+                cursor?.classList.add('btn-dark');
+                cursor?.classList.remove('btn-light');
+              } else {
+                cursor?.classList.add('btn-light');
+                cursor?.classList.remove('btn-dark');
+              }
+            } else {
+              cursor?.classList.remove('is-btn-hovering', 'btn-light', 'btn-dark');
+            }
+          };
+
+          window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        }
+
         // Reveal text words
         const words = document.querySelectorAll('.fade-word');
         words.forEach((word) => {
@@ -178,7 +190,7 @@ import '../styles/dashboard/main-dashboard.css';
 
         // Footer fade
         setTimeout(() => {
-          const footer = document.querySelector('.fade-in-footer');
+          const footer = document.querySelector('.fade-in-footer') as HTMLElement;
           if (footer) {
             footer.style.animation = 'fade-in-simple 1s ease-out forwards';
           }
