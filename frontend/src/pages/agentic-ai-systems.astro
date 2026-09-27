@@ -25,73 +25,111 @@ import '../styles/dashboard/ai-operations.css';
     <title>AI Operations Dashboard | Crework Labs</title>
     <link rel="canonical" href="https://creworklabs.com/agentic-ai-systems" />
 
-    <link rel="preload" href="/fonts/chakra-petch/chakra-petch-400-normal-7.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/chakra-petch/chakra-petch-700-normal-19.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Open Graph / Link Preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AI Operations Dashboard | Crework Labs" />
+    <meta
+      property="og:description"
+      content="We build agentic AI systems that take over entire workflows across sales, service delivery, billing and back office."
+    />
+    <meta property="og:url" content="https://creworklabs.com/agentic-ai-systems" />
+    <meta property="og:image" content="https://creworklabs.com/logos/crework.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Crework Labs" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AI Operations Dashboard | Crework Labs" />
+    <meta
+      name="twitter:description"
+      content="We build agentic AI systems that take over entire workflows across sales, service delivery, billing and back office."
+    />
+    <meta name="twitter:image" content="https://creworklabs.com/logos/crework.png" />
+
+    <link
+      rel="preload"
+      href="/fonts/chakra-petch/chakra-petch-400-normal-7.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/chakra-petch/chakra-petch-700-normal-19.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
     <!-- JSON-LD Structured Data for ProfessionalService & FAQPage -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://creworklabs.com/agentic-ai-systems#service",
-          "name": "Crework Labs - Agentic AI Systems",
-          "url": "https://creworklabs.com/agentic-ai-systems",
-          "description": "We build agentic AI systems that take over entire workflows across sales, service delivery, billing and back office.",
-          "provider": {
-            "@type": "Organization",
-            "name": "Crework Labs",
-            "url": "https://creworklabs.com"
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "@id": "https://creworklabs.com/agentic-ai-systems#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Will this break the systems we already use?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. Agents are deployed on top of your existing tools, your CRM, your billing system, your spreadsheets. Nothing gets migrated, nothing gets replaced."
-              }
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'ProfessionalService',
+            '@id': 'https://creworklabs.com/agentic-ai-systems#service',
+            name: 'Crework Labs - Agentic AI Systems',
+            url: 'https://creworklabs.com/agentic-ai-systems',
+            description:
+              'We build agentic AI systems that take over entire workflows across sales, service delivery, billing and back office.',
+            provider: {
+              '@type': 'Organization',
+              name: 'Crework Labs',
+              url: 'https://creworklabs.com',
             },
-            {
-              "@type": "Question",
-              "name": "Why not just use no code automation tools?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Generic automations piped into generic workflows make your business interchangeable with everyone running the same templates. What we build is trained on your workflows, your data and your expertise. It compounds. Every week it runs, it knows your business better and gets harder to copy."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How long until agents are actually doing work?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Most systems go from audit to a working deployment in 3 to 6 weeks depending on the workflow. You'll see it working on real tasks before full handover."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Do we need technical people on our side?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No. We need your team's knowledge of how the work happens today, a few hours in total. We handle everything technical."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What happens to our data?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Your data stays in your systems and your accounts. Agents work through controlled access you can see and revoke, and every action is logged."
-              }
-            }
-          ]
-        }
-      ]
-    })} />
+          },
+          {
+            '@type': 'FAQPage',
+            '@id': 'https://creworklabs.com/agentic-ai-systems#faq',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Will this break the systems we already use?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'No. Agents are deployed on top of your existing tools, your CRM, your billing system, your spreadsheets. Nothing gets migrated, nothing gets replaced.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Why not just use no code automation tools?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Generic automations piped into generic workflows make your business interchangeable with everyone running the same templates. What we build is trained on your workflows, your data and your expertise. It compounds. Every week it runs, it knows your business better and gets harder to copy.',
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'How long until agents are actually doing work?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "Most systems go from audit to a working deployment in 3 to 6 weeks depending on the workflow. You'll see it working on real tasks before full handover.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'Do we need technical people on our side?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: "No. We need your team's knowledge of how the work happens today, a few hours in total. We handle everything technical.",
+                },
+              },
+              {
+                '@type': 'Question',
+                name: 'What happens to our data?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Your data stays in your systems and your accounts. Agents work through controlled access you can see and revoke, and every action is logged.',
+                },
+              },
+            ],
+          },
+        ],
+      })}
+    />
   </head>
   <body>
     <div class="ai-ops-page">
@@ -99,7 +137,7 @@ import '../styles/dashboard/ai-operations.css';
       <div class="aiops-cursor" id="aiops-cursor">
         <div class="aiops-cursor-dot"></div>
         <svg class="cursor-arrow" width="20" height="20" viewBox="0 0 24 24" fill="white">
-          <path d="M4 0l16 16h-6.8l3.8 8-2.6 1.2-3.8-8-5.4 5.2z" />
+          <path d="M4 0l16 16h-6.8l3.8 8-2.6 1.2-3.8-8-5.4 5.2z"></path>
         </svg>
       </div>
       <div class="aiops-cursor-trail" id="aiops-cursor-trail"></div>
@@ -192,59 +230,73 @@ import '../styles/dashboard/ai-operations.css';
         // --- SCROLL REVEALS ---
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const revealEls = document.querySelectorAll('.reveal');
-        
+
         if (reduced) {
           revealEls.forEach((el) => el.classList.add('in'));
         } else {
-          const io = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const siblings = entry.target.parentElement?.querySelectorAll(':scope > .reveal');
-                let idx = 0;
-                if (siblings) {
-                  idx = Array.prototype.indexOf.call(siblings, entry.target);
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const siblings = entry.target.parentElement?.querySelectorAll(':scope > .reveal');
+                  let idx = 0;
+                  if (siblings) {
+                    idx = Array.prototype.indexOf.call(siblings, entry.target);
+                  }
+                  (entry.target as HTMLElement).style.transitionDelay =
+                    (idx > -1 ? idx * 80 : 0) + 'ms';
+                  entry.target.classList.add('in');
+                  io.unobserve(entry.target);
                 }
-                (entry.target as HTMLElement).style.transitionDelay = (idx > -1 ? idx * 80 : 0) + 'ms';
-                entry.target.classList.add('in');
-                io.unobserve(entry.target);
-              }
-            });
-          }, { threshold: 0.15 });
+              });
+            },
+            { threshold: 0.15 },
+          );
           revealEls.forEach((el) => io.observe(el));
         }
 
         // --- COUNTERS ---
         const counters = document.querySelectorAll('.count');
-        const cio = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const el = entry.target as HTMLElement;
-            const target = parseInt(el.dataset.target || '0', 10);
-            if (reduced) { el.textContent = String(target); cio.unobserve(el); return; }
-            let startTs = null;
-            function tick(ts) {
-              if (!startTs) startTs = ts;
-              const p = Math.min((ts - startTs) / 1500, 1);
-              el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
-              if (p < 1) requestAnimationFrame(tick);
-            }
-            requestAnimationFrame(tick);
-            cio.unobserve(el);
-          });
-        }, { threshold: 0.6 });
+        const cio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target as HTMLElement;
+              const target = parseInt(el.dataset.target || '0', 10);
+              if (reduced) {
+                el.textContent = String(target);
+                cio.unobserve(el);
+                return;
+              }
+              let startTs = null;
+              function tick(ts) {
+                if (!startTs) startTs = ts;
+                const p = Math.min((ts - startTs) / 1500, 1);
+                el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3))));
+                if (p < 1) requestAnimationFrame(tick);
+              }
+              requestAnimationFrame(tick);
+              cio.unobserve(el);
+            });
+          },
+          { threshold: 0.6 },
+        );
         counters.forEach((el) => cio.observe(el));
 
         // --- DIAGRAM DRAW ---
         const diagram = document.getElementById('diagram');
         if (diagram) {
-          const dio = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                diagram.classList.add('drawn');
-                dio.unobserve(diagram);
-              }
-            });
-          }, { threshold: 0.5 });
+          const dio = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  diagram.classList.add('drawn');
+                  dio.unobserve(diagram);
+                }
+              });
+            },
+            { threshold: 0.5 },
+          );
           dio.observe(diagram);
         }
 
@@ -255,24 +307,43 @@ import '../styles/dashboard/ai-operations.css';
           const grid = cards[0].parentElement;
           if (!grid) return;
 
-          let i = -1, timer = null, started = false;
+          let i = -1,
+            timer = null,
+            started = false;
           function step() {
             cards.forEach((c) => c.classList.remove('live'));
             i = (i + 1) % cards.length;
             cards[i].classList.add('live');
           }
-          function start() { if (!timer) { step(); timer = setInterval(step, 2600); } }
-          function stop() { if (timer) clearInterval(timer); timer = null; cards.forEach((c) => c.classList.remove('live')); }
-          
+          function start() {
+            if (!timer) {
+              step();
+              timer = setInterval(step, 2600);
+            }
+          }
+          function stop() {
+            if (timer) clearInterval(timer);
+            timer = null;
+            cards.forEach((c) => c.classList.remove('live'));
+          }
+
           grid.addEventListener('mouseenter', stop);
           grid.addEventListener('mouseleave', start);
-          
-          const gio = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !started) { started = true; start(); }
-              else if (!entry.isIntersecting && started) { stop(); started = false; }
-            });
-          }, { threshold: 0.35 });
+
+          const gio = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting && !started) {
+                  started = true;
+                  start();
+                } else if (!entry.isIntersecting && started) {
+                  stop();
+                  started = false;
+                }
+              });
+            },
+            { threshold: 0.35 },
+          );
           gio.observe(grid);
         }
         cycleCards('.steps .card');
@@ -285,7 +356,7 @@ import '../styles/dashboard/ai-operations.css';
         const updateGlow = () => {
           if (!lastGlowEvent) return;
           const cards = document.querySelectorAll('.glow-card');
-          cards.forEach(card => {
+          cards.forEach((card) => {
             const rect = card.getBoundingClientRect();
             const x = lastGlowEvent!.clientX - rect.left;
             const y = lastGlowEvent!.clientY - rect.top;
@@ -295,13 +366,17 @@ import '../styles/dashboard/ai-operations.css';
           glowTicking = false;
         };
 
-        window.addEventListener('mousemove', (e: MouseEvent) => {
-          lastGlowEvent = e;
-          if (!glowTicking) {
-            glowTicking = true;
-            requestAnimationFrame(updateGlow);
-          }
-        }, { passive: true });
+        window.addEventListener(
+          'mousemove',
+          (e: MouseEvent) => {
+            lastGlowEvent = e;
+            if (!glowTicking) {
+              glowTicking = true;
+              requestAnimationFrame(updateGlow);
+            }
+          },
+          { passive: true },
+        );
       });
     </script>
     <script>
@@ -312,4 +387,3 @@ import '../styles/dashboard/ai-operations.css';
     </script>
   </body>
 </html>
-
