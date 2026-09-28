@@ -13,7 +13,7 @@ blogCategories: ['MVP']
 
 # When to Stop Vibe Coding and Hire a Developer: The Decision Guide
 
-September 2026 · 16 min read
+
 
 ---
 
