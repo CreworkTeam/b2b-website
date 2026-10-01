@@ -379,9 +379,7 @@ export function ValidateSection({
           <div className={`mb-8 rounded-xl bg-[#1a1917] p-6 text-white ${!gateUnlocked ? 'filter blur-[7px] select-none pointer-events-none' : ''}`}>
             <p className="text-[14px] leading-7">
               <strong>The real opportunity:</strong>{' '}
-              {keywordNote && !keywordNote.toLowerCase().startsWith('key keywords:')
-                ? keywordNote
-                : 'Users are already actively searching for this solution. Your timing is good — the market is moving past early adopters and entering mainstream demand.'}
+              {keywordNote || 'Users are already searching for this solution. Your timing is good — the market is past early adopter stage and entering mainstream awareness.'}
             </p>
           </div>
         </div>

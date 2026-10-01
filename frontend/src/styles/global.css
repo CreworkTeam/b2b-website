@@ -308,14 +308,37 @@
   }
 }
 
-html,
-body {
+.cto-page,
+.cto-page * {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.cto-page h1,
+.cto-page h2,
+.cto-page h3,
+.cto-page h1 *,
+.cto-page h2 *,
+.cto-page h3 * {
   font-family: 'Chakra Petch', sans-serif;
 }
 
-.font-insrument-serif,
-.font-insrument-serif * {
-  font-family: 'Instrument Serif', serif !important;
+html,
+body,
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+div,
+button,
+input,
+textarea {
+  font-family: 'Chakra Petch', sans-serif !important;
 }
 
 
