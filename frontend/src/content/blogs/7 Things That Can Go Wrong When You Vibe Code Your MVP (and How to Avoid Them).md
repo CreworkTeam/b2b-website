@@ -15,7 +15,7 @@ mainCategory: "MVP"
 blogCategories: ["MVP", "Vibe Coding", "Development"]
 ---
 
-# 7 Things That Can Go Wrong When You Vibe Code Your MVP (and How to Avoid Them)
+
 
 "Vibe coding"—using AI assistants like Cursor, Lovable, Bolt, and Replit to build full software applications by simply describing what you want—has democratized product development for non-technical founders. 
 

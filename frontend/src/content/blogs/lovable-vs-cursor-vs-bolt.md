@@ -15,7 +15,7 @@ mainCategory: "MVP"
 blogCategories: ["MVP", "Vibe Coding", "AI App Builders"]
 ---
 
-# Lovable vs Cursor vs Bolt vs Replit: Which AI Builder to Use for What
+
 
 Building a Minimum Viable Product (MVP) in 2026 no longer requires hiring a $150,000 engineering team before you have a single user. 
 

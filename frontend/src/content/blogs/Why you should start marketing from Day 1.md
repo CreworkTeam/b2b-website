@@ -6,7 +6,7 @@ blogImage: { src: '/blogs/blog-6.webp', alt: 'A picture of a coder' }
 blogDescription: Learn effective strategies to build brand awareness, attract customers, and grow your business from the very beginning.
 draft: false
 featured: false
-mainCategory: "User Acquisition"
+mainCategory: 'User Acquisition'
 blogCategories: ['Marketing']
 ---
 

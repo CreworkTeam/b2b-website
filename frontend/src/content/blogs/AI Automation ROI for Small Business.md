@@ -11,7 +11,7 @@ mainCategory: "AI & Automation"
 blogCategories: ['AI & Automation', 'Operations', 'Growth']
 ---
 
-# AI Automation ROI for Small Business: Real Numbers, Real Workflows, and How to Measure It
+
 
 The question every small business owner asks before investing in AI automation is a simple one.
 

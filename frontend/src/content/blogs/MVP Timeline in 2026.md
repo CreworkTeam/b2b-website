@@ -11,7 +11,7 @@ mainCategory: "MVP"
 blogCategories: ['Startup', 'MVP', 'Development']
 ---
 
-# MVP Timeline in 2026: How Long It Really Takes to Build and Launch (Week by Week)
+
 
 The most common question founders ask before starting a build is some version of this: how long is it actually going to take?
 

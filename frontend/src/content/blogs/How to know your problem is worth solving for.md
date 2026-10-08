@@ -11,7 +11,6 @@ mainCategory: "Startup Ideas & Validation"
 blogCategories: ['Idea Validation']
 ---
 
-**8 out of 10 startup ideas fail.**
 
 ![Untitled](/blogs/this-is-fine.webp)
 

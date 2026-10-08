@@ -11,7 +11,7 @@ mainCategory: "MVP"
 blogCategories: ['MVP', 'Startup', 'Development']
 ---
 
-# Fractional CTO for Non-Technical Founders: Do You Need One and What Does It Actually Cost?
+
 
 Most non-technical founders hit the same wall at some point.
 

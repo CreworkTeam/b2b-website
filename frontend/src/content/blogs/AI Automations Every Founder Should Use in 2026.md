@@ -4,7 +4,7 @@ blogDate: February 20, 2026
 blogAuthor: { author: Shikshita Juyal, image: /blogs/authors/shikshitha.webp }
 blogImage:
   {
-    src: '/blogs/blog-10.webp',
+    src: '/blogs/blog-10.web',
     alt: 'AI Automations Every Founder Should Use in 2026 Real Use Cases',
   }
 blogDescription: Discover practical AI automations founders should use in 2026 to save time, reduce costs, and scale faster. Real examples and tools you can implement today.
@@ -14,7 +14,6 @@ draft: false
 featured: false
 ---
 
-## AI Automations Every Founder Should Use in 2026
 
 Most founders waste time on work that does not grow the company.
 

@@ -11,7 +11,7 @@ mainCategory: "MVP"
 blogCategories: ['MVP', 'Product Development', 'Startup']
 ---
 
-# What Features Should Your MVP Include? The Complete 2026 Guide
+
 
 Most founders do not have a building problem. They have a scoping problem.
 
